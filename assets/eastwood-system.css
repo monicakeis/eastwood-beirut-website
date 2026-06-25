@@ -1,0 +1,928 @@
+/* ============================================================================
+   EDITORIAL REFINEMENT PASS, flat · heavy caps · deep space · one italic whisper
+   ============================================================================ */
+:root {
+  --radius: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --section-pad-y: clamp(100px, 12vw, 188px);
+}
+
+/* PART 1, flatten: no shadows, no glass, no decorative card gradients */
+*, *::before, *::after {
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.nav { background: #fff; }
+.hero-eyebrow { background: transparent; color: #fff; border: none; padding: 0; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; font-weight: 600; }
+.btn-glass { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.55); }
+.btn-glass:hover { background: rgba(255,255,255,0.10); border-color: #fff; }
+.dil-media-tag { background: #fff; color: var(--deep-blue); border: 1px solid var(--line); }
+.apply-eyebrow { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.30); }
+.tuition-card::before, .path.featured::before { background: none !important; }
+/* square everything that was hardcoded round; pills stay pills */
+.bstw-badge, .tuition-badge, .stage-age, .dil-tab, .dil-media-tag { border-radius: 2px !important; }
+
+/* PART 2, type system */
+.kicker {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--teal);
+  letter-spacing: 0.22em;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  gap: 14px;
+}
+.kicker::before { width: 28px; height: 2px; background: var(--teal); }
+.section-h2, .apply-h, .hero-h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.03;
+}
+.section-h2 .italic, .apply-h .italic, .hero-h1 .italic {
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.hero-h1 .italic { color: var(--teal); }
+.section-lede {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.5;
+  color: var(--fg-dim);
+}
+.hero-stats { border-top: 1px solid var(--line); }
+.stat-n, .o-n { color: var(--teal); }
+
+/* PART 3, rhythm: alternate content sections off-white / white */
+.why, .campuses, .tuition, .leadership, .testimonials, .accred, .admissions, .expat { background: var(--bg-2); }
+.programs, .dil, .safeguarding { background: var(--bg-2); }
+/* OUTCOMES becomes a deep-blue punctuation section */
+.outcomes { background: var(--deep-blue); }
+.outcomes .kicker { color: var(--teal); }
+.outcomes .section-h2 { color: #fff; }
+.outcomes .section-h2 .italic { color: var(--teal); }
+.outcomes .o-n { color: var(--teal); }
+.outcomes .o-l { color: rgba(255,255,255,0.72); }
+.outcomes .outcome-stat { border-top-color: rgba(255,255,255,0.16); }
+.outcomes .unis-label { color: rgba(255,255,255,0.6); }
+.outcomes .uni-name { color: rgba(255,255,255,0.85); }
+
+/* ============================================================================
+   PART 3 - MODERN, BOLD, KINETIC
+   ============================================================================ */
+:root { --section-pad-y: clamp(56px, 6vw, 104px); }
+.section-head { margin-bottom: clamp(28px, 3vw, 44px); }
+
+/* Sticky shrinking nav -> deep blue on scroll */
+.nav { transition: background .3s ease, border-color .3s ease; }
+.nav-inner { transition: min-height .3s ease, padding .3s ease; }
+.nav.scrolled { background: var(--deep-blue); border-bottom-color: rgba(255,255,255,0.12); }
+.nav.scrolled .nav-inner { min-height: 54px; padding-top: 8px; padding-bottom: 8px; }
+.nav.scrolled .nav-link { color: #fff; }
+.nav.scrolled .logo img { filter: brightness(0) invert(1); }
+.nav.scrolled .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.45); }
+.nav.scrolled .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+/* Nav link underline wipe from left */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px;
+  background: var(--teal); transform: scaleX(0); transform-origin: left;
+  transition: transform .28s cubic-bezier(.16,1,.3,1);
+}
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* Buttons: invert + scale, arrow slide */
+.btn { transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease; }
+.btn-primary:hover { background: var(--deep-blue); color: #fff; transform: translateY(-2px) scale(1.02); }
+.btn-deep:hover { background: var(--teal); color: var(--deep-blue); transform: translateY(-2px) scale(1.02); }
+.btn-ghost:hover { background: var(--teal); border-color: var(--teal); color: var(--deep-blue); transform: translateY(-2px) scale(1.02); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* Cards: pale teal tint + teal accent edge + nudge, flat */
+.reason, .stage, .sg-card {
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+  border-left: 2px solid transparent;
+}
+.reason:hover, .stage:hover, .sg-card:hover {
+  background: #EAF7F6 !important;
+  border-left-color: var(--teal);
+  transform: translateY(-4px) !important;
+}
+
+/* Image tiles: scale inside clipped frame */
+.stage-img, .dil-media, .lead-portrait, .hero-media, .apply-media { overflow: hidden; }
+.stage-img img, .dil-media img, .lead-portrait img { transition: transform .4s cubic-bezier(.16,1,.3,1); }
+.stage:hover .stage-img img, .dil-media:hover img, .lead-portrait:hover img { transform: scale(1.06); }
+.dil-media-tag { transition: transform .3s ease; }
+.dil-media:hover .dil-media-tag { transform: translateY(-4px); }
+
+/* Faster, tighter scroll reveal + headline mask wipe */
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal { opacity: 0; transform: translateY(18px); }
+  .js-reveal.in { opacity: 1; transform: none; transition: opacity .38s cubic-bezier(.16,1,.3,1), transform .38s cubic-bezier(.16,1,.3,1); }
+  .js-reveal .section-h2 { clip-path: inset(0 100% 0 0); transition: clip-path .55s cubic-bezier(.16,1,.3,1) .05s; }
+  .js-reveal.in .section-h2 { clip-path: inset(0 0 0 0); }
+}
+
+/* Kinetic stat marquee */
+.kmarquee { background: var(--deep-blue); color: #fff; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 18px 0; }
+.kmarquee-track { display: flex; gap: 44px; width: max-content; align-items: center; animation: kmarquee 34s linear infinite; }
+.kmarquee:hover .kmarquee-track { animation-play-state: paused; }
+.kmarquee-item { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: clamp(15px, 1.9vw, 23px); white-space: nowrap; color: rgba(255,255,255,0.92); }
+.kmarquee-item b { color: var(--teal); font-weight: 700; }
+.kmarquee-dot { width: 8px; height: 8px; background: var(--teal); flex: 0 0 auto; }
+@keyframes kmarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .kmarquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+  .js-reveal { opacity: 1 !important; transform: none !important; }
+  .js-reveal .section-h2 { clip-path: none !important; }
+}
+/* Headline tracking + kerning fix (uppercase needs air) */
+.hero-h1 { letter-spacing: 0; line-height: 1.0; }
+.hero-h1 .italic { letter-spacing: -0.01em; }
+.section-h2 { letter-spacing: -0.005em; }
+.apply-h { letter-spacing: -0.005em; }
+.kicker { letter-spacing: 0.2em; }
+.hero-h1, .section-h2, .apply-h, .kicker, .bstw-stat, .stat-n, .o-n {
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "kern" 1, "liga" 1;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+/* Headlines: heavy caps + Bodoni italic whisper (matches valuebar balance) */
+.hero-h1 { font-weight: 800; font-size: clamp(44px, 6.4vw, 92px); line-height: 0.95; letter-spacing: -0.012em; text-wrap: balance; max-width: 16ch; }
+.section-h2, .apply-h { font-weight: 800; line-height: 0.98; letter-spacing: -0.014em; }
+.hero-h1 .italic {
+  font-family: var(--font-display) !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.012em !important;
+  color: var(--teal) !important;
+}
+.hero-h1 .hero-i {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  color: #fff;
+}
+.hero-h1 .hero-teal { color: var(--teal) !important; }
+.hero-sub { max-width: 46ch; }
+/* Premium hero-stats — hairline rule, dividers, teal Inter numerals, caps labels */
+.hero-stats { background: #fff; border-top: 1px solid var(--line); padding-top: clamp(28px, 3vw, 40px); padding-bottom: clamp(32px, 3.5vw, 48px); }
+.hero-stats-grid { gap: 0; }
+.hero-stats-grid > div { padding: 2px 0 2px 36px; border-left: 1px solid var(--line); }
+.hero-stats-grid > div:first-child { border-left: none; padding-left: 0; }
+.stat-n { font-family: var(--font-display) !important; font-weight: 800 !important; font-size: clamp(30px, 3.4vw, 46px) !important; letter-spacing: -0.03em !important; line-height: 0.95 !important; color: var(--deep-blue) !important; text-transform: uppercase; }
+.stat-n .t { color: var(--teal) !important; }
+.stat-l { text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; font-weight: 600; color: var(--fg-dimmer); margin-top: 12px; max-width: 24ch; }
+@media (max-width: 760px) { .hero-stats-grid > div { padding-left: 24px; } }
+/* Top deadline ticker in caps */
+.deadline-item { text-transform: uppercase; letter-spacing: 0.08em; }
+/* Animate the whole stats row, staggered (not just the count-up) */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-stats[data-animate] .hero-stats-grid > div { opacity: 0; transform: translateY(22px); }
+  .hero-stats[data-animate].in .hero-stats-grid > div { opacity: 1; transform: none; transition: opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1); }
+  .hero-stats[data-animate].in .hero-stats-grid > div:nth-child(2) { transition-delay: .1s; }
+  .hero-stats[data-animate].in .hero-stats-grid > div:nth-child(3) { transition-delay: .2s; }
+}
+/* Tighter vertical rhythm across all sections */
+:root { --section-pad-y: clamp(40px, 4.4vw, 76px); }
+.section-head { margin-bottom: clamp(22px, 2.4vw, 36px); }
+/* Smoother, slower scroll motion (remove glitchy clip-wipe, ease reveals) */
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal.in { transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1) !important; }
+  .js-reveal .section-h2, .js-reveal.in .section-h2 { clip-path: none !important; transition: none !important; }
+  .hero-stats[data-animate].in .hero-stats-grid > div { transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1) !important; }
+}
+/* ============================================================================
+   DESIGN SYSTEM PASS — two radii, two buttons, dark-light rhythm
+   ============================================================================ */
+:root { --radius: 3px; --radius-lg: 3px; --radius-xl: 3px; }
+.reason, .stage, .sg-card, .review-card, .path, .tuition-card, .accred-wrap, .campus-detail, .dil-media, .stage-img, .lead-portrait, .quote, .tuition-aid, .news-empty { border-radius: 3px !important; }
+
+/* Two buttons only */
+.btn-primary, .btn-deep { background: var(--teal) !important; color: var(--deep-blue) !important; border: 1px solid var(--teal) !important; box-shadow: none !important; }
+.btn-primary:hover, .btn-deep:hover { background: var(--deep-blue) !important; color: #fff !important; border-color: var(--deep-blue) !important; }
+.btn-ghost, .btn-glass { background: transparent !important; border: 1px solid var(--deep-blue) !important; color: var(--deep-blue) !important; box-shadow: none !important; }
+.btn-ghost:hover, .btn-glass:hover { background: var(--teal) !important; border-color: var(--teal) !important; color: var(--deep-blue) !important; }
+/* secondary on dark surfaces -> white border */
+.hero .btn-ghost, .hero .btn-glass, .nav.scrolled .btn-ghost, .programs .btn-ghost, .dil .btn-ghost, .admissions .btn-ghost, .safeguarding .btn-ghost, .outcomes .btn-ghost, .testimonials .btn-ghost, .apply-cta .btn-ghost, .valuebar .btn-ghost { border-color: rgba(255,255,255,0.5) !important; color: #fff !important; }
+.hero .btn-ghost:hover, .hero .btn-glass:hover, .nav.scrolled .btn-ghost:hover, .programs .btn-ghost:hover, .dil .btn-ghost:hover, .admissions .btn-ghost:hover, .safeguarding .btn-ghost:hover, .outcomes .btn-ghost:hover, .testimonials .btn-ghost:hover, .apply-cta .btn-ghost:hover, .valuebar .btn-ghost:hover { background: var(--teal) !important; border-color: var(--teal) !important; color: var(--deep-blue) !important; }
+
+/* COLOR RHYTHM — explicit dark/light cadence */
+.hero-stats, .valuebar, .programs, .dil, .admissions, .safeguarding, .outcomes, .testimonials { background: var(--deep-blue) !important; }
+.why, .campuses, .expat, .accred, .tuition, .leadership { background: var(--bg-2) !important; }
+
+/* dark-section headers + ledes */
+.programs .section-h2, .dil .section-h2, .admissions .section-h2, .safeguarding .section-h2, .outcomes .section-h2, .testimonials .section-h2 { color: #fff; }
+.programs .section-lede, .dil .section-lede, .admissions .section-lede, .safeguarding .section-lede, .outcomes .section-lede, .testimonials .section-lede { color: rgba(255,255,255,0.78); }
+.programs .section-h2 .italic, .dil .section-h2 .italic, .admissions .section-h2 .italic, .safeguarding .section-h2 .italic, .testimonials .section-h2 .italic { color: var(--teal); }
+
+/* hero-stats -> deep blue */
+.hero-stats { background: var(--deep-blue) !important; border: none !important; }
+.hero-stats .stat-n { color: #fff !important; }
+.hero-stats .stat-n .t { color: var(--teal) !important; }
+.hero-stats .stat-l { color: rgba(255,255,255,0.55) !important; }
+.hero-stats-grid > div { border-left-color: rgba(255,255,255,0.14) !important; }
+
+/* dil timeline on dark */
+.dil-h { color: #fff !important; }
+.dil-d { color: rgba(255,255,255,0.72) !important; }
+.dil-row { border-top-color: rgba(255,255,255,0.14) !important; }
+.dil-tab { background: transparent !important; border: 1px solid rgba(255,255,255,0.3) !important; color: #fff !important; }
+.dil-tab.active { background: var(--teal) !important; color: var(--deep-blue) !important; border-color: var(--teal) !important; }
+
+/* admissions steps on dark */
+/* admissions steps are white cards on deep blue — keep their default dark text */
+.admissions .adm-n { color: var(--teal) !important; }
+
+/* light sections keep deep-blue headings */
+.why .section-h2, .campuses .section-h2, .expat .section-h2, .accred .section-h2, .tuition .section-h2, .leadership .section-h2 { color: var(--deep-blue); }
+/* Even, tidy stats row layout */
+.hero-stats-grid { display: flex !important; gap: 0 !important; align-items: stretch; }
+.hero-stats-grid > div { flex: 1 1 0 !important; padding: 0 clamp(24px, 4vw, 52px) !important; border-left: 1px solid rgba(255,255,255,0.16) !important; display: flex; flex-direction: column; justify-content: center; }
+.hero-stats-grid > div:first-child { padding-left: 0 !important; border-left: none !important; }
+.hero-stats-grid > div:last-child { padding-right: 0 !important; }
+@media (max-width: 760px) {
+  .hero-stats-grid { flex-wrap: wrap; }
+  .hero-stats-grid > div { flex: 1 1 44% !important; padding: 0 20px !important; }
+  .hero-stats-grid > div:nth-child(2) { border-left: none !important; padding-left: 0 !important; }
+}
+/* ===== USER REFINEMENTS ===== */
+/* Rounded boxes to echo the pill buttons */
+:root { --radius: 14px; --radius-lg: 16px; --radius-xl: 18px; }
+.reason, .stage, .sg-card, .review-card, .path, .tuition-card, .accred-wrap, .campus-detail, .dil-media, .stage-img, .lead-portrait, .tuition-aid, .news-empty, .quote, .stage-img img, .lead-portrait img, .dil-media img { border-radius: 16px !important; }
+
+/* Tighter vertical rhythm */
+:root { --section-pad-y: clamp(34px, 3.4vw, 60px); }
+.section-head { margin-bottom: clamp(18px, 2vw, 30px); }
+
+/* Accreditation: kill the excess white space */
+.accred { padding: clamp(26px, 3vw, 48px) 0 !important; }
+.accred-wrap { padding: clamp(22px, 2.6vw, 34px) clamp(20px, 2.6vw, 34px) !important; }
+.accred-h { margin-bottom: clamp(18px, 2vw, 26px) !important; }
+
+/* Families block: remove the edge gradient/mask shading */
+.reviews-marquee { -webkit-mask-image: none !important; mask-image: none !important; }
+
+/* Even, centered stat distribution */
+.hero-stats-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 0 !important; }
+.hero-stats-grid > div { padding: 0 18px !important; border-left: 1px solid rgba(255,255,255,0.16) !important; text-align: center; align-items: center; }
+.hero-stats-grid > div:first-child { border-left: none !important; }
+@media (max-width: 760px) { .hero-stats-grid { grid-template-columns: 1fr 1fr !important; } }
+
+/* Button hierarchy: never two teal in a row — only one primary per group */
+.hero-cta .btn-primary ~ .btn-primary, .apply-ctas .btn-deep ~ .btn-deep, .tuition-cta .btn-deep ~ .btn-primary {
+  background: transparent !important; color: var(--deep-blue) !important; border: 1px solid var(--deep-blue) !important;
+}
+/* Reverse out the stats band to white so it breaks up the deep-blue run */
+.hero-stats { background: #fff !important; border-top: 1px solid var(--line) !important; border-bottom: 1px solid var(--line) !important; }
+.hero-stats .stat-n { color: var(--deep-blue) !important; }
+.hero-stats .stat-n .t { color: var(--teal) !important; }
+.hero-stats .stat-l { color: var(--fg-dimmer) !important; }
+.hero-stats-grid > div { border-left-color: var(--line) !important; }
+/* Denser still — cut section padding and residual dead space */
+:root { --section-pad-y: clamp(30px, 2.8vw, 52px); }
+.section-head { margin-bottom: clamp(16px, 1.8vw, 26px); }
+.paths { margin-top: clamp(36px, 4vw, 56px) !important; padding-top: clamp(28px, 3vw, 44px) !important; }
+.reasons-grid, .stages, .quotes-grid, .outcomes-stats, .sg-grid, .paths-grid { gap: clamp(14px, 1.4vw, 22px) !important; }
+.hero-stats { padding-top: clamp(22px, 2.4vw, 34px) !important; padding-bottom: clamp(22px, 2.4vw, 34px) !important; }
+/* Day-in-the-life: image fills column height so no dead space beside the timeline */
+.dil-grid { align-items: stretch !important; }
+.dil-media { aspect-ratio: auto !important; height: 100%; min-height: 360px; }
+.dil-media img { height: 100% !important; object-fit: cover; }
+.dil-timeline { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+/* Accreditation: bare, tight, animated strip — no container box */
+.accred-wrap { background: transparent !important; border: none !important; border-radius: 0 !important; padding: 0 !important; }
+.accred { padding: clamp(18px, 2.2vw, 34px) 0 !important; }
+.accred-h { margin-bottom: clamp(14px, 1.6vw, 20px) !important; }
+
+/* Expat: remove the dead white space under the right column */
+.expat-grid { align-items: stretch !important; }
+.expat-vis { height: 100%; justify-content: space-between; }
+.expat-card.alt { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; }
+.expat-services { align-content: center; }
+
+/* Flags box: designed, even rhythm, chip pill */
+.expat-flags { gap: 12px 12px !important; align-items: center; }
+.expat-flags span { font-size: 30px !important; }
+.expat-flags .flag-more { font-size: 11px !important; font-weight: 700 !important; letter-spacing: 0.06em; text-transform: uppercase; color: var(--deep-blue) !important; background: rgba(0,181,173,0.14); padding: 6px 12px; border-radius: 999px; align-self: center; margin: 0 !important; }
+/* Round ALL boxes consistently (16px) — match across the page */
+.reason, .stage, .stage-img, .stage-img img, .sg-card, .review-card, .path, .tuition-card,
+.campus-detail, .dil-media, .dil-media img, .dil-media-tag, .lead-portrait, .lead-portrait img,
+.lead-portrait-placeholder, .tuition-aid, .news-empty, .quote, .adm-step, .expat-card,
+.expat-service, .campus-list, #eis-mapbox, .fee-table-wrap, .review-avatar { border-radius: 16px !important; }
+.review-avatar { border-radius: 50% !important; }
+/* "What we handle for you" — single vertical list, tidy in its card */
+.expat-services { grid-template-columns: 1fr !important; gap: 0 !important; }
+.expat-service { padding: 12px 0 !important; background: transparent !important; border: none !important; border-top: 1px solid rgba(255,255,255,0.14) !important; border-radius: 0 !important; display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.expat-service:first-child { border-top: none !important; }
+.expat-service-d { text-align: right; }
+/* Handle card: let the list fill the card height */
+.expat-card.alt { justify-content: stretch !important; }
+.expat-card.alt .expat-services { flex: 1 1 auto; display: flex !important; flex-direction: column; justify-content: space-between; align-content: stretch !important; }
+.expat-service { flex: 1 1 auto; }
+
+/* Flags — premium even grid + refined count pill */
+.expat-flags { display: grid !important; grid-template-columns: repeat(6, 1fr); gap: 16px 10px !important; align-items: center; margin-top: 6px; }
+.expat-flags span { font-size: 30px !important; text-align: center; line-height: 1; }
+.expat-flags .flag-more { grid-column: 1 / -1; justify-self: start; margin-top: 4px !important; }
+.expat-card .expat-card-h { margin-bottom: 18px; }
+/* Expat cards — match the page type system (uppercase kicker headers, Inter Tight labels) */
+.expat-card-h { font-family: var(--font-display) !important; text-transform: uppercase !important; letter-spacing: 0.14em !important; font-size: 11px !important; font-weight: 600 !important; opacity: 1 !important; }
+.expat-card .expat-card-h { color: var(--fg-dimmer) !important; }
+.expat-card.alt .expat-card-h { color: var(--teal) !important; }
+.expat-service-h { font-family: var(--font-display) !important; font-weight: 600 !important; font-size: 14px !important; letter-spacing: -0.01em !important; color: #fff !important; }
+.expat-service-d { font-size: 12px !important; letter-spacing: 0.01em; color: rgba(255,255,255,0.6) !important; }
+/* Handle box — numbered list with hierarchy so it reads full and structured */
+.expat-card.alt .expat-services { counter-reset: svc; }
+.expat-card.alt .expat-service { counter-increment: svc; position: relative; padding-left: 36px !important; }
+.expat-card.alt .expat-service::before {
+  content: counter(svc, decimal-leading-zero);
+  position: absolute; left: 0; top: 14px;
+  font-family: var(--font-display); font-weight: 700; font-size: 13px;
+  color: var(--teal); letter-spacing: 0.02em;
+}
+/* Handle box — stronger type hierarchy so it reads full */
+.expat-card.alt .expat-card-h { font-size: 11px !important; margin-bottom: 22px !important; }
+.expat-card.alt .expat-service { padding: 15px 0 15px 42px !important; }
+.expat-card.alt .expat-service-h { font-size: 16px !important; }
+.expat-card.alt .expat-service-d { font-size: 12.5px !important; color: rgba(255,255,255,0.62) !important; }
+.expat-card.alt .expat-service::before { font-size: 15px !important; top: 16px !important; }
+
+/* Subtle glassmorphism touches (echo the closing CTA block) */
+.expat-card.alt, .apply-eyebrow, .hero-eyebrow, .dil-media-tag {
+  -webkit-backdrop-filter: blur(16px) saturate(1.3) !important;
+  backdrop-filter: blur(16px) saturate(1.3) !important;
+}
+.expat-card.alt { background: rgba(0,0,80,0.58) !important; border: 1px solid rgba(255,255,255,0.18) !important; }
+.apply-eyebrow { background: rgba(255,255,255,0.14) !important; border: 1px solid rgba(255,255,255,0.28) !important; }
+.dil-media-tag { background: rgba(255,255,255,0.7) !important; border: 1px solid rgba(255,255,255,0.5) !important; }
+/* "Officially accredited" line — match the eyebrow/kicker treatment */
+.accred-h {
+  font-family: var(--font-display) !important;
+  display: inline-flex !important; align-items: center; gap: 14px;
+  text-transform: uppercase !important;
+  letter-spacing: 0.18em !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  color: var(--teal) !important;
+  max-width: none !important;
+}
+.accred-h::before { content: ''; width: 28px; height: 2px; background: var(--teal); flex: 0 0 auto; }
+.accred-h strong { color: var(--teal) !important; font-weight: 600 !important; }
+/* Handle box — solid (not faded), rows evenly fill the card height */
+.expat-card.alt {
+  background: var(--deep-blue) !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  flex: 1 1 auto !important;
+  display: flex !important; flex-direction: column;
+}
+.expat-card.alt .expat-services {
+  flex: 1 1 auto !important; display: flex !important; flex-direction: column;
+  justify-content: space-between !important;
+}
+.expat-card.alt .expat-service { flex: 0 0 auto !important; }
+/* Tighter still — less space inside every section, less under card grids */
+:root { --section-pad-y: clamp(24px, 2.2vw, 44px); }
+.section-head { margin-bottom: clamp(13px, 1.3vw, 20px); }
+.reasons-grid, .stages, .quotes-grid, .outcomes-stats, .sg-grid, .paths-grid, .adm-steps, .tuition-grid { margin-bottom: 0 !important; }
+.paths { margin-top: clamp(24px, 2.6vw, 40px) !important; padding-top: clamp(20px, 2.2vw, 32px) !important; }
+/* Match the hero eyebrow to the "Admissions open" glass pill in the closing block */
+.hero-eyebrow {
+  background: rgba(255,255,255,0.14) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.3) !important;
+  backdrop-filter: blur(16px) saturate(1.3) !important;
+  border: 1px solid rgba(255,255,255,0.28) !important;
+  border-radius: 999px !important;
+  padding: 9px 16px !important;
+  color: #fff !important;
+}
+/* Tighter top/bottom for "Why parents choose us" (valuebar) */
+.valuebar { padding-top: clamp(26px, 2.6vw, 46px) !important; padding-bottom: clamp(26px, 2.6vw, 46px) !important; }
+/* Campus list spreads to align its bottom with the map card */
+.campus-grid { align-items: stretch !important; }
+.campus-list { display: flex !important; flex-direction: column; justify-content: space-between; height: 100%; }
+/* Flags: gentle animated float */
+@media (prefers-reduced-motion: no-preference) {
+  .expat-flags span { animation: flagFloat 3.6s ease-in-out infinite; }
+  .expat-flags span:nth-child(2n) { animation-delay: .25s; }
+  .expat-flags span:nth-child(3n) { animation-delay: .5s; }
+  .expat-flags span:nth-child(4n) { animation-delay: .8s; }
+  .expat-flags span:nth-child(5n) { animation-delay: 1.05s; }
+}
+@keyframes flagFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+/* Flags card grows; handle list stays tight (less empty) */
+.expat-card:not(.alt) { flex: 1 1 auto !important; display: flex; flex-direction: column; }
+.expat-card:not(.alt) .expat-flags { flex: 1; align-content: center; }
+.expat-card.alt { flex: 0 0 auto !important; }
+.expat-card.alt .expat-services { justify-content: flex-start !important; }
+.expat-card.alt .expat-service { padding: 11px 0 11px 40px !important; }
+
+/* Handle list type hierarchy matches the page: value + uppercase micro-label */
+.expat-card.alt .expat-service-h { font-size: 15px !important; font-weight: 600 !important; }
+.expat-card.alt .expat-service-d { text-transform: uppercase !important; letter-spacing: 0.08em !important; font-size: 10.5px !important; color: rgba(255,255,255,0.55) !important; }
+/* What we handle for you — icons fill the space, tidy rows */
+.expat-card.alt .expat-services { gap: 8px; }
+.expat-card.alt .expat-service { display: flex !important; align-items: center; gap: 14px; padding: 12px 0 !important; }
+.expat-card.alt .expat-service::before { display: none !important; }
+.expat-ico { width: 40px; height: 40px; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); border-radius: 11px; color: var(--teal); background: rgba(0,181,173,0.08); }
+.expat-ico svg { width: 20px; height: 20px; }
+.expat-service-txt { display: flex; flex-direction: column; gap: 2px; }
+.expat-card.alt .expat-service-d { text-align: left !important; }
+/* All-flags grid fills the box densely */
+.expat-flags { grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)) !important; gap: 9px 8px !important; }
+.expat-flags span { font-size: 23px !important; }
+/* Sub-headlines (ledes) in Inter, no Bodoni Moda */
+.section-lede, .programs .section-lede, .dil .section-lede, .admissions .section-lede, .safeguarding .section-lede, .outcomes .section-lede, .testimonials .section-lede {
+  font-family: var(--font-body) !important;
+  font-style: normal !important;
+}
+/* Less top/bottom space for the closing "Your child is becoming" block */
+.apply-cta { padding-top: clamp(38px, 5vw, 72px) !important; padding-bottom: clamp(38px, 5vw, 72px) !important; }
+/* Footer logo: teal shield/mark */
+.footer .logo img { filter: brightness(0) saturate(100%) invert(58%) sepia(72%) saturate(560%) hue-rotate(131deg) brightness(94%) contrast(92%) !important; }
+/* Keep the stats row visible (the count-up is the animation; don't let the reveal hide it) */
+.hero-stats[data-animate] .hero-stats-grid > div { opacity: 1 !important; transform: none !important; }
+/* Soft Apple-style shadows on all cards (overrides the earlier flat rule) */
+.reason, .stage, .sg-card, .review-card, .path, .tuition-card, .campus-detail, .adm-step, .expat-card, .news-empty, .lead-portrait, .dil-media, .accred-tile, .stage-img {
+  box-shadow: none !important;
+}
+.reason:hover, .stage:hover, .sg-card:hover, .review-card:hover, .path:hover, .tuition-card:hover, .adm-step:hover, .expat-card:hover {
+  box-shadow: none !important;
+}
+/* Round every remaining box, incl. the Tuesday/Day-in-the-Life schedule */
+.dil-media, .dil-media img, .dil-media-tag, .dil-timeline, .stage-age, .tuition-badge,
+.expat-ico, .accred-tile, .quote, .lead-monogram-caption, .fee-additional, .legal,
+.campus-row, .news-empty, .tuition-aid, .adm-step, .expat-card, .expat-service,
+.sg-card, .reason, .stage, .review-card, .path, .tuition-card, .campus-detail { border-radius: 16px !important; }
+.dil-media-tag, .stage-age, .tuition-badge, .expat-ico { border-radius: 10px !important; }
+.dil-tab, .btn, .flag-more, .pulse, .review-avatar { border-radius: 999px !important; }
+.review-avatar { border-radius: 50% !important; }
+/* Flags: bare, no box, spanning the column */
+.expat-card:not(.alt) { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+.expat-card:not(.alt) .expat-card-h { margin-bottom: 16px !important; }
+.expat-flags { grid-template-columns: repeat(auto-fill, minmax(34px, 1fr)) !important; gap: 12px 10px !important; }
+.expat-flags span { font-size: 26px !important; }
+
+/* Handles box — clean alignment of icon + text rows */
+.expat-card.alt .expat-service { align-items: center !important; gap: 14px !important; }
+.expat-card.alt .expat-service-txt { display: flex; flex-direction: column; justify-content: center; gap: 2px; }
+.expat-card.alt .expat-service-d { text-align: left !important; }
+.expat-ico { align-self: center; }
+/* Balanced type — headlines balance, ledes wrap pretty and sit at a comfortable measure */
+.section-h2, .hero-h1, .apply-h, .reason-t, .stage-name, .adm-t, .sg-t { text-wrap: balance; }
+.section-lede { text-wrap: pretty !important; line-height: 1.5 !important; max-width: 48ch !important; }
+.section-head.split .section-lede, .section-lede.wide { max-width: 60ch !important; }
+/* Smaller, consistent sub-headlines — fewer type sizes, balanced scale */
+.section-lede { font-size: clamp(14px, 1.05vw, 16px) !important; line-height: 1.55 !important; }
+.reason-d, .stage-desc, .sg-d, .vb-d, .aid-d, .o-l { font-size: 14px !important; line-height: 1.55 !important; }
+.dil-d, .adm-d { font-size: 13.5px !important; }
+/* International-community world map with teal pins (replaces flag grid) */
+.expat-map {
+  position: relative; width: 100%; aspect-ratio: 2 / 1.05;
+  border-radius: 16px; overflow: hidden;
+  background-color: var(--deep-blue);
+  background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1.5px);
+  background-size: 15px 15px; background-position: center;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 8px 30px rgba(2,6,40,0.12);
+  margin-top: 4px;
+}
+.expat-map::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, transparent 55%, rgba(0,0,90,0.5) 100%);
+  pointer-events: none;
+}
+.emap-pin {
+  position: absolute; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--teal); transform: translate(-50%,-50%); z-index: 1;
+  box-shadow: 0 0 0 0 rgba(0,181,173,0.6), 0 0 8px rgba(0,181,173,0.6);
+  animation: emapPulse 2.6s infinite;
+}
+.emap-pin:nth-child(odd) { animation-delay: .5s; }
+.emap-pin:nth-child(3n) { animation-delay: 1s; }
+.emap-pin:nth-child(4n) { animation-delay: 1.5s; }
+@keyframes emapPulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,181,173,0.55), 0 0 8px rgba(0,181,173,0.6); }
+  70% { box-shadow: 0 0 0 11px rgba(0,181,173,0), 0 0 8px rgba(0,181,173,0.3); }
+  100% { box-shadow: 0 0 0 0 rgba(0,181,173,0), 0 0 8px rgba(0,181,173,0.6); }
+}
+@media (prefers-reduced-motion: reduce) { .emap-pin { animation: none; } }
+/* Photos (option 2): contain the Tuesday images so they aren't upscaled/soft */
+.dil-grid { align-items: center !important; }
+.dil-media { aspect-ratio: 4 / 3 !important; height: auto !important; min-height: 0 !important; max-height: 440px; align-self: center; }
+.dil-media img { height: 100% !important; }
+
+/* Tuition: keep the CTA buttons clear of the cards */
+.tuition-cta { margin-top: clamp(22px, 2.6vw, 38px) !important; }
+/* ===== KINETIC ENERGY PASS — livelier cards & reveals ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .reason, .stage, .sg-card, .review-card, .path, .tuition-card, .adm-step, .expat-card, .accred-tile, .campus-detail {
+    transition: transform .38s cubic-bezier(.2,.85,.25,1), box-shadow .38s ease, border-color .38s ease, background .38s ease !important;
+    will-change: transform;
+  }
+  .reason:hover, .sg-card:hover, .adm-step:hover, .path:hover, .tuition-card:hover { transform: translateY(-7px) scale(1.018) !important; }
+  .stage:hover { transform: translateY(-9px) scale(1.025) !important; }
+  .review-card:hover { transform: translateY(-7px) scale(1.025) !important; }
+  .stage:hover .stage-img img, .dil-media:hover img, .lead-portrait:hover img { transform: scale(1.09) !important; }
+  .reason-n, .adm-n, .vb-k { display: inline-block; transition: transform .4s cubic-bezier(.2,.85,.25,1), color .3s ease; }
+  .reason:hover .reason-n, .adm-step:hover .adm-n, .vb-item:hover .vb-k { transform: scale(1.18) translateY(-2px); }
+  .accred-tile:hover { transform: translateY(-5px) scale(1.03) !important; }
+  /* springier, higher-energy scroll reveals */
+  .js-reveal { opacity: 0; transform: translateY(30px) scale(.985); }
+  .js-reveal.in { opacity: 1; transform: none; transition: opacity .6s cubic-bezier(.2,.85,.25,1), transform .6s cubic-bezier(.2,.85,.25,1) !important; }
+}
+/* Flags — Apple-minimal: clean even grid, restrained, subtle hover only */
+.expat-flags { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)) !important; gap: 18px 14px !important; align-items: center; margin-top: 4px; }
+.expat-flags span { font-size: 28px !important; text-align: center; line-height: 1; animation: none !important; transition: transform .25s cubic-bezier(.2,.85,.25,1); }
+.expat-flags span:hover { transform: scale(1.18); }
+
+/* Handle box — align icon and text cleanly */
+.expat-card.alt .expat-service { align-items: center !important; }
+.expat-card.alt .expat-service-txt { justify-content: center; text-align: left; }
+.expat-card.alt .expat-service-h, .expat-card.alt .expat-service-d { text-align: left !important; }
+/* DIL stacked photos with lower-left corner buttons */
+.dil-stack { display: flex; flex-direction: column; gap: 14px; }
+.dil-photo { position: relative; display: block; width: 100%; padding: 0; border: none; background: none; cursor: pointer; border-radius: 16px !important; overflow: hidden; aspect-ratio: 16/9; box-shadow: 0 8px 30px rgba(2,6,40,0.10); transition: transform .4s cubic-bezier(.2,.85,.25,1), box-shadow .4s ease, opacity .4s ease; opacity: .6; }
+.dil-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2,.85,.25,1); }
+.dil-photo::after { content:''; position:absolute; inset:0; background: linear-gradient(180deg, transparent 45%, rgba(0,0,60,0.5) 100%); }
+.dil-photo-btn { position: absolute; left: 14px; bottom: 14px; z-index:1; font-family: var(--font-display); font-weight: 600; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.16); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); padding: 8px 14px; border-radius: 999px; }
+.dil-photo.active { opacity: 1; box-shadow: 0 16px 44px rgba(2,6,40,0.18); }
+.dil-photo.active .dil-photo-btn { background: var(--teal); color: var(--deep-blue); border-color: var(--teal); }
+.dil-photo:hover { opacity: 1; }
+.dil-photo:hover img { transform: scale(1.05); }
+@media (max-width: 900px) { .dil-stack { flex-direction: row; } }
+
+/* International community header sits close to flags */
+.expat-card:not(.alt) .expat-card-h { margin-bottom: 10px !important; }
+.expat-flags { margin-top: 0 !important; }
+
+/* Handle box — left aligned, tidy */
+.expat-card.alt .expat-service { justify-content: flex-start !important; }
+.expat-card.alt .expat-service-txt { align-items: flex-start; text-align: left !important; }
+.expat-card.alt .expat-service-h, .expat-card.alt .expat-service-d { text-align: left !important; }
+
+/* Less space below admissions journey cards */
+.admissions { padding-bottom: clamp(18px, 2vw, 32px) !important; }
+.adm-steps { margin-bottom: 0 !important; }
+/* Arrows on the Tuesday photo buttons to signal they're clickable */
+.dil-photo-btn { display: inline-flex; align-items: center; gap: 8px; }
+.dil-photo-btn::after { content: '→'; display: inline-block; transition: transform .25s ease; }
+.dil-photo:hover .dil-photo-btn::after { transform: translateX(4px); }
+/* International community line tight to the flags */
+.expat-card:not(.alt) .expat-card-h { margin-bottom: 6px !important; }
+.expat-card:not(.alt) .expat-flags { flex: 0 0 auto !important; align-content: flex-start !important; margin-top: 0 !important; }
+.expat-card:not(.alt) { justify-content: flex-start !important; }
+/* International community — premium country-code chips (render everywhere, unlike flag emoji) */
+.expat-flags { display: flex !important; flex-wrap: wrap; gap: 8px !important; align-content: flex-start; grid-template-columns: none !important; }
+.expat-flags span { font-size: 12px !important; font-family: var(--font-display); font-weight: 600; letter-spacing: 0.06em; color: var(--deep-blue); border: 1px solid var(--line); padding: 7px 12px; border-radius: 999px !important; background: #fff; line-height: 1; transition: transform .25s cubic-bezier(.2,.85,.25,1), border-color .25s ease; animation: none !important; }
+.expat-flags span:hover { transform: translateY(-2px); border-color: var(--teal); }
+.expat-flags .flag-more { background: rgba(0,181,173,0.12); border-color: transparent !important; color: var(--deep-blue); text-transform: uppercase; }
+/* Even less space under the admissions journey cards */
+.admissions { padding-bottom: clamp(12px, 1.4vw, 22px) !important; }
+.adm-steps { margin-bottom: 0 !important; }
+/* Outcomes numbers: heavy like the stat row, mostly white (teal accent kept minimal) */
+.outcomes .o-n { color: #fff !important; font-weight: 800 !important; letter-spacing: -0.035em !important; }
+.outcomes .outcome-stat:nth-child(3) .o-n { color: var(--teal) !important; }
+/* Country chips — clearly intentional, premium */
+.expat-flags { gap: 9px !important; }
+.expat-flags span { font-size: 12.5px !important; padding: 8px 13px !important; box-shadow: 0 1px 2px rgba(2,6,40,0.05); }
+.expat-flags span:hover { transform: translateY(-2px); border-color: var(--teal); color: var(--teal-dark); }
+/* Trim the deep-blue space under the inquiry/admissions cards */
+.admissions { padding-bottom: clamp(6px, 0.8vw, 14px) !important; }
+/* Safe. Seen. Held. — bigger card titles, more animation */
+.sg-t { font-size: clamp(19px, 1.9vw, 24px) !important; transition: color .3s ease; }
+.sg-card { transition: transform .42s cubic-bezier(.2,.85,.25,1), box-shadow .42s ease, border-color .42s ease, background .3s ease !important; }
+.sg-card:hover { transform: translateY(-9px) scale(1.025) !important; }
+.sg-card:hover .sg-t { color: var(--teal) !important; }
+.sg-k { display: inline-block; transition: transform .42s cubic-bezier(.2,.85,.25,1); }
+.sg-card:hover .sg-k { transform: scale(1.2) translateY(-2px); }
+/* Unified premium (Apple-style) animation across ALL cards */
+@media (prefers-reduced-motion: no-preference) {
+  .reason, .stage, .sg-card, .review-card, .path, .tuition-card, .adm-step, .expat-card,
+  .accred-tile, .campus-detail, .dil-photo, .outcome-stat, .vb-item, .stat-l {
+    transition: transform .45s cubic-bezier(.22,.9,.3,1.04), box-shadow .45s ease, border-color .35s ease, background .35s ease !important;
+    will-change: transform;
+  }
+  .reason:hover, .sg-card:hover, .adm-step:hover, .path:hover, .tuition-card:hover,
+  .accred-tile:hover, .review-card:hover { transform: translateY(-8px) scale(1.022) !important; }
+  .stage:hover, .dil-photo:hover { transform: translateY(-9px) scale(1.026) !important; }
+  .expat-card.alt:hover { transform: translateY(-5px) !important; }
+}
+/* Country chips fill their card intentionally */
+.expat-card:not(.alt) { flex: 1 1 auto !important; display: flex !important; flex-direction: column; }
+.expat-card:not(.alt) .expat-flags { flex: 1 1 auto !important; align-content: space-between !important; }
+/* Animated flag emojis back; handle box enlarged to fill the space */
+.expat-flags { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)) !important; gap: 14px 12px !important; align-content: start !important; }
+.expat-card:not(.alt) { flex: 0 0 auto !important; }
+.expat-flags span { font-size: 30px !important; text-align: center; line-height: 1; border: none !important; background: none !important; padding: 0 !important; box-shadow: none !important; transform: none; animation: flagFloat 3.6s ease-in-out infinite !important; }
+.expat-flags span:nth-child(2n) { animation-delay: .25s !important; }
+.expat-flags span:nth-child(3n) { animation-delay: .5s !important; }
+.expat-flags span:nth-child(4n) { animation-delay: .8s !important; }
+.expat-flags span:nth-child(5n) { animation-delay: 1.05s !important; }
+
+.expat-card.alt { flex: 1 1 auto !important; padding: 32px !important; }
+.expat-card.alt .expat-service { padding: 16px 0 16px 44px !important; }
+.expat-card.alt .expat-service::before { top: 18px !important; }
+.expat-ico { width: 44px !important; height: 44px !important; }
+.expat-ico svg { width: 22px !important; height: 22px !important; }
+.expat-card.alt .expat-service-h { font-size: 16px !important; }
+/* Teal rule before safeguarding card titles, matching the eyebrow treatment */
+.sg-k { display: inline-flex !important; align-items: center; gap: 12px; }
+.sg-k::before { content: ''; width: 24px; height: 2px; background: var(--teal); flex: 0 0 auto; }
+/* Footer logo all white */
+.footer .logo img { filter: brightness(0) invert(1) !important; }
+/* ===== CLEAR TYPE SCALE — one size per role ===== */
+.section-lede { font-size: 16px !important; line-height: 1.55 !important; }
+.reason-d, .stage-desc, .sg-d, .vb-d, .aid-d, .o-l, .expat-list li, .review-quote, .lead-body p, .aid-prose p { font-size: 14.5px !important; line-height: 1.55 !important; }
+.dil-d, .adm-d, .tuition-fine, .expat-service-d, .stat-l, .quote-role, .review-role, .campus-country, .footer-col a, .footer-address { font-size: 12.5px !important; }
+.reason-t, .stage-name, .sg-t, .adm-t, .vb-t { font-size: clamp(18px, 1.7vw, 22px) !important; }
+.expat-service-h { font-size: 15px !important; }
+/* Handle box — distribute rows to fill, no dead space */
+.expat-card.alt .expat-services { justify-content: space-between !important; flex: 1 1 auto !important; }
+.expat-card.alt { justify-content: stretch !important; }
+/* Animate the handle-box icons for visual interest */
+.expat-ico { transition: transform .4s cubic-bezier(.2,.85,.25,1), background .3s ease, border-color .3s ease; }
+.expat-card.alt .expat-service:hover .expat-ico { transform: translateY(-3px) rotate(-6deg) scale(1.08); background: var(--teal); border-color: var(--teal); color: var(--deep-blue); }
+.expat-card.alt .expat-service:hover .expat-service-h { color: var(--teal) !important; transition: color .3s ease; }
+@media (prefers-reduced-motion: no-preference) {
+  .expat-ico svg { transition: transform .4s cubic-bezier(.2,.85,.25,1); }
+  .expat-card.alt .expat-service:hover .expat-ico svg { transform: scale(1.1); }
+}
+/* Align handle-box icons flush with the eyebrow's left edge */
+.expat-card.alt .expat-service { padding-left: 0 !important; }
+/* Tuition/aid CTA row — clear hierarchy (one teal primary first), spaced nicely */
+.tuition-cta { gap: 14px !important; justify-content: center; flex-wrap: wrap; margin-top: clamp(26px, 3vw, 42px) !important; }
+/* Leadership: align the Head's blurb to the portrait (centered, premium) */
+.lead-grid { align-items: center !important; }
+.lead-body { max-width: 56ch; }
+/* Unify the index numbers across cards to one size */
+.reason-n, .adm-n, .vb-k { font-size: 18px !important; line-height: 1 !important; }
+/* Trim more space below the inquiry/admissions cards */
+.admissions { padding-bottom: clamp(2px, 0.4vw, 8px) !important; }
+.adm-steps { margin-bottom: 0 !important; }
+
+/* ============================================================================
+   FINAL CONSOLIDATION PASS — the reusable global shell
+   · flat surfaces everywhere (no shadows)
+   · one radius system: 3px boxes, 999px pills on buttons only, logo+avatar round
+   · glass kept to exactly two intentional touches: the nav and the hero eyebrow
+   · Six Reasons restyled as a clean editorial numbered list
+   This block is authoritative and supersedes the iterative passes above.
+   ============================================================================ */
+
+/* --- ONE RADIUS SYSTEM ---------------------------------------------------- */
+:root { --radius: 3px; --radius-lg: 3px; --radius-xl: 3px; }
+.stage, .stage-img, .stage-img img, .sg-card, .review-card, .path, .tuition-card,
+.tuition-aid, .accred-wrap, .accred-tile, .campus-detail, .campus-list, .campus-row,
+.dil-media, .dil-media img, .dil-media-tag, .dil-photo, .dil-timeline,
+.lead-portrait, .lead-portrait img, .lead-portrait-placeholder, .news-empty, .quote,
+.adm-step, .expat-card, .expat-service, .expat-ico, .stage-age, .tuition-badge,
+.fee-table-wrap, .fee-additional, #eis-mapbox, .lead-monogram-caption,
+.dil-photo-btn, .flag-more, .expat-flags span, .hero-eyebrow, .apply-eyebrow { border-radius: 3px !important; }
+.btn, .dil-tab { border-radius: 999px !important; }
+.review-avatar { border-radius: 50% !important; }   /* monogram stays a circle */
+.pulse { border-radius: 999px !important; }          /* live status dot */
+
+/* --- FLAT SURFACES (override the re-added Apple shadows) ------------------- */
+.reason, .stage, .sg-card, .review-card, .path, .tuition-card, .campus-detail,
+.adm-step, .expat-card, .news-empty, .lead-portrait, .dil-media, .accred-tile,
+.stage-img, .dil-photo, .dil-photo.active, .expat-flags span,
+.reason:hover, .stage:hover, .sg-card:hover, .review-card:hover, .path:hover,
+.tuition-card:hover, .adm-step:hover, .expat-card:hover, .accred-tile:hover {
+  box-shadow: none !important;
+}
+
+/* --- GLASS: only the nav and the hero eyebrow ----------------------------- */
+.nav {
+  background: rgba(255,255,255,0.82) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.3) !important;
+  backdrop-filter: blur(20px) saturate(1.3) !important;
+}
+.nav.scrolled {
+  background: var(--deep-blue) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.apply-eyebrow, .hero-eyebrow, .dil-media-tag, .dil-photo-btn, .expat-card.alt {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+/* hero eyebrow stays a flat translucent chip (glass is reserved for the nav) */
+.hero-eyebrow { background: rgba(255,255,255,0.12) !important; border: 1px solid rgba(255,255,255,0.30) !important; }
+
+/* --- SIX REASONS: compressed on-brand cards ------------------------------ */
+.reasons-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: clamp(12px, 1.1vw, 18px) !important;
+}
+@media (max-width: 960px) { .reasons-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 600px) { .reasons-grid { grid-template-columns: 1fr !important; } }
+.reason {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: clamp(22px, 1.8vw, 30px) !important;
+  background: #fff !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: border-color .25s ease, transform .25s ease !important;
+}
+.reason:hover {
+  background: #fff !important;
+  border: 1px solid var(--teal) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  transform: translateY(-3px) !important;
+}
+.reason-n {
+  font-family: var(--font-display) !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  font-size: clamp(28px, 2.3vw, 36px) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.035em !important;
+  color: var(--teal) !important;
+  margin: 0 0 14px 0 !important;
+  transform: none !important;
+}
+.reason:hover .reason-n { transform: none !important; }
+.reason-t {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  font-size: clamp(17px, 1.35vw, 20px) !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  color: var(--deep-blue) !important;
+  text-transform: none !important;
+  margin: 0 0 8px 0 !important;
+}
+.reason-d {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: var(--fg-dim) !important;
+  margin: 0 !important;
+}
+
+/* --- TIGHTEN DEAD SPACE on the airier punctuation sections ---------------- */
+.valuebar { padding-top: clamp(24px, 2.4vw, 40px) !important; padding-bottom: clamp(24px, 2.4vw, 40px) !important; }
+.apply-cta { padding-top: clamp(32px, 4vw, 60px) !important; padding-bottom: clamp(32px, 4vw, 60px) !important; }
+
+/* ============================================================================
+   INNER-PAGE SHELL — applies the homepage system to every other page
+   (homepage-only components — two-tone hero, stat marquee, stat row — are NOT
+    defined here, so inner pages never inherit them)
+   ============================================================================ */
+
+/* Closing CTA band: one consistent deep-blue closer on every page ---------- */
+.apply-cta { background: var(--deep-blue) !important; }
+.apply-cta .apply-inner { position: relative; z-index: 2; }
+.apply-cta .apply-h { color: #fff !important; }
+.apply-cta .apply-h .italic { color: var(--teal) !important; }
+.apply-cta .apply-sub, .apply-cta .apply-lede { color: rgba(255,255,255,0.80) !important; }
+.apply-cta .apply-eyebrow { background: rgba(255,255,255,0.10) !important; border: 1px solid rgba(255,255,255,0.28) !important; color: #fff !important; }
+.apply-cta .apply-trust span, .apply-cta .apply-fine, .apply-cta .apply-note { color: rgba(255,255,255,0.62) !important; }
+
+/* Page-hero headline: heavy uppercase Inter Tight + Bodoni italic accent.
+   Targets the bespoke per-page hero headline classes so they match .hero-h1
+   without carrying the homepage two-tone treatment. */
+.ab-hero-h1, .dp-hero-h1, .util-hero-h1, .news-hero-h1, .contact-hero-h1, .sl-hero-h1,
+.page-hero-h1, .results-h1, .hero-h1.inner {
+  font-family: var(--font-display) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.014em !important;
+  line-height: 0.98 !important;
+  text-wrap: balance;
+}
+.ab-hero-h1 .italic, .dp-hero-h1 .italic, .util-hero-h1 .italic, .news-hero-h1 .italic,
+.contact-hero-h1 .italic, .sl-hero-h1 .italic, .page-hero-h1 .italic, .results-h1 .italic {
+  font-family: var(--font-serif) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: -0.005em !important;
+}
+
+/* Helper: any section explicitly marked deep-blue gets light section-level type
+   + white-edge ghost buttons, matching the homepage dark sections. Scoped to
+   section-level type classes so text inside light cards is never whitened. */
+.sec-dark { background: var(--deep-blue) !important; }
+.sec-dark > .container > .section-intro .section-h2,
+.sec-dark > .container > .section-head .section-h2,
+.sec-dark .section-h2.on-dark { color: #fff; }
+.sec-dark .section-h2 .italic, .sec-dark .italic-accent { color: var(--teal); }
+.sec-dark > .container > .section-intro .section-lede,
+.sec-dark > .container > .section-head .section-lede,
+.sec-dark .section-lede.on-dark { color: rgba(255,255,255,0.78); }
+.sec-dark .kicker { color: var(--teal); }
+.sec-dark .btn-ghost { border-color: rgba(255,255,255,0.5) !important; color: #fff !important; }
+.sec-dark .btn-ghost:hover { background: var(--teal) !important; border-color: var(--teal) !important; color: var(--deep-blue) !important; }
+
+/* Nav "Enquire now" (.btn-deep): white type on the teal pill ---------------- */
+.nav .nav-cta .btn-deep { color: #fff !important; }
+
+/* Footer current campus highlight ------------------------------------------ */
+.footer a[href*="eastwoodis.com"] {
+  color: var(--teal) !important;
+  font-weight: 600;
+  position: relative;
+  padding-left: 14px;
+}
+.footer a[href*="eastwoodis.com"]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+/* ============================================================================
+   TYPEFORM CTA — link out to the form instead of an inline iframe.
+   Embedded forms looked poor inline; each form section is now an on-brand
+   deep-blue CTA band with a button that opens the Typeform. Reusable site-wide.
+   ============================================================================ */
+.util-form-section, .contact-form-section, .tf-section {
+  background-color: var(--deep-blue) !important;
+  background-image:
+    linear-gradient(180deg, rgba(0,0,72,0.86) 0%, rgba(0,0,86,0.72) 52%, rgba(0,0,90,0.80) 100%),
+    url('eis-pattern.png') !important;
+  background-size: cover, cover !important;
+  background-position: center, center bottom !important;
+  background-repeat: no-repeat, no-repeat !important;
+  text-align: center;
+  padding-top: clamp(64px, 8vw, 104px) !important;
+  padding-bottom: clamp(64px, 8vw, 104px) !important;
+}
+
+/* Global catch-all: any element with page-specific dark-on-dark text inside .programs sections */
+.programs .feature-note,
+.programs .continuum-foot,
+.myp-project .myp-project-body,
+.hs-connect .hs-connect-body,
+.hs-stats .hs-stat-label,
+.myp-stats .myp-stat-label,
+.el-stats .el-stat-label { color: rgba(255,255,255,0.82) !important; }
+.tf-textured {
+  background-color: var(--deep-blue) !important;
+  background-image:
+    linear-gradient(180deg, rgba(0,0,72,0.86) 0%, rgba(0,0,86,0.72) 52%, rgba(0,0,90,0.80) 100%),
+    url('eis-pattern.png') !important;
+  background-size: cover, cover !important;
+  background-position: center, center bottom !important;
+  background-repeat: no-repeat, no-repeat !important;
+}
+.util-form-section .container-narrow, .contact-form-section .container-narrow, .tf-section .container-narrow {
+  display: flex; flex-direction: column; align-items: center;
+}
+.util-form-section .kicker, .contact-form-section .kicker, .tf-section .kicker { color: var(--teal); justify-content: center; }
+.util-form-section .section-h2, .contact-form-section .section-h2, .tf-section .section-h2 { color: #fff !important; max-width: 22ch; }
+.util-form-section .section-h2 .italic, .contact-form-section .section-h2 .italic, .tf-section .section-h2 .italic { color: var(--teal) !important; }
+.util-form-section .section-lede, .contact-form-section .section-lede, .tf-section .section-lede { color: rgba(255,255,255,0.80) !important; max-width: 52ch; }
+.tf-cta { display: flex; justify-content: center; }
+
+/* Footer padding tightened ------------------------------------------------- */
+.footer { padding: 48px 0 24px !important; }
+.footer-top { padding-bottom: 28px !important; margin-bottom: 20px !important; gap: 28px !important; }
+
+/* Logo image replacement — use crisp PNG files instead of base64 ----------- */
+.logo img { content: url('logo-color.png'); }
+.footer .logo img { content: url('logo-white.png') !important; filter: none !important; }
+
+/* js-reveal scroll animations ---------------------------------------------- */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.js-reveal.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js-reveal { opacity:1 !important; transform:none !important; } }
+
+/* Dark custom sections — ensure white type over deep-blue backgrounds ------- */
+[class*="-dark"] .section-h2,
+[class*="-dark"] .section-lede,
+[class*="-dark"] .kicker,
+.sl2-dark .section-h2, .sl2-dark .section-lede,
+.bg2-dark .section-h2, .bg2-dark .section-lede,
+.abt-stats .section-h2, .abt-stats .section-lede { color: rgba(255,255,255,0.92) !important; }
+[class*="-dark"] .kicker { color: var(--teal) !important; }
+.footer-bottom { padding-top: 16px !important; }

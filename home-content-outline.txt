@@ -1,0 +1,143 @@
+---    | [header .nav]
+---    | [nav .nav-links]
+a      | Why us
+a      | Programs
+a      | Campuses
+a      | Tuition
+a      | Families
+a      | Book a tour
+a      | Apply →
+---    | [section #top .hero]
+H1     | The school ambitious families pick when they refuse to compromise.
+p      | Eastwood is a 53-year international school, IB- and American-accredited, delivering serious academics across six campuses and fully online — for families who want the discipline of a Swiss boarding school without the trade-offs.
+a      | Begin your application →
+a      | See tuition & aid
+---    | [section .hero-stats]
+---    | [section .valuebar]
+H2     | Three questions every serious family asks. Three answers.
+H3     | Universities accept them.
+p      | Our IB Diploma and American High School graduates pursue universities across Lebanon, the region, Europe, and North America. The IB Diploma is recognized by universities worldwide.
+H3     | Employers hire them.
+p      | The four C's — critical thinking, communication, collaboration, creativity — built in from age 3, not tacked on in high school.
+H3     | The world moves them.
+p      | Transfer between Beirut, Kafarshima, Erbil, Jeddah, Montreux, Nova, or Eastwood Global Online. One family, one transcript, no restart.
+---    | [section #why .why]
+H2     | Six reasons parents stop looking after Eastwood.
+p      | Five decades of educational heritage, distilled into what actually matters for your child's future. Not accreditation wallpaper.
+H3     | A passport, not a transcript.
+p      | The IB Diploma opens doors in every country. Your child isn't locked into Lebanon, the U.S., or France — they choose, after Eastwood.
+H3     | Accredited where it matters.
+p      | IB World School since 2016. Cognia accredited. CIS member. Apple Distinguished Educators on faculty. Lebanese Montessori Association member.
+H3     | Two paths. One culture.
+p      | IB Diploma or American High School. We match the pathway to your child — not the other way around.
+H3     | Online since 2011. Not since the pandemic.
+p      | Eastwood integrated Google and Apple tools into classrooms in 2011. Our students learn with the technology the world actually uses.
+H3     | Montessori-grounded from day one.
+p      | Mindfulness, music, language immersion (EN or FR), STEM play — all before first grade. The only IB-PYP French Section in the region.
+H3     | Move countries. Keep your school.
+p      | Transfer between Beirut, Kafarshima, Erbil, Jeddah, Montreux, Nova, or Eastwood Global Online. One family, one transcript.
+---    | [section #programs .programs]
+H2     | One journey.Age 3 to university.
+p      | Pick your child's current age — we'll show you the next 15 years.
+H3     | IB-PYP Early Years
+p      | Montessori-grounded. Mindfulness, music, language immersion, and STEM play. Offered in English or French.
+H3     | IB-PYP Elementary
+p      | Inquiry-driven. Students set the pace of their own curiosity. EN or FR sections available.
+H3     | IB-MYP Middle School
+p      | Concept-based learning — big ideas that transfer across subjects. Students build, not memorize.
+H3     | High School
+p      | IB Diploma or American High School. Two pathways, one rigorous standard.
+H3     | Two diplomas. One rigorous standard.
+li     | Recognized by universities in every country
+li     | Extended Essay + Theory of Knowledge
+li     | Best fit for global university admissions
+li     | American Diploma with international recognition
+li     | Optimized for U.S. and Canadian admissions
+li     | For students with international passports
+---    | [section #campuses .campuses]
+H2     | Six campuses.One education.
+p      | Relocating? Your child's school comes with you. Transfer credits between any Eastwood campus without losing a semester.
+btn    | 01 Beirut Lebanon · est. 1973 Flagship →
+btn    | 02 Kafarshima Lebanon · est. 1973 Open →
+btn    | 03 Montreux Switzerland · Boarding Boarding →
+btn    | 04 Erbil Iraq · est. 2015 Open →
+btn    | 05 Jeddah Saudi Arabia · est. 2021 Open →
+btn    | 06 Nova Beirut, Lebanon Coming soon →
+btn    | 07 Online Global · est. 2011 Worldwide →
+a      | Visit campus page →
+---    | [section .dil]
+H2     | What your child's Tuesday looks like.
+p      | Because brochures lie. Here's the actual schedule — the one that shapes the habits that shape the life.
+btn    | Primary · ages 6–11
+btn    | Middle · ages 11–16
+btn    | Diploma · ages 16–18
+---    | [section .expat]
+H2     | New to Beirut?We make landing painless.
+p      | Expat families — from embassies, NGOs, tech, and finance — join Eastwood throughout the year. Our Admissions team and Family Liaison handle the hard parts, so you can focus on moving in.
+li     | Remote enrollment. Start your application from anywhere. Interviews on Zoom, documents via secure upload.
+li     | Transcript transfer. We review transcripts from international curricula and place your child into the right grade.
+li     | Neighborhood guide. Mansourieh, Ashrafieh, Baabda — our Beirut Guide for Expats covers where other Eastwood families live.
+li     | Transport and dining. Door-to-door bus routes across Beirut. Daily fresh meals on campus from an on-site kitchen.
+li     | Family liaison. A named contact who checks in through your family's first weeks at Eastwood.
+a      | Speak to admissions →
+a      | Beirut Guide for Expats
+---    | [section .accred]
+---    | [section .safeguarding]
+H2     | Safe. Seen.Held.
+p      | Before curriculum, before outcomes — you want to know your child is safe and seen. We've built our campus around that answer, and we publish our policies.
+---    | [section #tuition .tuition]
+H2     | Transparent tuition.Real aid.
+p      | Verified annual tuition for 2025–26. Financial aid up to 50% of tuition available based on family need.
+a      | Begin application →
+a      | Speak with admissions
+---    | [section .outcomes]
+H2     | Where Eastwood graduates go next.
+---    | [section .leadership]
+H2     | "The best school is the one your child doesn't want to leave."
+p      | Cendrella Kettaneh holds a Bachelor of Science in Chemistry from the Lebanese University and a Master's in Educational Leadership from the Middle East University.
+p      | She joined Eastwood International School in 2004 as a Chemistry teacher, became Science Coordinator, and earned the role of IB DP Coordinator through the IB authorization process — a decade of institutional continuity that shapes how the school operates today.
+p      | Cendrella is a member of the IB Educator Network (IBEN) as an Evaluation Leader, contributing to IB authorizations globally.
+---    | [section #testimonials .testimonials]
+H2     | What parents tellother parents.
+quote  | So glad we made the move, the school is like a family.
+quote  | When our daughter started nursery we were welcomed by the most dedicated and caring teachers and community we have ever met.
+quote  | Rare are the schools that take such good care of its students.
+quote  | Eastwood combines excellence and high quality education along with the warmth, caring, and dedication of all its teachers and staff.
+quote  | Eastwood is a truly amazing school that treats children like family. The teachers are extremely well trained and the administration is stellar. It has a huge amount of expats and is truly an international school in every way.
+quote  | Eastwood has given my children the chance to LOVE learning. They are extremely engaged in fun and deep explorations which challenge their thinking.
+---    | [section .admissions]
+H2     | From inquiry to first day.
+p      | Four steps. Rolling admissions year-round. Our Family Liaison team shepherds your family from first email to first day of school.
+---    | [section #apply .apply-cta]
+H2     | Your child is already becoming who they will be. Choose the environment.
+p      | Contact admissions at info@eastwoodschools.com or +961 4 409307 to begin the conversation.
+a      | Begin application →
+a      | Book a campus tour
+---    | [footer .footer]
+p      | Beirut's leading International Baccalaureate World School. Founded 1973.
+a      | Early Years (EN/FR)
+a      | Elementary
+a      | Middle School
+a      | IB Diploma
+a      | American HS
+a      | EIS Beirut
+a      | Kafarshima
+a      | Montreux (CH)
+a      | EIS Erbil
+a      | EIS Jeddah
+a      | Eastwood Nova
+a      | Eastwood Online
+a      | Apply
+a      | Book a tour
+a      | Tuition & aid
+a      | Families
+a      | Contact
+a      | Leadership
+a      | Mission
+a      | Accreditation
+a      | Apple Partnership
+a      | Careers
+a      | Privacy
+a      | Privacy
+a      | Terms
+a      | Safeguarding

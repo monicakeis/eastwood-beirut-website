@@ -1,0 +1,188 @@
+---    | [header .nav.]
+a      | ◼Eastwood
+---    | [nav .nav-links]
+a      | Why us
+a      | Programs
+a      | Campuses
+a      | Tuition
+a      | FAQ
+btn    | EN
+btn    | FR
+btn    | Book a tour
+a      | Apply→
+btn    | Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds → Fall 2026 cohort now open · Limited seats per grade · Check your child's fit in 90 seconds →
+---    | [section #top .hero]
+H1     | The school ambitiousfamilies pick when theyrefuse to compromise.
+p      | An IB education, three high-school pathways, and a global campus network — so your child's future isn't bound by one curriculum, one country, or one ceiling.
+btn    | Find your child's fit →
+a      | See tuition & aid
+---    | [section .valuebar]
+H3     | Universities accept them.
+p      | Our IB-DP graduates place in MIT, Stanford, McGill, Oxford, INSEAD, AUB, LAU and 200+ universities across 30 countries.
+H3     | Employers hire them.
+p      | The 4 C’s — critical thinking, communication, collaboration, creativity — built in from age 3, not tacked on in high school.
+H3     | The world moves them.
+p      | Transfer seamlessly between our 7 campuses: Beirut, Kafarshima, Montreux, Erbil, Jeddah, Lagos, or online. One family, one transcript.
+---    | [section #why .why]
+H2     | Six reasons parents stop looking after Eastwood.
+p      | We've distilled the 50-year Eastwood difference into six things that actually matter for your child's future — not a wall of accreditation badges.
+H3     | A passport, not a transcript.
+p      | The IB Diploma opens doors in every country. Your child isn’t locked into Lebanon, the U.S., or France — they choose, after Eastwood.
+H3     | Top 1% of IB schools in the world.
+p      | Fewer than 500 schools hold our level of international accreditation. Universities know the Eastwood name on sight.
+H3     | Three high-school paths. One culture.
+p      | IB Diploma, American High School, or Lebanese Baccalauréat. We match the pathway to your child — not the reverse.
+H3     | Apple-partnered since 2011.
+p      | We were online before the pandemic. Students learn with the tools the world actually uses — and outgrow them by graduation.
+H3     | Montessori-grounded, from day one.
+p      | Mindfulness, language immersion (EN or FR), music, movement and STEM play — before first grade.
+H3     | Move countries. Keep your school.
+p      | Transfer between Beirut, Switzerland, the Gulf, Africa, or online — no lost credits, no starting over. Critical for expat families.
+---    | [section #programs .programs]
+H2     | One journey.Age 3 to university.
+p      | Pick your child's current age. We'll show you the next 15 years.
+H3     | Early Years
+p      | Montessori-grounded. Mindfulness, music, language immersion, STEM play.
+H3     | Elementary
+p      | Inquiry-driven. Students set the pace of their own curiosity.
+H3     | Middle School
+p      | Big-idea thinking that transfers across subjects. They build, not memorize.
+H3     | High School
+p      | IB Diploma, American High School, or Lebanese Program. Your child, your choice.
+H3     | Three diplomas. Pick what gets your child where they want to go.
+li     | Accepted by 5,000+ universities in 100+ countries
+li     | Extended Essay + Theory of Knowledge
+li     | Best fit for: competitive global applicants
+li     | American diploma + international recognition
+li     | Optimized for U.S. and Canadian admissions
+li     | Best fit for: students with intl. passports
+li     | Fully aligned with national curriculum
+li     | Arabic, Lebanese history, civics
+li     | Best fit for: students staying in-country
+---    | [section #campuses .campuses]
+H2     | Seven campuses.One education.
+p      | Relocating? Your child's school comes with you. Transfer credits between any Eastwood campus without losing a semester.
+btn    | 01BeirutLebanon · est. 1974Flagship→
+btn    | 02KafarshimaLebanon · est. 1998Open→
+btn    | 03MontreuxSwitzerland · est. 2019Boarding→
+btn    | 04ErbilIraq · est. 2015Open→
+btn    | 05JeddahSaudi Arabia · est. 2021Open→
+btn    | 06LagosNigeria · est. 2017Open→
+btn    | 07OnlineGlobal · est. 2011Worldwide→
+btn    | 08Ras Al KhaimahUAE · est. 2026Coming soon→
+a      | Visit campus page →
+---    | [section .dil]
+H2     | This is what your child’s Tuesday looks like.
+p      | Because brochures lie. Here’s the actual schedule — the one that shapes the habits that shape the life.
+btn    | Primary (PYP · ages 6–11)
+btn    | Middle (MYP · ages 11–16)
+btn    | Diploma (DP · ages 16–18)
+li     | 07:45Mindful morningFive-minute guided meditation. Sets the tone before academics begin.
+li     | 08:00Inquiry blockStudent-led inquiry into this unit’s transdisciplinary theme (e.g. "How the world works").
+li     | 10:15LanguageArabic, French or English — depending on your child’s pathway. All three offered.
+li     | 11:30STEM labHands-on science with our Apple-partnered iPad lab. No worksheets.
+li     | 12:30Fresh-meal lunchOn-site kitchen. Nutritionist-designed, Mediterranean-forward menu.
+li     | 13:30SpecialistMusic, art, PE, or library. Rotates daily.
+li     | 14:45ReflectionPortfolio time. Students document what they learned — not what they did.
+li     | 15:15After-school40+ clubs: chess, coding, football, Model UN, robotics, Duke of Edinburgh.
+---    | [section .safeguarding]
+H2     | Safe. Seen.Held.
+p      | Before curriculum, before outcomes — you want to know your child is safe and seen. We’ve built our campus around that answer.
+---    | [section .expat]
+H2     | New to Beirut?We make landing painless.
+p      | Hundreds of expat families join Eastwood each year — from embassies, NGOs, tech, and finance. We've turned the chaos of relocating into a 3-week checklist.
+li     | Remote enrollment. Start your application from anywhere. Interviews on Zoom, documents via secure upload.
+li     | Transcript transfer. We recognize credits from 200+ international curricula. Your child slots in, not starts over.
+li     | Neighborhood guide. Mansourieh, Ashrafieh, Baabda — we'll tell you where other Eastwood families live.
+li     | Transport + dining. Door-to-door bus routes across Beirut. Daily fresh meals on campus.
+li     | Community concierge. A family liaison checks in for your first 60 days.
+btn    | Start relocation quiz →
+a      | Download Beirut guide (PDF)
+li     | Week 1 · Application + interview
+li     | Week 2 · Placement assessment + family visit
+li     | Week 3 · Enrollment + first day
+---    | [section #tuition .tuition]
+H2     | Transparent tuition.Real aid.
+p      | One of the few international schools in Lebanon that publishes its fees. Annual rates below — payable monthly. Financial aid awarded to 1 in 4 families.
+btn    | Estimate my family's cost →
+a      | Start an application
+---    | [section .outcomes]
+H2     | Where Eastwood graduates go next.
+---    | [section .lead]
+H2     | "The best school is the one your child doesn’t want to leave."
+p      | I’ve spent 20 years in international education, and the question I keep coming back to is simple: at the end of a school day, what did your child become? Not what did they memorize, what did they become.
+p      | At Eastwood, we’re building children who are curious before they’re compliant, creative before they’re credentialed, and kind before all of it. The IB gives us the framework. Our teachers give it a pulse.
+p      | If you’re weighing schools, I’d love to meet you. Not in a boardroom — in a classroom. Come see the Tuesday that could be your child’s.
+a      | Book a 1:1 with the Head →
+---    | [section .compare]
+H2     | How Eastwood compares to the usual Beirut options.
+p      | You’re evaluating three or four schools right now. So did we. Here’s the honest side-by-side.
+---    | [section .testimonials]
+H2     | What parents tellother parents.
+quote  | We moved from Copenhagen mid-year. Our daughter had friends by week two. Eastwood genuinely made relocation bearable.
+quote  | Rare are the schools that take this good care of students. The IB Diploma paid off — my son is at McGill on scholarship.
+quote  | My children are in three different programs — Early Years, Middle, and American HS. One school. One culture. That matters.
+quote  | The teachers know my daughter. Not "her name" — they know her. After a big public school, this was the difference.
+---    | [section .journey]
+H2     | 21 days from curiousto confirmed.
+p      | Most schools take two months to reply. We made admissions feel like the rest of modern life — fast, clear, and human.
+li     | 01Minute oneTell us about your childStart with the 90-second fit quiz. You’ll receive a personalized fit report by email — no form, no call required to read it.Start fit quiz →
+li     | 02Within 7 daysCampus visit or ZoomA 45-minute conversation with the Head of Admissions. You’ll meet the Principal and see classrooms in action.
+li     | 03Within 14 daysStudent assessmentAge-appropriate. Playful for Early Years, academic for Diploma. Never adversarial. Your child will enjoy it — that’s the point.
+li     | 04Within 21 daysDecision & enrollmentOffer letter, welcome package, and your family liaison’s contact. Visa letters, uniform fitting, bus routes — we handle them.
+---    | [section .events]
+H2     | Upcoming dates for prospective families.
+p      | Every visit ends with coffee on the terrace and a quiet conversation. No sales pitch, ever.
+btn    | Reserve a spot →
+btn    | Reserve a spot →
+btn    | Reserve a spot →
+btn    | Reserve a spot →
+---    | [section #faq .faq]
+H2     | What parentsactually ask.
+p      | Real questions from admissions interviews. If yours isn't here, our team replies to every email within 24 hours.
+btn    | Do you accept mid-year transfers?−
+btn    | How do I choose between IB-DP, American HS, and Lebanese Program?+
+btn    | What’s the student-teacher ratio?+
+btn    | Do you offer financial aid?+
+btn    | What languages can my child be taught in?+
+btn    | Can my child transfer between Eastwood campuses?+
+btn    | What about safety and security?+
+btn    | How long does the application take?+
+---    | [section #apply .apply-cta]
+H2     | Your child is alreadybecoming who they will be.Choose the environment.
+p      | 15 minutes to apply. 24 hours to hear back. One decision that changes everything.
+a      | Begin application →
+btn    | Find your child's fit (90s)
+a      | Book a campus tour
+---    | [footer .footer]
+p      | The school ambitious families pick when they refuse to compromise.
+a      | Early Years (EN/FR)
+a      | Elementary
+a      | Middle School
+a      | IB Diploma
+a      | American HS
+a      | Lebanese Program
+a      | EIS Beirut
+a      | Kafarshima
+a      | Montreux (CH)
+a      | EIS Erbil
+a      | EIS Jeddah
+a      | LIS Lagos
+a      | Eastwood Online
+a      | Apply
+a      | Book a tour
+a      | Tuition & aid
+a      | Calendar
+a      | FAQ
+a      | Contact
+a      | Leadership
+a      | Mission
+a      | Accreditation
+a      | Apple Partnership
+a      | Careers
+a      | Alumni
+btn    | Subscribe →
+a      | Privacy
+a      | Terms
+a      | Accessibility
+a      | Safeguarding
