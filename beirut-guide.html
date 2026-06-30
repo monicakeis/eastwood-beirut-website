@@ -1932,6 +1932,73 @@ section { padding: var(--section-pad-y) 0; }
 .js-reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .js-reveal { opacity:1; transform:none; } }
 .bg2-payoff-line { font-family:var(--font-bodoni); font-style:italic; font-size:clamp(24px,3.2vw,46px); color:var(--deep-blue); text-align:center; max-width:38ch; margin:0 auto; line-height:1.35; }
+
+/* ============================================================================
+   BEIRUT GUIDE — RELOCATION GUIDE SECTIONS
+   ============================================================================ */
+
+/* Ensure Bodoni Moda renders via bg2-accent (fixes missing --font-bodoni var) */
+:root { --font-bodoni: 'Bodoni Moda', 'Instrument Serif', Georgia, serif; }
+
+/* Confirm/placeholder notation — visible to editors, unobtrusive to readers */
+.confirm-note {
+  display: block;
+  margin-top: 16px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  opacity: 0.45;
+}
+
+/* Your First Month: practical four-block grid */
+.bg2-practical-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 72px;
+  margin-top: 48px;
+}
+@media (max-width: 680px) {
+  .bg2-practical-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+.bg2-practical-item {
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.13);
+}
+.bg2-practical-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.bg2-practical-body {
+  font-size: 15px;
+  line-height: 1.72;
+  color: rgba(255,255,255,0.68);
+}
+.bg2-practical-item .confirm-note { opacity: 0.4; }
+
+/* Quiet link strip — before payoff */
+.bg2-quiet-strip {
+  background: var(--bg-2);
+  padding: clamp(40px,5vw,64px) var(--pad-x);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.bg2-quiet-strip-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.bg2-quiet-strip .bg2-link { margin-top: 0; }
 </style>
 </head>
 <body>
@@ -2007,6 +2074,110 @@ section { padding: var(--section-pad-y) 0; }
       <a href="https://www.agendaculturel.com/" target="_blank" rel="noopener" class="bg2-link js-reveal">Explore Agenda Culturel →</a>
     </div>
   </section>
+
+  <!-- ====================================================================
+       NEIGHBOURHOODS NEAR CAMPUS
+       ==================================================================== -->
+  <section class="bg2-light" id="neighbourhoods-near-campus" data-screen-label="Neighbourhoods Near Campus" data-animate>
+    <div class="container">
+      <div class="kicker js-reveal">Where Families Live</div>
+      <h2 class="bg2-h2 js-reveal">Neighbourhoods<br>near campus.</h2>
+      <p class="bg2-accent js-reveal">Most Eastwood families settle in the hill towns of the Metn, minutes from campus.</p>
+      <div class="guide-list js-reveal" style="margin-top:40px;">
+        <div class="guide-item">
+          <div class="guide-num">01</div>
+          <div>
+            <div class="guide-h">Mansourieh</div>
+            <p class="guide-d">The campus town itself. Residential streets are established and walkable, daily errands are close at hand, and the school gate is a short walk or the briefest of drives. For families who want to eliminate the morning run entirely, this is the obvious choice. Roughly X minutes to campus.</p>
+          </div>
+        </div>
+        <div class="guide-item">
+          <div class="guide-num">02</div>
+          <div>
+            <div class="guide-h">Ain Saadeh and Mtayleb</div>
+            <p class="guide-d">Two quiet hillside neighbourhoods sitting just above campus, popular with families who want a little more space and greenery without meaningfully adding distance to the school run. The atmosphere is residential and unhurried. Roughly X minutes to campus.</p>
+          </div>
+        </div>
+        <div class="guide-item">
+          <div class="guide-num">03</div>
+          <div>
+            <div class="guide-h">Rabieh</div>
+            <p class="guide-d">A gated, leafy enclave favoured by diplomatic and expat families. Well-maintained grounds, a calm day-to-day rhythm, and a strong international community make it a reliable first posting for families arriving with young children. Roughly X minutes to campus.</p>
+          </div>
+        </div>
+        <div class="guide-item">
+          <div class="guide-num">04</div>
+          <div>
+            <div class="guide-h">Beit Mery and Broumana</div>
+            <p class="guide-d">Higher up the mountain and noticeably cooler in summer. The commute is longer and more scenic, and the weekend culture of restaurants, walks, and village markets gives these neighbourhoods a distinct character. Families who settle here tend to appreciate the distance from city pace. Roughly X minutes to campus.</p>
+          </div>
+        </div>
+      </div>
+      <span class="confirm-note js-reveal">Exact drive times to be confirmed by Monica. Do not publish with placeholder figures.</span>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       YOUR FIRST MONTH
+       ==================================================================== -->
+  <section class="bg2-dark" id="your-first-month" data-screen-label="Your First Month" data-animate>
+    <div class="container">
+      <div class="kicker js-reveal">Settling In</div>
+      <h2 class="bg2-h2 js-reveal">Your first<br>month.</h2>
+      <div class="bg2-practical-grid">
+        <div class="bg2-practical-item js-reveal">
+          <div class="bg2-practical-title">Residency and paperwork</div>
+          <p class="bg2-practical-body">Most expat families arrive on an employment or sponsorship visa and convert to a residency permit shortly after landing. Begin the process through your employer or sponsor before you travel. Documents typically required include passport copies, employment contract, and medical clearance certificates for all family members.</p>
+          <span class="confirm-note">Confirm current permit track before publishing.</span>
+        </div>
+        <div class="bg2-practical-item js-reveal">
+          <div class="bg2-practical-title">Banking and currency</div>
+          <p class="bg2-practical-body">Open a USD account at one of the established private banks on arrival. Day-to-day spending runs on a parallel cash economy: USD for larger transactions and rent, Lebanese pounds for small purchases and local services. Bring sufficient cash to cover your first few weeks while banking is arranged.</p>
+        </div>
+        <div class="bg2-practical-item js-reveal">
+          <div class="bg2-practical-title">Healthcare</div>
+          <p class="bg2-practical-body">Private clinics and hospitals across the Metn are well equipped and accustomed to international families. Arrange comprehensive family health insurance before you arrive. The school can point you to the facilities most commonly used by Eastwood families, including specialist options in Mansourieh and Sin el Fil.</p>
+        </div>
+        <div class="bg2-practical-item js-reveal">
+          <div class="bg2-practical-title">Connectivity and utilities</div>
+          <p class="bg2-practical-body">Mobile lines are available from Alfa and Touch at any major branch. Home internet is generally reliable and contracts are straightforward. A private generator subscription is standard practice across the Metn: your landlord will introduce you to the local supplier, and the monthly cost sits alongside your electricity budget.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       THE SCHOOL RUN
+       ==================================================================== -->
+  <section class="bg2-light" id="the-school-run" data-screen-label="The School Run" data-animate>
+    <div class="container">
+      <div class="kicker js-reveal">Getting to Campus</div>
+      <h2 class="bg2-h2 js-reveal">The school run.</h2>
+      <p class="bg2-body js-reveal" style="max-width:62ch;margin-top:8px;">The campus sits in the centre of Mansourieh and is well signposted. Most families from the surrounding hill towns drive, and the run from Mansourieh, Ain Saadeh, and Rabieh is short enough to be unremarkable on most mornings. From Beit Mery and Broumana the commute is longer but consistent, and families coming from central Beirut find it manageable once they know the route.</p>
+      <p class="bg2-body js-reveal" style="max-width:62ch;margin-top:20px;">Eastwood operates a managed bus service across the Metn. Route and catchment detail available on request.</p>
+      <span class="confirm-note js-reveal">Bus catchment areas, routes, and timing to be supplied by Monica before publishing.</span>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       WHAT SURPRISES NEW FAMILIES
+       ==================================================================== -->
+  <section class="bg2-dark" id="what-surprises" data-screen-label="What Surprises New Families" data-animate>
+    <div class="container">
+      <div class="kicker js-reveal">The Real Beirut</div>
+      <h2 class="bg2-h2 js-reveal">What surprises<br>new families.</h2>
+      <p class="bg2-body js-reveal" style="max-width:62ch;margin-top:8px;">The first thing most families notice is the trilingual rhythm: Arabic, French, and English move fluidly through the same conversation, the same street, the same school day. English carries you everywhere, but the mix quickly starts to feel natural rather than disorientating. The cash-and-USD economy takes a week to understand and a month to feel easy in. The generator cycle, a brief dip in power as the public grid switches over, becomes background noise faster than most people expect. What surprises new families most, though, is how quickly the community closes around them. Eastwood is small enough that new arrivals are noticed, welcomed, and absorbed into school life almost from the first week.</p>
+    </div>
+  </section>
+
+  <!-- Three quiet links -->
+  <div class="bg2-quiet-strip" data-screen-label="Next Steps">
+    <div class="bg2-quiet-strip-inner">
+      <a href="admissions.html" class="bg2-link js-reveal">Ready to apply? See Admissions.</a>
+      <a href="student-life.html" class="bg2-link js-reveal">After-school and logistics for working parents.</a>
+      <a href="index.html" class="bg2-link js-reveal">How Eastwood keeps learning uninterrupted.</a>
+    </div>
+  </div>
 
   <section class="bg2-payoff" data-screen-label="Payoff" data-animate>
     <div class="container">
