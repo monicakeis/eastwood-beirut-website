@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eastwood Beirut — Website Status Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  doc-page:not(:defined){ visibility:hidden; }
+  :root{
+    --deep-blue:#000077; --teal:#00B5AD; --teal-dark:#00938C;
+    --ink:#000077; --dim:rgba(0,0,119,0.7); --dimmer:rgba(0,0,119,0.5);
+    --line:rgba(0,0,119,0.14); --bg-soft:#F5F5F7; --green:#1F8A5B;
+  }
+  doc-page{
+    font-family:'Inter',system-ui,sans-serif; color:var(--ink);
+    font-size:11.5px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Inter Tight','Inter',sans-serif; letter-spacing:-0.02em; color:var(--deep-blue); }
+  .rep-kicker{ font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:10px; }
+  h1{ font-size:32px; font-weight:800; line-height:1.02; margin:0 0 6px; letter-spacing:-0.03em; }
+  h1 .it{ font-family:'Instrument Serif',Georgia,serif; font-style:italic; font-weight:400; color:var(--teal); }
+  .rep-sub{ font-size:12.5px; color:var(--dim); max-width:64ch; }
+  .rep-meta{ display:flex; flex-wrap:wrap; gap:10px 26px; margin:18px 0 4px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .rep-meta div{ font-size:10.5px; }
+  .rep-meta .lbl{ color:var(--dimmer); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; font-size:9px; margin-bottom:3px; }
+  .rep-meta .val{ font-weight:600; font-size:12px; }
+  .status-pill{ display:inline-block; padding:3px 10px; border-radius:999px; background:rgba(31,138,91,0.12); color:var(--green); font-weight:700; font-size:10px; letter-spacing:0.04em; }
+  h2{ font-size:15px; font-weight:700; margin:26px 0 12px; padding-bottom:7px; border-bottom:2px solid var(--teal); }
+  h3{ font-size:12px; font-weight:700; margin:14px 0 4px; }
+  p{ margin:0 0 9px; }
+  ul{ margin:0 0 10px; padding-left:0; list-style:none; }
+  li{ position:relative; padding-left:18px; margin-bottom:6px; }
+  li::before{ content:'→'; position:absolute; left:0; color:var(--teal); font-weight:700; }
+  .done li::before{ content:'✓'; color:var(--green); }
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:0 32px; }
+  table{ width:100%; border-collapse:collapse; margin:6px 0 12px; font-size:10.5px; }
+  th,td{ text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ font-size:9px; text-transform:uppercase; letter-spacing:0.09em; color:var(--dimmer); font-weight:700; border-bottom:1.5px solid var(--line); }
+  td .ok{ color:var(--green); font-weight:700; }
+  .metric-row{ display:flex; gap:14px; flex-wrap:wrap; margin:8px 0 14px; }
+  .metric{ flex:1; min-width:120px; border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--bg-soft); }
+  .metric .n{ font-family:'Inter Tight'; font-size:26px; font-weight:800; letter-spacing:-0.03em; line-height:1; color:var(--deep-blue); }
+  .metric .k{ font-size:9.5px; color:var(--dim); margin-top:6px; line-height:1.35; }
+  .note{ font-size:10px; color:var(--dimmer); font-style:italic; }
+  .foot{ display:flex; justify-content:space-between; font-size:9px; color:var(--dimmer); }
+  strong{ color:var(--deep-blue); }
+</style>
+</head>
+<body>
+<doc-page size="letter" margin="0.7in">
+
+  <div class="rep-kicker">Website Project · Status Report</div>
+  <h1>Eastwood Beirut <span class="it">website.</span></h1>
+  <p class="rep-sub">Build, content, design polish and pre-launch audit for the new Eastwood International School Beirut website — a 16-page marketing site covering programmes, admissions, campus life and relocation.</p>
+
+  <div class="rep-meta">
+    <div><div class="lbl">Status</div><div class="val"><span class="status-pill">Ready to deploy</span></div></div>
+    <div><div class="lbl">Report date</div><div class="val">7 July 2026</div></div>
+    <div><div class="lbl">Pages</div><div class="val">16 live pages</div></div>
+    <div><div class="lbl">Target</div><div class="val">GitHub Pages</div></div>
+  </div>
+
+  <h2>Summary</h2>
+  <p>The website is complete and ready for deployment. All pages are built, wired and consistent; every image slot is filled with a real photograph; navigation, footer and branding are uniform across the site. A full pre-launch audit (accessibility and performance/SEO best-practices) was run and issues resolved. Remaining items are content and operational sign-offs owned by the school, not build tasks.</p>
+
+  <h2>Pages delivered</h2>
+  <div class="two">
+    <ul class="done">
+      <li>Home</li>
+      <li>About Eastwood</li>
+      <li>Admissions</li>
+      <li>Early Years (IB-PYP)</li>
+      <li>Elementary (IB-PYP)</li>
+      <li>French Section</li>
+      <li>Middle School (IB-MYP)</li>
+      <li>High School</li>
+    </ul>
+    <ul class="done">
+      <li>IB Diploma Programme</li>
+      <li>Student Life</li>
+      <li>Beirut Guide for families</li>
+      <li>News &amp; Events</li>
+      <li>Careers</li>
+      <li>Contact</li>
+      <li>Privacy</li>
+      <li>+ Photography shot list (internal)</li>
+    </ul>
+  </div>
+
+  <h2>Work completed this cycle</h2>
+  <ul>
+    <li><strong>News page</strong> — added a featured campus video and an on-brand Instagram panel (@eastwoodschools); optional live-feed slot ready to activate.</li>
+    <li><strong>Beirut Guide</strong> — restructured from a long, repetitive scroll into a tighter editorial layout (at-a-glance grid, two-column neighbourhoods and a combined "Living Here" essay).</li>
+    <li><strong>Programme pages</strong> — reworked the "reasons/approach" lists on the French and Early Years pages into clean columns; removed a placeholder photo on High School and re-centred the section.</li>
+    <li><strong>Elementary</strong> — fixed an invisible (white-on-light) heading in the "By the Numbers" section.</li>
+    <li><strong>Footer</strong> — corrected all campus names and added social links (Instagram, Facebook, LinkedIn, TikTok) site-wide.</li>
+    <li><strong>Design polish</strong> — refined scroll animations, added keyboard focus states and brand text-selection, standardised hover/press feedback.</li>
+    <li><strong>Content</strong> — spell-check run across all pages: clean.</li>
+  </ul>
+
+  <h2>Pre-launch audit</h2>
+  <div class="metric-row">
+    <div class="metric"><div class="n">16 / 16</div><div class="k">Pages with correct language, title &amp; meta description</div></div>
+    <div class="metric"><div class="n">100%</div><div class="k">Images with descriptive alt text</div></div>
+    <div class="metric"><div class="n">113</div><div class="k">External links hardened with rel="noopener"</div></div>
+    <div class="metric"><div class="n">0</div><div class="k">Broken asset references across the site</div></div>
+  </div>
+  <table>
+    <thead><tr><th>Check</th><th>Standard</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Page language set (<code>lang</code>)</td><td>Accessibility (NN/g, WCAG)</td><td class="ok">Pass — all pages</td></tr>
+      <tr><td>Single H1 &amp; heading order</td><td>Accessibility / SEO</td><td class="ok">Pass — all pages</td></tr>
+      <tr><td>Image alt text</td><td>WCAG 1.1.1</td><td class="ok">Pass — 100%</td></tr>
+      <tr><td>Keyboard focus indicators</td><td>WCAG 2.4.7</td><td class="ok">Added site-wide</td></tr>
+      <tr><td>Skip-to-content link</td><td>Accessibility</td><td class="ok">Present on all pages</td></tr>
+      <tr><td>Reduced-motion support</td><td>WCAG 2.3 / best practice</td><td class="ok">Respected</td></tr>
+      <tr><td>External link safety (<code>rel="noopener"</code>)</td><td>Lighthouse best-practices</td><td class="ok">113 links fixed</td></tr>
+      <tr><td>Meta description &amp; titles</td><td>SEO</td><td class="ok">Pass — all pages</td></tr>
+      <tr><td>Broken links / missing assets</td><td>Quality</td><td class="ok">None found</td></tr>
+      <tr><td>Mobile navigation &amp; layout</td><td>Responsive / UX</td><td class="ok">Focus-trapped menu, responsive grids</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Audit method: automated scan of all pages against Nielsen Norman Group accessibility heuristics and Google Lighthouse best-practice checks, plus manual visual review. Page-speed will be validated on the live GitHub Pages URL post-deploy (assets are lazy-loaded and the hero image is prioritised).</p>
+
+  <h2>Owned by the school (before / after launch)</h2>
+  <ul>
+    <li><strong>Fact-check</strong> — tuition figures, founding dates and university-placement claims to be confirmed by the team.</li>
+    <li><strong>Enquiry forms</strong> — three Typeforms are linked and live (Enquiry, Careers, Contact); confirm they route to the right inboxes.</li>
+    <li><strong>News</strong> — currently an Instagram-forward page; optional live feed can be switched on with a LightWidget hash for @eastwoodschools.</li>
+    <li><strong>Eastwood Nova</strong> — shown as "coming soon"; a dedicated page can be added when ready.</li>
+  </ul>
+
+  <h2>Deployment</h2>
+  <p>The site is a static build (HTML + assets) and deploys to GitHub Pages: copy the files into the repository folder, commit, and push. The live site refreshes automatically within a couple of minutes. The repository is kept intentionally light for fast loads.</p>
+
+  <div style="margin-top:22px; padding-top:12px; border-top:1px solid var(--line);" class="foot">
+    <span>Eastwood International School Beirut · Website Status Report</span>
+    <span>Prepared 7 July 2026 · Status: Ready to deploy</span>
+  </div>
+
+</doc-page>
+<script src="doc-page.js"></script>
+</body>
+</html>
