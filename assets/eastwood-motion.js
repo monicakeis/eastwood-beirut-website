@@ -62,7 +62,7 @@
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
       e.target.classList.add('in');
-      e.target.querySelectorAll('[data-count]').forEach(countUp);
+      if(!matchMedia('(prefers-reduced-motion: reduce)').matches) e.target.querySelectorAll('[data-count]').forEach(countUp);
       sectionIO.unobserve(e.target);
     });
   }, { threshold: 0.25 });

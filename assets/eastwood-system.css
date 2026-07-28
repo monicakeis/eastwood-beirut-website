@@ -122,13 +122,7 @@
 .dil-media-tag { transition: transform .3s ease; }
 .dil-media:hover .dil-media-tag { transform: translateY(-4px); }
 
-/* Faster, tighter scroll reveal + headline mask wipe */
-@media (prefers-reduced-motion: no-preference) {
-  .js-reveal { opacity: 0; transform: translateY(18px); }
-  .js-reveal.in { opacity: 1; transform: none; transition: opacity .38s cubic-bezier(.16,1,.3,1), transform .38s cubic-bezier(.16,1,.3,1); }
-  .js-reveal .section-h2 { clip-path: inset(0 100% 0 0); transition: clip-path .55s cubic-bezier(.16,1,.3,1) .05s; }
-  .js-reveal.in .section-h2 { clip-path: inset(0 0 0 0); }
-}
+/* Scroll reveal — canonical definition lives in MOTION SYSTEM at end of file */
 
 /* Kinetic stat marquee */
 .kmarquee { background: var(--deep-blue); color: #fff; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 18px 0; }
@@ -137,7 +131,7 @@
 .kmarquee-item { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: clamp(15px, 1.9vw, 23px); white-space: nowrap; color: rgba(255,255,255,0.92); }
 .kmarquee-item b { color: var(--teal); font-weight: 700; }
 .kmarquee-dot { width: 8px; height: 8px; background: var(--teal); flex: 0 0 auto; }
-@keyframes kmarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* kmarquee animation lives in the PREMIUM MOTION LAYER at end of file */
 @media (prefers-reduced-motion: reduce) {
   .kmarquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
   .js-reveal { opacity: 1 !important; transform: none !important; }
@@ -183,7 +177,7 @@
 .hero-stats-grid > div:first-child { border-left: none; padding-left: 0; }
 .stat-n { font-family: var(--font-display) !important; font-weight: 800 !important; font-size: clamp(30px, 3.4vw, 46px) !important; letter-spacing: -0.03em !important; line-height: 0.95 !important; color: var(--deep-blue) !important; text-transform: uppercase; }
 .stat-n .t { color: var(--teal) !important; }
-.stat-l { text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; font-weight: 600; color: var(--fg-dimmer); margin-top: 12px; max-width: 24ch; }
+.stat-l { text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; font-weight: 600; color: var(--fg-dimmer); margin-top: 12px; max-width: 24ch; overflow-wrap: break-word; }
 @media (max-width: 760px) { .hero-stats-grid > div { padding-left: 24px; } }
 /* Top deadline ticker in caps */
 .deadline-item { text-transform: uppercase; letter-spacing: 0.08em; }
@@ -197,12 +191,7 @@
 /* Tighter vertical rhythm across all sections */
 :root { --section-pad-y: clamp(40px, 4.4vw, 76px); }
 .section-head { margin-bottom: clamp(22px, 2.4vw, 36px); }
-/* Smoother, slower scroll motion (remove glitchy clip-wipe, ease reveals) */
-@media (prefers-reduced-motion: no-preference) {
-  .js-reveal.in { transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1) !important; }
-  .js-reveal .section-h2, .js-reveal.in .section-h2 { clip-path: none !important; transition: none !important; }
-  .hero-stats[data-animate].in .hero-stats-grid > div { transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1) !important; }
-}
+/* Reveal timing consolidated into MOTION SYSTEM at end of file */
 /* ============================================================================
    DESIGN SYSTEM PASS — two radii, two buttons, dark-light rhythm
    ============================================================================ */
@@ -275,10 +264,10 @@
 .reviews-marquee { -webkit-mask-image: none !important; mask-image: none !important; }
 
 /* Even, centered stat distribution */
-.hero-stats-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 0 !important; }
+.hero-stats-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 0 !important; }
 .hero-stats-grid > div { padding: 0 18px !important; border-left: 1px solid rgba(255,255,255,0.16) !important; text-align: center; align-items: center; }
 .hero-stats-grid > div:first-child { border-left: none !important; }
-@media (max-width: 760px) { .hero-stats-grid { grid-template-columns: 1fr 1fr !important; } }
+@media (max-width: 760px) { .hero-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
 
 /* Button hierarchy: never two teal in a row — only one primary per group */
 .hero-cta .btn-primary ~ .btn-primary, .apply-ctas .btn-deep ~ .btn-deep, .tuition-cta .btn-deep ~ .btn-primary {
@@ -414,15 +403,7 @@
 /* Campus list spreads to align its bottom with the map card */
 .campus-grid { align-items: stretch !important; }
 .campus-list { display: flex !important; flex-direction: column; justify-content: space-between; height: 100%; }
-/* Flags: gentle animated float */
-@media (prefers-reduced-motion: no-preference) {
-  .expat-flags span { animation: flagFloat 3.6s ease-in-out infinite; }
-  .expat-flags span:nth-child(2n) { animation-delay: .25s; }
-  .expat-flags span:nth-child(3n) { animation-delay: .5s; }
-  .expat-flags span:nth-child(4n) { animation-delay: .8s; }
-  .expat-flags span:nth-child(5n) { animation-delay: 1.05s; }
-}
-@keyframes flagFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+/* Flags sit still — the float was decoration, not information */
 
 /* Flags card grows; handle list stays tight (less empty) */
 .expat-card:not(.alt) { flex: 1 1 auto !important; display: flex; flex-direction: column; }
@@ -452,8 +433,7 @@
 }
 /* Less top/bottom space for the closing "Your child is becoming" block */
 .apply-cta { padding-top: clamp(38px, 5vw, 72px) !important; padding-bottom: clamp(38px, 5vw, 72px) !important; }
-/* Footer logo: teal shield/mark */
-.footer .logo img { filter: brightness(0) saturate(100%) invert(58%) sepia(72%) saturate(560%) hue-rotate(131deg) brightness(94%) contrast(92%) !important; }
+/* Footer logo: colour comes from logo-white.png itself (see logo block below) */
 /* Keep the stats row visible (the count-up is the animation; don't let the reveal hide it) */
 .hero-stats[data-animate] .hero-stats-grid > div { opacity: 1 !important; transform: none !important; }
 /* Soft Apple-style shadows on all cards (overrides the earlier flat rule) */
@@ -509,18 +489,8 @@
 .emap-pin {
   position: absolute; width: 9px; height: 9px; border-radius: 50%;
   background: var(--teal); transform: translate(-50%,-50%); z-index: 1;
-  box-shadow: 0 0 0 0 rgba(0,181,173,0.6), 0 0 8px rgba(0,181,173,0.6);
-  animation: emapPulse 2.6s infinite;
+  box-shadow: 0 0 8px rgba(0,181,173,0.6);
 }
-.emap-pin:nth-child(odd) { animation-delay: .5s; }
-.emap-pin:nth-child(3n) { animation-delay: 1s; }
-.emap-pin:nth-child(4n) { animation-delay: 1.5s; }
-@keyframes emapPulse {
-  0% { box-shadow: 0 0 0 0 rgba(0,181,173,0.55), 0 0 8px rgba(0,181,173,0.6); }
-  70% { box-shadow: 0 0 0 11px rgba(0,181,173,0), 0 0 8px rgba(0,181,173,0.3); }
-  100% { box-shadow: 0 0 0 0 rgba(0,181,173,0), 0 0 8px rgba(0,181,173,0.6); }
-}
-@media (prefers-reduced-motion: reduce) { .emap-pin { animation: none; } }
 /* Photos (option 2): contain the Tuesday images so they aren't upscaled/soft */
 .dil-grid { align-items: center !important; }
 .dil-media { aspect-ratio: 4 / 3 !important; height: auto !important; min-height: 0 !important; max-height: 440px; align-self: center; }
@@ -541,13 +511,10 @@
   .reason-n, .adm-n, .vb-k { display: inline-block; transition: transform .4s cubic-bezier(.2,.85,.25,1), color .3s ease; }
   .reason:hover .reason-n, .adm-step:hover .adm-n, .vb-item:hover .vb-k { transform: scale(1.18) translateY(-2px); }
   .accred-tile:hover { transform: translateY(-5px) scale(1.03) !important; }
-  /* springier, higher-energy scroll reveals */
-  .js-reveal { opacity: 0; transform: translateY(30px) scale(.985); }
-  .js-reveal.in { opacity: 1; transform: none; transition: opacity .6s cubic-bezier(.2,.85,.25,1), transform .6s cubic-bezier(.2,.85,.25,1) !important; }
 }
 /* Flags — Apple-minimal: clean even grid, restrained, subtle hover only */
 .expat-flags { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)) !important; gap: 18px 14px !important; align-items: center; margin-top: 4px; }
-.expat-flags span { font-size: 28px !important; text-align: center; line-height: 1; animation: none !important; transition: transform .25s cubic-bezier(.2,.85,.25,1); }
+.expat-flags span { font-size: 28px !important; text-align: center; line-height: 1; transition: transform .25s cubic-bezier(.2,.85,.25,1); }
 .expat-flags span:hover { transform: scale(1.18); }
 
 /* Handle box — align icon and text cleanly */
@@ -588,7 +555,7 @@
 .expat-card:not(.alt) { justify-content: flex-start !important; }
 /* International community — premium country-code chips (render everywhere, unlike flag emoji) */
 .expat-flags { display: flex !important; flex-wrap: wrap; gap: 8px !important; align-content: flex-start; grid-template-columns: none !important; }
-.expat-flags span { font-size: 12px !important; font-family: var(--font-display); font-weight: 600; letter-spacing: 0.06em; color: var(--deep-blue); border: 1px solid var(--line); padding: 7px 12px; border-radius: 999px !important; background: #fff; line-height: 1; transition: transform .25s cubic-bezier(.2,.85,.25,1), border-color .25s ease; animation: none !important; }
+.expat-flags span { font-size: 12px !important; font-family: var(--font-display); font-weight: 600; letter-spacing: 0.06em; color: var(--deep-blue); border: 1px solid var(--line); padding: 7px 12px; border-radius: 999px !important; background: #fff; line-height: 1; transition: transform .25s cubic-bezier(.2,.85,.25,1), border-color .25s ease; }
 .expat-flags span:hover { transform: translateY(-2px); border-color: var(--teal); }
 .expat-flags .flag-more { background: rgba(0,181,173,0.12); border-color: transparent !important; color: var(--deep-blue); text-transform: uppercase; }
 /* Even less space under the admissions journey cards */
@@ -625,14 +592,12 @@
 /* Country chips fill their card intentionally */
 .expat-card:not(.alt) { flex: 1 1 auto !important; display: flex !important; flex-direction: column; }
 .expat-card:not(.alt) .expat-flags { flex: 1 1 auto !important; align-content: space-between !important; }
-/* Animated flag emojis back; handle box enlarged to fill the space */
+/* Flags: static grid. The float animation (and its stagger delays) was removed
+   in the restraint pass — this block previously re-declared it after the first
+   block had been deleted, leaving a dangling animation-name. */
 .expat-flags { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)) !important; gap: 14px 12px !important; align-content: start !important; }
 .expat-card:not(.alt) { flex: 0 0 auto !important; }
-.expat-flags span { font-size: 30px !important; text-align: center; line-height: 1; border: none !important; background: none !important; padding: 0 !important; box-shadow: none !important; transform: none; animation: flagFloat 3.6s ease-in-out infinite !important; }
-.expat-flags span:nth-child(2n) { animation-delay: .25s !important; }
-.expat-flags span:nth-child(3n) { animation-delay: .5s !important; }
-.expat-flags span:nth-child(4n) { animation-delay: .8s !important; }
-.expat-flags span:nth-child(5n) { animation-delay: 1.05s !important; }
+.expat-flags span { font-size: 30px !important; text-align: center; line-height: 1; border: none !important; background: none !important; padding: 0 !important; box-shadow: none !important; }
 
 .expat-card.alt { flex: 1 1 auto !important; padding: 32px !important; }
 .expat-card.alt .expat-service { padding: 16px 0 16px 44px !important; }
@@ -643,8 +608,7 @@
 /* Teal rule before safeguarding card titles, matching the eyebrow treatment */
 .sg-k { display: inline-flex !important; align-items: center; gap: 12px; }
 .sg-k::before { content: ''; width: 24px; height: 2px; background: var(--teal); flex: 0 0 auto; }
-/* Footer logo all white */
-.footer .logo img { filter: brightness(0) invert(1) !important; }
+/* Footer logo: see logo block below */
 /* ===== CLEAR TYPE SCALE — one size per role ===== */
 .section-lede { font-size: 16px !important; line-height: 1.55 !important; }
 .reason-d, .stage-desc, .sg-d, .vb-d, .aid-d, .o-l, .expat-list li, .review-quote, .lead-body p, .aid-prose p { font-size: 14.5px !important; line-height: 1.55 !important; }
@@ -907,29 +871,9 @@
 .logo img { content: url('logo-color.png'); }
 .footer .logo img { content: url('logo-white.png') !important; filter: none !important; }
 
-/* js-reveal scroll animations ---------------------------------------------- */
-.js-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1);
-  will-change: opacity, transform;
-}
-.js-reveal.visible { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .js-reveal { opacity:1 !important; transform:none !important; } }
+/* Reveal base moved to MOTION SYSTEM at end of file */
 
-/* Cinematic hero drift — subtle Ken-Burns, reduced-motion safe ------------- */
-@media (prefers-reduced-motion: no-preference) {
-  .hero-media img, .ab-hero-media img, .dp-hero-media img,
-  .sl2-hero-media img, .bg2-hero-media img, .contact-hero-media img {
-    animation: ewHeroKen 30s ease-in-out infinite alternate;
-    transform-origin: center 42%;
-    will-change: transform;
-  }
-  @keyframes ewHeroKen {
-    from { transform: scale(1.03); }
-    to   { transform: scale(1.10); }
-  }
-}
+/* Hero images hold still. Subject framing is set by object-position below. */
 
 /* Dark custom sections — ensure white type over deep-blue backgrounds ------- */
 [class*="-dark"] .section-h2,
@@ -986,7 +930,6 @@ body.mnav-open{ overflow:hidden; }
 
 /* Premium motion pass ------------------------------------------------------ */
 @media (prefers-reduced-motion: no-preference){
-  html{ scroll-behavior:smooth; }
   .nav-link{ position:relative; }
   .nav-link::after{ content:''; position:absolute; left:0; right:0; bottom:-5px; height:2px;
     background:var(--teal); transform:scaleX(0); transform-origin:left;
@@ -1025,4 +968,338 @@ body.mnav-open{ overflow:hidden; }
   .reason, .stage, .quote, .path, .lead-card, .campus-row{
     transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s cubic-bezier(.16,1,.3,1), border-color .25s ease, background .25s ease;
   }
+}
+
+/* ============================================================================
+   MOTION SYSTEM — single source of truth (2026 pass)
+   Tokens, one reveal definition, compositor-safe props only, reduced-motion safe.
+   ============================================================================ */
+:root{
+  /* Accessible teal for SMALL text on light backgrounds. Clears WCAG AA on both
+     light surfaces in the system: 4.94:1 on #fff and 4.72:1 on #FAFAF7 (bg-2).
+     Brand --teal (#00B5AD) is only 2.56:1 on white, but 6.49:1 on deep blue,
+     so it stays the correct choice on dark sections. */
+  --teal-ink:#007E77;
+  --ease-out-expo:cubic-bezier(.16,1,.3,1);
+  --ease-out-quint:cubic-bezier(.22,1,.36,1);
+  --ease-out-soft:cubic-bezier(.05,.2,.1,1);
+  --ease-in-out:cubic-bezier(.76,0,.24,1);
+  --dur-fast:.25s;--dur-mid:.45s;--dur-slow:.7s;
+}
+@media (prefers-reduced-motion: no-preference){
+  /* ── Scroll reveal ──
+     Two JS contracts exist and BOTH must be honoured:
+       assets/eastwood-motion.js + index.html inline  → adds .in
+       assets/eastwood-animations.js                  → adds .visible
+     Ten pages load only eastwood-animations.js, so .visible is load-bearing. */
+  .js-reveal{opacity:0;transform:translateY(22px)}
+  .js-reveal.in,.js-reveal.visible{opacity:1;transform:none;transition:opacity var(--dur-slow) var(--ease-out-expo),transform var(--dur-slow) var(--ease-out-expo)}
+  .js-reveal .section-h2,.js-reveal.in .section-h2,.js-reveal.visible .section-h2{clip-path:none;transition:none}
+  /* will-change only while in flight, then released */
+  .js-reveal:not(.in):not(.visible){will-change:opacity,transform}
+  .js-reveal.in,.js-reveal.visible{will-change:auto}
+
+  /* ── Media: settle-in scale + restrained hover zoom ── */
+  .prog-parallel-photo img,.news-card img,.sl-card img,.campus-photo img{
+    transition:transform var(--dur-slow) var(--ease-out-soft),filter var(--dur-mid) ease}
+  .prog-parallel:hover .prog-parallel-photo img,.news-card:hover img,.sl-card:hover img{transform:scale(1.06)}
+
+  /* ── Links & buttons ── */
+  .nav-link{transition:color var(--dur-fast) ease,letter-spacing var(--dur-fast) var(--ease-out-expo)}
+  .btn{transition:background var(--dur-fast) ease,color var(--dur-fast) ease,border-color var(--dur-fast) ease,transform var(--dur-fast) var(--ease-out-expo),box-shadow var(--dur-mid) var(--ease-out-expo)}
+
+  /* ── Cards settle on one easing ── */
+  .reason,.stage,.quote,.path,.lead-card,.campus-row,.tuition-card,.news-card{
+    transition:transform var(--dur-mid) var(--ease-out-expo),box-shadow var(--dur-mid) var(--ease-out-expo),border-color var(--dur-fast) ease,background var(--dur-fast) ease}
+}
+/* .ew-progress styling lives in the PREMIUM MOTION LAYER at end of file */
+@media (prefers-reduced-motion: reduce){
+  .js-reveal,.js-reveal.in,.js-reveal.visible{opacity:1!important;transform:none!important;transition:none!important}
+  .js-reveal .section-h2{clip-path:none!important}
+  .ew-progress{display:none}
+}
+
+/* ============================================================================
+   PREMIUM MOTION LAYER (2026) — restored and consolidated.
+   Everything lives here rather than scattered through 16 inline <style> blocks,
+   so motion can be tuned in one place. Compositor-safe properties only
+   (transform / opacity / filter) and every rule sits inside
+   prefers-reduced-motion: no-preference, with a global stop at the end.
+   ============================================================================ */
+/* Scrolled nav sits on deep blue: use the white lockup so the teal shield survives */
+.nav.scrolled .logo img{ content:url('logo-white.png') !important; filter:none !important; }
+
+/* ---- keyframes (re-declared centrally) ---- */
+@keyframes hero-fade-up{ from{ opacity:0; transform:translateY(24px); } to{ opacity:1; transform:translateY(0); } }
+@keyframes ew-pulse{ 0%{ box-shadow:0 0 0 0 rgba(0,181,173,.7); } 70%{ box-shadow:0 0 0 12px rgba(0,181,173,0); } 100%{ box-shadow:0 0 0 0 rgba(0,181,173,0); } }
+@keyframes ew-marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+@keyframes ew-marquee-rev{ from{ transform:translateX(-50%); } to{ transform:translateX(0); } }
+@keyframes ewHeroKen{ from{ transform:scale(1.03); } to{ transform:scale(1.10); } }
+@keyframes flagFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-5px); } }
+@keyframes emapPulse{ 0%{ box-shadow:0 0 0 0 rgba(0,181,173,.55), 0 0 8px rgba(0,181,173,.6); } 70%{ box-shadow:0 0 0 11px rgba(0,181,173,0), 0 0 8px rgba(0,181,173,.3); } 100%{ box-shadow:0 0 0 0 rgba(0,181,173,0), 0 0 8px rgba(0,181,173,.6); } }
+@keyframes ew-progress-grow{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+@keyframes ew-drift{ from{ transform:translate3d(0,-2.2%,0) scale(1.07); } to{ transform:translate3d(0,2.2%,0) scale(1.07); } }
+
+@media (prefers-reduced-motion: no-preference){
+  html{ scroll-behavior:smooth; }
+
+  /* ---- Hero entrance: staggered fade-and-rise ---- */
+  .hero-eyebrow{ animation:hero-fade-up .8s var(--ease-out-expo) .1s backwards; }
+  .hero-h1{ animation:hero-fade-up .9s var(--ease-out-expo) .2s backwards; }
+  .hero-sub{ animation:hero-fade-up 1s var(--ease-out-expo) .35s backwards; }
+  .hero-cta{ animation:hero-fade-up 1s var(--ease-out-expo) .5s backwards; }
+  .pulse{ animation:ew-pulse 1.8s infinite; }
+
+  /* ---- Hero imagery: slow cinematic drift ---- */
+  .hero-media img, .ab-hero-media img, .dp-hero-media img,
+  .sl2-hero-media img, .bg2-hero-media img, .contact-hero-media img{
+    animation:ewHeroKen 30s ease-in-out infinite alternate;
+    transform-origin:center 42%;
+  }
+
+  /* ---- Marquees ---- */
+  .deadline-marquee{ animation:ew-marquee 38s linear infinite; }
+  .unis-track{ animation:ew-marquee 50s linear infinite; }
+  .accred-track{ animation:ew-marquee 50s linear infinite; }
+  .about-accred-track{ animation:ew-marquee 50s linear infinite; }
+  .kmarquee-track{ animation:ew-marquee 40s linear infinite; }
+  .reviews-row.r-left{ animation:ew-marquee 70s linear infinite; }
+  .reviews-row.r-right{ animation:ew-marquee-rev 84s linear infinite; }
+  .accred-marquee:hover .accred-track,
+  .about-accred-marquee:hover .about-accred-track,
+  .reviews-marquee:hover .reviews-row,
+  .deadline-bar:hover .deadline-marquee{ animation-play-state:paused; }
+
+  /* ---- Masked heading rise ---- */
+  /* pad/negative-margin pair keeps italic descenders from clipping */
+  .m-mask{ overflow:hidden; display:block; padding-bottom:.14em; margin-bottom:-.14em; }
+  .m-line{ display:block; transform:translateY(112%); transition:transform 1s var(--ease-out-expo); }
+  /* the mask can be a DESCENDANT of the revealed element or the SAME element,
+     and two reveal contracts exist (.in / .visible) — all four combinations */
+  .m-mask.m-in .m-line,
+  .js-reveal.in .m-mask .m-line,
+  .js-reveal.visible .m-mask .m-line,
+  .js-reveal.in.m-mask .m-line,
+  .js-reveal.visible.m-mask .m-line{ transform:translateY(0); }
+  .js-reveal.in .m-mask .m-line,
+  .js-reveal.visible .m-mask .m-line,
+  .js-reveal.in.m-mask .m-line,
+  .js-reveal.visible.m-mask .m-line{ transition-delay:.08s; }
+
+  /* ---- Media hover zoom ---- */
+  .zoomable img{ transition:transform 1.05s var(--ease-out-soft); }
+  .zoomable:hover img, .zoomable:focus-within img{ transform:scale(1.12); }
+
+  /* ---- Map + flags ---- */
+  .emap-pin{ animation:emapPulse 2.6s infinite; }
+  .emap-pin:nth-child(odd){ animation-delay:.5s; }
+  .emap-pin:nth-child(3n){ animation-delay:1s; }
+  .emap-pin:nth-child(4n){ animation-delay:1.5s; }
+  .expat-flags span{ animation:flagFloat 3.6s ease-in-out infinite; }
+  .expat-flags span:nth-child(2n){ animation-delay:.25s; }
+  .expat-flags span:nth-child(3n){ animation-delay:.5s; }
+  .expat-flags span:nth-child(4n){ animation-delay:.8s; }
+  .expat-flags span:nth-child(5n){ animation-delay:1.05s; }
+
+  /* ---- Buttons keep the shared easing (magnetic offset comes from JS) ---- */
+  .btn{ transition:background var(--dur-fast) ease, color var(--dur-fast) ease,
+        border-color var(--dur-fast) ease, transform var(--dur-mid) var(--ease-out-expo),
+        box-shadow var(--dur-mid) var(--ease-out-expo); }
+}
+
+/* ---- Scroll-driven: native timelines, no scroll listeners ---- */
+.ew-progress{ position:fixed; top:0; left:0; right:0; height:3px; background:var(--teal);
+  transform:scaleX(0); transform-origin:left; z-index:1400; pointer-events:none; }
+@supports (animation-timeline: scroll()){
+  @media (prefers-reduced-motion: no-preference){
+    .ew-progress{ animation:ew-progress-grow linear both; animation-timeline:scroll(root block); }
+  }
+}
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .dil-media img, .lead-portrait img, .stage-img img{
+      animation:ew-drift linear both; animation-timeline:view(); animation-range:cover 0% cover 100%;
+    }
+  }
+}
+
+/* ============================================================================
+   GLOBAL MOTION STOP — prefers-reduced-motion switches everything off.
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .js-reveal,.js-reveal.in,.js-reveal.visible{ opacity:1 !important; transform:none !important; }
+  .m-mask{ overflow:visible !important; }
+  .m-line{ transform:none !important; }
+  /* marquee tracks become static wrapped rows so nothing is clipped off-screen */
+  .deadline-marquee,.unis-track,.accred-track,.about-accred-track,.kmarquee-track,.reviews-row{
+    animation:none !important; flex-wrap:wrap; width:auto !important; justify-content:center;
+  }
+  .deadline-item:not(:first-child){ display:none; }
+}
+
+/* ============================================================================
+   MOBILE CORRECTNESS (≤600px) — desktop layout untouched.
+   Body copy to 16px (also stops iOS zoom-on-focus), standalone controls to a
+   44px touch target, media constrained to the viewport.
+   Inline links inside running prose are deliberately NOT padded to 44px:
+   WCAG 2.5.8 exempts inline text links, and padding them would break the
+   line box. Uppercase micro-labels (.kicker, .stat-l) stay small by design.
+   ============================================================================ */
+@media (max-width: 600px){
+  /* ── Body copy: 16px floor ── */
+  .section-lede, .vb-d, .reason-d, .ab-hero-sub, .lead-feat-bio, .footer-brand-tag,
+  .hs-col-body, .hs-desc, .core-d, .cont-desc, .myp-desc, .myp-french-body,
+  .ey-desc, .ey-card-desc, .el-desc, .fr-en-sub, .fr-desc, .fr-prog-en,
+  .sl2-sub, .ig-panel-d, .bg2-sub, .bg-brief-d, .legal-p{
+    font-size: 16px !important; line-height: 1.55 !important;
+  }
+  .path-list li, .legal-list li, .adm-step li, .core-list li{ font-size: 16px !important; line-height: 1.5 !important; }
+  /* Form fields must be ≥16px or iOS zooms the page on focus */
+  input, select, textarea{ font-size: 16px !important; min-height: 44px; }
+  textarea{ min-height: 96px; }
+
+  /* ── Touch targets: standalone controls only ── */
+  .btn{ min-height: 44px; }
+  .skip-link{ min-height: 44px; display: inline-flex; align-items: center; }
+  .nav .logo{ display: flex; align-items: center; min-height: 44px; }
+  .footer-col a{ min-height: 44px; display: flex; align-items: center; }
+  .footer-bottom a{ min-height: 44px; display: inline-flex; align-items: center; }
+  .mnav-close, .nav-burger{ min-width: 44px; min-height: 44px; }
+  .bg2-link, .myp-french-link, .news-video-sound{ min-height: 44px; display: inline-flex; align-items: center; }
+
+  /* ── Media never forces the page wider than the screen ── */
+  img, video, iframe{ max-width: 100%; }
+  img, video{ height: auto; }
+  iframe{ width: 100% !important; }
+
+  /* ── Wide blocks scroll inside themselves, never the page ── */
+  table{ display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* Body-copy stragglers: these are held by higher-specificity page rules, so
+   the class is repeated to out-specify them rather than layering more
+   !important onto a single class. */
+@media (max-width: 600px){
+  .stage-desc.stage-desc, .ab-hero-sub.ab-hero-sub, .guide-d.guide-d,
+  .bg2-practical-body.bg2-practical-body{ font-size:16px !important; line-height:1.55 !important; }
+  .checklist.checklist li, .age-list.age-list li{ font-size:16px !important; line-height:1.5 !important; }
+}
+@media (max-width: 600px){
+  .prog-parallel-line.prog-parallel-line, .bg2-body.bg2-body{ font-size:16px !important; line-height:1.55 !important; }
+  .expat-list.expat-list li{ font-size:16px !important; line-height:1.5 !important; }
+}
+@media (max-width: 600px){
+  /* .o-l carries full sentences (unlike the uppercase .stat-l micro-label) */
+  .o-l.o-l{ font-size:16px !important; line-height:1.5 !important; }
+  /* guard against sub-pixel rounding leaving controls at 43.99px */
+  .btn, .skip-link, .nav .logo, .footer-col a, .footer-bottom a,
+  .bg2-link, .myp-french-link, .news-video-sound{ min-height:45px; }
+}
+@media (max-width: 600px){
+  .lead-body.lead-body p, .review-quote.review-quote{ font-size:16px !important; line-height:1.55 !important; }
+}
+@media (max-width: 760px){
+  /* contact.html carried a hardcoded inline 2-col grid with no breakpoint,
+     which squeezed the map to ~99px on a phone. Class added purely as a hook. */
+  .contact-split{ grid-template-columns:1fr !important; gap:36px !important; }
+}
+
+/* ============================================================================
+   ACCESSIBILITY — small teal text over light backgrounds
+   Brand teal #00B5AD is 2.56:1 on white (fails AA at kicker size) but 6.49:1 on
+   deep blue (passes). So teal stays the DEFAULT — safe on the dark sections —
+   and the accessible ink is applied only where the background is actually light.
+   Which sections are light is decided by MEASURING the resolved background in
+   assets/eastwood-premium-motion.js, which adds .on-light. An earlier attempt
+   hand-listed the dark sections and missed five of them; measuring cannot.
+   If that script never runs, kickers stay brand teal — the previous behaviour.
+   ============================================================================ */
+.kicker{ color: var(--teal); }
+.kicker.on-light{ color: var(--teal-ink); }
+/* .tuition-note sits on light cards only (the featured dark card overrides it below) */
+.tuition-note{ color: var(--teal-ink) !important; }
+.tuition-card.featured .tuition-note{ color: var(--teal) !important; }
+
+/* Dark CTA band: any link inside it must stay legible. Inline colours in the
+   page markup previously rendered deep-blue-on-deep-blue (1.00:1, invisible). */
+.apply-cta a:not(.btn){ color:#fff !important; text-decoration-color:rgba(255,255,255,.5); }
+.apply-cta a:not(.btn):hover{ color:var(--teal) !important; }
+
+/* ============================================================================
+   TYPOGRAPHY — no widows, orphans or runts (all pages)
+   Only index.html set text-wrap on <body>; the other 15 pages set it on <p> and
+   headings only, so list items, card copy, captions and stat labels were left
+   unprotected. Set once here, inherited everywhere.
+     pretty  → last-line aware: stops single-word last lines (widows/runts)
+     balance → evens line lengths across short blocks: headings, display lines
+   ============================================================================ */
+body{ text-wrap: pretty; }
+
+/* Headings and short display lines balance instead */
+h1, h2, h3, h4, h5, h6,
+.hero-h1, .section-h2, .apply-h, .reason-t, .stage-name, .adm-t, .sg-t,
+.ab-hero-h1, .dp-hero-h1, .util-hero-h1, .news-hero-h1, .hs-col-title, .vb-t,
+.myp-payoff-line, .hs-payoff-line, .fr-payoff-line, .el-payoff-line,
+.ey-payoff-line, .bg2-payoff-line, .abt-payoff-line, .sl2-payoff-line,
+.ig-panel-h, .guide-t, .lead-name, .campus-name, .tuition-stage,
+.footer-h, .accred-h, .review-name{ text-wrap: balance; }
+
+/* The masked-reveal span is its own block container, so it needs the same
+   wrap style as the heading it replaced the contents of. */
+.m-line{ text-wrap: inherit; }
+
+/* Short labels read as single units — never leave one word stranded */
+.stat-l, .o-l, .tuition-note, .tuition-grades, .kicker, .review-role,
+.stage-age, .campus-meta, .deadline-item{ text-wrap: balance; }
+
+/* Long-measure body copy stays pretty and never over-hyphenates */
+p, li, dd, figcaption, blockquote, .section-lede, .reason-d, .guide-d,
+.lead-body p, .legal-p, .bg-brief-d, .review-quote{ text-wrap: pretty; hyphens: manual; }
+
+/* Very long unbroken strings (URLs, emails) wrap instead of forcing overflow */
+.legal-p a, .contact-line a, .footer-brand-tag{ overflow-wrap: break-word; }
+
+/* Print/PDF: keep at least three lines together across page breaks */
+@media print{
+  p, li, blockquote, .section-lede{ orphans: 3; widows: 3; }
+  h1, h2, h3, h4, h5, h6{ break-after: avoid-page; orphans: 3; widows: 3; }
+}
+
+/* The fee-schedule download is a standalone control, not inline prose, so it
+   needs a 44px touch target. Targeted by href since the markup carries inline
+   styles and no class (inline display must be overridden). */
+@media (max-width: 600px){
+  a[href$="FeeSheet.pdf"]{ display:inline-flex !important; align-items:center; min-height:45px; }
+}
+
+/* ============================================================================
+   CROSS-PAGE TRANSITIONS — native View Transitions for multi-page navigation.
+   This is a 16-page static site with no router, so one CSS rule buys the
+   continuity a framework would otherwise be needed for. Costs nothing: no JS,
+   no extra request, no effect on LCP, and browsers without support simply
+   navigate as before.
+   ============================================================================ */
+@view-transition{ navigation: auto; }
+
+@keyframes ew-vt-out{ to{ opacity:0; transform:translateY(-8px); } }
+@keyframes ew-vt-in{ from{ opacity:0; transform:translateY(10px); } }
+
+@media (prefers-reduced-motion: no-preference){
+  ::view-transition-old(root){ animation: ew-vt-out .26s var(--ease-in-out) both; }
+  ::view-transition-new(root){ animation: ew-vt-in .34s var(--ease-out-expo) both; }
+  /* The nav and ticker are on every page — hold them still so only the page
+     body moves, which is what makes the navigation feel continuous. */
+  .nav{ view-transition-name: ew-nav; }
+  .deadline-bar{ view-transition-name: ew-ticker; }
+  ::view-transition-group(ew-nav),
+  ::view-transition-group(ew-ticker){ animation: none; }
+}
+@media (prefers-reduced-motion: reduce){
+  ::view-transition-old(root), ::view-transition-new(root){ animation: none !important; }
 }

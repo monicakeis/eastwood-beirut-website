@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="canonical" href="https://www.eastwoodis.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Eastwood International School Beirut">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://www.eastwoodis.com/">
+<meta property="og:title" content="Eastwood International School Beirut">
+<meta property="og:description" content="A 53-year IB and American-accredited school in Mansourieh, Beirut, from age 3 to university.">
+<meta property="og:image" content="https://www.eastwoodis.com/assets/hero-students.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Eastwood International School Beirut">
+<meta name="twitter:description" content="A 53-year IB and American-accredited school in Mansourieh, Beirut, from age 3 to university.">
+<meta name="twitter:image" content="https://www.eastwoodis.com/assets/hero-students.png">
 <meta name="theme-color" content="#000077">
 <meta name="description" content="Eastwood International School: Beirut's leading IB World School since 1973. Full IB Continuum and American High School. Tuition from $6,100.">
 <title>Eastwood International School: Beirut's Leading IB World School</title>
@@ -46,8 +58,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <meta name="ext-resource-dependency" content="assets/highschool.png" data-resource-id="dpImg">
-<link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
 
 <style>
 /* ============================================================================
@@ -338,7 +348,6 @@ button {
 .deadline-marquee {
   display: flex;
   gap: 64px;
-  animation: marquee 38s linear infinite;
   white-space: nowrap;
   width: max-content;
 }
@@ -359,11 +368,6 @@ button {
   border-radius: 50%;
   background: var(--teal);
   display: inline-block;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 /* ============================================================================
@@ -431,7 +435,6 @@ button {
   letter-spacing: -0.005em;
   box-shadow: 0 8px 32px rgba(0,0,119,0.15);
   margin-bottom: 24px;
-  animation: hero-fade-up 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s backwards;
 }
 
 .pulse {
@@ -440,13 +443,6 @@ button {
   border-radius: 50%;
   background: var(--teal);
   box-shadow: 0 0 0 0 rgba(0,181,173,0.7);
-  animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(0,181,173,0.7); }
-  70% { box-shadow: 0 0 0 12px rgba(0,181,173,0); }
-  100% { box-shadow: 0 0 0 0 rgba(0,181,173,0); }
 }
 
 .hero-h1 {
@@ -458,7 +454,6 @@ button {
   max-width: 17ch;
   text-shadow: 0 2px 32px rgba(0,0,0,0.3);
   margin-bottom: 28px;
-  animation: hero-fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s backwards;
 }
 
 .hero-h1 .italic {
@@ -475,19 +470,12 @@ button {
   max-width: 54ch;
   text-shadow: 0 1px 18px rgba(0,0,0,0.35);
   margin-bottom: 32px;
-  animation: hero-fade-up 1s cubic-bezier(0.16,1,0.3,1) 0.35s backwards;
 }
 
 .hero-cta {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  animation: hero-fade-up 1s cubic-bezier(0.16,1,0.3,1) 0.5s backwards;
-}
-
-@keyframes hero-fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Hero stats strip, below hero image, Deep Blue on white */
@@ -501,7 +489,7 @@ button {
   max-width: var(--container);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 48px;
 }
 
@@ -523,10 +511,11 @@ button {
   line-height: 1.4;
   max-width: 22ch;
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 760px) {
-  .hero-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .hero-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 }
 
 /* ============================================================================
@@ -1502,7 +1491,6 @@ a.path:hover::before { opacity: 1; }
 .unis-track {
   display: flex;
   gap: 56px;
-  animation: unis-scroll 50s linear infinite;
   white-space: nowrap;
   width: max-content;
 }
@@ -1519,11 +1507,6 @@ a.path:hover::before { opacity: 1; }
 }
 
 .uni-name:hover { opacity: 0.9; }
-
-@keyframes unis-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
 
 /* ============================================================================
    LEADERSHIP
@@ -1959,7 +1942,6 @@ a.path:hover::before { opacity: 1; }
   box-shadow: 0 0 0 0 rgba(0,181,173,0.6), 0 2px 8px rgba(0,0,119,0.2);
   cursor: pointer;
   transition: all 0.3s ease;
-  animation: pin-pulse 2.2s infinite;
 }
 
 .eis-pin.soon {
@@ -1975,12 +1957,6 @@ a.path:hover::before { opacity: 1; }
   border-color: var(--teal);
   animation: none;
   box-shadow: 0 0 0 6px rgba(0,181,173,0.25), 0 4px 12px rgba(0,0,119,0.3);
-}
-
-@keyframes pin-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(0,181,173,0.6), 0 2px 8px rgba(0,0,119,0.2); }
-  70%  { box-shadow: 0 0 0 10px rgba(0,181,173,0),   0 2px 8px rgba(0,0,119,0.2); }
-  100% { box-shadow: 0 0 0 0 rgba(0,181,173,0),      0 2px 8px rgba(0,0,119,0.2); }
 }
 
 .eis-popup .mapboxgl-popup-content {
@@ -2014,15 +1990,7 @@ a.path:hover::before { opacity: 1; }
 <body>
 <a class="skip-link" href="#top">Skip to content</a>
 
-<template id="__bundler_thumbnail" data-bg-color="#000077">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#000077"/>
-    <circle cx="600" cy="338" r="120" fill="none" stroke="#00B5AD" stroke-width="14"/>
-    <text x="600" y="378" font-family="Georgia, 'Times New Roman', serif" font-size="118" font-weight="500" fill="#ffffff" text-anchor="middle">E</text>
-    <text x="600" y="540" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="500" fill="#ffffff" text-anchor="middle" letter-spacing="6">EASTWOOD</text>
-    <text x="600" y="600" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#00B5AD" text-anchor="middle" letter-spacing="10">BEIRUT · IB WORLD SCHOOL</text>
-  </svg>
-</template>
+
 
 <!-- ================================================================
      NAV
@@ -2063,6 +2031,7 @@ a.path:hover::before { opacity: 1; }
 <!-- ================================================================
      HERO
      ================================================================ -->
+<main id="main-content">
 <section class="hero" id="top" tabindex="-1">
   <div class="hero-media">
     <img fetchpriority="high" decoding="async" src="assets/hero-students.png" alt="Eastwood International School campus">
@@ -2768,9 +2737,7 @@ We'll show you the next 15 years.</p>
   align-items: center;
   gap: clamp(48px, 6vw, 90px);
   width: max-content;
-  animation: accred-scroll 50s linear infinite;
 }
-.accred-marquee:hover .accred-track { animation-play-state: paused; }
 .accred-logo {
   flex: 0 0 auto;
   height: auto;
@@ -2783,10 +2750,6 @@ We'll show you the next 15 years.</p>
 }
 .accred-logo:hover { opacity: 1; transform: scale(1.07); }
 .accred-logo.is-badge { max-height: 72px; max-width: 80px; }
-@keyframes accred-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
 @media (prefers-reduced-motion: reduce) {
   .accred-track { animation: none; flex-wrap: wrap; justify-content: center; row-gap: 32px; }
 }
@@ -2801,7 +2764,7 @@ We'll show you the next 15 years.</p>
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/ib-continuum.png" alt="IB Continuum">
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/ib-online-diploma.png" alt="IB Online Diploma Programme">
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/cambridge.png" alt="Cambridge International School">
-          <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/cognia.png" alt="Cognia Accredited">
+          <img loading="lazy" decoding="async" class="accred-logo is-badge" src="assets/logos/cognia.png" alt="Cognia Accredited">
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/apple-distinguished-educators.png" alt="Apple Distinguished Educators">
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/lebanese-montessori.png" alt="Lebanese Montessori Association">
           <img loading="lazy" decoding="async" class="accred-logo is-badge" src="assets/platinum-badge.png" alt="T4 Education, Best School to Work, Platinum Certified">
@@ -2809,7 +2772,7 @@ We'll show you the next 15 years.</p>
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/ib-continuum.png" alt="" aria-hidden="true">
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/ib-online-diploma.png" alt="" aria-hidden="true">
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/cambridge.png" alt="" aria-hidden="true">
-          <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/cognia.png" alt="" aria-hidden="true">
+          <img loading="lazy" decoding="async" class="accred-logo is-badge" src="assets/logos/cognia.png" alt="" aria-hidden="true">
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/apple-distinguished-educators.png" alt="" aria-hidden="true">
           <img loading="lazy" decoding="async" class="accred-logo" src="assets/logos/lebanese-montessori.png" alt="" aria-hidden="true">
           <img loading="lazy" decoding="async" class="accred-logo is-badge" src="assets/platinum-badge.png" alt="" aria-hidden="true">
@@ -2921,28 +2884,28 @@ We'll show you the next 15 years.</p>
         <div class="tuition-grades">Nursery – KG2</div>
         <div class="tuition-price">$6,100<span> – $6,550 / year</span></div>
         <div class="tuition-note">Montessori + IB-PYP</div>
-        <div class="tuition-fine">Plus registration ($500) and books ($400)</div>
+        <div class="tuition-fine">Plus registration ($500 returning / $600 new) and books ($400)</div>
       </div>
       <div class="tuition-card">
         <div class="tuition-stage">Elementary</div>
         <div class="tuition-grades">Grade 1 – 6</div>
         <div class="tuition-price">$7,550<span> – $7,700 / year</span></div>
         <div class="tuition-note">IB-PYP · English or French</div>
-        <div class="tuition-fine">Plus registration ($500) and books ($500)</div>
+        <div class="tuition-fine">Plus registration ($500 returning / $600 new) and books ($500)</div>
       </div>
       <div class="tuition-card">
         <div class="tuition-stage">Middle</div>
         <div class="tuition-grades">Grade 7 – 10</div>
         <div class="tuition-price">$8,150<span> – $8,800 / year</span></div>
         <div class="tuition-note">IB-MYP</div>
-        <div class="tuition-fine">Plus registration ($500) and books ($550)</div>
+        <div class="tuition-fine">Plus registration ($500 returning / $600 new) and books ($550)</div>
       </div>
       <div class="tuition-card">
         <div class="tuition-stage">High School</div>
         <div class="tuition-grades">Grade 10 – 12</div>
         <div class="tuition-price">$8,800<span> – $11,550 / year</span></div>
         <div class="tuition-note">IB-DP / American HS</div>
-        <div class="tuition-fine">IB Diploma track: $11,550. Plus registration ($500), books ($550–$600), and graduation ($450).</div>
+        <div class="tuition-fine">IB Diploma track: $11,550. Plus registration ($500 returning / $600 new), books ($550–$600), and graduation ($450).</div>
       </div>
     </div>
     <div class="tuition-cta">
@@ -2963,8 +2926,8 @@ We'll show you the next 15 years.</p>
     </div>
     <div class="outcomes-stats">
       <div class="outcome-stat">
-        <div class="o-n" data-count="38.9">38.9</div>
-        <div class="o-l">Average IB Diploma score (global average: ~30)</div>
+        <div class="o-n" data-count="36.9">36.9</div>
+        <div class="o-l">Group average IB score across Eastwood Schools (global average: ~30)</div>
       </div>
       <div class="outcome-stat">
         <div class="o-n" data-count="100" data-suffix="%">100%</div>
@@ -3074,9 +3037,6 @@ We'll show you the next 15 years.</p>
   mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%); }
 .reviews-row { display: flex; gap: 22px; width: max-content; }
 .reviews-row + .reviews-row { margin-top: 22px; }
-.reviews-row.r-left { animation: reviews-left 70s linear infinite; }
-.reviews-row.r-right { animation: reviews-right 84s linear infinite; }
-.reviews-marquee:hover .reviews-row { animation-play-state: paused; }
 .review-card { flex: 0 0 auto; width: 388px; background: #fff; border: 1px solid var(--line);
   border-radius: var(--radius-lg); padding: 28px 30px; display: flex; flex-direction: column; gap: 16px;
   box-shadow: 0 1px 3px rgba(0,0,119,0.04); transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease, border-color .4s ease; }
@@ -3089,8 +3049,6 @@ We'll show you the next 15 years.</p>
 .review-avatar { width: 44px; height: 44px; border-radius: 50%; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 600; font-size: 15px; }
 .review-name { font-family: var(--font-display); font-weight: 600; font-size: 14.5px; color: var(--deep-blue); }
 .review-role { font-size: 12px; color: var(--fg-dimmer); margin-top: 1px; }
-@keyframes reviews-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes reviews-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 @media (prefers-reduced-motion: reduce) { .reviews-row { animation: none; flex-wrap: wrap; width: auto; } }
 @media (max-width: 560px) { .review-card { width: 296px; } }
 </style>
@@ -3231,6 +3189,8 @@ We'll show you the next 15 years.</p>
 <!-- ================================================================
      FOOTER
      ================================================================ -->
+</main>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
@@ -3294,6 +3254,12 @@ We'll show you the next 15 years.</p>
     </div>
   </div>
 </footer>
+
+<!-- Mapbox loads here, not in <head>: at end of body it is no longer a
+     render-blocking resource, and staying synchronous keeps it available to the
+     map init immediately below. -->
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
 
 <script>
 // ============================================================================
@@ -3554,7 +3520,7 @@ document.querySelectorAll('.campus-row').forEach(row => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       e.target.classList.add('in');
-      e.target.querySelectorAll('[data-count]').forEach(countUp);
+      if(!matchMedia('(prefers-reduced-motion: reduce)').matches) e.target.querySelectorAll('[data-count]').forEach(countUp);
       sectionIO.unobserve(e.target);
     });
   }, { threshold: 0.25 });
@@ -3573,6 +3539,7 @@ document.querySelectorAll('.campus-row').forEach(row => {
 })();
 </script>
 
-<script src="assets/eastwood-animations.js"></script>
+<script src="assets/eastwood-animations.js" defer></script>
+<script src="assets/eastwood-premium-motion.js" defer></script>
 </body>
 </html>

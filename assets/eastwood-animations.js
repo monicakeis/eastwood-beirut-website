@@ -112,6 +112,23 @@
   document.body.appendChild(overlay);
   document.body.appendChild(panel);
   var lastFocus = null;
+  /* The closed drawer is only moved off-screen by transform, so it stays
+     rendered and focusable. aria-hidden alone would then be a WCAG 4.1.2
+     violation (focusable content inside aria-hidden): a keyboard user tabs
+     through 17 invisible off-screen controls. `inert` removes the subtree from
+     both the focus order and the a11y tree; tabindex="-1" is the fallback. */
+  function setHidden(hidden){
+    panel.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+    if('inert' in HTMLElement.prototype){
+      panel.inert = hidden;
+    } else {
+      Array.prototype.forEach.call(panel.querySelectorAll('a[href],button'), function(f){
+        if(hidden) f.setAttribute('tabindex','-1');
+        else f.removeAttribute('tabindex');
+      });
+    }
+  }
+  setHidden(true);
   function foc(){ return panel.querySelectorAll('a[href],button'); }
   function onKey(e){
     if(e.key==='Escape'){ close(); return; }
@@ -127,7 +144,7 @@
     overlay.classList.add('open'); panel.classList.add('open');
     document.body.classList.add('mnav-open');
     burger.setAttribute('aria-expanded','true');
-    panel.setAttribute('aria-hidden','false');
+    setHidden(false);
     var c=panel.querySelector('.mnav-close'); if(c) c.focus();
     document.addEventListener('keydown',onKey);
   }
@@ -135,7 +152,7 @@
     overlay.classList.remove('open'); panel.classList.remove('open');
     document.body.classList.remove('mnav-open');
     burger.setAttribute('aria-expanded','false');
-    panel.setAttribute('aria-hidden','true');
+    setHidden(true);
     document.removeEventListener('keydown',onKey);
     if(lastFocus && lastFocus.focus) lastFocus.focus();
   }
@@ -149,6 +166,11 @@
 /* Eastwood Beirut — scroll progress indicator ------------------------------ */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(CSS && CSS.supports && CSS.supports('animation-timeline','scroll()')) {
+    // native scroll timeline drives it from CSS; no listener needed
+    var b=document.createElement('div'); b.className='ew-progress'; b.setAttribute('aria-hidden','true');
+    document.body.appendChild(b); return;
+  }
   var bar=document.createElement('div'); bar.className='ew-progress'; bar.setAttribute('aria-hidden','true');
   document.body.appendChild(bar);
   function upd(){ var y=window.scrollY||window.pageYOffset||0;

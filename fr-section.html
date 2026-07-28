@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="canonical" href="https://www.eastwoodis.com/fr-section.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Eastwood International School Beirut">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://www.eastwoodis.com/fr-section.html">
+<meta property="og:title" content="Section Française, Eastwood Beirut">
+<meta property="og:description" content="The full IB Primary Years Programme delivered in French.">
+<meta property="og:image" content="https://www.eastwoodis.com/assets/hero-students.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Section Française, Eastwood Beirut">
+<meta name="twitter:description" content="The full IB Primary Years Programme delivered in French.">
+<meta name="twitter:image" content="https://www.eastwoodis.com/assets/hero-students.png">
 <meta name="theme-color" content="#000077">
 <meta name="description" content="La Section Française d'Eastwood Beirut, le Programme Primaire de l'IB, enseigné intégralement en français, dès 3 ans.">
 <title>Section Française IB-PYP, Eastwood Beirut</title>
@@ -297,7 +309,6 @@ button {
 .deadline-marquee {
   display: flex;
   gap: 64px;
-  animation: marquee 38s linear infinite;
   white-space: nowrap;
   width: max-content;
 }
@@ -318,11 +329,6 @@ button {
   border-radius: 50%;
   background: var(--teal);
   display: inline-block;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 /* ============================================================================
@@ -390,7 +396,6 @@ button {
   letter-spacing: -0.005em;
   box-shadow: 0 8px 32px rgba(0,0,119,0.15);
   margin-bottom: 24px;
-  animation: hero-fade-up 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s backwards;
 }
 
 .pulse {
@@ -399,13 +404,6 @@ button {
   border-radius: 50%;
   background: var(--teal);
   box-shadow: 0 0 0 0 rgba(0,181,173,0.7);
-  animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(0,181,173,0.7); }
-  70% { box-shadow: 0 0 0 12px rgba(0,181,173,0); }
-  100% { box-shadow: 0 0 0 0 rgba(0,181,173,0); }
 }
 
 .hero-h1 {
@@ -417,7 +415,6 @@ button {
   max-width: 17ch;
   text-shadow: 0 2px 32px rgba(0,0,0,0.3);
   margin-bottom: 28px;
-  animation: hero-fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s backwards;
 }
 
 .hero-h1 .italic {
@@ -434,19 +431,12 @@ button {
   max-width: 54ch;
   text-shadow: 0 1px 18px rgba(0,0,0,0.35);
   margin-bottom: 32px;
-  animation: hero-fade-up 1s cubic-bezier(0.16,1,0.3,1) 0.35s backwards;
 }
 
 .hero-cta {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  animation: hero-fade-up 1s cubic-bezier(0.16,1,0.3,1) 0.5s backwards;
-}
-
-@keyframes hero-fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Hero stats strip, below hero image, Deep Blue on white */
@@ -1275,7 +1265,6 @@ section { padding: var(--section-pad-y) 0; }
 .unis-track {
   display: flex;
   gap: 56px;
-  animation: unis-scroll 50s linear infinite;
   white-space: nowrap;
   width: max-content;
 }
@@ -1292,11 +1281,6 @@ section { padding: var(--section-pad-y) 0; }
 }
 
 .uni-name:hover { opacity: 0.9; }
-
-@keyframes unis-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
 
 /* ============================================================================
    LEADERSHIP
@@ -2271,7 +2255,8 @@ section { padding: var(--section-pad-y) 0; }
     <text x="600" y="560" font-family="Helvetica, Arial, sans-serif" font-size="42" font-weight="600" letter-spacing="6" fill="#ffffff" text-anchor="middle">IB PYP · AGES 3–11</text>
   </svg>
 </template>
-<script src="assets/eastwood-motion.js"></script>
-<script src="assets/eastwood-animations.js"></script>
+<script src="assets/eastwood-motion.js" defer></script>
+<script src="assets/eastwood-animations.js" defer></script>
+<script src="assets/eastwood-premium-motion.js" defer></script>
 </body>
 </html>
