@@ -1986,6 +1986,54 @@ a.path:hover::before { opacity: 1; }
 
 </style>
 <link rel="stylesheet" href="assets/eastwood-system.css">
+<style>
+  .fq-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,17,.55);backdrop-filter:blur(12px);
+    display:none;place-items:center;padding:20px;animation:fqFade .18s ease-out;}
+  .fq-overlay.open{display:grid;}
+  @keyframes fqFade{from{opacity:0}to{opacity:1}}
+  .fq{background:var(--offwhite,#FAFAF7);border:1px solid rgba(0,0,119,.12);border-radius:16px;
+    width:min(620px,100%);max-height:90vh;overflow-y:auto;padding:40px;position:relative;
+    box-shadow:0 40px 120px -20px rgba(0,0,17,.4);animation:fqPop .22s cubic-bezier(.2,.8,.3,1.2);
+    font-family:'Inter',system-ui,sans-serif;color:#14142A;}
+  @keyframes fqPop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+  .fq-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border:none;border-radius:50%;
+    background:#EFEFEA;color:#6B6B7A;font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center;
+    transition:background .15s,color .15s;}
+  .fq-close:hover{background:#E2E2DA;color:#14142A;}
+  .fq-progress{height:3px;background:#E6E6E0;border-radius:3px;overflow:hidden;margin-bottom:24px;}
+  .fq-progress>div{height:100%;background:#00B5AD;transition:width .3s cubic-bezier(.2,.8,.3,1);}
+  .fq-step{font-size:11px;color:#6B6B7A;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;font-weight:600;}
+  .fq-title{font-weight:800;font-size:clamp(23px,3vw,32px);letter-spacing:-.025em;line-height:1.08;
+    color:#000077;margin:0 0 10px;}
+  .fq-sub{font-size:14px;color:#6B6B7A;line-height:1.5;margin:0 0 22px;}
+  .fq-opts{display:grid;gap:10px;margin-bottom:26px;}
+  .fq-opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;
+    border:1px solid #E6E6E0;border-radius:12px;background:#fff;padding:15px 18px;font-size:15px;color:#14142A;
+    font-family:inherit;transition:border-color .15s,background .15s,transform .05s;}
+  .fq-opt:hover{border-color:#00B5AD;}
+  .fq-opt.sel{border-color:#00B5AD;background:rgba(0,181,173,.07);}
+  .fq-opt .dot{width:18px;height:18px;border-radius:50%;border:2px solid #C9C9C2;flex:0 0 18px;position:relative;transition:border-color .15s;}
+  .fq-opt.sel .dot{border-color:#00B5AD;}
+  .fq-opt.sel .dot:after{content:"";position:absolute;inset:3px;border-radius:50%;background:#00B5AD;}
+  .fq-fields{display:grid;gap:12px;margin-bottom:26px;}
+  .fq-fields input{width:100%;border:1px solid #E6E6E0;border-radius:12px;padding:14px 16px;font-size:16px;
+    font-family:inherit;color:#14142A;background:#fff;}
+  .fq-fields input:focus{outline:none;border-color:#00B5AD;box-shadow:0 0 0 3px rgba(0,181,173,.15);}
+  .fq-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .fq-back{border:none;background:none;color:#6B6B7A;font-size:14px;cursor:pointer;font-family:inherit;padding:8px 4px;}
+  .fq-back:hover{color:#14142A;}
+  .fq-back[hidden]{visibility:hidden;}
+  .fq-next{border:none;border-radius:999px;background:#00B5AD;color:#000077;font-weight:700;font-size:15px;
+    font-family:inherit;padding:13px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+    transition:opacity .15s,transform .05s;}
+  .fq-next:disabled{opacity:.4;cursor:not-allowed;}
+  .fq-next:not(:disabled):hover{transform:translateY(-1px);}
+  .fq-done{text-align:center;padding:14px 0 6px;}
+  .fq-done .fq-check{width:56px;height:56px;border-radius:50%;background:rgba(0,181,173,.14);color:#00938C;
+    display:grid;place-items:center;margin:0 auto 18px;font-size:28px;}
+  .fq-done p{font-size:15px;color:#6B6B7A;line-height:1.55;max-width:420px;margin:0 auto 24px;}
+  @media (max-width:560px){.fq{padding:28px 22px;}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#top">Skip to content</a>
@@ -2048,7 +2096,7 @@ a.path:hover::before { opacity: 1; }
       Eastwood is a 53-year international school, IB- and American-accredited, delivering serious academics across six campuses and fully online, for families who want the discipline of a Swiss boarding school without the trade-offs.
     </p>
     <div class="hero-cta">
-      <a href="#apply" class="btn btn-primary lg">Find your child's fit <span class="arrow">→</span></a>
+      <a href="javascript:void(0)" onclick="openFitQuiz()" class="btn btn-primary lg">Find your child's fit <span class="arrow">→</span></a>
       <a href="#tuition" class="btn btn-glass lg">See tuition</a>
     </div>
   </div>
@@ -3541,5 +3589,164 @@ document.querySelectorAll('.campus-row').forEach(row => {
 
 <script src="assets/eastwood-animations.js" defer></script>
 <script src="assets/eastwood-premium-motion.js" defer></script>
+<div class="fq-overlay" id="fqOverlay" role="dialog" aria-modal="true" aria-label="Find your child's fit">
+  <div class="fq" onclick="event.stopPropagation()">
+    <button class="fq-close" onclick="closeFitQuiz()" aria-label="Close">&times;</button>
+    <div class="fq-progress"><div id="fqBar" style="width:14%"></div></div>
+    <div class="fq-step" id="fqStepLabel">Step 1 of 6</div>
+    <h3 class="fq-title" id="fqTitle"></h3>
+    <p class="fq-sub" id="fqSub"></p>
+    <div id="fqBody"></div>
+    <div class="fq-nav" id="fqNav">
+      <button class="fq-back" id="fqBack" onclick="fqPrev()">&larr; Back</button>
+      <button class="fq-next" id="fqNext" onclick="fqNext()">Continue <span>&rarr;</span></button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var TYPEFORM = "https://form.typeform.com/to/Dk0kE90q";
+  var steps = [
+    { field:'role', kind:'choice',
+      title:"Let's find your child's fit.",
+      sub:"90 seconds. 7 questions. Your personalized plan at the end.",
+      opts:[
+        {v:'local',  t:'Lebanese family, based in Beirut'},
+        {v:'expat',  t:'Expat family relocating to Beirut'},
+        {v:'return', t:'Lebanese family returning home'},
+        {v:'other',  t:'Evaluating from another country'}
+      ]},
+    { field:'age', kind:'choice',
+      title:"How old is your child?",
+      sub:"If you have multiple, pick the oldest for now, we'll follow up about siblings.",
+      opts:[
+        {v:'3-6',   t:'3 to 6 years (Early Years)'},
+        {v:'6-11',  t:'6 to 11 years (Elementary)'},
+        {v:'11-16', t:'11 to 16 years (Middle School)'},
+        {v:'16-18', t:'16 to 18 years (High School)'}
+      ]},
+    { field:'goal', kind:'choice',
+      title:"What matters most for their future?",
+      sub:"Pick your top priority. We'll match them to the right pathway.",
+      opts:[
+        {v:'global', t:'Global universities (IB Diploma)'},
+        {v:'us',     t:'U.S. or Canadian universities (American HS)'},
+        {v:'local',  t:'Staying in Lebanon (Lebanese Program)'},
+        {v:'open',   t:'Not sure yet, keep options open'}
+      ]},
+    { field:'timing', kind:'choice',
+      title:"When are you looking to enroll?",
+      opts:[
+        {v:'now',     t:'Immediately (mid-year transfer)'},
+        {v:'sep26',   t:'September 2026'},
+        {v:'sep27',   t:'September 2027'},
+        {v:'explore', t:'Just exploring for now'}
+      ]},
+    { field:'budget', kind:'choice',
+      title:"Financial aid conversation?",
+      sub:"Honest answer. 1 in 4 Eastwood families receives aid, it's not a disqualifier.",
+      opts:[
+        {v:'no-aid',  t:'No aid needed'},
+        {v:'partial', t:'Interested in partial aid'},
+        {v:'full',    t:'Need significant aid to make it work'},
+        {v:'info',    t:"I'd like more info before deciding"}
+      ]},
+    { field:'contact', kind:'contact',
+      title:"Where do we send your personalized plan?",
+      sub:"A real admissions person replies, not a mailer list. ~24h turnaround." },
+    { kind:'done',
+      title:"Got it. You're in." }
+  ];
+
+  var total = 7;
+  var visibleTotal = 6;
+  var step = 0;
+  var data = {role:'',age:'',goal:'',timing:'',budget:'',name:'',email:'',phone:''};
+
+  var overlay = document.getElementById('fqOverlay');
+  overlay.addEventListener('click', function(e){ closeFitQuiz(e); });
+
+  window.openFitQuiz = function(){ step=0; data={role:'',age:'',goal:'',timing:'',budget:'',name:'',email:'',phone:''}; render(); overlay.classList.add('open'); document.body.style.overflow='hidden'; };
+  window.closeFitQuiz = function(){ overlay.classList.remove('open'); document.body.style.overflow=''; };
+  window.fqNext = function(){
+    var cur = steps[step];
+    if(cur.kind === 'contact'){ return submitLead(); }
+    if(step < steps.length-1){ step++; render(); }
+  };
+  window.fqPrev = function(){ if(step>0){ step--; render(); } };
+
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && overlay.classList.contains('open')) closeFitQuiz(); });
+
+  function choose(field,val){ data[field]=val; render(); }
+
+  function render(){
+    var cur = steps[step];
+    document.getElementById('fqBar').style.width = ((step+1)/total*100)+'%';
+    document.getElementById('fqStepLabel').textContent = (cur.kind==='done') ? '' : ('Step '+(step+1)+' of '+visibleTotal);
+    document.getElementById('fqTitle').textContent = cur.title;
+    var subEl = document.getElementById('fqSub');
+    if(cur.sub){ subEl.textContent = cur.sub; subEl.style.display=''; } else { subEl.style.display='none'; }
+
+    var body = document.getElementById('fqBody');
+    var nav = document.getElementById('fqNav');
+    var back = document.getElementById('fqBack');
+    var next = document.getElementById('fqNext');
+    body.innerHTML='';
+
+    if(cur.kind==='choice'){
+      var wrap=document.createElement('div'); wrap.className='fq-opts';
+      cur.opts.forEach(function(o){
+        var b=document.createElement('button'); b.className='fq-opt'+(data[cur.field]===o.v?' sel':'');
+        b.innerHTML='<span class="dot"></span><span>'+o.t+'</span>';
+        b.onclick=function(){ choose(cur.field,o.v); };
+        wrap.appendChild(b);
+      });
+      body.appendChild(wrap);
+      nav.style.display=''; back.hidden = (step===0);
+      next.disabled = !data[cur.field];
+      next.innerHTML = 'Continue <span>&rarr;</span>';
+    }
+    else if(cur.kind==='contact'){
+      var f=document.createElement('div'); f.className='fq-fields';
+      f.innerHTML =
+        '<input id="fqName"  type="text"  placeholder="Parent name"  value="'+esc(data.name)+'">'+
+        '<input id="fqEmail" type="email" placeholder="you@email.com" value="'+esc(data.email)+'">'+
+        '<input id="fqPhone" type="tel"   placeholder="Phone (optional)" value="'+esc(data.phone)+'">';
+      body.appendChild(f);
+      var nm=document.getElementById('fqName'), em=document.getElementById('fqEmail'), ph=document.getElementById('fqPhone');
+      function sync(){ data.name=nm.value.trim(); data.email=em.value.trim(); data.phone=ph.value.trim(); next.disabled=!(data.name&&data.email); }
+      nm.oninput=sync; em.oninput=sync; ph.oninput=sync; sync();
+      nav.style.display=''; back.hidden=false;
+      next.innerHTML = 'Get my plan <span>&rarr;</span>';
+    }
+    else if(cur.kind==='done'){
+      body.innerHTML =
+        '<div class="fq-done">'+
+          '<div class="fq-check">&#10003;</div>'+
+          '<p>Your details are on their way to our admissions team. A real person replies within about 24 hours with a plan matched to your answers. Redirecting you to confirm a few last details.</p>'+
+        '</div>';
+      nav.style.display='none';
+    }
+  }
+
+  function submitLead(){
+    var params = [
+      'role='   + encodeURIComponent(data.role),
+      'age='    + encodeURIComponent(data.age),
+      'goal='   + encodeURIComponent(data.goal),
+      'timing=' + encodeURIComponent(data.timing),
+      'budget=' + encodeURIComponent(data.budget),
+      'name='   + encodeURIComponent(data.name),
+      'email='  + encodeURIComponent(data.email),
+      'phone='  + encodeURIComponent(data.phone)
+    ].join('&');
+    var url = TYPEFORM + '#' + params;
+    step = steps.length-1; render();
+    setTimeout(function(){ window.location.href = url; }, 1400);
+  }
+
+  function esc(s){ return (s||'').replace(/"/g,'&quot;'); }
+})();
+</script>
 </body>
 </html>
