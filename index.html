@@ -21,6 +21,8 @@
 /*FONTFACE-END*/
 /* Layout and motion adapted from the HorizonX ELLISON and Vallora Estate templates (commercial licence, HorizonX membership); time machine from the Eastwood Schools network site. */
 :root{
+  --shield:polygon(0 0,100% 0,100% 70%,50% 100%,0 70%);
+  --yellow:#F0B323; --grass:#6CC24A; --rasp:#D0006F; --sky:#00AFD7; --moon:#81B0D2;
   --deep:#000077; --teal:#00B2A9; --ink:#14143A; --paper:#FAFAF7; --card:#EFEEE8;
   --soft:rgba(20,20,58,.64); --line:rgba(20,20,58,.14);
   --sans:"Inter",system-ui,sans-serif; --disp:"Inter Tight","Inter",system-ui,sans-serif; --serif:"Bodoni Moda","Didot",Georgia,serif;
@@ -31,6 +33,7 @@ html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img,video{display:block;max-width:100%}
+main{overflow-x:clip}
 a{color:inherit;text-decoration:none}
 a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
 em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.01em}
@@ -44,6 +47,15 @@ br.ph{display:none}
 p{text-wrap:pretty}
 .chars{white-space:nowrap}
 .ch{display:inline-block;will-change:transform}
+/* brand elements carried over from the invitations, calendar and cafeteria menu */
+.tag{display:block;font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:clamp(16px,2.4vh,26px)}
+.rule{display:block;width:72px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--yellow) 0 50%,var(--grass) 50% 100%)}
+.dot{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;font:700 12px/1 var(--sans);color:#14143A;background:var(--c,var(--yellow));flex:none}
+.shieldframe{position:relative}
+.shieldframe::before{content:"";position:absolute;inset:0;background:var(--sc,var(--teal));clip-path:var(--shield);transform:translate(7%,5%);z-index:0}
+.shieldframe>.clip{position:absolute;inset:0;clip-path:var(--shield);overflow:hidden;z-index:1;background:#d9d6cf}
+.shieldframe>.clip img{width:100%;height:100%;object-fit:cover}
+.spark{position:absolute;border-radius:50%;z-index:2}
 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
 .wi{display:inline-block}
 
@@ -72,9 +84,12 @@ p{text-wrap:pretty}
 .hero__word--first{text-align:left;font:900 clamp(64px,14vw,240px)/.86 var(--disp);letter-spacing:-.065em;padding-bottom:.04em}
 .hero__word--last{text-align:right;font:500 italic clamp(40px,8.4vw,150px)/1.08 var(--serif);letter-spacing:-.02em;color:var(--ink)}
 .reveal-line{display:inline-block}
-.hero__media{position:absolute;left:58%;top:50%;transform:translate(-50%,-50%);width:clamp(180px,22vw,330px);aspect-ratio:4/5;z-index:-1;overflow:hidden;border-radius:6px}
-.hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
-.hero__media img.is-active{opacity:1}
+.hero__media{position:absolute;left:58%;top:50%;transform:translate(-50%,-50%);width:clamp(180px,22vw,330px);aspect-ratio:4/5;z-index:-1;--sc:var(--yellow)}
+.hero__media .s1{width:16%;aspect-ratio:1;left:-7%;bottom:22%;background:var(--grass)}
+.hero__media .s2{width:4.5%;aspect-ratio:1;right:-9%;bottom:-2%;background:var(--yellow)}
+.hero__media .s3{width:4.5%;aspect-ratio:1;left:-3%;top:-3%;background:var(--teal)}
+.hero__media .clip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
+.hero__media .clip img.is-active{opacity:1}
 .hero__foot{position:absolute;left:var(--pad);right:var(--pad);bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;font-size:14px;color:var(--soft)}
 .hero__foot p{max-width:42ch}
 .hero__foot b{font-weight:500;color:var(--ink)}
@@ -97,7 +112,7 @@ p{text-wrap:pretty}
 .about__row{margin-top:clamp(36px,6vh,72px);display:flex;justify-content:center;align-items:flex-start;gap:clamp(24px,4vw,56px);text-align:left}
 .about__copy{max-width:400px;color:var(--soft);font-size:clamp(16px,1.2vw,18px)}
 .about__copy b{color:var(--ink);font-weight:500}
-.about__thumb{width:clamp(140px,15vw,220px);aspect-ratio:4/5;flex:none;border-radius:4px}
+.about__thumb{width:clamp(150px,16vw,230px);aspect-ratio:4/5;flex:none}
 @media (max-width:760px){.about__title{font-size:9.2vw}}
 @media (max-width:620px){.about__row{flex-direction:column-reverse;align-items:center;text-align:center}}
 
@@ -113,7 +128,9 @@ p{text-wrap:pretty}
 .tm-card .ph img,.tm-card .ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
 .tm-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,50,.8) 0%,rgba(0,0,60,.34) 50%,rgba(0,0,0,0) 78%),linear-gradient(to top,rgba(0,0,40,.6),transparent 42%);pointer-events:none}
 .tm-card .top{position:absolute;z-index:2;top:26px;left:32px;right:32px;display:flex;justify-content:space-between;gap:16px;font-size:13px;color:rgba(255,255,255,.82)}
-.tm-card .top b{font-weight:600;color:#fff}
+.tm-card .top b{font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:10px}
+.tm-card .top b::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sc)}
+.tm-card .rule{margin-top:14px;background:var(--sc)}
 .tm-card .yr{position:absolute;z-index:2;right:24px;bottom:-.06em;font:900 clamp(110px,16vw,290px)/.8 var(--disp);letter-spacing:-.07em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.6)}
 .tm-card .body{position:absolute;z-index:2;left:34px;bottom:34px;max-width:min(54%,540px)}
 .tm-card h3{font:900 clamp(36px,4.2vw,76px)/.9 var(--disp);letter-spacing:-.05em}
@@ -141,7 +158,9 @@ p{text-wrap:pretty}
 .tm-rail ol{list-style:none;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
 .tm-rail button{all:unset;cursor:pointer;display:flex;gap:12px;align-items:baseline;font-size:13px;color:rgba(255,255,255,.42);transition:color .4s,transform .4s}
 .tm-rail button.on{color:#fff;transform:translateX(-6px)}
-.tm-rail .r-a{font-variant-numeric:tabular-nums;color:var(--teal);opacity:0;transition:opacity .4s}
+.tm-rail .r-a{font-variant-numeric:tabular-nums;color:var(--sc);opacity:0;transition:opacity .4s}
+.tm-rail button::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--sc);opacity:.35;transition:opacity .4s,transform .4s}
+.tm-rail button.on::after{opacity:1;transform:scale(1.4)}
 .tm-rail button.on .r-a{opacity:1}
 .tm-count{position:absolute;left:var(--pad);bottom:28px;display:flex;align-items:center;gap:14px;font-size:13px;font-variant-numeric:tabular-nums;color:rgba(255,255,255,.55)}
 .tm-count span:first-child{color:#fff}
@@ -189,7 +208,7 @@ p{text-wrap:pretty}
 .proof__title em{display:block;font-size:.66em;line-height:1.1;color:var(--ink);letter-spacing:-.02em}
 .proof__list{list-style:none;margin-top:clamp(48px,9vh,110px);border-top:1px solid var(--ink)}
 .proof__list li{display:grid;grid-template-columns:72px minmax(0,1fr) minmax(0,1.1fr);gap:clamp(16px,3vw,48px);align-items:baseline;padding:clamp(20px,3.4vh,36px) 0;border-bottom:1px solid var(--line)}
-.proof__list .n{font-size:13px;color:var(--soft);font-variant-numeric:tabular-nums}
+.proof__list .n{align-self:center}
 .proof__list .k{font:900 clamp(44px,6vw,104px)/.9 var(--disp);letter-spacing:-.055em;color:var(--deep);font-variant-numeric:tabular-nums}
 .proof__list .k em{color:var(--teal);font-size:.6em;letter-spacing:-.02em}
 .proof__list p{color:var(--soft);max-width:44ch;font-size:clamp(15px,1.15vw,18px)}
@@ -248,6 +267,7 @@ p{text-wrap:pretty}
 .footer__line{font:500 italic clamp(28px,3.6vw,62px)/1.06 var(--serif);max-width:22ch;letter-spacing:-.01em}
 .footer__big{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
 .footer__big-left{font:500 14px/1.5 var(--sans);color:rgba(255,255,255,.82)}
+.footer__caps{display:inline-block;margin-top:10px;font:600 10px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 .footer__big-right{font:900 clamp(70px,15vw,270px)/.8 var(--disp);letter-spacing:-.065em}
 @media (max-width:760px){.footer__links{grid-template-columns:repeat(2,auto)}.footer__addr{text-align:left}.footer__big{flex-direction:column-reverse;align-items:flex-start}}
 
@@ -274,19 +294,19 @@ p{text-wrap:pretty}
   <section class="hero" aria-label="Eastwood International School">
     <h1 class="hero__title">
       <span class="hero__word hero__word--first"><span class="reveal-line chars" aria-label="Eastwood">Eastwood</span></span>
-      <span class="hero__media" aria-hidden="true">
+      <span class="hero__media shieldframe" aria-hidden="true"><span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span><span class="clip">
         <img class="hero__cycle is-active" src="assets/eis26/h0.webp" alt="" fetchpriority="high">
         <img class="hero__cycle" src="assets/eis26/h1.webp" alt="">
         <img class="hero__cycle" src="assets/eis26/h2.webp" alt="">
         <img class="hero__cycle" src="assets/eis26/h3.webp" alt="">
         <img class="hero__cycle" src="assets/eis26/h4.webp" alt="">
         <img class="hero__cycle" src="assets/eis26/h5.webp" alt="">
-      </span>
+      </span></span>
       <span class="hero__word hero__word--last"><span class="reveal-line">International School</span></span>
     </h1>
     <div class="hero__foot">
       <p><b>Eastwood Schools in Mansourieh,</b> on the hillside above Beirut and the sea. An IB World School for ages 3 to 18.</p>
-      <span class="hero__tag">Inspire. Create. Innovate.</span>
+      <span class="hero__tag"><i class="rule" style="margin:0 0 12px auto"></i>Inspire. Create. Innovate.</span>
     </div>
   </section>
 
@@ -298,41 +318,42 @@ p{text-wrap:pretty}
   </section>
 
   <section class="about" id="about">
+    <span class="tag">Eastwood // The School</span>
     <h2 class="about__title split-lines">Where<br class="ph"> educational theory <em>meets real life.</em></h2>
     <div class="about__row">
       <p class="about__copy"><b>An education as unique as your child.</b> Fifteen years on one campus, from a Montessori-inspired first classroom to the IB Diploma, in English and in French. A campus of Eastwood Schools since 1983.</p>
-      <figure class="about__thumb media"><img src="assets/eis26/p-library.webp" alt="Afternoon light across tall library shelves" loading="lazy"></figure>
+      <figure class="about__thumb shieldframe"><span class="spark" style="width:5%;aspect-ratio:1;right:-10%;top:8%;background:var(--yellow)"></span><span class="clip"><img src="assets/eis26/p-library.webp" alt="Afternoon light across tall library shelves" loading="lazy"></span></figure>
     </div>
   </section>
 
   <section class="tm" id="learning" data-dark aria-labelledby="tm-h">
     <div class="tm-stage">
-      <div class="tm-head"><h2 id="tm-h" class="split-lines">Three to<br class="ph"> eighteen. <em>One campus.</em></h2></div>
+      <div class="tm-head"><span class="tag">Eastwood // Learning</span><h2 id="tm-h" class="split-lines">Three to<br class="ph"> eighteen. <em>One campus.</em></h2></div>
       <div class="tm-space" id="tmSpace">
-        <article class="tm-card" data-i="0">
+        <article class="tm-card" data-i="0" style="--sc:var(--yellow)">
           <div class="ph"><video muted loop playsinline preload="none" poster="assets/eis26/c-ey.webp" data-src="assets/eis26/v-ey.mp4" aria-hidden="true"></video></div>
           <div class="top"><b>Ages 3 to 6</b><span>IB PYP · Montessori-inspired</span></div>
           <div class="yr" aria-hidden="true">03</div>
           <div class="body"><h3>Early Years <em>Learning begins in the hands.</em></h3><p>A Montessori-inspired foundation within the IB Primary Years Programme. Inquiry, play and structured discovery, in English or in French.</p><a class="enter" href="ib-early-years.html">Explore Early Years →</a></div>
         </article>
-        <article class="tm-card" data-i="1">
+        <article class="tm-card" data-i="1" style="--sc:var(--grass)">
           <div class="ph"><img src="assets/eis26/c-el.webp" alt="A child's hands drawing a map of rivers and mountains" loading="lazy"></div>
           <div class="top"><b>Ages 6 to 11</b><span>IB Primary Years Programme</span></div>
           <div class="yr" aria-hidden="true">06</div>
           <div class="body"><h3>Elementary <em>Curiosity sets the pace.</em></h3><p>The full IB Primary Years Programme. Inquiry-led, transdisciplinary learning, in English and French sections.</p><a class="enter" href="ib-elementary.html">Explore Elementary →</a></div>
         </article>
-        <article class="tm-card tm-card--fr" data-i="2">
+        <article class="tm-card tm-card--fr" data-i="2" style="--sc:var(--rasp)">
           <div class="ph"><img src="assets/eis26/c-fr.webp" alt="A child's hand writing Bonjour in a French school notebook" loading="lazy"></div>
           <div class="top"><b>IB PYP in French</b><span>The only one in the region</span></div>
           <div class="body"><h3>Section Française <em>Two languages,<br> one way of thinking.</em></h3><p>The IB Primary Years Programme, delivered entirely in French. The only IB PYP French Section in the region.</p><a class="enter" href="fr-section.html" lang="fr">Découvrez la Section →</a></div>
         </article>
-        <article class="tm-card" data-i="3">
+        <article class="tm-card" data-i="3" style="--sc:var(--sky)">
           <div class="ph"><img src="assets/eis26/c-ms.webp" alt="A student's hands assembling a laser-cut prototype" loading="lazy"></div>
           <div class="top"><b>Ages 11 to 16</b><span>Design + Technology</span></div>
           <div class="yr" aria-hidden="true">11</div>
           <div class="body"><h3>Middle School <em>Build the idea. Then the thing.</em></h3><p>Concept-based learning that connects subjects to each other and to real life, with Design + Technology as a dedicated pillar of the campus.</p><a class="enter" href="ib-myp.html">Explore Middle School →</a></div>
         </article>
-        <article class="tm-card" data-i="4">
+        <article class="tm-card" data-i="4" style="--sc:var(--teal)">
           <div class="ph"><video muted loop playsinline preload="none" poster="assets/eis26/c-dp.webp" data-src="assets/eis26/v-caps.mp4" aria-hidden="true"></video></div>
           <div class="top"><b>Ages 16 to 18</b><span>100% IB Diploma pass rate</span></div>
           <div class="yr" aria-hidden="true">16</div>
@@ -341,11 +362,11 @@ p{text-wrap:pretty}
       </div>
       <nav class="tm-rail" aria-label="Stages">
         <ol>
-          <li><button data-i="0"><span class="r-a">3 to 6</span>Early Years</button></li>
-          <li><button data-i="1"><span class="r-a">6 to 11</span>Elementary</button></li>
-          <li><button data-i="2"><span class="r-a">FR</span>Section Française</button></li>
-          <li><button data-i="3"><span class="r-a">11 to 16</span>Middle School</button></li>
-          <li><button data-i="4"><span class="r-a">16 to 18</span>Diploma</button></li>
+          <li><button data-i="0" style="--sc:var(--yellow)"><span class="r-a">3 to 6</span>Early Years</button></li>
+          <li><button data-i="1" style="--sc:var(--grass)"><span class="r-a">6 to 11</span>Elementary</button></li>
+          <li><button data-i="2" style="--sc:var(--rasp)"><span class="r-a">FR</span>Section Française</button></li>
+          <li><button data-i="3" style="--sc:var(--sky)"><span class="r-a">11 to 16</span>Middle School</button></li>
+          <li><button data-i="4" style="--sc:var(--teal)"><span class="r-a">16 to 18</span>Diploma</button></li>
         </ol>
       </nav>
       <div class="tm-count" aria-hidden="true"><span id="tmIdx">01</span><i></i><span>05</span></div>
@@ -353,7 +374,7 @@ p{text-wrap:pretty}
   </section>
 
   <section class="strip" id="life" aria-labelledby="st-h">
-    <div class="strip__head"><h2 id="st-h" class="split-lines">Life on <em>the hill.</em></h2><p>Classrooms that look out over the garden courtyard, the city and the sea, and a school day that reaches well past the classroom.</p></div>
+    <div class="strip__head"><div><span class="tag">Eastwood // Life</span><h2 id="st-h" class="split-lines">Life on <em>the hill.</em></h2></div><p>Classrooms that look out over the garden courtyard, the city and the sea, and a school day that reaches well past the classroom.</p></div>
     <div class="strip__track">
       <figure><div class="media"><img src="assets/eis26/s1.webp" alt="Hands over a canvas splashed with colour" loading="lazy"></div><figcaption><b>Arts</b>Studio and exhibition</figcaption></figure>
       <figure><div class="media"><img src="assets/eis26/s2.webp" alt="Hands on piano keys in afternoon light" loading="lazy"></div><figcaption><b>Music</b>Practice and performance</figcaption></figure>
@@ -374,36 +395,39 @@ p{text-wrap:pretty}
   </section>
 
   <section class="proof" aria-labelledby="pf-h">
+    <span class="tag" style="text-align:center">Eastwood // The Standard</span>
     <h2 class="proof__title split-lines" id="pf-h">The campus, <em>by the numbers.</em></h2>
     <ol class="proof__list">
-      <li><span class="n">01</span><span class="k" data-count="100">100<em>%</em></span><p><b>IB Diploma pass rate.</b></p></li>
-      <li><span class="n">02</span><span class="k">3<em> to </em>18</span><p><b>Ages on one campus,</b> Montessori-inspired Early Years through the IB Diploma.</p></li>
-      <li><span class="n">03</span><span class="k" data-count="2011">2011</span><p><b>Online learning since 2011,</b> with Google and Apple, ahead of every other school.</p></li>
-      <li><span class="n">04</span><span class="k" data-count="2016">2016</span><p><b>IB World School</b> since 2016.</p></li>
-      <li><span class="n">05</span><span class="k">Platinum</span><p><b>Best School to Work,</b> T4 Education.</p></li>
+      <li><span class="n dot" style="--c:var(--yellow)">01</span><span class="k" data-count="100">100<em>%</em></span><p><b>IB Diploma pass rate.</b></p></li>
+      <li><span class="n dot" style="--c:var(--rasp);color:#fff">02</span><span class="k">3<em> to </em>18</span><p><b>Ages on one campus,</b> Montessori-inspired Early Years through the IB Diploma.</p></li>
+      <li><span class="n dot" style="--c:var(--grass)">03</span><span class="k" data-count="2011">2011</span><p><b>Online learning since 2011,</b> with Google and Apple, ahead of every other school.</p></li>
+      <li><span class="n dot" style="--c:var(--sky)">04</span><span class="k" data-count="2016">2016</span><p><b>IB World School</b> since 2016.</p></li>
+      <li><span class="n dot" style="--c:var(--moon)">05</span><span class="k">Platinum</span><p><b>Best School to Work,</b> T4 Education.</p></li>
     </ol>
   </section>
 
   <section class="deck" id="pathways" aria-labelledby="dk-h">
     <div class="deck__in">
       <div class="deck__copy">
+        <span class="tag">Eastwood // Pathways</span>
         <h2 id="dk-h" class="split-lines">Three<br class="lg"> pathways. <em>One standard.</em></h2>
         <p>At sixteen, students choose the diploma that fits where they are going next. The standard of teaching stays the same.</p>
         <div class="deck__hint"><button id="deckNext" aria-label="Next pathway">→</button><span>Tap or swipe to shuffle</span></div>
       </div>
       <div class="deck__stage" id="deck">
-        <article class="dcard"><div class="ph"><img src="assets/eis26/d-ib.webp" alt="Gloved hands holding a flask of luminous teal liquid to the light"></div><div class="tx"><span class="badge">01</span><div><h3>IB Diploma<br> Programme</h3><p>The international pre-university diploma, recognised by universities worldwide.</p></div></div></article>
-        <article class="dcard"><div class="ph"><img src="assets/eis26/d-us.webp" alt="A student's hands writing on a tablet beside a notebook"></div><div class="tx"><span class="badge">02</span><div><h3>American High<br> School Diploma</h3><p>For students targeting US and international university admissions.</p></div></div></article>
-        <article class="dcard"><div class="ph"><img src="assets/eis26/d-lb.webp" alt="A sunlit classroom with tall windows"></div><div class="tx"><span class="badge">03</span><div><h3>Lebanese<br> Programme</h3><p>Alongside the international tracks, in line with the national curriculum framework.</p></div></div></article>
+        <article class="dcard"><div class="ph"><img src="assets/eis26/d-ib.webp" alt="Gloved hands holding a flask of luminous teal liquid to the light"></div><div class="tx"><span class="badge" style="background:var(--teal)">01</span><div><h3>IB Diploma<br> Programme</h3><p>The international pre-university diploma, recognised by universities worldwide.</p></div></div></article>
+        <article class="dcard"><div class="ph"><img src="assets/eis26/d-us.webp" alt="A student's hands writing on a tablet beside a notebook"></div><div class="tx"><span class="badge" style="background:var(--sky)">02</span><div><h3>American High<br> School Diploma</h3><p>For students targeting US and international university admissions.</p></div></div></article>
+        <article class="dcard"><div class="ph"><img src="assets/eis26/d-lb.webp" alt="A sunlit classroom with tall windows"></div><div class="tx"><span class="badge" style="background:var(--yellow);color:var(--ink)">03</span><div><h3>Lebanese<br> Programme</h3><p>Alongside the international tracks, in line with the national curriculum framework.</p></div></div></article>
       </div>
     </div>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="ct-h">
+    <span class="tag" style="text-align:center">Eastwood // Admissions</span>
     <h2 class="contact__title split-lines" id="ct-h">Come and see it <em>for yourself.</em></h2>
     <div class="contact__row">
       <aside class="contact__info">
-        <h3>Admissions, all year</h3>
+        <h3>Admissions, all year</h3><i class="rule"></i>
         <p>Applications are open throughout the year, for families in Lebanon and for those still on their way.</p>
         <p>Sami Solh Street<br>Mansourieh el Metn, Lebanon</p>
         <p><a href="tel:+9614409307">+961 4 409 307</a><br><a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></p>
@@ -433,7 +457,7 @@ p{text-wrap:pretty}
   </div>
   <p class="footer__line">From curriculum to culture, from theory to real life.</p>
   <div class="footer__big">
-    <span class="footer__big-left">A campus of Eastwood Schools<br>© 2026 Eastwood Schools</span>
+    <span class="footer__big-left">A campus of Eastwood Schools<br>© 2026 Eastwood Schools<br><span class="footer__caps">eastwoodis.com · Mansourieh, Lebanon</span></span>
     <span class="footer__big-right chars" aria-hidden="true">Eastwood</span>
   </div>
 </footer>
