@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eastwood International School · Three to eighteen. One campus.</title>
+<meta name="description" content="Eastwood International School, the flagship campus of Eastwood Schools in Mansourieh, Lebanon. An IB World School for ages 3 to 18, home to the only IB PYP French Section in the region.">
+<meta name="theme-color" content="#FAFAF7">
+<meta property="og:title" content="Eastwood International School">
+<meta property="og:description" content="Three to eighteen. One campus. The flagship of Eastwood Schools, Mansourieh, Lebanon.">
+<meta property="og:image" content="assets/eis26/og.jpg">
+<link rel="icon" type="image/svg+xml" href="__FAVICON__">
+
+<style>
+/* Fonts: static TTF via Fontsource, per the brand system */
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.ttf) format("truetype")}
+@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.ttf) format("truetype")}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.ttf) format("truetype")}
+@font-face{font-family:"Inter Tight";font-weight:800;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter-tight@latest/latin-800-normal.ttf) format("truetype")}
+@font-face{font-family:"Inter Tight";font-weight:900;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter-tight@latest/latin-900-normal.ttf) format("truetype")}
+@font-face{font-family:"Bodoni Moda";font-style:italic;font-weight:500;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/bodoni-moda@latest/latin-500-italic.ttf) format("truetype")}
+
+:root{
+  --deep:#000077; --teal:#00B2A9; --ink:#14143A; --paper:#FAFAF7;
+  --sky:#00AFD7; --yellow:#F0B323; --grass:#6CC24A; --rasp:#D0006F; --sand:#D9B48F; --moon:#81B0D2;
+  --mute:rgba(20,20,58,.62); --hair:rgba(20,20,58,.14);
+  --sans:"Inter",system-ui,sans-serif; --disp:"Inter Tight","Inter",system-ui,sans-serif; --serif:"Bodoni Moda","Didot",serif;
+  --pad:clamp(20px,4vw,64px);
+  --stage:var(--yellow);
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:var(--sans);font-size:17px;line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,video{display:block}
+::selection{background:var(--teal);color:#fff}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:4px}
+em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.01em}
+.nw{white-space:nowrap}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+
+/* grain, warm and quiet */
+body::after{content:"";position:fixed;inset:-50%;z-index:60;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-4%)}75%{transform:translate(-4%,-1%)}100%{transform:translate(0,0)}}
+
+/* ---------- particle field ---------- */
+#gl{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none}
+main{position:relative;z-index:1}
+
+/* ---------- preloader: the count from three to eighteen ---------- */
+.pre{position:fixed;inset:0;z-index:90;background:var(--paper);display:grid;place-items:center;transition:clip-path 1.1s cubic-bezier(.77,0,.18,1);clip-path:inset(0 0 0 0)}
+.pre.out{clip-path:inset(0 0 100% 0)}
+.pre-mark{width:min(16vw,96px);height:auto;overflow:visible}
+.pre-mark path{fill:transparent;stroke:var(--teal);stroke-width:2;stroke-dasharray:1600;stroke-dashoffset:1600;transition:stroke-dashoffset 1.3s var(--ease),fill .5s .9s}
+.pre.go .pre-mark path{stroke-dashoffset:0;fill:var(--teal)}
+.pre-row{position:absolute;left:var(--pad);right:var(--pad);bottom:var(--pad);display:flex;justify-content:space-between;align-items:flex-end;color:var(--mute);font-size:14px}
+.pre-n{font-family:var(--disp);font-weight:800;font-size:clamp(56px,9vw,140px);letter-spacing:-.05em;color:var(--deep);font-variant-numeric:tabular-nums;line-height:.8}
+
+/* ---------- navigation ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);transition:transform .6s var(--ease)}
+.nav::before{content:"";position:absolute;inset:0 0 -40px;pointer-events:none;background:linear-gradient(to bottom,rgba(250,250,247,.92),rgba(250,250,247,0));opacity:1;transition:opacity .5s}
+.nav.dark::before{background:linear-gradient(to bottom,rgba(0,0,60,.55),rgba(0,0,60,0))}
+.nav>*{position:relative}
+.nav .logo{display:block;width:clamp(150px,15vw,210px)}
+.nav .logo img{width:100%;height:auto}
+.nav .logo .lw{display:none}
+.nav.dark .logo .lc{display:none}
+.nav.dark .logo .lw{display:block}
+.nav-r{display:flex;gap:10px;align-items:center}
+.pill{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;border-radius:999px;font:500 15px/1 var(--sans);letter-spacing:-.01em;transition:background .4s,color .4s,border-color .4s,transform .4s var(--ease);will-change:transform}
+.pill.ghost{border:1px solid var(--hair);color:var(--ink)}
+.pill.solid{background:var(--deep);color:#fff}
+.pill.solid:hover{background:var(--teal)}
+.pill.ghost:hover{border-color:var(--ink)}
+.nav.dark .pill.ghost{border-color:rgba(255,255,255,.3);color:#fff}
+.nav.dark .pill.solid{background:#fff;color:var(--deep)}
+.pill i{display:block;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+
+/* ---------- the age dial ---------- */
+.dial{position:fixed;right:var(--pad);top:50%;transform:translateY(-50%);z-index:40;display:flex;align-items:center;gap:18px;pointer-events:none;transition:opacity .6s,color .6s}
+.dial.hide{opacity:0}
+.dial-txt{text-align:right}
+.dial-age{font:800 clamp(64px,6.2vw,104px)/.82 var(--disp);letter-spacing:-.06em;font-variant-numeric:tabular-nums;color:var(--deep);display:block;transition:color .6s}
+.dial-lab{display:block;margin-top:10px;font-size:13px;color:var(--mute);letter-spacing:.01em;transition:color .6s}
+.dial-lab b{font-weight:600;color:var(--ink);transition:color .6s}
+.ticks{display:flex;flex-direction:column;gap:7px}
+.ticks i{display:block;height:2px;width:10px;background:var(--hair);border-radius:2px;margin-left:auto;transition:width .5s var(--ease),background .5s}
+.ticks i.on{width:26px;background:var(--stage)}
+.ticks i.past{background:rgba(20,20,58,.32)}
+.dial.dark .dial-age{color:#fff}.dial.dark .dial-lab,.dial.dark .dial-lab b{color:rgba(255,255,255,.8)}
+.dial.dark .ticks i{background:rgba(255,255,255,.22)}.dial.dark .ticks i.on{background:var(--teal)}
+@media (max-width:900px){
+  .dial{top:auto;bottom:16px;right:auto;left:var(--pad);transform:none;gap:12px;background:rgba(250,250,247,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px 16px 10px 14px;border-radius:999px;border:1px solid var(--hair)}
+  .dial.dark{background:rgba(0,0,60,.6);border-color:rgba(255,255,255,.18)}
+  .dial-txt{display:flex;align-items:baseline;gap:10px;text-align:left}
+  .dial-age{font-size:30px;letter-spacing:-.04em}
+  .dial-lab{margin:0;font-size:13px}
+  .ticks{display:none}
+}
+
+/* ---------- kinetic type ---------- */
+.kin .kw{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.04em .02em .1em;margin:-.04em -.02em -.1em}
+.kin .ki{display:inline-block;transform:translateY(105%) rotate(4deg);transform-origin:0 100%;transition:transform 1.1s var(--ease)}
+.kin.in .ki{transform:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:150vh}
+.hero-in{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--pad) clamp(28px,6vh,72px)}
+.hero-in::before{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(to top,var(--paper) 30%,rgba(250,250,247,0));pointer-events:none}
+.hero-in>*{position:relative}
+.hero h1{font:900 clamp(56px,10vw,190px)/.86 var(--disp);letter-spacing:-.055em;color:var(--deep);max-width:calc(100% - clamp(0px,13vw,200px))}
+.hero h1 em{display:block;font-size:.62em;line-height:1;letter-spacing:-.02em;color:var(--ink);margin-top:.16em;padding-left:.06em}
+.hero-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-top:clamp(24px,4vh,48px);padding-top:20px;border-top:1px solid var(--hair);max-width:calc(100% - clamp(0px,12vw,180px))}
+.hero-foot p{max-width:46ch;color:var(--mute);font-size:clamp(15px,1.2vw,18px)}
+.hero-foot p b{color:var(--ink);font-weight:500}
+.scrollcue{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--mute);white-space:nowrap}
+.scrollcue span{position:relative;display:block;width:1px;height:44px;background:var(--hair);overflow:hidden}
+.scrollcue span::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--deep);animation:cue 2s var(--ease) infinite}
+@keyframes cue{to{top:100%}}
+@media (max-width:560px){.nav{padding:14px var(--pad)}.nav .logo{width:128px}.pill{height:38px;padding:0 14px;font-size:14px}.nav-r{gap:6px}}
+@media (max-width:900px){.hero-foot{grid-template-columns:minmax(0,1fr);max-width:none}.scrollcue{display:none}.hero-in{padding-bottom:96px}}
+
+/* ---------- statement ---------- */
+.stmt{position:relative;min-height:70vh;display:grid;place-items:center;padding:20vh var(--pad);text-align:center}
+.stmt p{font:800 clamp(34px,5.6vw,96px)/.98 var(--disp);letter-spacing:-.045em;color:var(--ink);max-width:17ch}
+.stmt p em{display:block;color:var(--deep);font-size:.8em;letter-spacing:-.02em;margin-top:.08em}
+.stmt small{display:block;margin-top:28px;font-size:15px;color:var(--mute)}
+
+/* ---------- chapter: an aperture that opens onto each age (scroll expand, after HorizonX) ---------- */
+.xp{position:relative;height:240vh}
+.xp-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.xp-title{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(96px,14vh,140px) var(--pad) clamp(28px,6vh,64px);pointer-events:none;z-index:2}
+.xp-title h2{font:900 clamp(46px,7.4vw,140px)/.86 var(--disp);letter-spacing:-.055em;color:var(--deep);max-width:min(12ch,calc(100% - clamp(0px,13vw,200px)))}
+.xp-title h2 em{display:block;font-size:.62em;line-height:1.02;color:var(--ink);letter-spacing:-.02em;margin-top:.1em}
+.xp-title .rng{font:800 clamp(18px,1.6vw,24px)/1 var(--disp);letter-spacing:-.02em;color:var(--ink);display:flex;gap:14px;align-items:center}
+.xp-title .rng i{display:block;width:44px;height:3px;border-radius:3px;background:var(--stage-c)}
+.xp-frame{position:absolute;inset:0;clip-path:inset(46% 14% 10% 50% round 28px);will-change:clip-path;z-index:1;background:#ddd}
+.xp-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.24);will-change:transform}
+.xp-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,40,.82) 0%,rgba(10,10,40,.38) 42%,rgba(10,10,40,0) 70%);opacity:0}
+.xp-copy{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(28px,7vh,80px);z-index:3;color:#fff;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,4vw,72px);align-items:end;opacity:0;transform:translateY(24px);max-width:calc(100% - clamp(0px,14vw,200px))}
+.xp-copy h3{font:800 clamp(34px,4.4vw,76px)/.95 var(--disp);letter-spacing:-.045em}
+.xp-copy h3 em{color:#fff}
+.xp-copy p{font-size:clamp(16px,1.25vw,19px);line-height:1.5;color:rgba(255,255,255,.88);max-width:44ch}
+.xp-copy .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.xp-copy .meta span{font-size:13px;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.34);color:#fff}
+.xp-copy a.more{display:inline-flex;gap:10px;align-items:center;margin-top:18px;font-weight:500;font-size:15px;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:3px}
+@media (max-width:900px){
+  .xp{height:220vh}
+  .xp-frame{clip-path:inset(50% 6% 16% 6% round 22px)}
+  .xp-copy{grid-template-columns:minmax(0,1fr);gap:14px;max-width:none;bottom:92px}
+  .xp-title{padding-top:104px}
+}
+
+/* ---------- the French Section: a seam between two languages ---------- */
+.fr{position:relative;height:200vh;background:var(--paper)}
+.fr-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;cursor:ew-resize;touch-action:pan-y}
+.fr-side{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 var(--pad)}
+.fr-side .fr-h{font:900 clamp(40px,7.4vw,136px)/.9 var(--disp);letter-spacing:-.05em;max-width:12ch}
+.fr-side .fr-p{margin-top:28px;font-size:clamp(16px,1.3vw,20px);max-width:40ch}
+.fr-en{background:var(--paper);color:var(--deep)}
+.fr-en .fr-p{color:var(--mute)}
+.fr-fr{background:var(--deep);color:#fff;clip-path:inset(0 0 0 var(--seam,50%))}
+.fr-side .fr-h em{display:block;font-size:.66em;line-height:1.02;letter-spacing:-.02em;margin-top:.1em}
+.fr-fr .fr-h em{color:var(--teal)}
+.fr-fr .fr-p{color:rgba(255,255,255,.8)}
+.fr-line{position:absolute;top:0;bottom:0;left:var(--seam,50%);width:1px;background:var(--teal);z-index:3;pointer-events:none}
+.fr-knob{position:absolute;top:50%;left:var(--seam,50%);z-index:4;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font:600 13px/1 var(--sans);letter-spacing:.02em;pointer-events:none;box-shadow:0 10px 40px rgba(0,0,119,.25)}
+.fr-tag{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(28px,6vh,64px);display:flex;justify-content:space-between;font-size:14px;z-index:5;pointer-events:none}
+.fr-tag span:first-child{color:var(--mute)}
+.fr-tag span:last-child{color:rgba(255,255,255,.75)}
+@media (max-width:900px){.fr-knob{width:58px;height:58px;font-size:12px}.fr-tag{bottom:92px}}
+
+/* ---------- the pathways ---------- */
+.paths{position:relative;background:linear-gradient(rgba(250,250,247,0),rgba(250,250,247,.9) 18%,rgba(250,250,247,.9) 82%,rgba(250,250,247,0));padding:22vh var(--pad) 16vh}
+.paths-h{font:900 clamp(44px,7.6vw,140px)/.88 var(--disp);letter-spacing:-.055em;color:var(--deep);max-width:12ch}
+.paths-h em{display:block;font-size:.62em;line-height:1.02;color:var(--ink);letter-spacing:-.02em;margin-top:.1em}
+.paths-grid{margin-top:clamp(40px,8vh,96px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+.path{padding:28px clamp(16px,2vw,32px) 36px 0;border-right:1px solid var(--hair);min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:background .5s}
+.path+.path{padding-left:clamp(16px,2vw,32px)}
+.path:last-child{border-right:0}
+.path b{font:800 clamp(14px,1vw,15px)/1 var(--disp);color:var(--mute);letter-spacing:.02em}
+.path h3{font:800 clamp(28px,2.8vw,46px)/.98 var(--disp);letter-spacing:-.04em;color:var(--ink);margin:28px 0 16px}
+.path p{color:var(--mute);max-width:34ch}
+.path .bar{height:3px;width:0;background:var(--teal);margin-top:28px;transition:width 1.2s var(--ease)}
+.paths.in .path .bar{width:100%}
+.paths.in .path:nth-child(2) .bar{transition-delay:.15s}.paths.in .path:nth-child(3) .bar{transition-delay:.3s}
+@media (max-width:900px){.paths-grid{grid-template-columns:minmax(0,1fr)}.path{border-right:0;border-bottom:1px solid var(--hair);min-height:0;padding:24px 0 28px!important}.path h3{margin:16px 0 10px}}
+
+/* ---------- eighteen: the shield assembles ---------- */
+.ready{position:relative;height:210vh}
+.ready-in{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(96px,14vh,140px) var(--pad) clamp(28px,6vh,64px);pointer-events:none}
+.ready-in h2{font:900 clamp(56px,10vw,190px)/.86 var(--disp);letter-spacing:-.055em;color:var(--deep)}
+.ready-in .tag{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.ready-in .tag p{font:500 italic clamp(26px,3vw,52px)/1.05 var(--serif);color:var(--ink);letter-spacing:-.01em}
+.ready-in .tag span{font-size:14px;color:var(--mute);max-width:30ch;text-align:right}
+@media (max-width:900px){.ready-in .tag{flex-direction:column;align-items:flex-start}.ready-in .tag span{text-align:left}.ready-in{padding-bottom:96px}}
+
+/* ---------- proof, on Deep Blue ---------- */
+.proof{position:relative;background:var(--deep);color:#fff;padding:20vh var(--pad) 18vh;overflow:hidden}
+.proof-h{font:900 clamp(44px,7vw,128px)/.88 var(--disp);letter-spacing:-.055em;max-width:13ch}
+.proof-h em{display:block;color:var(--teal);font-size:.62em;line-height:1.02;letter-spacing:-.02em;margin-top:.1em}
+.proof-grid{margin-top:clamp(48px,10vh,120px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid rgba(255,255,255,.22)}
+.pf{padding:32px clamp(12px,1.6vw,28px) 8px 0;border-right:1px solid rgba(255,255,255,.14)}
+.pf+.pf{padding-left:clamp(12px,1.6vw,28px)}
+.pf:last-child{border-right:0}
+.pf .n{font:800 clamp(52px,6vw,112px)/.86 var(--disp);letter-spacing:-.055em;font-variant-numeric:tabular-nums;display:block;white-space:nowrap}
+.pf .n .to{font:500 italic .34em/1 var(--serif);letter-spacing:0;margin:0 .12em;color:var(--teal)}
+.pf .n.word{font-size:clamp(40px,4.4vw,84px)}
+.pf .k{display:block;margin-top:22px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.76);max-width:24ch}
+.pf .k b{color:#fff;font-weight:600}
+@media (max-width:1100px){.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pf:nth-child(2){border-right:0}.pf:nth-child(3){padding-left:0}.pf:nth-child(n+3){border-top:1px solid rgba(255,255,255,.14);margin-top:8px}}
+@media (max-width:560px){.proof-grid{grid-template-columns:minmax(0,1fr)}.pf{border-right:0!important;padding:26px 0 18px!important;border-top:1px solid rgba(255,255,255,.14);margin:0!important}.pf:first-child{border-top:0}}
+
+/* ---------- arrive ---------- */
+.arrive{position:relative;min-height:100vh;min-height:100svh;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--pad) clamp(28px,6vh,64px);overflow:hidden;background:var(--ink)}
+.arrive video,.arrive img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.arrive::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,10,40,.85),rgba(10,10,40,.25) 55%,rgba(10,10,40,.1))}
+.arrive>*:not(video):not(img){position:relative;z-index:2}
+.arrive h2{font:900 clamp(48px,8.4vw,156px)/.88 var(--disp);letter-spacing:-.055em;max-width:12ch}
+.arrive h2 em{display:block;font-size:.62em;line-height:1.02;letter-spacing:-.02em;margin-top:.1em}
+.arrive-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;margin-top:clamp(28px,5vh,56px);padding-top:24px;border-top:1px solid rgba(255,255,255,.24)}
+.arrive-row p{max-width:44ch;color:rgba(255,255,255,.82)}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.arrive .pill.ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.arrive .pill.ghost:hover{border-color:#fff}
+.arrive .pill.solid{background:#fff;color:var(--deep)}
+.arrive .pill.solid:hover{background:var(--teal);color:#fff}
+@media (max-width:900px){.arrive-row{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- footer ---------- */
+.ft{position:relative;z-index:1;background:var(--paper);padding:clamp(56px,10vh,110px) var(--pad) 28px}
+.ft-line{font:500 italic clamp(28px,3.6vw,60px)/1.05 var(--serif);color:var(--deep);max-width:22ch;letter-spacing:-.01em}
+.ft-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px;margin-top:clamp(48px,9vh,96px);padding-top:28px;border-top:1px solid var(--hair);font-size:15px}
+.ft-grid h4{font:600 13px/1 var(--sans);color:var(--mute);margin-bottom:16px;letter-spacing:.01em}
+.ft-grid a{display:block;padding:4px 0;color:var(--ink)}
+.ft-grid a:hover{color:var(--deep)}
+.ft-grid address{font-style:normal;color:var(--ink);line-height:1.6}
+.ft-base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:56px;font-size:13px;color:var(--mute)}
+@media (max-width:900px){.ft-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ft-grid>div:first-child{grid-column:1/-1}}
+
+/* ---------- index overlay ---------- */
+.ix{position:fixed;inset:0;z-index:80;background:var(--deep);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:96px var(--pad) 40px;clip-path:inset(0 0 100% 0);transition:clip-path .9s cubic-bezier(.77,0,.18,1);visibility:hidden}
+.ix.open{clip-path:inset(0 0 0 0);visibility:visible}
+.ix ol{list-style:none;counter-reset:c}
+.ix li{counter-increment:c;border-top:1px solid rgba(255,255,255,.16);overflow:hidden}
+.ix li:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+.ix a{display:flex;align-items:baseline;gap:clamp(14px,3vw,40px);padding:clamp(10px,1.6vh,18px) 0;font:800 clamp(28px,4.6vw,72px)/1 var(--disp);letter-spacing:-.045em;transform:translateY(110%);transition:transform .9s var(--ease),color .3s}
+.ix a::before{content:counter(c,decimal-leading-zero);font:500 14px/1 var(--sans);letter-spacing:0;color:var(--teal);width:28px;flex:none}
+.ix a span{margin-left:auto;font:500 14px/1 var(--sans);letter-spacing:0;color:rgba(255,255,255,.6)}
+.ix a:hover{color:var(--teal)}
+.ix.open a{transform:none}
+.ix.open li:nth-child(2) a{transition-delay:.05s}.ix.open li:nth-child(3) a{transition-delay:.1s}.ix.open li:nth-child(4) a{transition-delay:.15s}.ix.open li:nth-child(5) a{transition-delay:.2s}.ix.open li:nth-child(6) a{transition-delay:.25s}.ix.open li:nth-child(7) a{transition-delay:.3s}.ix.open li:nth-child(8) a{transition-delay:.35s}
+.ix-close{position:absolute;top:18px;right:var(--pad)}
+.ix .pill.ghost{border-color:rgba(255,255,255,.3);color:#fff}
+
+/* ---------- cursor ---------- */
+.cur{position:fixed;left:0;top:0;z-index:85;pointer-events:none}
+.cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--deep)}
+.cur-ring{width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;border:1px solid rgba(0,0,119,.35);display:grid;place-items:center;transition:width .45s var(--ease),height .45s var(--ease),margin .45s var(--ease),background .45s,border-color .45s}
+.cur-ring span{font:600 12px/1 var(--sans);color:#fff;opacity:0;transition:opacity .3s}
+.cur.big .cur-ring{width:84px;height:84px;margin:-42px 0 0 -42px;background:var(--teal);border-color:var(--teal)}
+.cur.big .cur-ring span{opacity:1}
+.cur.dark .cur-dot{background:#fff}.cur.dark .cur-ring{border-color:rgba(255,255,255,.5)}
+@media (hover:none),(pointer:coarse){.cur{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  body::after{animation:none}
+  .kin .ki{transform:none!important;transition:none}
+  .xp,.fr,.ready{height:auto}
+  .xp-stage,.fr-stage,.ready-in{position:relative;height:auto;min-height:100vh}
+}
+</style>
+</head>
+<body>
+<div class="pre" id="pre" aria-hidden="true">
+  <svg class="pre-mark" viewBox="150 107 290 315">__SHIELD_SVG_PATHS__</svg>
+  <div class="pre-row"><span>Eastwood International School</span><span class="pre-n" id="preN">3</span></div>
+</div>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="Eastwood International School, home">
+    <img class="lc" src="assets/eis26/logo-colour.png" alt="Eastwood International School" width="500" height="120">
+    <img class="lw" src="assets/eis26/logo-white.png" alt="" width="500" height="120">
+  </a>
+  <div class="nav-r">
+    <button class="pill ghost" id="ixBtn" aria-expanded="false" aria-controls="ix">Index</button>
+    <a class="pill solid mag" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener"><i></i>Enquire</a>
+  </div>
+</header>
+
+<aside class="dial" id="dial" aria-hidden="true">
+  <div class="dial-txt"><span class="dial-age" id="dialAge">3</span><span class="dial-lab">Age · <b id="dialStage">Early Years</b></span></div>
+  <div class="ticks" id="ticks"></div>
+</aside>
+
+<nav class="ix" id="ix" aria-label="Index" aria-hidden="true">
+  <button class="pill ghost ix-close" id="ixClose">Close</button>
+  <ol>
+    <li><a href="#top">Three to eighteen <span>The campus</span></a></li>
+    <li><a href="#early-years">Early Years <span>Ages 3 to 6</span></a></li>
+    <li><a href="#elementary">Elementary <span>Ages 6 to 11</span></a></li>
+    <li><a href="#french-section">Section Française <span>IB PYP in French</span></a></li>
+    <li><a href="#middle-school">Middle School <span>Ages 11 to 16</span></a></li>
+    <li><a href="#diploma">Diploma <span>Ages 16 to 18</span></a></li>
+    <li><a href="#proof">The standard <span>Since 2011</span></a></li>
+    <li><a href="#arrive">Visit Mansourieh <span>Admissions</span></a></li>
+  </ol>
+</nav>
+
+<main id="top">
+  <!-- 00 · Three -->
+  <section class="hero" data-a0="3" data-a1="3" aria-label="Eastwood International School">
+    <div class="hero-in">
+      <h1 data-kin>Three to eighteen. <em>One campus.</em></h1>
+      <div class="hero-foot">
+        <p><b>Eastwood International School</b> is the flagship of Eastwood Schools, on the hillside of Mansourieh above Beirut and the sea. An IB World School, from Montessori-inspired Early Years to the IB Diploma.</p>
+        <div class="scrollcue"><span></span>Scroll to grow up</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stmt" data-a0="3" data-a1="3">
+    <p data-kin>An education as unique <em>as your child.</em></p>
+  </section>
+
+  <!-- 01 · Early Years -->
+  <section class="xp" id="early-years" data-a0="3" data-a1="6" data-c="#F0B323" data-stage="Early Years">
+    <div class="xp-stage">
+      <div class="xp-title"><h2 data-kin>Learning begins <em>in the hands.</em></h2><div class="rng"><i></i>Ages 3 to 6</div></div>
+      <div class="xp-frame">
+        <video class="xp-media" muted loop playsinline preload="none" poster="assets/eis26/g0.webp" data-src="assets/eis26/v1.mp4" aria-hidden="true"></video>
+        <div class="xp-scrim"></div>
+      </div>
+      <div class="xp-copy">
+        <h3>Early Years</h3>
+        <div><p>A Montessori-inspired foundation within the IB Primary Years Programme. Inquiry, play and structured discovery, in English or in French.</p>
+        <div class="meta"><span>IB PYP Early Years</span><span>Montessori-inspired</span><span>English or French</span></div>
+        <a class="more" href="ib-early-years.html">Explore Early Years →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · Elementary -->
+  <section class="xp" id="elementary" data-a0="6" data-a1="9" data-c="#6CC24A" data-stage="Elementary">
+    <div class="xp-stage">
+      <div class="xp-title"><h2 data-kin>Curiosity <em>sets the pace.</em></h2><div class="rng"><i></i>Ages 6 to 11</div></div>
+      <div class="xp-frame">
+        <img class="xp-media" src="assets/eis26/g1.webp" alt="A child's hands drawing a map of rivers and mountains in coloured pencil" loading="lazy">
+        <div class="xp-scrim"></div>
+      </div>
+      <div class="xp-copy">
+        <h3>Elementary</h3>
+        <div><p>The full IB Primary Years Programme. Inquiry-led, transdisciplinary learning, where questions lead and subjects follow.</p>
+        <div class="meta"><span>IB PYP</span><span>English and French sections</span></div>
+        <a class="more" href="ib-elementary.html">Explore Elementary →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · The French Section -->
+  <section class="fr" id="french-section" data-a0="9" data-a1="11" data-c="#D0006F" data-stage="Section Française">
+    <div class="fr-stage" id="frStage">
+      <div class="fr-side fr-en">
+        <p class="fr-h">The only IB PYP French Section <em>in the region.</em></p>
+        <p class="fr-p">The IB Primary Years Programme, delivered entirely in French. Two languages, one way of thinking.</p>
+      </div>
+      <div class="fr-side fr-fr" aria-hidden="true" lang="fr">
+        <p class="fr-h">La seule Section Française du PYP <em>dans la région.</em></p>
+        <p class="fr-p">Le Programme primaire de l’IB, entièrement en français. Deux langues, une même façon de penser.</p>
+      </div>
+      <div class="fr-line"></div>
+      <div class="fr-knob">EN · FR</div>
+      <div class="fr-tag"><span>Drag or scroll to cross over</span><span><a href="fr-section.html" style="pointer-events:auto;border-bottom:1px solid rgba(255,255,255,.5)">Découvrez la Section →</a></span></div>
+    </div>
+  </section>
+
+  <!-- 04 · Middle School -->
+  <section class="xp" id="middle-school" data-a0="11" data-a1="16" data-c="#00AFD7" data-stage="Middle School">
+    <div class="xp-stage">
+      <div class="xp-title"><h2 data-kin>Build the idea. <em>Then build the thing.</em></h2><div class="rng"><i></i>Ages 11 to 16</div></div>
+      <div class="xp-frame">
+        <img class="xp-media" src="assets/eis26/g2.webp" alt="A student's hands assembling a laser-cut wooden prototype with a circuit board" loading="lazy">
+        <div class="xp-scrim"></div>
+      </div>
+      <div class="xp-copy">
+        <h3>Middle School</h3>
+        <div><p>Concept-based learning that connects subjects to each other and to real life, with Design + Technology as a dedicated pillar of the campus.</p>
+        <div class="meta"><span>Concept-based</span><span>Design + Technology</span></div>
+        <a class="more" href="ib-myp.html">Explore Middle School →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · Diploma -->
+  <section class="xp" id="diploma" data-a0="16" data-a1="17" data-c="#00B2A9" data-stage="Diploma">
+    <div class="xp-stage">
+      <div class="xp-title"><h2 data-kin>Theory, <em>meet real life.</em></h2><div class="rng"><i></i>Ages 16 to 18</div></div>
+      <div class="xp-frame">
+        <video class="xp-media" muted loop playsinline preload="none" poster="assets/eis26/g3.webp" data-src="assets/eis26/v2.mp4" aria-hidden="true"></video>
+        <div class="xp-scrim"></div>
+      </div>
+      <div class="xp-copy">
+        <h3>100<em>%</em></h3>
+        <div><p>IB Diploma pass rate. Students graduate through the IB Diploma Programme, the American High School Diploma or the Lebanese Programme.</p>
+        <div class="meta"><span>IB Diploma Programme</span><span>American High School Diploma</span><span>Lebanese Programme</span></div>
+        <a class="more" href="ib-dp.html">Explore the Diploma →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paths" id="paths" data-a0="17" data-a1="17" data-c="#00B2A9" data-stage="Diploma">
+    <h2 class="paths-h" data-kin>Three pathways. <em>One standard.</em></h2>
+    <div class="paths-grid">
+      <article class="path"><b>01</b><div><h3>IB Diploma Programme</h3><p>The international pre-university diploma, recognised by universities worldwide.</p></div><i class="bar"></i></article>
+      <article class="path"><b>02</b><div><h3>American High School Diploma</h3><p>A recognised American pathway for students targeting US and international university admissions.</p></div><i class="bar"></i></article>
+      <article class="path"><b>03</b><div><h3>Lebanese Programme</h3><p>Offered alongside the international tracks, in line with the Lebanese national curriculum framework.</p></div><i class="bar"></i></article>
+    </div>
+  </section>
+
+  <!-- 06 · Eighteen -->
+  <section class="ready" id="ready" data-a0="17" data-a1="19.5" data-c="#00B2A9" data-stage="Graduation">
+    <div class="ready-in">
+      <h2 data-kin>Eighteen.</h2>
+      <div class="tag"><p>Inspire. Create. Innovate.</p><span>Fifteen years on one campus, from the first wooden rod to the Diploma.</span></div>
+    </div>
+  </section>
+
+  <!-- 07 · Proof -->
+  <section class="proof" id="proof" data-dark aria-labelledby="pf-h">
+    <h2 class="proof-h" id="pf-h" data-kin>The flagship, <em>by the numbers.</em></h2>
+    <div class="proof-grid">
+      <div class="pf"><span class="n" data-count="2011">2011</span><span class="k"><b>Online learning since 2011,</b> with Google and Apple, ahead of every other school.</span></div>
+      <div class="pf"><span class="n" data-count="2016">2016</span><span class="k"><b>IB World School</b> since 2016.</span></div>
+      <div class="pf"><span class="n">3<small class="to">to</small>18</span><span class="k"><b>Ages on one campus,</b> Montessori Early Years through the IB Diploma.</span></div>
+      <div class="pf"><span class="n word">Platinum</span><span class="k"><b>Best School to Work,</b> T4 Education.</span></div>
+    </div>
+  </section>
+
+  <!-- 08 · Arrive -->
+  <section class="arrive" id="arrive" data-dark aria-labelledby="ar-h">
+    <video muted loop playsinline preload="none" poster="assets/eis26/g4.webp" data-src="assets/eis26/v3.mp4" aria-hidden="true"></video>
+    <h2 id="ar-h" data-kin>Come and see it <em>for yourself.</em></h2>
+    <div class="arrive-row">
+      <p>Admissions are open throughout the year, for families in Lebanon and for those still on their way. Start with a conversation.</p>
+      <div class="ctas">
+        <a class="pill solid mag" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener"><i></i>Enquire</a>
+        <a class="pill ghost mag" href="contact.html">Book a visit</a>
+        <a class="pill ghost mag" href="uploads/EIS-2026-27-Tuition-Fees.pdf" target="_blank" rel="noopener">Tuition 2026 to 2027</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft" id="ft">
+  <p class="ft-line">From curriculum to culture, from theory to real life.</p>
+  <div class="ft-grid">
+    <div>
+      <h4>Eastwood International School</h4>
+      <address>Sami Solh Street, Mansourieh el Metn<br>Lebanon<br><a href="tel:+9614409307">+961 4 409 307</a><a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></address>
+    </div>
+    <div><h4>Learning</h4><a href="ib-early-years.html">Early Years</a><a href="ib-elementary.html">Elementary</a><a href="fr-section.html">Section Française</a><a href="ib-myp.html">Middle School</a><a href="ib-dp.html">IB Diploma</a><a href="high-school.html">High School</a></div>
+    <div><h4>Families</h4><a href="admissions.html">Admissions</a><a href="beirut-guide.html">Beirut Guide</a><a href="student-life.html">Life at Eastwood</a><a href="contact.html">Contact</a></div>
+    <div><h4>School</h4><a href="about.html">About</a><a href="news.html">News</a><a href="careers.html">Careers</a><a href="privacy.html">Privacy</a></div>
+  </div>
+  <div class="ft-base"><span>Eastwood International School is the flagship campus of Eastwood Schools.</span><span>© 2026 Eastwood Schools</span></div>
+</footer>
+
+<div class="cur" id="cur" aria-hidden="true"><div class="cur-ring"><span>Drag</span></div></div>
+<div class="cur" id="curDot" aria-hidden="true"><div class="cur-dot"></div></div>
+
+<script>
+/* ---------- typographic pass and kinetic headings (from the network engine) ---------- */
+(() => {
+  const root = document.querySelector("main");
+  const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => n.parentElement.closest("script,style,svg") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
+  const texts = []; while (tw.nextNode()) texts.push(tw.currentNode);
+  texts.forEach(n => { if (/'/.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace(/(\w)'(\w)/g, "$1’$2"); });
+  const bind = (el) => {
+    const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); const ns = []; while (w.nextNode()) ns.push(w.currentNode);
+    for (let i = ns.length - 1; i >= 0; i--) {
+      const v = ns[i].nodeValue, tr = v.replace(/\s+$/, ""), j = tr.lastIndexOf(" ");
+      if (j > 0 && tr.length - j < 18) { ns[i].nodeValue = tr.slice(0, j) + " " + v.slice(j + 1); return; }
+      if (tr === "") continue; return;
+    }
+  };
+  document.querySelectorAll("main p, main h3, .ft-line, .pf .k").forEach(el => { if (!el.closest("[data-kin]")) bind(el); });
+  const split = (el) => {
+    let i = 0;
+    const walk = (node) => {
+      [...node.childNodes].forEach(ch => {
+        if (ch.nodeType === 3) {
+          ch.nodeValue.split(/( +)/).forEach(part => {
+            if (!part) return;
+            if (/^ +$/.test(part)) { node.insertBefore(document.createTextNode(" "), ch); return; }
+            const kw = document.createElement("span"); kw.className = "kw";
+            const ki = document.createElement("span"); ki.className = "ki"; ki.style.transitionDelay = (i++ * 70) + "ms";
+            ki.textContent = part; kw.appendChild(ki); node.insertBefore(kw, ch);
+          });
+          node.removeChild(ch);
+        } else if (ch.nodeType === 1 && !ch.classList.contains("kw")) walk(ch);
+      });
+    };
+    walk(el);
+    const kws = [...el.querySelectorAll(".kw")];
+    if (kws.length > 2) {
+      const a = kws[kws.length - 2]; let b = kws[kws.length - 1];
+      while (b.parentNode && b.parentNode !== a.parentNode && b.parentNode !== el) b = b.parentNode;
+      if (b.parentNode === a.parentNode) { const nw = document.createElement("span"); nw.className = "nw"; a.parentNode.insertBefore(nw, a); let n = a; while (n) { const nx = n.nextSibling; nw.appendChild(n); if (n === b) break; n = nx; } }
+    }
+    if (!el.getAttribute("aria-label")) el.setAttribute("aria-label", el.textContent.replace(/ /g, " "));
+    return el;
+  };
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const kins = [...document.querySelectorAll("[data-kin]")].map(el => { el.classList.add("kin"); return split(el); });
+  window.__kins = kins;
+  if (reduce) { kins.forEach(k => k.classList.add("in")); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); else if (e.boundingClientRect.top > 0) e.target.classList.remove("in"); }), { threshold: 0.3 });
+  kins.forEach(k => { if (!k.closest(".hero")) io.observe(k); });
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+<script>window.__SHIELD__=__SHIELD_JSON__;</script>
+<script>
+/* ---------- scroll engine: age, chapters, apertures, seam ---------- */
+(() => {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const ramp = (x, a, b) => { const t = clamp((x - a) / ((b - a) || 1e-6)); return t * t * (3 - 2 * t); };
+  const aperture = t => 1 - Math.pow(1 - clamp(t), 2.4);
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const STAGES = [[6, "Early Years"], [11, "Elementary"], [16, "Middle School"], [18, "Diploma"], [99, "Graduate"]];
+
+  /* preloader: three to eighteen */
+  const pre = $("#pre"), preN = $("#preN");
+  const startSite = () => { pre.classList.add("out"); document.querySelector(".hero [data-kin]").classList.add("in"); setTimeout(() => pre.remove(), 1300); };
+  if (reduce) { pre.remove(); document.querySelector(".hero [data-kin]").classList.add("in"); }
+  else {
+    requestAnimationFrame(() => pre.classList.add("go"));
+    let n = 3; const t0 = performance.now();
+    const step = (t) => { const p = clamp((t - t0) / 1500); n = Math.round(3 + 15 * (1 - Math.pow(1 - p, 3))); preN.textContent = n; if (p < 1) requestAnimationFrame(step); else setTimeout(startSite, 260); };
+    requestAnimationFrame(step);
+  }
+
+  /* smooth scroll */
+  let lenis = null;
+  if (!reduce && window.Lenis) {
+    lenis = new Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 0.9 }); window.__lenis = lenis;
+    const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf);
+  }
+  const goTo = (el) => lenis ? lenis.scrollTo(el, { duration: 1.6 }) : el.scrollIntoView({ behavior: "smooth" });
+  $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const el = $(a.getAttribute("href")); if (el) { e.preventDefault(); closeIx(); setTimeout(() => goTo(el), 380); } }));
+
+  /* index overlay */
+  const ix = $("#ix"), ixBtn = $("#ixBtn");
+  const setIx = (o) => { ix.classList.toggle("open", o); ix.setAttribute("aria-hidden", !o); ixBtn.setAttribute("aria-expanded", o); if (lenis) o ? lenis.stop() : lenis.start(); document.documentElement.style.overflow = o ? "hidden" : ""; if (o) setTimeout(() => ix.querySelector("a").focus(), 500); };
+  function closeIx() { if (ix.classList.contains("open")) setIx(false); }
+  ixBtn.addEventListener("click", () => setIx(true));
+  $("#ixClose").addEventListener("click", () => { setIx(false); ixBtn.focus(); });
+  addEventListener("keydown", e => { if (e.key === "Escape") closeIx(); });
+
+  /* age dial ticks */
+  const ticks = $("#ticks");
+  for (let a = 3; a <= 18; a++) { const i = document.createElement("i"); i.dataset.a = a; ticks.appendChild(i); }
+  const tickEls = [...ticks.children];
+  const dial = $("#dial"), dialAge = $("#dialAge"), dialStage = $("#dialStage"), nav = $("#nav");
+  const ageSecs = $$("[data-a0]"), darkSecs = $$("[data-dark], .ft");
+  const xps = $$(".xp").map(s => ({ s, frame: s.querySelector(".xp-frame"), media: s.querySelector(".xp-media"), scrim: s.querySelector(".xp-scrim"), title: s.querySelector(".xp-title"), copy: s.querySelector(".xp-copy"), cur: 0, vid: s.querySelector("video") }));
+  const fr = $("#french-section"), frStage = $("#frStage");
+  let seamDrag = null;
+  const mob = () => innerWidth <= 900;
+
+  window.__age = 3;
+  let lastAge = -1, lastStage = "";
+  function frame() {
+    const vh = innerHeight, mid = vh * 0.5;
+    /* age: interpolate inside the section that holds the viewport centre */
+    let age = window.__age;
+    for (const s of ageSecs) {
+      const r = s.getBoundingClientRect();
+      if (r.top <= mid && r.bottom >= mid) {
+        const a0 = +s.dataset.a0, a1 = +s.dataset.a1;
+        const p = clamp((mid - r.top) / Math.max(1, r.height));
+        age = a0 + (a1 - a0) * p; break;
+      }
+    }
+    const lastSec = ageSecs[ageSecs.length - 1].getBoundingClientRect();
+    if (lastSec.bottom < mid) age = 18;
+    window.__age += (age - window.__age) * 0.18;
+    const ai = Math.max(3, Math.min(18, Math.floor(window.__age + 0.02)));
+    if (ai !== lastAge) { lastAge = ai; dialAge.textContent = ai; tickEls.forEach(t => { const a = +t.dataset.a; t.classList.toggle("on", a === ai); t.classList.toggle("past", a < ai); }); }
+    const st = (STAGES.find(([lim]) => ai < lim) || STAGES[4])[1];
+    const label = ai >= 18 ? "Graduate" : st;
+    if (label !== lastStage) { lastStage = label; dialStage.textContent = label; }
+    const sc = ai < 6 ? "#F0B323" : ai < 9 ? "#6CC24A" : ai < 11 ? "#D0006F" : ai < 16 ? "#00AFD7" : "#00B2A9";
+    document.documentElement.style.setProperty("--stage", sc);
+
+    /* dark sections flip the chrome */
+    let dark = false, darkDial = false;
+    for (const d of darkSecs) { const r = d.getBoundingClientRect(); if (r.top <= 40 && r.bottom >= 40) dark = d.hasAttribute("data-dark"); if (r.top <= vh * .55 && r.bottom >= vh * .55) darkDial = d.hasAttribute("data-dark"); }
+    // the French side and expanded photographs read as dark too
+    for (const x of xps) { const r = x.s.getBoundingClientRect(); if (r.top <= 0 && r.bottom >= vh && x.cur > 0.85) { dark = true; darkDial = true; } }
+    { const r = fr.getBoundingClientRect(); if (r.top <= 0 && r.bottom >= vh) { const seam = parseFloat(frStage.style.getPropertyValue("--seam")) || 50; if (seam < 60) { darkDial = true; } } }
+    nav.classList.toggle("dark", dark);
+    dial.classList.toggle("dark", darkDial);
+    const ft = $("#ft").getBoundingClientRect();
+    dial.classList.toggle("hide", ft.top < vh * 0.9 || $(".proof").getBoundingClientRect().top < vh * .6);
+    cursorDark(dark);
+
+    /* apertures */
+    for (const x of xps) {
+      const r = x.s.getBoundingClientRect();
+      const span = r.height - vh;
+      const target = clamp(-r.top / (span * 0.62));
+      x.cur += (target - x.cur) * (reduce ? 1 : 0.12);
+      const a = aperture(x.cur);
+      const S = mob() ? [50, 6, 16, 6] : [46, 14, 10, 50], k = 1 - a, rad = 28 * k;
+      x.frame.style.clipPath = `inset(${S[0]*k}% ${S[1]*k}% ${S[2]*k}% ${S[3]*k}% round ${rad}px)`;
+      x.media.style.transform = `scale(${1.24 - 0.24 * aperture((x.cur - 0.18) / 0.82)})`;
+      const outT = ramp(a, 0.28, 0.8);
+      x.title.style.opacity = 1 - outT;
+      x.title.style.transform = `translate3d(0,${-30 * outT}px,0)`;
+      const inC = ramp(clamp(-r.top / span), 0.66, 0.84);
+      x.scrim.style.opacity = ramp(a, 0.5, 1);
+      x.copy.style.opacity = inC; x.copy.style.transform = `translate3d(0,${24 * (1 - inC)}px,0)`;
+      if (x.vid) { const vis = r.top < vh && r.bottom > 0; if (vis && x.vid.dataset.src && !x.vid.src) { x.vid.src = x.vid.dataset.src; } if (vis && x.vid.paused && x.vid.src && !reduce) x.vid.play().catch(() => {}); if (!vis && !x.vid.paused) x.vid.pause(); }
+    }
+
+    /* the seam: scroll carries it across unless the visitor drags */
+    { const r = fr.getBoundingClientRect(); const p = clamp(-r.top / Math.max(1, r.height - vh));
+      const seam = seamDrag !== null ? seamDrag : 96 - 92 * ramp(p, 0.08, 0.92);
+      frStage.style.setProperty("--seam", seam.toFixed(2) + "%"); }
+
+    /* arrive video */
+    const av = $("#arrive video"), ar = $("#arrive").getBoundingClientRect();
+    if (ar.top < vh * 1.5 && !av.src) av.src = av.dataset.src;
+    if (ar.top < vh && ar.bottom > 0) { if (av.paused && !reduce) av.play().catch(() => {}); } else if (!av.paused) av.pause();
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  /* seam drag */
+  const setSeam = (cx) => { const r = frStage.getBoundingClientRect(); seamDrag = clamp((cx - r.left) / r.width, 0.03, 0.97) * 100; };
+  frStage.addEventListener("pointermove", e => { if (e.pointerType === "mouse" || e.buttons) setSeam(e.clientX); });
+  frStage.addEventListener("pointerleave", () => { seamDrag = null; });
+  frStage.addEventListener("pointerdown", e => setSeam(e.clientX));
+  frStage.addEventListener("pointerup", e => { if (e.pointerType !== "mouse") setTimeout(() => seamDrag = null, 1600); });
+
+  /* paths reveal + proof counters */
+  const once = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; once.unobserve(e.target);
+    if (e.target.classList.contains("paths")) e.target.classList.add("in");
+    else { const el = e.target, to = +el.dataset.count, from = to > 100 ? to - 60 : 0, t0 = performance.now();
+      if (reduce) return; const tick = t => { const p = clamp((t - t0) / 1600), v = Math.round(from + (to - from) * (1 - Math.pow(1 - p, 4))); el.textContent = v; if (p < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); }
+  }), { threshold: 0.4 });
+  once.observe($(".paths")); $$("[data-count]").forEach(el => once.observe(el));
+
+  /* cursor + magnetic pills */
+  const cur = $("#cur"), dot = $("#curDot");
+  let mx = innerWidth / 2, my = innerHeight / 2, cx = mx, cy = my;
+  function cursorDark(d) { cur.classList.toggle("dark", d); dot.classList.toggle("dark", d); }
+  addEventListener("pointermove", e => { mx = e.clientX; my = e.clientY; window.__mouse = [mx / innerWidth * 2 - 1, -(my / innerHeight * 2 - 1)]; });
+  const loop = () => { cx += (mx - cx) * .18; cy += (my - cy) * .18; cur.style.transform = `translate3d(${cx}px,${cy}px,0)`; dot.style.transform = `translate3d(${mx}px,${my}px,0)`; requestAnimationFrame(loop); };
+  if (matchMedia("(hover:hover)").matches) { document.documentElement.style.cursor = "none"; $$("a,button").forEach(el => el.style.cursor = "none"); loop(); }
+  frStage.addEventListener("pointerenter", () => cur.classList.add("big"));
+  frStage.addEventListener("pointerleave", () => cur.classList.remove("big"));
+  $$(".mag").forEach(el => {
+    el.addEventListener("pointermove", e => { const r = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px,${(e.clientY - r.top - r.height / 2) * .35}px)`; });
+    el.addEventListener("pointerleave", () => el.style.transform = "");
+  });
+})();
+</script>
+<script type="module">
+/* ---------- the particle field: playful at three, ordered at eleven, the shield at eighteen ---------- */
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const small = Math.min(innerWidth, innerHeight) < 700;
+const N = reduce ? 3000 : (small ? 5200 : 11000);
+const canvas = document.getElementById("gl");
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: "high-performance" }); } catch (e) {}
+if (renderer) {
+  const DPR = Math.min(devicePixelRatio || 1, small ? 1.5 : 2);
+  renderer.setPixelRatio(DPR);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100); camera.position.set(0, 0, 7.2);
+
+  function sampleShield(count) {
+    const W = 580, H = 630, c = document.createElement("canvas"); c.width = W; c.height = H;
+    const g = c.getContext("2d"); g.setTransform(2, 0, 0, 2, -300, -214); g.fillStyle = "#fff";
+    window.__SHIELD__.forEach(d => g.fill(new Path2D(d)));
+    const data = g.getImageData(0, 0, W, H).data, out = new Float32Array(count * 3);
+    let i = 0, guard = 0; const scale = 2.3 / H;
+    while (i < count && guard < count * 60) { guard++; const x = Math.random() * W, y = Math.random() * H;
+      if (data[((y | 0) * W + (x | 0)) * 4 + 3] > 128) { out[i*3] = (x - W / 2) * scale; out[i*3+1] = -(y - H / 2) * scale + 0.05; out[i*3+2] = (Math.random() - .5) * .08; i++; } }
+    return out;
+  }
+  const PAL = ["#F0B323", "#6CC24A", "#D0006F", "#00AFD7", "#81B0D2", "#D9B48F", "#00B2A9"].map(h => new THREE.Color(h));
+  const scatter = new Float32Array(N * 3), grid = new Float32Array(N * 3), rand = new Float32Array(N), col = new Float32Array(N * 3);
+  const COLS = 46, ROWS = 26;
+  for (let i = 0; i < N; i++) {
+    // play: loose clusters, like blocks spilled on a classroom floor
+    const cl = Math.floor(Math.random() * 14), cxr = Math.sin(cl * 12.9898) * 43758.5453 % 1, cyr = Math.sin(cl * 78.233) * 12345.678 % 1;
+    const sp = Math.random() < .6 ? .55 : 2.4;
+    scatter[i*3] = cxr * 5.2 + (Math.random() - .5) * sp * 2;
+    scatter[i*3+1] = cyr * 2.6 + (Math.random() - .5) * sp;
+    scatter[i*3+2] = (Math.random() - .5) * 2.2;
+    // order: a fine lattice, every point placed
+    const gx = i % COLS, gy = Math.floor(i / COLS) % ROWS;
+    grid[i*3] = (gx / (COLS - 1) - .5) * 7.6;
+    grid[i*3+1] = (gy / (ROWS - 1) - .5) * 4.2;
+    grid[i*3+2] = 0;
+    rand[i] = Math.random();
+    const c = PAL[Math.floor(Math.random() * PAL.length)]; col[i*3] = c.r; col[i*3+1] = c.g; col[i*3+2] = c.b;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.BufferAttribute(scatter, 3));
+  geo.setAttribute("aGrid", new THREE.BufferAttribute(grid, 3));
+  geo.setAttribute("aShield", new THREE.BufferAttribute(sampleShield(N), 3));
+  geo.setAttribute("aRand", new THREE.BufferAttribute(rand, 1));
+  geo.setAttribute("aCol", new THREE.BufferAttribute(col, 3));
+  const uniforms = { uTime: { value: 0 }, uP: { value: 0 }, uPix: { value: DPR }, uSize: { value: small ? 4.2 : 4.6 }, uMouse: { value: new THREE.Vector2() }, uAsp: { value: 1 }, uFade: { value: 1 },
+    uDeep: { value: new THREE.Color("#000077") }, uTeal: { value: new THREE.Color("#00B2A9") } };
+  const mat = new THREE.ShaderMaterial({ uniforms, transparent: true, depthWrite: false,
+    vertexShader: `
+      attribute vec3 aGrid; attribute vec3 aShield; attribute float aRand; attribute vec3 aCol;
+      uniform float uTime, uP, uPix, uSize, uAsp; uniform vec2 uMouse; uniform vec3 uDeep, uTeal;
+      varying vec3 vCol; varying float vA; varying float vPlay;
+      void main(){
+        float t = uTime, p = uP;
+        float play = 1.0 - smoothstep(0.0, 0.42, p);
+        vec3 s = position; s.x *= max(uAsp, .7) * .62;
+        s += vec3(sin(t*.55 + aRand*40.)*.28, cos(t*.5 + aRand*31.)*.22, sin(t*.4 + aRand*17.)*.2) * (.4 + play);
+        s.y += abs(sin(t*1.6 + aRand*22.)) * .12 * play;
+        vec3 g = aGrid; g.x *= max(uAsp, .62) * .6; g.y *= (uAsp < 1. ? 1.5 : 1.);
+        g.z += sin(g.x*1.3 + t*.8) * .05;
+        float d = aRand * .14;
+        float e1 = smoothstep(.30 + d, .62 + d, p);
+        float e2 = smoothstep(.74 + d*.6, .97, p);
+        vec3 sh = aShield; float shs = uAsp < 1. ? .82 : 1.12; sh.xy *= shs; sh.y -= .14; sh.x += uAsp > 1.2 ? .42 : 0.; sh.xy += vec2(sin(t*.9 + aRand*40.), cos(t*.8 + aRand*31.)) * .004;
+        vec3 pos = mix(mix(s, g, e1), sh, e2);
+        vec2 m = uMouse * vec2(2.6 * max(uAsp,.6), 2.1);
+        vec2 dv = pos.xy - m; float dd = length(dv);
+        pos.xy += normalize(dv + .0001) * (.32 / (1. + dd*dd*9.)) * (1. - e2*.6);
+        vCol = mix(mix(aCol, uDeep, e1), uTeal, e2);
+        float show = mix(step(.6, aRand), 1., smoothstep(.2, .5, p));   // fewer, freer blocks at three; everyone in place later
+        vA = mix(.9, .95, e1) * show; vPlay = 1. - e1;
+        vec4 mv = modelViewMatrix * vec4(pos, 1.);
+        gl_Position = projectionMatrix * mv;
+        gl_PointSize = uSize * uPix * mix(1.5, .62, e1) * mix(1., .78, e2) * (7.2 / -mv.z);
+      }`,
+    fragmentShader: `
+      uniform float uFade; varying vec3 vCol; varying float vA; varying float vPlay;
+      void main(){ vec2 c = gl_PointCoord - .5;
+        float sq = max(abs(c.x), abs(c.y)) - .34, rr = length(c) - .42;   // little blocks at three, points of light by eleven
+        float d = mix(rr, sq, step(.5, vPlay));
+        if (d > .06) discard; gl_FragColor = vec4(vCol, vA * uFade * (1. - smoothstep(0., .06, d))); }`
+  });
+  scene.add(new THREE.Points(geo, mat));
+  const resize = () => { const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); uniforms.uAsp.value = w / h; };
+  addEventListener("resize", resize); resize();
+  const mouse = new THREE.Vector2();
+  let p = 0, last = performance.now(), time = 0;
+  const proof = document.getElementById("proof");
+  const tick = (now) => {
+    const dt = Math.min(.05, (now - last) / 1000); last = now; if (!reduce) time += dt;
+    const target = Math.min(1, Math.max(0, ((window.__age || 3) - 3) / 15));
+    p += (target - p) * .08; uniforms.uP.value = p; uniforms.uTime.value = time;
+    const m = window.__mouse || [0, 0]; mouse.x += (m[0] - mouse.x) * .06; mouse.y += (m[1] - mouse.y) * .06; uniforms.uMouse.value.copy(mouse);
+    // fade the field once Deep Blue takes over
+    const pr = proof.getBoundingClientRect().top / innerHeight; uniforms.uFade.value = Math.min(1, Math.max(0, pr * 1.2));
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>
