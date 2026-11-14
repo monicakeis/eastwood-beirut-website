@@ -37,18 +37,33 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 ::selection{background:var(--teal);color:#fff}
 .media{position:relative;overflow:hidden;background:#d9d6cf}
 .media img,.media video{width:100%;height:100%;object-fit:cover}
+h3{text-wrap:balance}
+br.ph{display:none}
+@media (max-width:1000px){br.lg{display:none}}
+@media (max-width:760px){br.ph{display:inline}br.dk{display:none}}
+p{text-wrap:pretty}
+.chars{white-space:nowrap}
+.ch{display:inline-block;will-change:transform}
 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
 .wi{display:inline-block}
 
-/* nav: difference blend, from ELLISON */
-.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);mix-blend-mode:difference;color:#fff;font:500 14px/1 var(--sans)}
-.nav__logo{display:flex;align-items:center;gap:10px;font:800 16px/1 var(--disp);letter-spacing:-.02em}
-.nav__logo svg{width:22px;height:auto;fill:#fff}
+/* nav: the landscape lockup, full colour on light sections, all white on dark ones */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px var(--pad);color:var(--ink);font:500 14px/1 var(--sans);transition:color .5s,transform .6s var(--ease)}
+.nav::before{content:"";position:absolute;inset:0 0 -30px;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,rgba(250,250,247,.9),rgba(250,250,247,0));transition:opacity .5s}
+.nav.dark{color:#fff}.nav.dark::before{opacity:0}
+.nav.hide{transform:translateY(-110%)}
+.nav__logo{position:relative;display:block;width:clamp(150px,13vw,200px);aspect-ratio:500/120}
+.nav__logo img{position:absolute;inset:0;width:100%;height:100%;transition:opacity .5s}
+.nav__logo .lw{opacity:0}.nav.dark .lw{opacity:1}.nav.dark .lc{opacity:0}
 .nav__center{display:flex;gap:30px}
-.nav a:hover{opacity:.6}
-.nav__cta{border:1px solid #fff;border-radius:999px;padding:11px 18px}
+.nav__center a{position:relative}
+.nav__center a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav__center a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav__cta{border:1px solid currentColor;border-radius:999px;padding:11px 18px;transition:background .4s,color .4s,border-color .4s}
+.nav__cta:hover{background:var(--deep);border-color:var(--deep);color:#fff}
+.nav.dark .nav__cta:hover{background:#fff;color:var(--deep);border-color:#fff}
 @media (max-width:860px){.nav__center{display:none}}
-@media (max-width:480px){.nav__logo span{display:none}}
+@media (max-width:420px){.nav__logo{width:140px}.nav__cta{padding:10px 14px}}
 
 /* hero: the name, with a hard-cut photograph between the words */
 .hero{position:relative;min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;padding:96px var(--pad) 110px}
@@ -76,19 +91,20 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 @media (max-width:760px){.showcase__cap{flex-direction:column;align-items:flex-start;gap:8px}}
 
 /* about */
-.about{padding:clamp(90px,16vh,180px) var(--pad) clamp(70px,12vh,140px);max-width:1320px;margin:0 auto;text-align:center}
-.about__title{font:900 clamp(40px,6.6vw,112px)/.92 var(--disp);letter-spacing:-.055em;color:var(--deep)}
+.about{padding:clamp(90px,16vh,180px) var(--pad) clamp(70px,12vh,140px);max-width:1560px;margin:0 auto;text-align:center}
+.about__title{font:900 clamp(38px,6.2vw,108px)/.92 var(--disp);letter-spacing:-.055em;color:var(--deep)}
 .about__title em{display:block;font-size:.66em;line-height:1.1;color:var(--ink);letter-spacing:-.02em}
 .about__row{margin-top:clamp(36px,6vh,72px);display:flex;justify-content:center;align-items:flex-start;gap:clamp(24px,4vw,56px);text-align:left}
 .about__copy{max-width:400px;color:var(--soft);font-size:clamp(16px,1.2vw,18px)}
 .about__copy b{color:var(--ink);font-weight:500}
 .about__thumb{width:clamp(140px,15vw,220px);aspect-ratio:4/5;flex:none;border-radius:4px}
+@media (max-width:760px){.about__title{font-size:9.2vw}}
 @media (max-width:620px){.about__row{flex-direction:column-reverse;align-items:center;text-align:center}}
 
 /* time machine */
 .tm{position:relative;height:520vh;background:var(--deep);color:#fff}
 .tm-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:1600px;perspective-origin:50% 30%}
-.tm-head{position:absolute;left:var(--pad);top:50%;transform:translateY(-50%);z-index:3;max-width:min(84vw,1100px);pointer-events:none}
+.tm-head{position:absolute;left:var(--pad);right:var(--pad);top:50%;transform:translateY(-50%);z-index:3;pointer-events:none}
 .tm-head h2{font:900 clamp(48px,8.4vw,150px)/.88 var(--disp);letter-spacing:-.055em}
 .tm-head h2 em{display:block;font-size:.66em;line-height:1.1;color:var(--teal);letter-spacing:-.02em}
 .tm-space{position:absolute;inset:0;transform-style:preserve-3d}
@@ -103,14 +119,22 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 .tm-card h3{font:900 clamp(36px,4.2vw,76px)/.9 var(--disp);letter-spacing:-.05em}
 .tm-card h3 em{display:block;font-size:.56em;line-height:1.14;letter-spacing:-.02em;margin-top:.12em}
 .tm-card p{margin-top:16px;font-size:clamp(14px,1.05vw,16px);line-height:1.55;color:rgba(255,255,255,.86);max-width:40ch}
+.tm-card .body .wi{transform:translateY(110%);transition:transform 1s var(--ease)}
+.tm-card.active .body .wi{transform:none}
+.tm-card .body p,.tm-card .body .enter{opacity:0;transform:translateY(18px);transition:opacity .8s .25s,transform .8s .25s var(--ease)}
+.tm-card.active .body p,.tm-card.active .body .enter{opacity:1;transform:none}
 .tm-card .enter{display:inline-flex;align-items:center;gap:12px;margin-top:22px;padding:12px 18px;border:1px solid rgba(255,255,255,.45);border-radius:999px;font-size:13px;transition:background .4s,color .4s,border-color .4s}
 .tm-card .enter:hover{background:#fff;color:var(--deep);border-color:#fff}
 .tm-card--fr{background:var(--paper);color:var(--deep)}
 .tm-card--fr::before{display:none}
+.tm-card--fr .ph{left:auto;width:52%}.tm-card--fr .ph img{object-position:42% 50%}
+.tm-card--fr .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--paper),rgba(250,250,247,0) 34%)}
 .tm-card--fr .top{color:var(--soft)}.tm-card--fr .top b{color:var(--deep)}
-.tm-card--fr .fr-big{position:absolute;z-index:2;right:40px;top:46%;transform:translateY(-50%);font:500 italic clamp(70px,10vw,190px)/.92 var(--serif);letter-spacing:-.03em;color:var(--deep);text-align:right}
+.tm-card--fr .fr-big{position:absolute;z-index:2;left:34px;top:22%;font:500 italic clamp(56px,7vw,132px)/.92 var(--serif);letter-spacing:-.03em;color:var(--deep)}
 .tm-card--fr .fr-big span{display:block;color:var(--teal)}
 .tm-card--fr p{color:var(--soft)}
+.tm-card--fr .body{max-width:44%}
+.tm-card--fr h3{font-size:clamp(32px,3.2vw,54px)}
 .tm-card--fr .enter{border-color:var(--line);color:var(--deep)}
 .tm-card--fr .enter:hover{background:var(--deep);color:#fff;border-color:var(--deep)}
 .tm-rail{position:absolute;right:var(--pad);top:50%;transform:translateY(-50%);z-index:4}
@@ -130,9 +154,9 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
   .tm-head{position:relative;top:auto;left:auto;transform:none!important;opacity:1!important;padding:0 var(--pad) 7vh}
   .tm-space{position:relative;inset:auto;padding:0 4vw}
   .tm-card{position:sticky!important;left:auto;top:calc(9vh + var(--i) * 10px)!important;margin:0 0 6vh!important;width:92vw;height:76vh;transform:none!important;opacity:1!important;filter:none!important;visibility:visible!important}
-  .tm-card .body{max-width:none;right:22px;left:22px;bottom:24px}
+  .tm-card .body,.tm-card--fr .body{max-width:none;right:22px;left:22px;bottom:24px}
   .tm-card .yr{font-size:30vw;bottom:auto;top:58px;right:16px}
-  .tm-card--fr .fr-big{top:28%;right:22px;font-size:16vw}
+  .tm-card--fr .ph{width:100%;height:46%;left:0;top:auto;bottom:auto}.tm-card--fr .ph::after{background:linear-gradient(to top,var(--paper),rgba(250,250,247,0) 40%)}.tm-card--fr .fr-big{top:auto;bottom:52%;left:22px;font-size:15vw;display:none}.tm-card--fr .top{color:#fff}.tm-card--fr .top b{color:#fff}
   .tm-count{display:none}
 }
 
@@ -144,7 +168,8 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 .strip__head p{max-width:36ch;color:var(--soft)}
 .strip__track{display:flex;gap:clamp(14px,2vw,28px);width:max-content;will-change:transform;padding-left:var(--pad)}
 .strip__track figure{width:clamp(220px,24vw,360px);flex:none}
-.strip__track .media{aspect-ratio:4/5;border-radius:4px}
+.strip__track .media{aspect-ratio:4/5;border-radius:4px;clip-path:inset(100% 0 0 0 round 4px);transition:clip-path 1.3s var(--ease)}
+.strip__track figure.in .media{clip-path:inset(0 0 0 0 round 4px)}
 .strip__track figure:nth-child(odd){margin-top:clamp(24px,5vh,64px)}
 .strip__track figcaption{margin-top:12px;font-size:13px;color:var(--soft);display:flex;gap:10px}
 .strip__track figcaption b{font-weight:600;color:var(--ink)}
@@ -152,7 +177,8 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 
 /* marquee */
 .marq{padding:clamp(30px,6vh,70px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;display:flex}
-.marq__row{display:flex;gap:clamp(40px,5vw,80px);flex:none;padding-right:clamp(40px,5vw,80px);animation:marquee 34s linear infinite}
+.marq__track{display:flex;will-change:transform}
+.marq__row{display:flex;gap:clamp(40px,5vw,80px);flex:none;padding-right:clamp(40px,5vw,80px)}
 .marq__row span{font:900 clamp(48px,8vw,140px)/1.05 var(--disp);letter-spacing:-.055em;color:var(--deep);white-space:nowrap}
 .marq__row span em{color:var(--teal)}
 @keyframes marquee{to{transform:translateX(-100%)}}
@@ -225,13 +251,15 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 .footer__big-right{font:900 clamp(70px,15vw,270px)/.8 var(--disp);letter-spacing:-.065em}
 @media (max-width:760px){.footer__links{grid-template-columns:repeat(2,auto)}.footer__addr{text-align:left}.footer__big{flex-direction:column-reverse;align-items:flex-start}}
 
-@media (prefers-reduced-motion:reduce){.marq__row{animation:none}}
+@media (prefers-reduced-motion:reduce){.strip__track .media{clip-path:none}.tm-card .body .wi,.tm-card .body p,.tm-card .body .enter{transform:none!important;opacity:1!important}}
+.proof__list li{background:linear-gradient(var(--line),var(--line)) left bottom/0 1px no-repeat;border-bottom-color:transparent;transition:background-size 1.4s var(--ease)}
+.proof__list li.drawn{background-size:100% 1px}
 </style>
 </head>
 <body>
 
 <header class="nav">
-  <a class="nav__logo" href="#top" aria-label="Eastwood International School, home"><svg viewBox="150 107 290 315" aria-hidden="true"><path d="M 439.46875 159.539062 L 439.46875 107.402344 L 294.757812 183.398438 L 294.757812 235.535156 Z M 439.46875 159.539062 "/><path d="M 294.757812 328.394531 L 439.46875 252.402344 L 439.46875 200.261719 L 294.757812 276.257812 Z M 294.757812 328.394531 "/><path d="M 439.46875 306 L 439.46875 293.257812 L 294.757812 369.117188 L 210.105469 324.664062 C 199.042969 318.855469 196.210938 314.195312 196.210938 301.671875 L 196.210938 183.398438 L 294.757812 183.398438 L 294.757812 137.238281 L 150.050781 137.238281 L 150.050781 306 C 150.050781 308.140625 149.972656 316.65625 150.792969 321.542969 C 152.917969 334.230469 159.511719 345.738281 169.324219 353.976562 C 174.085938 357.976562 181.292969 361.667969 187.390625 364.871094 L 294.757812 421.253906 L 402.128906 364.871094 C 408.226562 361.667969 415.4375 357.976562 420.195312 353.976562 C 430.007812 345.738281 436.601562 334.230469 438.726562 321.542969 C 439.546875 316.65625 439.46875 308.140625 439.46875 306 "/></svg><span>Eastwood International School</span></a>
+  <a class="nav__logo" href="#top" aria-label="Eastwood International School, home"><img class="lc" src="assets/eis26/logo-colour.png" alt="" width="500" height="120"><img class="lw" src="assets/eis26/logo-white.png" alt="" width="500" height="120"></a>
   <nav class="nav__center" aria-label="Primary">
     <a href="#learning">Learning</a>
     <a href="#life">Life</a>
@@ -245,7 +273,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 
   <section class="hero" aria-label="Eastwood International School">
     <h1 class="hero__title">
-      <span class="hero__word hero__word--first"><span class="reveal-line">Eastwood</span></span>
+      <span class="hero__word hero__word--first"><span class="reveal-line chars" aria-label="Eastwood">Eastwood</span></span>
       <span class="hero__media" aria-hidden="true">
         <img class="hero__cycle is-active" src="assets/eis26/h0.webp" alt="" fetchpriority="high">
         <img class="hero__cycle" src="assets/eis26/h1.webp" alt="">
@@ -262,24 +290,24 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
     </div>
   </section>
 
-  <section class="showcase" aria-label="Mansourieh">
+  <section class="showcase" data-dark aria-label="Mansourieh">
     <div class="showcase__frame">
       <video muted loop playsinline preload="none" poster="assets/eis26/s-hill.webp" data-src="assets/eis26/v-hill.mp4" aria-hidden="true"></video>
-      <div class="showcase__cap"><strong>Above the city, facing the sea.</strong><span>Mansourieh, Lebanon · Since 1983</span></div>
+      <div class="showcase__cap"><strong>Above the city,<br> facing the sea.</strong><span>Mansourieh, Lebanon · Since 1983</span></div>
     </div>
   </section>
 
   <section class="about" id="about">
-    <h2 class="about__title split-lines">Where educational theory <em>meets real life.</em></h2>
+    <h2 class="about__title split-lines">Where<br class="ph"> educational theory <em>meets real life.</em></h2>
     <div class="about__row">
       <p class="about__copy"><b>An education as unique as your child.</b> Fifteen years on one campus, from a Montessori-inspired first classroom to the IB Diploma, in English and in French. The flagship of Eastwood Schools, and the most complete expression of its model.</p>
       <figure class="about__thumb media"><img src="assets/eis26/p-library.webp" alt="Afternoon light across tall library shelves" loading="lazy"></figure>
     </div>
   </section>
 
-  <section class="tm" id="learning" aria-labelledby="tm-h">
+  <section class="tm" id="learning" data-dark aria-labelledby="tm-h">
     <div class="tm-stage">
-      <div class="tm-head"><h2 id="tm-h" class="split-lines">Three to eighteen. <em>One campus.</em></h2></div>
+      <div class="tm-head"><h2 id="tm-h" class="split-lines">Three to<br class="ph"> eighteen. <em>One campus.</em></h2></div>
       <div class="tm-space" id="tmSpace">
         <article class="tm-card" data-i="0">
           <div class="ph"><video muted loop playsinline preload="none" poster="assets/eis26/c-ey.webp" data-src="assets/eis26/v-ey.mp4" aria-hidden="true"></video></div>
@@ -294,9 +322,9 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
           <div class="body"><h3>Elementary <em>Curiosity sets the pace.</em></h3><p>The full IB Primary Years Programme. Inquiry-led, transdisciplinary learning, in English and French sections.</p><a class="enter" href="ib-elementary.html">Explore Elementary →</a></div>
         </article>
         <article class="tm-card tm-card--fr" data-i="2">
+          <div class="ph"><img src="assets/eis26/c-fr.webp" alt="A child's hand writing Bonjour in a French school notebook" loading="lazy"></div>
           <div class="top"><b>IB PYP in French</b><span>The only one in the region</span></div>
-          <div class="fr-big" aria-hidden="true" lang="fr">Bonjour,<span>hello.</span></div>
-          <div class="body"><h3>Section Française <em>Two languages, one way of thinking.</em></h3><p>The IB Primary Years Programme, delivered entirely in French. The only IB PYP French Section in the region.</p><a class="enter" href="fr-section.html" lang="fr">Découvrez la Section →</a></div>
+          <div class="body"><h3>Section Française <em>Two languages,<br> one way of thinking.</em></h3><p>The IB Primary Years Programme, delivered entirely in French. The only IB PYP French Section in the region.</p><a class="enter" href="fr-section.html" lang="fr">Découvrez la Section →</a></div>
         </article>
         <article class="tm-card" data-i="3">
           <div class="ph"><img src="assets/eis26/c-ms.webp" alt="A student's hands assembling a laser-cut prototype" loading="lazy"></div>
@@ -339,8 +367,10 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
   </section>
 
   <section class="marq" aria-label="Inspire. Create. Innovate.">
+    <div class="marq__track" id="marq">
     <div class="marq__row" aria-hidden="true"><span>Inspire.</span><span><em>Create.</em></span><span>Innovate.</span><span><em>Inspire.</em></span><span>Create.</span><span><em>Innovate.</em></span></div>
     <div class="marq__row" aria-hidden="true"><span>Inspire.</span><span><em>Create.</em></span><span>Innovate.</span><span><em>Inspire.</em></span><span>Create.</span><span><em>Innovate.</em></span></div>
+    </div>
   </section>
 
   <section class="proof" aria-labelledby="pf-h">
@@ -357,14 +387,14 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
   <section class="deck" id="pathways" aria-labelledby="dk-h">
     <div class="deck__in">
       <div class="deck__copy">
-        <h2 id="dk-h" class="split-lines">Three pathways. <em>One standard.</em></h2>
+        <h2 id="dk-h" class="split-lines">Three<br class="lg"> pathways. <em>One standard.</em></h2>
         <p>At sixteen, students choose the diploma that fits where they are going next. The standard of teaching stays the same.</p>
         <div class="deck__hint"><button id="deckNext" aria-label="Next pathway">→</button><span>Tap or swipe to shuffle</span></div>
       </div>
       <div class="deck__stage" id="deck">
-        <article class="dcard"><div class="ph"><img src="assets/eis26/d-ib.webp" alt="Gloved hands holding a flask of luminous teal liquid to the light"></div><div class="tx"><span class="badge">01</span><div><h3>IB Diploma Programme</h3><p>The international pre-university diploma, recognised by universities worldwide.</p></div></div></article>
-        <article class="dcard"><div class="ph"><img src="assets/eis26/d-us.webp" alt="A student's hands writing on a tablet beside a notebook"></div><div class="tx"><span class="badge">02</span><div><h3>American High School Diploma</h3><p>For students targeting US and international university admissions.</p></div></div></article>
-        <article class="dcard"><div class="ph"><img src="assets/eis26/d-lb.webp" alt="A sunlit classroom with tall windows"></div><div class="tx"><span class="badge">03</span><div><h3>Lebanese Programme</h3><p>Alongside the international tracks, in line with the national curriculum framework.</p></div></div></article>
+        <article class="dcard"><div class="ph"><img src="assets/eis26/d-ib.webp" alt="Gloved hands holding a flask of luminous teal liquid to the light"></div><div class="tx"><span class="badge">01</span><div><h3>IB Diploma<br> Programme</h3><p>The international pre-university diploma, recognised by universities worldwide.</p></div></div></article>
+        <article class="dcard"><div class="ph"><img src="assets/eis26/d-us.webp" alt="A student's hands writing on a tablet beside a notebook"></div><div class="tx"><span class="badge">02</span><div><h3>American High<br> School Diploma</h3><p>For students targeting US and international university admissions.</p></div></div></article>
+        <article class="dcard"><div class="ph"><img src="assets/eis26/d-lb.webp" alt="A sunlit classroom with tall windows"></div><div class="tx"><span class="badge">03</span><div><h3>Lebanese<br> Programme</h3><p>Alongside the international tracks, in line with the national curriculum framework.</p></div></div></article>
       </div>
     </div>
   </section>
@@ -389,7 +419,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 
 </main>
 
-<footer class="footer">
+<footer class="footer" data-dark>
   <video class="footer__bg" muted loop playsinline preload="none" poster="assets/eis26/f-olive.webp" data-src="assets/eis26/v-olive.mp4" aria-hidden="true"></video>
   <div class="footer__top">
     <nav class="footer__links" aria-label="Footer">
@@ -404,7 +434,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
   <p class="footer__line">From curriculum to culture, from theory to real life.</p>
   <div class="footer__big">
     <span class="footer__big-left">The flagship campus of Eastwood Schools<br>© 2026 Eastwood Schools</span>
-    <span class="footer__big-right" aria-hidden="true">Eastwood</span>
+    <span class="footer__big-right chars" aria-hidden="true">Eastwood</span>
   </div>
 </footer>
 
@@ -432,6 +462,8 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
   $$("main p, .tm-card h3 em, .dcard h3, .footer__line").forEach(bind);
 
   /* split headings into masked words, keeping <em> lines */
+  $$(".chars").forEach(el => { const t = el.textContent; el.textContent = ""; [...t].forEach(c => { const s = document.createElement("span"); s.className = "ch"; s.setAttribute("aria-hidden", "true"); s.textContent = c; el.appendChild(s); }); });
+  $$(".tm-card h3").forEach(h => h.classList.add("split-lines"));
   $$(".split-lines").forEach(el => {
     el.setAttribute("aria-label", el.textContent.trim().replace(/\s+/g, " "));
     const walk = node => [...node.childNodes].forEach(ch => {
@@ -455,7 +487,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 
   if (hasG && !reduced) {
     const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-    tl.from(".hero__word--first .reveal-line", { yPercent: 110, duration: 1.2 })
+    tl.from(".hero__word--first .ch", { yPercent: 120, rotate: 8, duration: 1.3, stagger: 0.045 })
       .from(".hero__word--last .reveal-line", { yPercent: 110, duration: 1.2 }, 0.12)
       .from(".hero__media", { scale: 0.7, opacity: 0, duration: 1.4, ease: "power3.out" }, 0.25)
       .from(".hero__foot", { opacity: 0, y: 20, duration: 1 }, 0.6)
@@ -465,7 +497,12 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
 
     const directional = (el, make, start = "top 88%") => ScrollTrigger.create({ trigger: el, start, onEnter: () => make(1), onEnterBack: () => make(-1) });
     $$(".split-lines").forEach(el => { if (el.closest(".tm")) return; const ws = el.querySelectorAll(".wi");
-      directional(el, dir => gsap.fromTo(ws, { yPercent: 115 * dir }, { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.04, overwrite: "auto" }), "top 85%"); });
+      directional(el, dir => gsap.fromTo(ws, { yPercent: 115 * dir, rotate: 5 * dir }, { yPercent: 0, rotate: 0, duration: 1.15, ease: "power4.out", stagger: 0.045, overwrite: "auto" }), "top 86%"); });
+    /* hero name tracks out as it leaves, a quiet kinetic exit */
+    gsap.to(".hero__word--first .ch", { yPercent: (i) => -12 - (i % 3) * 10, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+    gsap.to(".hero__word--last", { xPercent: -6, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+    /* proof rules draw in */
+    $$(".proof__list li").forEach(li => ScrollTrigger.create({ trigger: li, start: "top 92%", onEnter: () => li.classList.add("drawn") }));
     { const ws = $$(".tm-head .wi"); directional(".tm", dir => gsap.fromTo(ws, { yPercent: 115 * dir }, { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.05, overwrite: "auto" }), "top 60%"); }
     gsap.utils.toArray(".about__copy, .strip__head p, .deck__copy p, .deck__hint, .contact__info, .go").forEach(el =>
       directional(el, dir => gsap.fromTo(el, { opacity: 0, y: 26 * dir, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: "power3.out", overwrite: "auto" }), "top 92%"));
@@ -479,9 +516,22 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
     $$("[data-count]").forEach(el => { const to = +el.dataset.count, from = to > 1000 ? to - 40 : 0, o = { v: from };
       ScrollTrigger.create({ trigger: el, start: "top 90%", once: true, onEnter: () => gsap.to(o, { v: to, duration: 1.6, ease: "power3.out", onUpdate: () => { el.firstChild.nodeValue = Math.round(o.v); } }) }); });
 
-    gsap.from(".footer__big-right", { yPercent: 40, opacity: 0, duration: 1.2, ease: "power4.out", scrollTrigger: { trigger: ".footer", start: "top 70%" } });
+    gsap.from(".footer__big-right .ch", { yPercent: 110, duration: 1.2, stagger: 0.05, ease: "power4.out", scrollTrigger: { trigger: ".footer", start: "top 65%" } });
   }
 
+
+  /* nav: theme follows the section under it, hides on the way down, returns on the way up */
+  (() => { const nav = $(".nav"), darks = $$("[data-dark]"); let lastY = scrollY;
+    const tick = () => { let dark = false; for (const d of darks) { const r = d.getBoundingClientRect(); if (r.top <= 40 && r.bottom >= 40) { dark = d.classList.contains("showcase") ? r.top <= 0 : true; } }
+      nav.classList.toggle("dark", dark); const y = scrollY; nav.classList.toggle("hide", y > lastY + 2 && y > innerHeight * .8); if (y < lastY - 2) nav.classList.remove("hide"); lastY = y; requestAnimationFrame(tick); };
+    tick(); })();
+  /* strip figures open as they arrive */
+  (() => { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 10% 0px 0px" }); $$(".strip__track figure").forEach(f => io.observe(f)); })();
+  /* tagline marquee: drifts, and speeds up and turns with the scroll */
+  (() => { const tr = $("#marq"); if (!tr) return; let x = 0, v = 1, lastY = scrollY;
+    const step = () => { const y = scrollY, dy = y - lastY; lastY = y; const tgt = (dy >= 0 ? 1 : -1) * (1 + Math.min(14, Math.abs(dy) * 0.35)); v += (tgt - v) * 0.08;
+      if (!reduced) { x -= v * 0.9; const half = tr.scrollWidth / 2; if (x <= -half) x += half; if (x > 0) x -= half; tr.style.transform = `translate3d(${x}px,0,0)`; } requestAnimationFrame(step); };
+    step(); })();
   /* time machine: cards recede into depth; scroll brings each age forward */
   (() => {
     const sec = $("#learning"), cards = $$("#tmSpace .tm-card"), N = cards.length;
@@ -509,6 +559,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.0
           c.style.zIndex = String(100 - Math.round(Math.abs(d) * 10));
           c.style.visibility = o < 0.01 ? "hidden" : "visible";
           c.style.pointerEvents = Math.abs(d) < 0.5 ? "auto" : "none";
+          c.classList.toggle("active", Math.abs(d) < 0.45);
           const im = c.querySelector(".ph > *"); if (im) im.style.transform = `scale(${1.08 + Math.max(0, -d) * 0.1}) translateY(${Math.max(-1, Math.min(1, d)) * -2}%)`;
         });
         const a = Math.min(N - 1, Math.round(t));
