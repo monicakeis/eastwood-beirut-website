@@ -3,783 +3,544 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eastwood International School · Three to eighteen. One campus.</title>
+<title>Eastwood International School · Mansourieh, Lebanon</title>
 <meta name="description" content="Eastwood International School, the flagship campus of Eastwood Schools in Mansourieh, Lebanon. An IB World School for ages 3 to 18, home to the only IB PYP French Section in the region.">
 <meta name="theme-color" content="#FAFAF7">
 <meta property="og:title" content="Eastwood International School">
-<meta property="og:description" content="Three to eighteen. One campus. The flagship of Eastwood Schools, Mansourieh, Lebanon.">
+<meta property="og:description" content="Inspire. Create. Innovate. The flagship of Eastwood Schools, Mansourieh, Lebanon.">
 <meta property="og:image" content="assets/eis26/og.jpg">
 <link rel="icon" type="image/svg+xml" href="__FAVICON__">
-
+<!--FONTS-->
 <style>
-/* Fonts: static TTF via Fontsource, per the brand system */
+/*FONTFACE-START*/
 @font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.ttf) format("truetype")}
 @font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.ttf) format("truetype")}
 @font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.ttf) format("truetype")}
 @font-face{font-family:"Inter Tight";font-weight:800;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter-tight@latest/latin-800-normal.ttf) format("truetype")}
 @font-face{font-family:"Inter Tight";font-weight:900;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter-tight@latest/latin-900-normal.ttf) format("truetype")}
 @font-face{font-family:"Bodoni Moda";font-style:italic;font-weight:500;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/bodoni-moda@latest/latin-500-italic.ttf) format("truetype")}
-
+/*FONTFACE-END*/
+/* Layout and motion adapted from the HorizonX ELLISON and Vallora Estate templates (commercial licence, HorizonX membership); time machine from the Eastwood Schools network site. */
 :root{
-  --deep:#000077; --teal:#00B2A9; --ink:#14143A; --paper:#FAFAF7;
-  --sky:#00AFD7; --yellow:#F0B323; --grass:#6CC24A; --rasp:#D0006F; --sand:#D9B48F; --moon:#81B0D2;
-  --mute:rgba(20,20,58,.62); --hair:rgba(20,20,58,.14);
-  --sans:"Inter",system-ui,sans-serif; --disp:"Inter Tight","Inter",system-ui,sans-serif; --serif:"Bodoni Moda","Didot",serif;
-  --pad:clamp(20px,4vw,64px);
-  --stage:var(--yellow);
-  --ease:cubic-bezier(.2,.7,.1,1);
+  --deep:#000077; --teal:#00B2A9; --ink:#14143A; --paper:#FAFAF7; --card:#EFEEE8;
+  --soft:rgba(20,20,58,.64); --line:rgba(20,20,58,.14);
+  --sans:"Inter",system-ui,sans-serif; --disp:"Inter Tight","Inter",system-ui,sans-serif; --serif:"Bodoni Moda","Didot",Georgia,serif;
+  --pad:clamp(18px,4vw,56px); --ease:cubic-bezier(.2,.7,.1,1);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body{font-family:var(--sans);font-size:17px;line-height:1.55;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-img,video{display:block}
-::selection{background:var(--teal);color:#fff}
-a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:4px}
-em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.01em}
-.nw{white-space:nowrap}
-.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+*{margin:0;padding:0;box-sizing:border-box}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:-.01em}
+::selection{background:var(--teal);color:#fff}
+.media{position:relative;overflow:hidden;background:#d9d6cf}
+.media img,.media video{width:100%;height:100%;object-fit:cover}
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.wi{display:inline-block}
 
-/* grain, warm and quiet */
-body::after{content:"";position:fixed;inset:-50%;z-index:60;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation:grain 1s steps(6) infinite}
-@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-4%)}75%{transform:translate(-4%,-1%)}100%{transform:translate(0,0)}}
+/* nav: difference blend, from ELLISON */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);mix-blend-mode:difference;color:#fff;font:500 14px/1 var(--sans)}
+.nav__logo{display:flex;align-items:center;gap:10px;font:800 16px/1 var(--disp);letter-spacing:-.02em}
+.nav__logo svg{width:22px;height:auto;fill:#fff}
+.nav__center{display:flex;gap:30px}
+.nav a:hover{opacity:.6}
+.nav__cta{border:1px solid #fff;border-radius:999px;padding:11px 18px}
+@media (max-width:860px){.nav__center{display:none}}
+@media (max-width:480px){.nav__logo span{display:none}}
 
-/* ---------- particle field ---------- */
-#gl{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none}
-main{position:relative;z-index:1}
+/* hero: the name, with a hard-cut photograph between the words */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;padding:96px var(--pad) 110px}
+.hero__title{position:relative;width:100%;max-width:1500px;font-weight:400}
+.hero__word{display:block;overflow:hidden;color:var(--deep)}
+.hero__word--first{text-align:left;font:900 clamp(64px,14vw,240px)/.86 var(--disp);letter-spacing:-.065em;padding-bottom:.04em}
+.hero__word--last{text-align:right;font:500 italic clamp(40px,8.4vw,150px)/1.08 var(--serif);letter-spacing:-.02em;color:var(--ink)}
+.reveal-line{display:inline-block}
+.hero__media{position:absolute;left:58%;top:50%;transform:translate(-50%,-50%);width:clamp(180px,22vw,330px);aspect-ratio:4/5;z-index:-1;overflow:hidden;border-radius:6px}
+.hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
+.hero__media img.is-active{opacity:1}
+.hero__foot{position:absolute;left:var(--pad);right:var(--pad);bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;font-size:14px;color:var(--soft)}
+.hero__foot p{max-width:42ch}
+.hero__foot b{font-weight:500;color:var(--ink)}
+.hero__tag{font:500 italic clamp(18px,1.6vw,24px)/1.1 var(--serif);color:var(--deep);white-space:nowrap}
+@media (max-width:760px){.hero__word--first{font-size:21.5vw}.hero__word--last{font-size:12.4vw;text-align:left}.hero__media{position:relative;left:auto;top:auto;transform:none;display:block;width:62vw;margin:22px 0 22px auto;z-index:0}.hero__foot{flex-direction:column;align-items:flex-start;gap:10px}.hero{padding-bottom:150px}}
 
-/* ---------- preloader: the count from three to eighteen ---------- */
-.pre{position:fixed;inset:0;z-index:90;background:var(--paper);display:grid;place-items:center;transition:clip-path 1.1s cubic-bezier(.77,0,.18,1);clip-path:inset(0 0 0 0)}
-.pre.out{clip-path:inset(0 0 100% 0)}
-.pre-mark{width:min(16vw,96px);height:auto;overflow:visible}
-.pre-mark path{fill:transparent;stroke:var(--teal);stroke-width:2;stroke-dasharray:1600;stroke-dashoffset:1600;transition:stroke-dashoffset 1.3s var(--ease),fill .5s .9s}
-.pre.go .pre-mark path{stroke-dashoffset:0;fill:var(--teal)}
-.pre-row{position:absolute;left:var(--pad);right:var(--pad);bottom:var(--pad);display:flex;justify-content:space-between;align-items:flex-end;color:var(--mute);font-size:14px}
-.pre-n{font-family:var(--disp);font-weight:800;font-size:clamp(56px,9vw,140px);letter-spacing:-.05em;color:var(--deep);font-variant-numeric:tabular-nums;line-height:.8}
+/* showcase: frame opens to full bleed */
+.showcase{padding:clamp(24px,6vh,80px) 0 0}
+.showcase__frame{position:relative;overflow:hidden;width:72%;margin:0 auto;aspect-ratio:16/9;max-height:100vh;border-radius:6px;background:#2a2340}
+.showcase__frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.showcase__frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,40,.6),rgba(10,10,40,0) 50%);z-index:1}
+.showcase__cap{position:absolute;left:clamp(18px,3vw,40px);right:clamp(18px,3vw,40px);bottom:clamp(18px,3vw,36px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#fff;z-index:2;font-size:14px}
+.showcase__cap strong{font:800 clamp(22px,2.8vw,48px)/1 var(--disp);letter-spacing:-.045em;max-width:24ch}
+@media (max-width:760px){.showcase__cap{flex-direction:column;align-items:flex-start;gap:8px}}
 
-/* ---------- navigation ---------- */
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);transition:transform .6s var(--ease)}
-.nav::before{content:"";position:absolute;inset:0 0 -40px;pointer-events:none;background:linear-gradient(to bottom,rgba(250,250,247,.92),rgba(250,250,247,0));opacity:1;transition:opacity .5s}
-.nav.dark::before{background:linear-gradient(to bottom,rgba(0,0,60,.55),rgba(0,0,60,0))}
-.nav>*{position:relative}
-.nav .logo{display:block;width:clamp(150px,15vw,210px)}
-.nav .logo img{width:100%;height:auto}
-.nav .logo .lw{display:none}
-.nav.dark .logo .lc{display:none}
-.nav.dark .logo .lw{display:block}
-.nav-r{display:flex;gap:10px;align-items:center}
-.pill{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;border-radius:999px;font:500 15px/1 var(--sans);letter-spacing:-.01em;transition:background .4s,color .4s,border-color .4s,transform .4s var(--ease);will-change:transform}
-.pill.ghost{border:1px solid var(--hair);color:var(--ink)}
-.pill.solid{background:var(--deep);color:#fff}
-.pill.solid:hover{background:var(--teal)}
-.pill.ghost:hover{border-color:var(--ink)}
-.nav.dark .pill.ghost{border-color:rgba(255,255,255,.3);color:#fff}
-.nav.dark .pill.solid{background:#fff;color:var(--deep)}
-.pill i{display:block;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+/* about */
+.about{padding:clamp(90px,16vh,180px) var(--pad) clamp(70px,12vh,140px);max-width:1320px;margin:0 auto;text-align:center}
+.about__title{font:900 clamp(40px,6.6vw,112px)/.92 var(--disp);letter-spacing:-.055em;color:var(--deep)}
+.about__title em{display:block;font-size:.66em;line-height:1.1;color:var(--ink);letter-spacing:-.02em}
+.about__row{margin-top:clamp(36px,6vh,72px);display:flex;justify-content:center;align-items:flex-start;gap:clamp(24px,4vw,56px);text-align:left}
+.about__copy{max-width:400px;color:var(--soft);font-size:clamp(16px,1.2vw,18px)}
+.about__copy b{color:var(--ink);font-weight:500}
+.about__thumb{width:clamp(140px,15vw,220px);aspect-ratio:4/5;flex:none;border-radius:4px}
+@media (max-width:620px){.about__row{flex-direction:column-reverse;align-items:center;text-align:center}}
 
-/* ---------- the age dial ---------- */
-.dial{position:fixed;right:var(--pad);top:50%;transform:translateY(-50%);z-index:40;display:flex;align-items:center;gap:18px;pointer-events:none;transition:opacity .6s,color .6s}
-.dial.hide{opacity:0}
-.dial-txt{text-align:right}
-.dial-age{font:800 clamp(64px,6.2vw,104px)/.82 var(--disp);letter-spacing:-.06em;font-variant-numeric:tabular-nums;color:var(--deep);display:block;transition:color .6s}
-.dial-lab{display:block;margin-top:10px;font-size:13px;color:var(--mute);letter-spacing:.01em;transition:color .6s}
-.dial-lab b{font-weight:600;color:var(--ink);transition:color .6s}
-.ticks{display:flex;flex-direction:column;gap:7px}
-.ticks i{display:block;height:2px;width:10px;background:var(--hair);border-radius:2px;margin-left:auto;transition:width .5s var(--ease),background .5s}
-.ticks i.on{width:26px;background:var(--stage)}
-.ticks i.past{background:rgba(20,20,58,.32)}
-.dial.dark .dial-age{color:#fff}.dial.dark .dial-lab,.dial.dark .dial-lab b{color:rgba(255,255,255,.8)}
-.dial.dark .ticks i{background:rgba(255,255,255,.22)}.dial.dark .ticks i.on{background:var(--teal)}
-@media (max-width:900px){
-  .dial{top:auto;bottom:16px;right:auto;left:var(--pad);transform:none;gap:12px;background:rgba(250,250,247,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px 16px 10px 14px;border-radius:999px;border:1px solid var(--hair)}
-  .dial.dark{background:rgba(0,0,60,.6);border-color:rgba(255,255,255,.18)}
-  .dial-txt{display:flex;align-items:baseline;gap:10px;text-align:left}
-  .dial-age{font-size:30px;letter-spacing:-.04em}
-  .dial-lab{margin:0;font-size:13px}
-  .ticks{display:none}
+/* time machine */
+.tm{position:relative;height:520vh;background:var(--deep);color:#fff}
+.tm-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:1600px;perspective-origin:50% 30%}
+.tm-head{position:absolute;left:var(--pad);top:50%;transform:translateY(-50%);z-index:3;max-width:min(84vw,1100px);pointer-events:none}
+.tm-head h2{font:900 clamp(48px,8.4vw,150px)/.88 var(--disp);letter-spacing:-.055em}
+.tm-head h2 em{display:block;font-size:.66em;line-height:1.1;color:var(--teal);letter-spacing:-.02em}
+.tm-space{position:absolute;inset:0;transform-style:preserve-3d}
+.tm-card{position:absolute;left:50%;top:54%;width:min(66vw,1120px);height:min(72vh,660px);margin:calc(min(72vh,660px)/-2) 0 0 calc(min(66vw,1120px)/-2);overflow:hidden;background:#0a0a3a;color:#fff;border-radius:8px;will-change:transform,opacity,filter;transform-origin:50% 100%;box-shadow:0 40px 120px rgba(0,0,40,.55)}
+.tm-card .ph{position:absolute;inset:0;overflow:hidden}
+.tm-card .ph img,.tm-card .ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+.tm-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,50,.8) 0%,rgba(0,0,60,.34) 50%,rgba(0,0,0,0) 78%),linear-gradient(to top,rgba(0,0,40,.6),transparent 42%);pointer-events:none}
+.tm-card .top{position:absolute;z-index:2;top:26px;left:32px;right:32px;display:flex;justify-content:space-between;gap:16px;font-size:13px;color:rgba(255,255,255,.82)}
+.tm-card .top b{font-weight:600;color:#fff}
+.tm-card .yr{position:absolute;z-index:2;right:24px;bottom:-.06em;font:900 clamp(110px,16vw,290px)/.8 var(--disp);letter-spacing:-.07em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.6)}
+.tm-card .body{position:absolute;z-index:2;left:34px;bottom:34px;max-width:min(54%,540px)}
+.tm-card h3{font:900 clamp(36px,4.2vw,76px)/.9 var(--disp);letter-spacing:-.05em}
+.tm-card h3 em{display:block;font-size:.56em;line-height:1.14;letter-spacing:-.02em;margin-top:.12em}
+.tm-card p{margin-top:16px;font-size:clamp(14px,1.05vw,16px);line-height:1.55;color:rgba(255,255,255,.86);max-width:40ch}
+.tm-card .enter{display:inline-flex;align-items:center;gap:12px;margin-top:22px;padding:12px 18px;border:1px solid rgba(255,255,255,.45);border-radius:999px;font-size:13px;transition:background .4s,color .4s,border-color .4s}
+.tm-card .enter:hover{background:#fff;color:var(--deep);border-color:#fff}
+.tm-card--fr{background:var(--paper);color:var(--deep)}
+.tm-card--fr::before{display:none}
+.tm-card--fr .top{color:var(--soft)}.tm-card--fr .top b{color:var(--deep)}
+.tm-card--fr .fr-big{position:absolute;z-index:2;right:40px;top:46%;transform:translateY(-50%);font:500 italic clamp(70px,10vw,190px)/.92 var(--serif);letter-spacing:-.03em;color:var(--deep);text-align:right}
+.tm-card--fr .fr-big span{display:block;color:var(--teal)}
+.tm-card--fr p{color:var(--soft)}
+.tm-card--fr .enter{border-color:var(--line);color:var(--deep)}
+.tm-card--fr .enter:hover{background:var(--deep);color:#fff;border-color:var(--deep)}
+.tm-rail{position:absolute;right:var(--pad);top:50%;transform:translateY(-50%);z-index:4}
+.tm-rail ol{list-style:none;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+.tm-rail button{all:unset;cursor:pointer;display:flex;gap:12px;align-items:baseline;font-size:13px;color:rgba(255,255,255,.42);transition:color .4s,transform .4s}
+.tm-rail button.on{color:#fff;transform:translateX(-6px)}
+.tm-rail .r-a{font-variant-numeric:tabular-nums;color:var(--teal);opacity:0;transition:opacity .4s}
+.tm-rail button.on .r-a{opacity:1}
+.tm-count{position:absolute;left:var(--pad);bottom:28px;display:flex;align-items:center;gap:14px;font-size:13px;font-variant-numeric:tabular-nums;color:rgba(255,255,255,.55)}
+.tm-count span:first-child{color:#fff}
+.tm-count i{display:block;width:90px;height:1px;background:rgba(255,255,255,.22);position:relative;overflow:hidden}
+.tm-count i::after{content:"";position:absolute;inset:0;background:var(--teal);transform-origin:left;transform:scaleX(var(--p,0))}
+@media (max-width:1180px){.tm-rail{display:none}.tm-card{width:min(84vw,1120px);margin-left:calc(min(84vw,1120px)/-2)}}
+@media (max-width:820px){
+  .tm{height:auto!important;padding:16vh 0 8vh}
+  .tm-stage{position:relative;height:auto;overflow:visible;perspective:none}
+  .tm-head{position:relative;top:auto;left:auto;transform:none!important;opacity:1!important;padding:0 var(--pad) 7vh}
+  .tm-space{position:relative;inset:auto;padding:0 4vw}
+  .tm-card{position:sticky!important;left:auto;top:calc(9vh + var(--i) * 10px)!important;margin:0 0 6vh!important;width:92vw;height:76vh;transform:none!important;opacity:1!important;filter:none!important;visibility:visible!important}
+  .tm-card .body{max-width:none;right:22px;left:22px;bottom:24px}
+  .tm-card .yr{font-size:30vw;bottom:auto;top:58px;right:16px}
+  .tm-card--fr .fr-big{top:28%;right:22px;font-size:16vw}
+  .tm-count{display:none}
 }
 
-/* ---------- kinetic type ---------- */
-.kin .kw{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.04em .02em .1em;margin:-.04em -.02em -.1em}
-.kin .ki{display:inline-block;transform:translateY(105%) rotate(4deg);transform-origin:0 100%;transition:transform 1.1s var(--ease)}
-.kin.in .ki{transform:none}
+/* strip: life on the hill */
+.strip{overflow:hidden;padding:clamp(90px,15vh,170px) 0 clamp(50px,9vh,110px)}
+.strip__head{padding:0 var(--pad);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(36px,7vh,80px)}
+.strip__head h2{font:900 clamp(44px,7vw,124px)/.88 var(--disp);letter-spacing:-.055em;color:var(--deep)}
+.strip__head h2 em{display:block;font-size:.66em;line-height:1.1;color:var(--ink);letter-spacing:-.02em}
+.strip__head p{max-width:36ch;color:var(--soft)}
+.strip__track{display:flex;gap:clamp(14px,2vw,28px);width:max-content;will-change:transform;padding-left:var(--pad)}
+.strip__track figure{width:clamp(220px,24vw,360px);flex:none}
+.strip__track .media{aspect-ratio:4/5;border-radius:4px}
+.strip__track figure:nth-child(odd){margin-top:clamp(24px,5vh,64px)}
+.strip__track figcaption{margin-top:12px;font-size:13px;color:var(--soft);display:flex;gap:10px}
+.strip__track figcaption b{font-weight:600;color:var(--ink)}
+@media (max-width:760px){.strip__head{flex-direction:column;align-items:flex-start}}
 
-/* ---------- hero ---------- */
-.hero{position:relative;height:150vh}
-.hero-in{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--pad) clamp(28px,6vh,72px)}
-.hero-in::before{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(to top,var(--paper) 30%,rgba(250,250,247,0));pointer-events:none}
-.hero-in>*{position:relative}
-.hero h1{font:900 clamp(56px,10vw,190px)/.86 var(--disp);letter-spacing:-.055em;color:var(--deep);max-width:calc(100% - clamp(0px,13vw,200px))}
-.hero h1 em{display:block;font-size:.62em;line-height:1;letter-spacing:-.02em;color:var(--ink);margin-top:.16em;padding-left:.06em}
-.hero-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-top:clamp(24px,4vh,48px);padding-top:20px;border-top:1px solid var(--hair);max-width:calc(100% - clamp(0px,12vw,180px))}
-.hero-foot p{max-width:46ch;color:var(--mute);font-size:clamp(15px,1.2vw,18px)}
-.hero-foot p b{color:var(--ink);font-weight:500}
-.scrollcue{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--mute);white-space:nowrap}
-.scrollcue span{position:relative;display:block;width:1px;height:44px;background:var(--hair);overflow:hidden}
-.scrollcue span::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--deep);animation:cue 2s var(--ease) infinite}
-@keyframes cue{to{top:100%}}
-@media (max-width:560px){.nav{padding:14px var(--pad)}.nav .logo{width:128px}.pill{height:38px;padding:0 14px;font-size:14px}.nav-r{gap:6px}}
-@media (max-width:900px){.hero-foot{grid-template-columns:minmax(0,1fr);max-width:none}.scrollcue{display:none}.hero-in{padding-bottom:96px}}
+/* marquee */
+.marq{padding:clamp(30px,6vh,70px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;display:flex}
+.marq__row{display:flex;gap:clamp(40px,5vw,80px);flex:none;padding-right:clamp(40px,5vw,80px);animation:marquee 34s linear infinite}
+.marq__row span{font:900 clamp(48px,8vw,140px)/1.05 var(--disp);letter-spacing:-.055em;color:var(--deep);white-space:nowrap}
+.marq__row span em{color:var(--teal)}
+@keyframes marquee{to{transform:translateX(-100%)}}
 
-/* ---------- statement ---------- */
-.stmt{position:relative;min-height:70vh;display:grid;place-items:center;padding:20vh var(--pad);text-align:center}
-.stmt p{font:800 clamp(34px,5.6vw,96px)/.98 var(--disp);letter-spacing:-.045em;color:var(--ink);max-width:17ch}
-.stmt p em{display:block;color:var(--deep);font-size:.8em;letter-spacing:-.02em;margin-top:.08em}
-.stmt small{display:block;margin-top:28px;font-size:15px;color:var(--mute)}
+/* proof */
+.proof{padding:clamp(90px,16vh,180px) var(--pad);max-width:1400px;margin:0 auto}
+.proof__title{font:900 clamp(40px,6.4vw,110px)/.9 var(--disp);letter-spacing:-.055em;color:var(--deep);text-align:center}
+.proof__title em{display:block;font-size:.66em;line-height:1.1;color:var(--ink);letter-spacing:-.02em}
+.proof__list{list-style:none;margin-top:clamp(48px,9vh,110px);border-top:1px solid var(--ink)}
+.proof__list li{display:grid;grid-template-columns:72px minmax(0,1fr) minmax(0,1.1fr);gap:clamp(16px,3vw,48px);align-items:baseline;padding:clamp(20px,3.4vh,36px) 0;border-bottom:1px solid var(--line)}
+.proof__list .n{font-size:13px;color:var(--soft);font-variant-numeric:tabular-nums}
+.proof__list .k{font:900 clamp(44px,6vw,104px)/.9 var(--disp);letter-spacing:-.055em;color:var(--deep);font-variant-numeric:tabular-nums}
+.proof__list .k em{color:var(--teal);font-size:.6em;letter-spacing:-.02em}
+.proof__list p{color:var(--soft);max-width:44ch;font-size:clamp(15px,1.15vw,18px)}
+.proof__list p b{color:var(--ink);font-weight:500}
+@media (max-width:760px){.proof__list li{grid-template-columns:minmax(0,1fr);gap:8px}}
 
-/* ---------- chapter: an aperture that opens onto each age (scroll expand, after HorizonX) ---------- */
-.xp{position:relative;height:240vh}
-.xp-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.xp-title{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(96px,14vh,140px) var(--pad) clamp(28px,6vh,64px);pointer-events:none;z-index:2}
-.xp-title h2{font:900 clamp(46px,7.4vw,140px)/.86 var(--disp);letter-spacing:-.055em;color:var(--deep);max-width:min(12ch,calc(100% - clamp(0px,13vw,200px)))}
-.xp-title h2 em{display:block;font-size:.62em;line-height:1.02;color:var(--ink);letter-spacing:-.02em;margin-top:.1em}
-.xp-title .rng{font:800 clamp(18px,1.6vw,24px)/1 var(--disp);letter-spacing:-.02em;color:var(--ink);display:flex;gap:14px;align-items:center}
-.xp-title .rng i{display:block;width:44px;height:3px;border-radius:3px;background:var(--stage-c)}
-.xp-frame{position:absolute;inset:0;clip-path:inset(46% 14% 10% 50% round 28px);will-change:clip-path;z-index:1;background:#ddd}
-.xp-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.24);will-change:transform}
-.xp-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,40,.82) 0%,rgba(10,10,40,.38) 42%,rgba(10,10,40,0) 70%);opacity:0}
-.xp-copy{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(28px,7vh,80px);z-index:3;color:#fff;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,4vw,72px);align-items:end;opacity:0;transform:translateY(24px);max-width:calc(100% - clamp(0px,14vw,200px))}
-.xp-copy h3{font:800 clamp(34px,4.4vw,76px)/.95 var(--disp);letter-spacing:-.045em}
-.xp-copy h3 em{color:#fff}
-.xp-copy p{font-size:clamp(16px,1.25vw,19px);line-height:1.5;color:rgba(255,255,255,.88);max-width:44ch}
-.xp-copy .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.xp-copy .meta span{font-size:13px;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.34);color:#fff}
-.xp-copy a.more{display:inline-flex;gap:10px;align-items:center;margin-top:18px;font-weight:500;font-size:15px;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:3px}
-@media (max-width:900px){
-  .xp{height:220vh}
-  .xp-frame{clip-path:inset(50% 6% 16% 6% round 22px)}
-  .xp-copy{grid-template-columns:minmax(0,1fr);gap:14px;max-width:none;bottom:92px}
-  .xp-title{padding-top:104px}
-}
+/* pathways: fanned deck (after Vallora's Harvest Stays) */
+.deck{position:relative;background:var(--card);padding:clamp(90px,15vh,170px) var(--pad);overflow:hidden}
+.deck__in{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,80px);align-items:center}
+.deck__copy h2{font:900 clamp(40px,6vw,104px)/.9 var(--disp);letter-spacing:-.055em;color:var(--deep)}
+.deck__copy h2 em{display:block;font-size:.66em;line-height:1.1;color:var(--ink);letter-spacing:-.02em}
+.deck__copy p{margin-top:24px;max-width:40ch;color:var(--soft)}
+.deck__hint{margin-top:28px;display:flex;gap:12px;align-items:center;font-size:13px;color:var(--soft)}
+.deck__hint button{all:unset;cursor:pointer;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--deep);transition:background .3s,color .3s}
+.deck__hint button:hover{background:var(--deep);color:#fff}
+.deck__stage{position:relative;height:clamp(500px,66vh,680px)}
+.dcard{--cw:clamp(240px,22vw,330px);position:absolute;left:50%;top:50%;width:var(--cw);aspect-ratio:330/560;margin-left:calc(var(--cw)/-2);transform:translate(var(--x,0),calc(-50% + var(--y,0px))) rotate(var(--r,0deg));transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s;cursor:grab;user-select:none}
+.dcard.off{opacity:0}
+.dcard .ph{position:absolute;left:0;top:0;right:0;height:68%;border-radius:22px;overflow:hidden;transform:rotate(var(--pr,0deg));box-shadow:0 30px 60px rgba(20,20,58,.22)}
+.dcard .ph img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.dcard .tx{position:absolute;left:0;right:0;bottom:0;height:40%;background:#fff;border-radius:22px;padding:20px 22px;transform:rotate(var(--tr,0deg));box-shadow:0 20px 40px rgba(20,20,58,.12);display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.dcard .badge{align-self:flex-start;font-size:12px;font-weight:600;color:#fff;background:var(--deep);border-radius:999px;padding:6px 11px}
+.dcard h3{font:800 clamp(20px,1.7vw,28px)/1 var(--disp);letter-spacing:-.035em;color:var(--deep)}
+.dcard p{margin-top:8px;font-size:13px;line-height:1.45;color:var(--soft)}
+@media (max-width:900px){.deck__in{grid-template-columns:minmax(0,1fr)}.deck__stage{height:580px}}
 
-/* ---------- the French Section: a seam between two languages ---------- */
-.fr{position:relative;height:200vh;background:var(--paper)}
-.fr-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;cursor:ew-resize;touch-action:pan-y}
-.fr-side{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 var(--pad)}
-.fr-side .fr-h{font:900 clamp(40px,7.4vw,136px)/.9 var(--disp);letter-spacing:-.05em;max-width:12ch}
-.fr-side .fr-p{margin-top:28px;font-size:clamp(16px,1.3vw,20px);max-width:40ch}
-.fr-en{background:var(--paper);color:var(--deep)}
-.fr-en .fr-p{color:var(--mute)}
-.fr-fr{background:var(--deep);color:#fff;clip-path:inset(0 0 0 var(--seam,50%))}
-.fr-side .fr-h em{display:block;font-size:.66em;line-height:1.02;letter-spacing:-.02em;margin-top:.1em}
-.fr-fr .fr-h em{color:var(--teal)}
-.fr-fr .fr-p{color:rgba(255,255,255,.8)}
-.fr-line{position:absolute;top:0;bottom:0;left:var(--seam,50%);width:1px;background:var(--teal);z-index:3;pointer-events:none}
-.fr-knob{position:absolute;top:50%;left:var(--seam,50%);z-index:4;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font:600 13px/1 var(--sans);letter-spacing:.02em;pointer-events:none;box-shadow:0 10px 40px rgba(0,0,119,.25)}
-.fr-tag{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(28px,6vh,64px);display:flex;justify-content:space-between;font-size:14px;z-index:5;pointer-events:none}
-.fr-tag span:first-child{color:var(--mute)}
-.fr-tag span:last-child{color:rgba(255,255,255,.75)}
-@media (max-width:900px){.fr-knob{width:58px;height:58px;font-size:12px}.fr-tag{bottom:92px}}
+/* contact */
+.contact{padding:clamp(90px,15vh,170px) var(--pad)}
+.contact__title{font:900 clamp(44px,7.4vw,128px)/.9 var(--disp);letter-spacing:-.055em;color:var(--deep);text-align:center}
+.contact__title em{display:block;font-size:.62em;line-height:1.1;color:var(--ink);letter-spacing:-.02em}
+.contact__row{margin:clamp(48px,8vh,96px) auto 0;max-width:1200px;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(20px,3vw,40px)}
+.contact__info{background:var(--card);border-radius:8px;padding:clamp(28px,4vw,56px);display:grid;gap:20px;align-content:center;font-size:15px}
+.contact__info h3{font:800 22px/1 var(--disp);letter-spacing:-.03em;color:var(--deep)}
+.contact__info a{border-bottom:1px solid var(--line)}
+.contact__go{display:grid;gap:12px}
+.go{position:relative;isolation:isolate;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:clamp(20px,3vw,32px);border-radius:8px;border:1px solid var(--line);overflow:hidden;transition:color .5s,border-color .5s}
+.go::before{content:"";position:absolute;inset:0;background:var(--deep);transform:scaleY(0);transform-origin:bottom;transition:transform .6s var(--ease);z-index:-1}
+.go:hover{color:#fff;border-color:var(--deep)}
+.go:hover::before{transform:scaleY(1)}
+.go strong{font:800 clamp(24px,2.6vw,42px)/1 var(--disp);letter-spacing:-.045em}
+.go span{font-size:14px;opacity:.75}
+.go i{font-style:normal;font-size:24px}
+.go--main{background:var(--deep);color:#fff;border-color:var(--deep)}
+.go--main::before{background:var(--teal)}
+@media (max-width:820px){.contact__row{grid-template-columns:minmax(0,1fr)}}
 
-/* ---------- the pathways ---------- */
-.paths{position:relative;background:linear-gradient(rgba(250,250,247,0),rgba(250,250,247,.9) 18%,rgba(250,250,247,.9) 82%,rgba(250,250,247,0));padding:22vh var(--pad) 16vh}
-.paths-h{font:900 clamp(44px,7.6vw,140px)/.88 var(--disp);letter-spacing:-.055em;color:var(--deep);max-width:12ch}
-.paths-h em{display:block;font-size:.62em;line-height:1.02;color:var(--ink);letter-spacing:-.02em;margin-top:.1em}
-.paths-grid{margin-top:clamp(40px,8vh,96px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
-.path{padding:28px clamp(16px,2vw,32px) 36px 0;border-right:1px solid var(--hair);min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:background .5s}
-.path+.path{padding-left:clamp(16px,2vw,32px)}
-.path:last-child{border-right:0}
-.path b{font:800 clamp(14px,1vw,15px)/1 var(--disp);color:var(--mute);letter-spacing:.02em}
-.path h3{font:800 clamp(28px,2.8vw,46px)/.98 var(--disp);letter-spacing:-.04em;color:var(--ink);margin:28px 0 16px}
-.path p{color:var(--mute);max-width:34ch}
-.path .bar{height:3px;width:0;background:var(--teal);margin-top:28px;transition:width 1.2s var(--ease)}
-.paths.in .path .bar{width:100%}
-.paths.in .path:nth-child(2) .bar{transition-delay:.15s}.paths.in .path:nth-child(3) .bar{transition-delay:.3s}
-@media (max-width:900px){.paths-grid{grid-template-columns:minmax(0,1fr)}.path{border-right:0;border-bottom:1px solid var(--hair);min-height:0;padding:24px 0 28px!important}.path h3{margin:16px 0 10px}}
+/* footer */
+.footer{position:relative;color:#fff;min-height:clamp(560px,92vh,840px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;padding:clamp(28px,4vh,48px) var(--pad);background:#2a2340}
+.footer__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.footer::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,60,.55),rgba(0,0,60,.05) 40%,rgba(0,0,60,.72))}
+.footer>*:not(video){position:relative;z-index:2}
+.footer__top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px}
+.footer__links{display:grid;grid-template-columns:repeat(3,auto);gap:8px 32px}
+.footer__links a:hover{opacity:.6}
+.footer__addr{text-align:right;line-height:1.6;color:rgba(255,255,255,.88)}
+.footer__line{font:500 italic clamp(28px,3.6vw,62px)/1.06 var(--serif);max-width:22ch;letter-spacing:-.01em}
+.footer__big{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.footer__big-left{font:500 14px/1.5 var(--sans);color:rgba(255,255,255,.82)}
+.footer__big-right{font:900 clamp(70px,15vw,270px)/.8 var(--disp);letter-spacing:-.065em}
+@media (max-width:760px){.footer__links{grid-template-columns:repeat(2,auto)}.footer__addr{text-align:left}.footer__big{flex-direction:column-reverse;align-items:flex-start}}
 
-/* ---------- eighteen: the shield assembles ---------- */
-.ready{position:relative;height:210vh}
-.ready-in{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(96px,14vh,140px) var(--pad) clamp(28px,6vh,64px);pointer-events:none}
-.ready-in h2{font:900 clamp(56px,10vw,190px)/.86 var(--disp);letter-spacing:-.055em;color:var(--deep)}
-.ready-in .tag{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
-.ready-in .tag p{font:500 italic clamp(26px,3vw,52px)/1.05 var(--serif);color:var(--ink);letter-spacing:-.01em}
-.ready-in .tag span{font-size:14px;color:var(--mute);max-width:30ch;text-align:right}
-@media (max-width:900px){.ready-in .tag{flex-direction:column;align-items:flex-start}.ready-in .tag span{text-align:left}.ready-in{padding-bottom:96px}}
-
-/* ---------- proof, on Deep Blue ---------- */
-.proof{position:relative;background:var(--deep);color:#fff;padding:20vh var(--pad) 18vh;overflow:hidden}
-.proof-h{font:900 clamp(44px,7vw,128px)/.88 var(--disp);letter-spacing:-.055em;max-width:13ch}
-.proof-h em{display:block;color:var(--teal);font-size:.62em;line-height:1.02;letter-spacing:-.02em;margin-top:.1em}
-.proof-grid{margin-top:clamp(48px,10vh,120px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid rgba(255,255,255,.22)}
-.pf{padding:32px clamp(12px,1.6vw,28px) 8px 0;border-right:1px solid rgba(255,255,255,.14)}
-.pf+.pf{padding-left:clamp(12px,1.6vw,28px)}
-.pf:last-child{border-right:0}
-.pf .n{font:800 clamp(52px,6vw,112px)/.86 var(--disp);letter-spacing:-.055em;font-variant-numeric:tabular-nums;display:block;white-space:nowrap}
-.pf .n .to{font:500 italic .34em/1 var(--serif);letter-spacing:0;margin:0 .12em;color:var(--teal)}
-.pf .n.word{font-size:clamp(40px,4.4vw,84px)}
-.pf .k{display:block;margin-top:22px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.76);max-width:24ch}
-.pf .k b{color:#fff;font-weight:600}
-@media (max-width:1100px){.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pf:nth-child(2){border-right:0}.pf:nth-child(3){padding-left:0}.pf:nth-child(n+3){border-top:1px solid rgba(255,255,255,.14);margin-top:8px}}
-@media (max-width:560px){.proof-grid{grid-template-columns:minmax(0,1fr)}.pf{border-right:0!important;padding:26px 0 18px!important;border-top:1px solid rgba(255,255,255,.14);margin:0!important}.pf:first-child{border-top:0}}
-
-/* ---------- arrive ---------- */
-.arrive{position:relative;min-height:100vh;min-height:100svh;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--pad) clamp(28px,6vh,64px);overflow:hidden;background:var(--ink)}
-.arrive video,.arrive img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.arrive::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,10,40,.85),rgba(10,10,40,.25) 55%,rgba(10,10,40,.1))}
-.arrive>*:not(video):not(img){position:relative;z-index:2}
-.arrive h2{font:900 clamp(48px,8.4vw,156px)/.88 var(--disp);letter-spacing:-.055em;max-width:12ch}
-.arrive h2 em{display:block;font-size:.62em;line-height:1.02;letter-spacing:-.02em;margin-top:.1em}
-.arrive-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;margin-top:clamp(28px,5vh,56px);padding-top:24px;border-top:1px solid rgba(255,255,255,.24)}
-.arrive-row p{max-width:44ch;color:rgba(255,255,255,.82)}
-.ctas{display:flex;gap:10px;flex-wrap:wrap}
-.arrive .pill.ghost{border-color:rgba(255,255,255,.4);color:#fff}
-.arrive .pill.ghost:hover{border-color:#fff}
-.arrive .pill.solid{background:#fff;color:var(--deep)}
-.arrive .pill.solid:hover{background:var(--teal);color:#fff}
-@media (max-width:900px){.arrive-row{grid-template-columns:minmax(0,1fr)}}
-
-/* ---------- footer ---------- */
-.ft{position:relative;z-index:1;background:var(--paper);padding:clamp(56px,10vh,110px) var(--pad) 28px}
-.ft-line{font:500 italic clamp(28px,3.6vw,60px)/1.05 var(--serif);color:var(--deep);max-width:22ch;letter-spacing:-.01em}
-.ft-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px;margin-top:clamp(48px,9vh,96px);padding-top:28px;border-top:1px solid var(--hair);font-size:15px}
-.ft-grid h4{font:600 13px/1 var(--sans);color:var(--mute);margin-bottom:16px;letter-spacing:.01em}
-.ft-grid a{display:block;padding:4px 0;color:var(--ink)}
-.ft-grid a:hover{color:var(--deep)}
-.ft-grid address{font-style:normal;color:var(--ink);line-height:1.6}
-.ft-base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:56px;font-size:13px;color:var(--mute)}
-@media (max-width:900px){.ft-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ft-grid>div:first-child{grid-column:1/-1}}
-
-/* ---------- index overlay ---------- */
-.ix{position:fixed;inset:0;z-index:80;background:var(--deep);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:96px var(--pad) 40px;clip-path:inset(0 0 100% 0);transition:clip-path .9s cubic-bezier(.77,0,.18,1);visibility:hidden}
-.ix.open{clip-path:inset(0 0 0 0);visibility:visible}
-.ix ol{list-style:none;counter-reset:c}
-.ix li{counter-increment:c;border-top:1px solid rgba(255,255,255,.16);overflow:hidden}
-.ix li:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
-.ix a{display:flex;align-items:baseline;gap:clamp(14px,3vw,40px);padding:clamp(10px,1.6vh,18px) 0;font:800 clamp(28px,4.6vw,72px)/1 var(--disp);letter-spacing:-.045em;transform:translateY(110%);transition:transform .9s var(--ease),color .3s}
-.ix a::before{content:counter(c,decimal-leading-zero);font:500 14px/1 var(--sans);letter-spacing:0;color:var(--teal);width:28px;flex:none}
-.ix a span{margin-left:auto;font:500 14px/1 var(--sans);letter-spacing:0;color:rgba(255,255,255,.6)}
-.ix a:hover{color:var(--teal)}
-.ix.open a{transform:none}
-.ix.open li:nth-child(2) a{transition-delay:.05s}.ix.open li:nth-child(3) a{transition-delay:.1s}.ix.open li:nth-child(4) a{transition-delay:.15s}.ix.open li:nth-child(5) a{transition-delay:.2s}.ix.open li:nth-child(6) a{transition-delay:.25s}.ix.open li:nth-child(7) a{transition-delay:.3s}.ix.open li:nth-child(8) a{transition-delay:.35s}
-.ix-close{position:absolute;top:18px;right:var(--pad)}
-.ix .pill.ghost{border-color:rgba(255,255,255,.3);color:#fff}
-
-/* ---------- cursor ---------- */
-.cur{position:fixed;left:0;top:0;z-index:85;pointer-events:none}
-.cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--deep)}
-.cur-ring{width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;border:1px solid rgba(0,0,119,.35);display:grid;place-items:center;transition:width .45s var(--ease),height .45s var(--ease),margin .45s var(--ease),background .45s,border-color .45s}
-.cur-ring span{font:600 12px/1 var(--sans);color:#fff;opacity:0;transition:opacity .3s}
-.cur.big .cur-ring{width:84px;height:84px;margin:-42px 0 0 -42px;background:var(--teal);border-color:var(--teal)}
-.cur.big .cur-ring span{opacity:1}
-.cur.dark .cur-dot{background:#fff}.cur.dark .cur-ring{border-color:rgba(255,255,255,.5)}
-@media (hover:none),(pointer:coarse){.cur{display:none}}
-
-@media (prefers-reduced-motion:reduce){
-  body::after{animation:none}
-  .kin .ki{transform:none!important;transition:none}
-  .xp,.fr,.ready{height:auto}
-  .xp-stage,.fr-stage,.ready-in{position:relative;height:auto;min-height:100vh}
-}
+@media (prefers-reduced-motion:reduce){.marq__row{animation:none}}
 </style>
 </head>
 <body>
-<div class="pre" id="pre" aria-hidden="true">
-  <svg class="pre-mark" viewBox="150 107 290 315">__SHIELD_SVG_PATHS__</svg>
-  <div class="pre-row"><span>Eastwood International School</span><span class="pre-n" id="preN">3</span></div>
-</div>
 
-<canvas id="gl" aria-hidden="true"></canvas>
-
-<header class="nav" id="nav">
-  <a class="logo" href="#top" aria-label="Eastwood International School, home">
-    <img class="lc" src="assets/eis26/logo-colour.png" alt="Eastwood International School" width="500" height="120">
-    <img class="lw" src="assets/eis26/logo-white.png" alt="" width="500" height="120">
-  </a>
-  <div class="nav-r">
-    <button class="pill ghost" id="ixBtn" aria-expanded="false" aria-controls="ix">Index</button>
-    <a class="pill solid mag" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener"><i></i>Enquire</a>
-  </div>
+<header class="nav">
+  <a class="nav__logo" href="#top" aria-label="Eastwood International School, home"><svg viewBox="150 107 290 315" aria-hidden="true">__SHIELD_SVG_PATHS__</svg><span>Eastwood International School</span></a>
+  <nav class="nav__center" aria-label="Primary">
+    <a href="#learning">Learning</a>
+    <a href="#life">Life</a>
+    <a href="#pathways">Pathways</a>
+    <a href="#contact">Admissions</a>
+  </nav>
+  <a class="nav__cta" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a>
 </header>
 
-<aside class="dial" id="dial" aria-hidden="true">
-  <div class="dial-txt"><span class="dial-age" id="dialAge">3</span><span class="dial-lab">Age · <b id="dialStage">Early Years</b></span></div>
-  <div class="ticks" id="ticks"></div>
-</aside>
-
-<nav class="ix" id="ix" aria-label="Index" aria-hidden="true">
-  <button class="pill ghost ix-close" id="ixClose">Close</button>
-  <ol>
-    <li><a href="#top">Three to eighteen <span>The campus</span></a></li>
-    <li><a href="#early-years">Early Years <span>Ages 3 to 6</span></a></li>
-    <li><a href="#elementary">Elementary <span>Ages 6 to 11</span></a></li>
-    <li><a href="#french-section">Section Française <span>IB PYP in French</span></a></li>
-    <li><a href="#middle-school">Middle School <span>Ages 11 to 16</span></a></li>
-    <li><a href="#diploma">Diploma <span>Ages 16 to 18</span></a></li>
-    <li><a href="#proof">The standard <span>Since 2011</span></a></li>
-    <li><a href="#arrive">Visit Mansourieh <span>Admissions</span></a></li>
-  </ol>
-</nav>
-
 <main id="top">
-  <!-- 00 · Three -->
-  <section class="hero" data-a0="3" data-a1="3" aria-label="Eastwood International School">
-    <div class="hero-in">
-      <h1 data-kin>Three to eighteen. <em>One campus.</em></h1>
-      <div class="hero-foot">
-        <p><b>Eastwood International School</b> is the flagship of Eastwood Schools, on the hillside of Mansourieh above Beirut and the sea. An IB World School, from Montessori-inspired Early Years to the IB Diploma.</p>
-        <div class="scrollcue"><span></span>Scroll to grow up</div>
+
+  <section class="hero" aria-label="Eastwood International School">
+    <h1 class="hero__title">
+      <span class="hero__word hero__word--first"><span class="reveal-line">Eastwood</span></span>
+      <span class="hero__media" aria-hidden="true">
+        <img class="hero__cycle is-active" src="assets/eis26/h0.webp" alt="" fetchpriority="high">
+        <img class="hero__cycle" src="assets/eis26/h1.webp" alt="">
+        <img class="hero__cycle" src="assets/eis26/h2.webp" alt="">
+        <img class="hero__cycle" src="assets/eis26/h3.webp" alt="">
+        <img class="hero__cycle" src="assets/eis26/h4.webp" alt="">
+        <img class="hero__cycle" src="assets/eis26/h5.webp" alt="">
+      </span>
+      <span class="hero__word hero__word--last"><span class="reveal-line">International School</span></span>
+    </h1>
+    <div class="hero__foot">
+      <p><b>The flagship of Eastwood Schools,</b> on the hillside of Mansourieh above Beirut and the sea. An IB World School for ages 3 to 18.</p>
+      <span class="hero__tag">Inspire. Create. Innovate.</span>
+    </div>
+  </section>
+
+  <section class="showcase" aria-label="Mansourieh">
+    <div class="showcase__frame">
+      <video muted loop playsinline preload="none" poster="assets/eis26/s-hill.webp" data-src="assets/eis26/v-hill.mp4" aria-hidden="true"></video>
+      <div class="showcase__cap"><strong>Above the city, facing the sea.</strong><span>Mansourieh, Lebanon · Since 1983</span></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="about__title split-lines">Where educational theory <em>meets real life.</em></h2>
+    <div class="about__row">
+      <p class="about__copy"><b>An education as unique as your child.</b> Fifteen years on one campus, from a Montessori-inspired first classroom to the IB Diploma, in English and in French. The flagship of Eastwood Schools, and the most complete expression of its model.</p>
+      <figure class="about__thumb media"><img src="assets/eis26/p-library.webp" alt="Afternoon light across tall library shelves" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="tm" id="learning" aria-labelledby="tm-h">
+    <div class="tm-stage">
+      <div class="tm-head"><h2 id="tm-h" class="split-lines">Three to eighteen. <em>One campus.</em></h2></div>
+      <div class="tm-space" id="tmSpace">
+        <article class="tm-card" data-i="0">
+          <div class="ph"><video muted loop playsinline preload="none" poster="assets/eis26/c-ey.webp" data-src="assets/eis26/v-ey.mp4" aria-hidden="true"></video></div>
+          <div class="top"><b>Ages 3 to 6</b><span>IB PYP · Montessori-inspired</span></div>
+          <div class="yr" aria-hidden="true">03</div>
+          <div class="body"><h3>Early Years <em>Learning begins in the hands.</em></h3><p>A Montessori-inspired foundation within the IB Primary Years Programme. Inquiry, play and structured discovery, in English or in French.</p><a class="enter" href="ib-early-years.html">Explore Early Years →</a></div>
+        </article>
+        <article class="tm-card" data-i="1">
+          <div class="ph"><img src="assets/eis26/c-el.webp" alt="A child's hands drawing a map of rivers and mountains" loading="lazy"></div>
+          <div class="top"><b>Ages 6 to 11</b><span>IB Primary Years Programme</span></div>
+          <div class="yr" aria-hidden="true">06</div>
+          <div class="body"><h3>Elementary <em>Curiosity sets the pace.</em></h3><p>The full IB Primary Years Programme. Inquiry-led, transdisciplinary learning, in English and French sections.</p><a class="enter" href="ib-elementary.html">Explore Elementary →</a></div>
+        </article>
+        <article class="tm-card tm-card--fr" data-i="2">
+          <div class="top"><b>IB PYP in French</b><span>The only one in the region</span></div>
+          <div class="fr-big" aria-hidden="true" lang="fr">Bonjour,<span>hello.</span></div>
+          <div class="body"><h3>Section Française <em>Two languages, one way of thinking.</em></h3><p>The IB Primary Years Programme, delivered entirely in French. The only IB PYP French Section in the region.</p><a class="enter" href="fr-section.html" lang="fr">Découvrez la Section →</a></div>
+        </article>
+        <article class="tm-card" data-i="3">
+          <div class="ph"><img src="assets/eis26/c-ms.webp" alt="A student's hands assembling a laser-cut prototype" loading="lazy"></div>
+          <div class="top"><b>Ages 11 to 16</b><span>Design + Technology</span></div>
+          <div class="yr" aria-hidden="true">11</div>
+          <div class="body"><h3>Middle School <em>Build the idea. Then the thing.</em></h3><p>Concept-based learning that connects subjects to each other and to real life, with Design + Technology as a dedicated pillar of the campus.</p><a class="enter" href="ib-myp.html">Explore Middle School →</a></div>
+        </article>
+        <article class="tm-card" data-i="4">
+          <div class="ph"><video muted loop playsinline preload="none" poster="assets/eis26/c-dp.webp" data-src="assets/eis26/v-caps.mp4" aria-hidden="true"></video></div>
+          <div class="top"><b>Ages 16 to 18</b><span>100% IB Diploma pass rate</span></div>
+          <div class="yr" aria-hidden="true">16</div>
+          <div class="body"><h3>Diploma <em>Ready for what comes next.</em></h3><p>The IB Diploma Programme, the American High School Diploma or the Lebanese Programme. Three pathways, one standard.</p><a class="enter" href="ib-dp.html">Explore the Diploma →</a></div>
+        </article>
+      </div>
+      <nav class="tm-rail" aria-label="Stages">
+        <ol>
+          <li><button data-i="0"><span class="r-a">3 to 6</span>Early Years</button></li>
+          <li><button data-i="1"><span class="r-a">6 to 11</span>Elementary</button></li>
+          <li><button data-i="2"><span class="r-a">FR</span>Section Française</button></li>
+          <li><button data-i="3"><span class="r-a">11 to 16</span>Middle School</button></li>
+          <li><button data-i="4"><span class="r-a">16 to 18</span>Diploma</button></li>
+        </ol>
+      </nav>
+      <div class="tm-count" aria-hidden="true"><span id="tmIdx">01</span><i></i><span>05</span></div>
+    </div>
+  </section>
+
+  <section class="strip" id="life" aria-labelledby="st-h">
+    <div class="strip__head"><h2 id="st-h" class="split-lines">Life on <em>the hill.</em></h2><p>Classrooms that look out over the garden courtyard, the city and the sea, and a school day that reaches well past the classroom.</p></div>
+    <div class="strip__track">
+      <figure><div class="media"><img src="assets/eis26/s1.webp" alt="Hands over a canvas splashed with colour" loading="lazy"></div><figcaption><b>Arts</b>Studio and exhibition</figcaption></figure>
+      <figure><div class="media"><img src="assets/eis26/s2.webp" alt="Hands on piano keys in afternoon light" loading="lazy"></div><figcaption><b>Music</b>Practice and performance</figcaption></figure>
+      <figure><div class="media"><img src="assets/eis26/s3.webp" alt="A football at sunset about to be struck" loading="lazy"></div><figcaption><b>Sport</b>Teams and training</figcaption></figure>
+      <figure><div class="media"><img src="assets/eis26/s4.webp" alt="A spotlight on an empty stage" loading="lazy"></div><figcaption><b>Stage</b>Drama and performance</figcaption></figure>
+      <figure><div class="media"><img src="assets/eis26/s5.webp" alt="Hands adjusting a small robotic arm" loading="lazy"></div><figcaption><b>Design + Technology</b>Make, test, rebuild</figcaption></figure>
+      <figure><div class="media"><img src="assets/eis26/s6.webp" alt="Two hands over a chessboard" loading="lazy"></div><figcaption><b>Clubs</b>After-school activities</figcaption></figure>
+      <figure><div class="media"><img src="assets/eis26/s7.webp" alt="Small hands planting a seedling" loading="lazy"></div><figcaption><b>Garden</b>Olive, palm and cypress</figcaption></figure>
+      <figure><div class="media"><img src="assets/eis26/s8.webp" alt="Running shoes on a seaside road at golden hour" loading="lazy"></div><figcaption><b>Running</b>Early mornings, long light</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="marq" aria-label="Inspire. Create. Innovate.">
+    <div class="marq__row" aria-hidden="true"><span>Inspire.</span><span><em>Create.</em></span><span>Innovate.</span><span><em>Inspire.</em></span><span>Create.</span><span><em>Innovate.</em></span></div>
+    <div class="marq__row" aria-hidden="true"><span>Inspire.</span><span><em>Create.</em></span><span>Innovate.</span><span><em>Inspire.</em></span><span>Create.</span><span><em>Innovate.</em></span></div>
+  </section>
+
+  <section class="proof" aria-labelledby="pf-h">
+    <h2 class="proof__title split-lines" id="pf-h">The flagship, <em>by the numbers.</em></h2>
+    <ol class="proof__list">
+      <li><span class="n">01</span><span class="k" data-count="100">100<em>%</em></span><p><b>IB Diploma pass rate.</b></p></li>
+      <li><span class="n">02</span><span class="k">3<em> to </em>18</span><p><b>Ages on one campus,</b> Montessori-inspired Early Years through the IB Diploma.</p></li>
+      <li><span class="n">03</span><span class="k" data-count="2011">2011</span><p><b>Online learning since 2011,</b> with Google and Apple, ahead of every other school.</p></li>
+      <li><span class="n">04</span><span class="k" data-count="2016">2016</span><p><b>IB World School</b> since 2016.</p></li>
+      <li><span class="n">05</span><span class="k">Platinum</span><p><b>Best School to Work,</b> T4 Education.</p></li>
+    </ol>
+  </section>
+
+  <section class="deck" id="pathways" aria-labelledby="dk-h">
+    <div class="deck__in">
+      <div class="deck__copy">
+        <h2 id="dk-h" class="split-lines">Three pathways. <em>One standard.</em></h2>
+        <p>At sixteen, students choose the diploma that fits where they are going next. The standard of teaching stays the same.</p>
+        <div class="deck__hint"><button id="deckNext" aria-label="Next pathway">→</button><span>Tap or swipe to shuffle</span></div>
+      </div>
+      <div class="deck__stage" id="deck">
+        <article class="dcard"><div class="ph"><img src="assets/eis26/d-ib.webp" alt="Gloved hands holding a flask of luminous teal liquid to the light"></div><div class="tx"><span class="badge">01</span><div><h3>IB Diploma Programme</h3><p>The international pre-university diploma, recognised by universities worldwide.</p></div></div></article>
+        <article class="dcard"><div class="ph"><img src="assets/eis26/d-us.webp" alt="A student's hands writing on a tablet beside a notebook"></div><div class="tx"><span class="badge">02</span><div><h3>American High School Diploma</h3><p>For students targeting US and international university admissions.</p></div></div></article>
+        <article class="dcard"><div class="ph"><img src="assets/eis26/d-lb.webp" alt="A sunlit classroom with tall windows"></div><div class="tx"><span class="badge">03</span><div><h3>Lebanese Programme</h3><p>Alongside the international tracks, in line with the national curriculum framework.</p></div></div></article>
       </div>
     </div>
   </section>
 
-  <section class="stmt" data-a0="3" data-a1="3">
-    <p data-kin>An education as unique <em>as your child.</em></p>
-  </section>
-
-  <!-- 01 · Early Years -->
-  <section class="xp" id="early-years" data-a0="3" data-a1="6" data-c="#F0B323" data-stage="Early Years">
-    <div class="xp-stage">
-      <div class="xp-title"><h2 data-kin>Learning begins <em>in the hands.</em></h2><div class="rng"><i></i>Ages 3 to 6</div></div>
-      <div class="xp-frame">
-        <video class="xp-media" muted loop playsinline preload="none" poster="assets/eis26/g0.webp" data-src="assets/eis26/v1.mp4" aria-hidden="true"></video>
-        <div class="xp-scrim"></div>
-      </div>
-      <div class="xp-copy">
-        <h3>Early Years</h3>
-        <div><p>A Montessori-inspired foundation within the IB Primary Years Programme. Inquiry, play and structured discovery, in English or in French.</p>
-        <div class="meta"><span>IB PYP Early Years</span><span>Montessori-inspired</span><span>English or French</span></div>
-        <a class="more" href="ib-early-years.html">Explore Early Years →</a></div>
+  <section class="contact" id="contact" aria-labelledby="ct-h">
+    <h2 class="contact__title split-lines" id="ct-h">Come and see it <em>for yourself.</em></h2>
+    <div class="contact__row">
+      <aside class="contact__info">
+        <h3>Admissions, all year</h3>
+        <p>Applications are open throughout the year, for families in Lebanon and for those still on their way.</p>
+        <p>Sami Solh Street<br>Mansourieh el Metn, Lebanon</p>
+        <p><a href="tel:+9614409307">+961 4 409 307</a><br><a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></p>
+      </aside>
+      <div class="contact__go">
+        <a class="go go--main" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener"><div><strong>Enquire</strong><br><span>Start with a conversation</span></div><i>→</i></a>
+        <a class="go" href="contact.html"><div><strong>Book a visit</strong><br><span>See the campus in session</span></div><i>→</i></a>
+        <a class="go" href="uploads/EIS-2026-27-Tuition-Fees.pdf" target="_blank" rel="noopener"><div><strong>Tuition 2026 to 2027</strong><br><span>Fees by stage, as a PDF</span></div><i>→</i></a>
+        <a class="go" href="beirut-guide.html"><div><strong>Beirut Guide</strong><br><span>For families relocating to Lebanon</span></div><i>→</i></a>
       </div>
     </div>
   </section>
 
-  <!-- 02 · Elementary -->
-  <section class="xp" id="elementary" data-a0="6" data-a1="9" data-c="#6CC24A" data-stage="Elementary">
-    <div class="xp-stage">
-      <div class="xp-title"><h2 data-kin>Curiosity <em>sets the pace.</em></h2><div class="rng"><i></i>Ages 6 to 11</div></div>
-      <div class="xp-frame">
-        <img class="xp-media" src="assets/eis26/g1.webp" alt="A child's hands drawing a map of rivers and mountains in coloured pencil" loading="lazy">
-        <div class="xp-scrim"></div>
-      </div>
-      <div class="xp-copy">
-        <h3>Elementary</h3>
-        <div><p>The full IB Primary Years Programme. Inquiry-led, transdisciplinary learning, where questions lead and subjects follow.</p>
-        <div class="meta"><span>IB PYP</span><span>English and French sections</span></div>
-        <a class="more" href="ib-elementary.html">Explore Elementary →</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 · The French Section -->
-  <section class="fr" id="french-section" data-a0="9" data-a1="11" data-c="#D0006F" data-stage="Section Française">
-    <div class="fr-stage" id="frStage">
-      <div class="fr-side fr-en">
-        <p class="fr-h">The only IB PYP French Section <em>in the region.</em></p>
-        <p class="fr-p">The IB Primary Years Programme, delivered entirely in French. Two languages, one way of thinking.</p>
-      </div>
-      <div class="fr-side fr-fr" aria-hidden="true" lang="fr">
-        <p class="fr-h">La seule Section Française du PYP <em>dans la région.</em></p>
-        <p class="fr-p">Le Programme primaire de l’IB, entièrement en français. Deux langues, une même façon de penser.</p>
-      </div>
-      <div class="fr-line"></div>
-      <div class="fr-knob">EN · FR</div>
-      <div class="fr-tag"><span>Drag or scroll to cross over</span><span><a href="fr-section.html" style="pointer-events:auto;border-bottom:1px solid rgba(255,255,255,.5)">Découvrez la Section →</a></span></div>
-    </div>
-  </section>
-
-  <!-- 04 · Middle School -->
-  <section class="xp" id="middle-school" data-a0="11" data-a1="16" data-c="#00AFD7" data-stage="Middle School">
-    <div class="xp-stage">
-      <div class="xp-title"><h2 data-kin>Build the idea. <em>Then build the thing.</em></h2><div class="rng"><i></i>Ages 11 to 16</div></div>
-      <div class="xp-frame">
-        <img class="xp-media" src="assets/eis26/g2.webp" alt="A student's hands assembling a laser-cut wooden prototype with a circuit board" loading="lazy">
-        <div class="xp-scrim"></div>
-      </div>
-      <div class="xp-copy">
-        <h3>Middle School</h3>
-        <div><p>Concept-based learning that connects subjects to each other and to real life, with Design + Technology as a dedicated pillar of the campus.</p>
-        <div class="meta"><span>Concept-based</span><span>Design + Technology</span></div>
-        <a class="more" href="ib-myp.html">Explore Middle School →</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 · Diploma -->
-  <section class="xp" id="diploma" data-a0="16" data-a1="17" data-c="#00B2A9" data-stage="Diploma">
-    <div class="xp-stage">
-      <div class="xp-title"><h2 data-kin>Theory, <em>meet real life.</em></h2><div class="rng"><i></i>Ages 16 to 18</div></div>
-      <div class="xp-frame">
-        <video class="xp-media" muted loop playsinline preload="none" poster="assets/eis26/g3.webp" data-src="assets/eis26/v2.mp4" aria-hidden="true"></video>
-        <div class="xp-scrim"></div>
-      </div>
-      <div class="xp-copy">
-        <h3>100<em>%</em></h3>
-        <div><p>IB Diploma pass rate. Students graduate through the IB Diploma Programme, the American High School Diploma or the Lebanese Programme.</p>
-        <div class="meta"><span>IB Diploma Programme</span><span>American High School Diploma</span><span>Lebanese Programme</span></div>
-        <a class="more" href="ib-dp.html">Explore the Diploma →</a></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="paths" id="paths" data-a0="17" data-a1="17" data-c="#00B2A9" data-stage="Diploma">
-    <h2 class="paths-h" data-kin>Three pathways. <em>One standard.</em></h2>
-    <div class="paths-grid">
-      <article class="path"><b>01</b><div><h3>IB Diploma Programme</h3><p>The international pre-university diploma, recognised by universities worldwide.</p></div><i class="bar"></i></article>
-      <article class="path"><b>02</b><div><h3>American High School Diploma</h3><p>A recognised American pathway for students targeting US and international university admissions.</p></div><i class="bar"></i></article>
-      <article class="path"><b>03</b><div><h3>Lebanese Programme</h3><p>Offered alongside the international tracks, in line with the Lebanese national curriculum framework.</p></div><i class="bar"></i></article>
-    </div>
-  </section>
-
-  <!-- 06 · Eighteen -->
-  <section class="ready" id="ready" data-a0="17" data-a1="19.5" data-c="#00B2A9" data-stage="Graduation">
-    <div class="ready-in">
-      <h2 data-kin>Eighteen.</h2>
-      <div class="tag"><p>Inspire. Create. Innovate.</p><span>Fifteen years on one campus, from the first wooden rod to the Diploma.</span></div>
-    </div>
-  </section>
-
-  <!-- 07 · Proof -->
-  <section class="proof" id="proof" data-dark aria-labelledby="pf-h">
-    <h2 class="proof-h" id="pf-h" data-kin>The flagship, <em>by the numbers.</em></h2>
-    <div class="proof-grid">
-      <div class="pf"><span class="n" data-count="2011">2011</span><span class="k"><b>Online learning since 2011,</b> with Google and Apple, ahead of every other school.</span></div>
-      <div class="pf"><span class="n" data-count="2016">2016</span><span class="k"><b>IB World School</b> since 2016.</span></div>
-      <div class="pf"><span class="n">3<small class="to">to</small>18</span><span class="k"><b>Ages on one campus,</b> Montessori Early Years through the IB Diploma.</span></div>
-      <div class="pf"><span class="n word">Platinum</span><span class="k"><b>Best School to Work,</b> T4 Education.</span></div>
-    </div>
-  </section>
-
-  <!-- 08 · Arrive -->
-  <section class="arrive" id="arrive" data-dark aria-labelledby="ar-h">
-    <video muted loop playsinline preload="none" poster="assets/eis26/g4.webp" data-src="assets/eis26/v3.mp4" aria-hidden="true"></video>
-    <h2 id="ar-h" data-kin>Come and see it <em>for yourself.</em></h2>
-    <div class="arrive-row">
-      <p>Admissions are open throughout the year, for families in Lebanon and for those still on their way. Start with a conversation.</p>
-      <div class="ctas">
-        <a class="pill solid mag" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener"><i></i>Enquire</a>
-        <a class="pill ghost mag" href="contact.html">Book a visit</a>
-        <a class="pill ghost mag" href="uploads/EIS-2026-27-Tuition-Fees.pdf" target="_blank" rel="noopener">Tuition 2026 to 2027</a>
-      </div>
-    </div>
-  </section>
 </main>
 
-<footer class="ft" id="ft">
-  <p class="ft-line">From curriculum to culture, from theory to real life.</p>
-  <div class="ft-grid">
-    <div>
-      <h4>Eastwood International School</h4>
-      <address>Sami Solh Street, Mansourieh el Metn<br>Lebanon<br><a href="tel:+9614409307">+961 4 409 307</a><a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></address>
-    </div>
-    <div><h4>Learning</h4><a href="ib-early-years.html">Early Years</a><a href="ib-elementary.html">Elementary</a><a href="fr-section.html">Section Française</a><a href="ib-myp.html">Middle School</a><a href="ib-dp.html">IB Diploma</a><a href="high-school.html">High School</a></div>
-    <div><h4>Families</h4><a href="admissions.html">Admissions</a><a href="beirut-guide.html">Beirut Guide</a><a href="student-life.html">Life at Eastwood</a><a href="contact.html">Contact</a></div>
-    <div><h4>School</h4><a href="about.html">About</a><a href="news.html">News</a><a href="careers.html">Careers</a><a href="privacy.html">Privacy</a></div>
+<footer class="footer">
+  <video class="footer__bg" muted loop playsinline preload="none" poster="assets/eis26/f-olive.webp" data-src="assets/eis26/v-olive.mp4" aria-hidden="true"></video>
+  <div class="footer__top">
+    <nav class="footer__links" aria-label="Footer">
+      <a href="ib-early-years.html">Early Years</a><a href="admissions.html">Admissions</a><a href="about.html">About</a>
+      <a href="ib-elementary.html">Elementary</a><a href="student-life.html">Life at Eastwood</a><a href="news.html">News</a>
+      <a href="fr-section.html">Section Française</a><a href="beirut-guide.html">Beirut Guide</a><a href="careers.html">Careers</a>
+      <a href="ib-myp.html">Middle School</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a>
+      <a href="ib-dp.html">IB Diploma</a><a href="high-school.html">High School</a>
+    </nav>
+    <p class="footer__addr">Eastwood International School<br>Sami Solh Street, Mansourieh el Metn<br>Lebanon</p>
   </div>
-  <div class="ft-base"><span>Eastwood International School is the flagship campus of Eastwood Schools.</span><span>© 2026 Eastwood Schools</span></div>
+  <p class="footer__line">From curriculum to culture, from theory to real life.</p>
+  <div class="footer__big">
+    <span class="footer__big-left">The flagship campus of Eastwood Schools<br>© 2026 Eastwood Schools</span>
+    <span class="footer__big-right" aria-hidden="true">Eastwood</span>
+  </div>
 </footer>
 
-<div class="cur" id="cur" aria-hidden="true"><div class="cur-ring"><span>Drag</span></div></div>
-<div class="cur" id="curDot" aria-hidden="true"><div class="cur-dot"></div></div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
 <script>
-/* ---------- typographic pass and kinetic headings (from the network engine) ---------- */
 (() => {
-  const root = document.querySelector("main");
-  const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => n.parentElement.closest("script,style,svg") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
-  const texts = []; while (tw.nextNode()) texts.push(tw.currentNode);
-  texts.forEach(n => { if (/'/.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace(/(\w)'(\w)/g, "$1’$2"); });
-  const bind = (el) => {
-    const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); const ns = []; while (w.nextNode()) ns.push(w.currentNode);
-    for (let i = ns.length - 1; i >= 0; i--) {
-      const v = ns[i].nodeValue, tr = v.replace(/\s+$/, ""), j = tr.lastIndexOf(" ");
-      if (j > 0 && tr.length - j < 18) { ns[i].nodeValue = tr.slice(0, j) + " " + v.slice(j + 1); return; }
-      if (tr === "") continue; return;
-    }
-  };
-  document.querySelectorAll("main p, main h3, .ft-line, .pf .k").forEach(el => { if (!el.closest("[data-kin]")) bind(el); });
-  const split = (el) => {
-    let i = 0;
-    const walk = (node) => {
-      [...node.childNodes].forEach(ch => {
-        if (ch.nodeType === 3) {
-          ch.nodeValue.split(/( +)/).forEach(part => {
-            if (!part) return;
-            if (/^ +$/.test(part)) { node.insertBefore(document.createTextNode(" "), ch); return; }
-            const kw = document.createElement("span"); kw.className = "kw";
-            const ki = document.createElement("span"); ki.className = "ki"; ki.style.transitionDelay = (i++ * 70) + "ms";
-            ki.textContent = part; kw.appendChild(ki); node.insertBefore(kw, ch);
-          });
-          node.removeChild(ch);
-        } else if (ch.nodeType === 1 && !ch.classList.contains("kw")) walk(ch);
-      });
-    };
-    walk(el);
-    const kws = [...el.querySelectorAll(".kw")];
-    if (kws.length > 2) {
-      const a = kws[kws.length - 2]; let b = kws[kws.length - 1];
-      while (b.parentNode && b.parentNode !== a.parentNode && b.parentNode !== el) b = b.parentNode;
-      if (b.parentNode === a.parentNode) { const nw = document.createElement("span"); nw.className = "nw"; a.parentNode.insertBefore(nw, a); let n = a; while (n) { const nx = n.nextSibling; nw.appendChild(n); if (n === b) break; n = nx; } }
-    }
-    if (!el.getAttribute("aria-label")) el.setAttribute("aria-label", el.textContent.replace(/ /g, " "));
-    return el;
-  };
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const kins = [...document.querySelectorAll("[data-kin]")].map(el => { el.classList.add("kin"); return split(el); });
-  window.__kins = kins;
-  if (reduce) { kins.forEach(k => k.classList.add("in")); return; }
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); else if (e.boundingClientRect.top > 0) e.target.classList.remove("in"); }), { threshold: 0.3 });
-  kins.forEach(k => { if (!k.closest(".hero")) io.observe(k); });
-})();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
-<script>window.__SHIELD__=__SHIELD_JSON__;</script>
-<script>
-/* ---------- scroll engine: age, chapters, apertures, seam ---------- */
-(() => {
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-  const ramp = (x, a, b) => { const t = clamp((x - a) / ((b - a) || 1e-6)); return t * t * (3 - 2 * t); };
-  const aperture = t => 1 - Math.pow(1 - clamp(t), 2.4);
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-  const STAGES = [[6, "Early Years"], [11, "Elementary"], [16, "Middle School"], [18, "Diploma"], [99, "Graduate"]];
+  const hasG = !!(window.gsap && window.ScrollTrigger);
+  if (hasG) gsap.registerPlugin(ScrollTrigger);
 
-  /* preloader: three to eighteen */
-  const pre = $("#pre"), preN = $("#preN");
-  const startSite = () => { pre.classList.add("out"); document.querySelector(".hero [data-kin]").classList.add("in"); setTimeout(() => pre.remove(), 1300); };
-  if (reduce) { pre.remove(); document.querySelector(".hero [data-kin]").classList.add("in"); }
-  else {
-    requestAnimationFrame(() => pre.classList.add("go"));
-    let n = 3; const t0 = performance.now();
-    const step = (t) => { const p = clamp((t - t0) / 1500); n = Math.round(3 + 15 * (1 - Math.pow(1 - p, 3))); preN.textContent = n; if (p < 1) requestAnimationFrame(step); else setTimeout(startSite, 260); };
-    requestAnimationFrame(step);
-  }
-
-  /* smooth scroll */
   let lenis = null;
-  if (!reduce && window.Lenis) {
-    lenis = new Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 0.9 }); window.__lenis = lenis;
-    const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf);
+  if (!reduced && window.Lenis) {
+    lenis = new Lenis({ lerp: 0.1 }); window.__lenis = lenis;
+    if (hasG) { lenis.on("scroll", ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
+    else { const r = t => { lenis.raf(t); requestAnimationFrame(r); }; requestAnimationFrame(r); }
   }
-  const goTo = (el) => lenis ? lenis.scrollTo(el, { duration: 1.6 }) : el.scrollIntoView({ behavior: "smooth" });
-  $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const el = $(a.getAttribute("href")); if (el) { e.preventDefault(); closeIx(); setTimeout(() => goTo(el), 380); } }));
+  $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const el = $(a.getAttribute("href")); if (!el) return; e.preventDefault(); lenis ? lenis.scrollTo(el, { duration: 1.6 }) : el.scrollIntoView({ behavior: "smooth" }); }));
 
-  /* index overlay */
-  const ix = $("#ix"), ixBtn = $("#ixBtn");
-  const setIx = (o) => { ix.classList.toggle("open", o); ix.setAttribute("aria-hidden", !o); ixBtn.setAttribute("aria-expanded", o); if (lenis) o ? lenis.stop() : lenis.start(); document.documentElement.style.overflow = o ? "hidden" : ""; if (o) setTimeout(() => ix.querySelector("a").focus(), 500); };
-  function closeIx() { if (ix.classList.contains("open")) setIx(false); }
-  ixBtn.addEventListener("click", () => setIx(true));
-  $("#ixClose").addEventListener("click", () => { setIx(false); ixBtn.focus(); });
-  addEventListener("keydown", e => { if (e.key === "Escape") closeIx(); });
+  /* typographic pass: bind the last two words so no line ends on one */
+  const bind = el => { const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); const ns = []; while (w.nextNode()) ns.push(w.currentNode);
+    for (let i = ns.length - 1; i >= 0; i--) { const v = ns[i].nodeValue, tr = v.replace(/\s+$/, ""), j = tr.lastIndexOf(" "); if (j > 0 && tr.length - j < 16) { ns[i].nodeValue = tr.slice(0, j) + " " + v.slice(j + 1); return; } if (tr) return; } };
+  $$("main p, .tm-card h3 em, .dcard h3, .footer__line").forEach(bind);
 
-  /* age dial ticks */
-  const ticks = $("#ticks");
-  for (let a = 3; a <= 18; a++) { const i = document.createElement("i"); i.dataset.a = a; ticks.appendChild(i); }
-  const tickEls = [...ticks.children];
-  const dial = $("#dial"), dialAge = $("#dialAge"), dialStage = $("#dialStage"), nav = $("#nav");
-  const ageSecs = $$("[data-a0]"), darkSecs = $$("[data-dark], .ft");
-  const xps = $$(".xp").map(s => ({ s, frame: s.querySelector(".xp-frame"), media: s.querySelector(".xp-media"), scrim: s.querySelector(".xp-scrim"), title: s.querySelector(".xp-title"), copy: s.querySelector(".xp-copy"), cur: 0, vid: s.querySelector("video") }));
-  const fr = $("#french-section"), frStage = $("#frStage");
-  let seamDrag = null;
-  const mob = () => innerWidth <= 900;
+  /* split headings into masked words, keeping <em> lines */
+  $$(".split-lines").forEach(el => {
+    el.setAttribute("aria-label", el.textContent.trim().replace(/\s+/g, " "));
+    const walk = node => [...node.childNodes].forEach(ch => {
+      if (ch.nodeType === 3) {
+        ch.nodeValue.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { node.insertBefore(document.createTextNode(" "), ch); return; }
+          const w = document.createElement("span"); w.className = "w"; w.setAttribute("aria-hidden", "true"); const i = document.createElement("span"); i.className = "wi"; i.textContent = p; w.appendChild(i); node.insertBefore(w, ch); });
+        node.removeChild(ch);
+      } else if (ch.nodeType === 1) walk(ch);
+    });
+    walk(el);
+  });
 
-  window.__age = 3;
-  let lastAge = -1, lastStage = "";
-  function frame() {
-    const vh = innerHeight, mid = vh * 0.5;
-    /* age: interpolate inside the section that holds the viewport centre */
-    let age = window.__age;
-    for (const s of ageSecs) {
-      const r = s.getBoundingClientRect();
-      if (r.top <= mid && r.bottom >= mid) {
-        const a0 = +s.dataset.a0, a1 = +s.dataset.a1;
-        const p = clamp((mid - r.top) / Math.max(1, r.height));
-        age = a0 + (a1 - a0) * p; break;
+  /* hero: hard-cut photo cycle */
+  const cyc = $$(".hero__cycle"); let ci = 0;
+  if (!reduced && cyc.length > 1) setInterval(() => { cyc[ci].classList.remove("is-active"); ci = (ci + 1) % cyc.length; cyc[ci].classList.add("is-active"); }, 1100);
+
+  /* videos load and play only while visible */
+  const vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target;
+    if (e.isIntersecting) { if (v.dataset.src && !v.getAttribute("src")) v.src = v.dataset.src; if (!reduced) v.play().catch(() => {}); } else if (!v.paused) v.pause(); }), { rootMargin: "25% 0px" });
+  $$("video").forEach(v => vio.observe(v));
+
+  if (hasG && !reduced) {
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    tl.from(".hero__word--first .reveal-line", { yPercent: 110, duration: 1.2 })
+      .from(".hero__word--last .reveal-line", { yPercent: 110, duration: 1.2 }, 0.12)
+      .from(".hero__media", { scale: 0.7, opacity: 0, duration: 1.4, ease: "power3.out" }, 0.25)
+      .from(".hero__foot", { opacity: 0, y: 20, duration: 1 }, 0.6)
+      .from(".nav", { opacity: 0, duration: 0.8 }, 0.6);
+    gsap.to(".hero__media", { yPercent: -18, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+    gsap.fromTo(".showcase__frame", { width: "72%", borderRadius: 6 }, { width: "100%", borderRadius: 0, ease: "none", scrollTrigger: { trigger: ".showcase", start: "top 90%", end: "top 5%", scrub: true } });
+
+    const directional = (el, make, start = "top 88%") => ScrollTrigger.create({ trigger: el, start, onEnter: () => make(1), onEnterBack: () => make(-1) });
+    $$(".split-lines").forEach(el => { if (el.closest(".tm")) return; const ws = el.querySelectorAll(".wi");
+      directional(el, dir => gsap.fromTo(ws, { yPercent: 115 * dir }, { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.04, overwrite: "auto" }), "top 85%"); });
+    { const ws = $$(".tm-head .wi"); directional(".tm", dir => gsap.fromTo(ws, { yPercent: 115 * dir }, { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.05, overwrite: "auto" }), "top 60%"); }
+    gsap.utils.toArray(".about__copy, .strip__head p, .deck__copy p, .deck__hint, .contact__info, .go").forEach(el =>
+      directional(el, dir => gsap.fromTo(el, { opacity: 0, y: 26 * dir, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: "power3.out", overwrite: "auto" }), "top 92%"));
+    directional(".about__thumb", dir => gsap.fromTo(".about__thumb", { opacity: 0, y: 40 * dir, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 1, ease: "power3.out", overwrite: "auto" }));
+    gsap.utils.toArray(".proof__list li").forEach(li => directional(li, dir => gsap.fromTo(li, { opacity: 0, y: 40 * dir }, { opacity: 1, y: 0, duration: .9, ease: "power3.out", overwrite: "auto" }), "top 94%"));
+
+    const track = $(".strip__track");
+    gsap.fromTo(track, { x: () => innerWidth * 0.06 }, { x: () => -(track.scrollWidth - innerWidth) * 0.92, ease: "none", scrollTrigger: { trigger: ".strip", start: "top 70%", end: "bottom top", scrub: true, invalidateOnRefresh: true } });
+    gsap.utils.toArray(".strip__track img").forEach(img => gsap.fromTo(img, { scale: 1.18 }, { scale: 1, ease: "none", scrollTrigger: { trigger: ".strip", start: "top bottom", end: "bottom top", scrub: true } }));
+
+    $$("[data-count]").forEach(el => { const to = +el.dataset.count, from = to > 1000 ? to - 40 : 0, o = { v: from };
+      ScrollTrigger.create({ trigger: el, start: "top 90%", once: true, onEnter: () => gsap.to(o, { v: to, duration: 1.6, ease: "power3.out", onUpdate: () => { el.firstChild.nodeValue = Math.round(o.v); } }) }); });
+
+    gsap.from(".footer__big-right", { yPercent: 40, opacity: 0, duration: 1.2, ease: "power4.out", scrollTrigger: { trigger: ".footer", start: "top 70%" } });
+  }
+
+  /* time machine: cards recede into depth; scroll brings each age forward */
+  (() => {
+    const sec = $("#learning"), cards = $$("#tmSpace .tm-card"), N = cards.length;
+    cards.forEach((c, i) => c.style.setProperty("--i", i));
+    const rail = $$(".tm-rail button"), idx = $("#tmIdx"), cnt = $(".tm-count"), head = $(".tm-head");
+    const small = () => innerWidth <= 820;
+    let p = 0, tgt = 0, last = -1;
+    const read = () => { const r = sec.getBoundingClientRect(); tgt = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight))); };
+    const pos = i => sec.offsetTop + (0.1 + (i / (N - 1)) * 0.84) * (sec.offsetHeight - innerHeight);
+    rail.forEach(b => b.addEventListener("click", () => { const y = pos(+b.dataset.i); lenis ? lenis.scrollTo(y, { duration: 1.4 }) : scrollTo({ top: y, behavior: "smooth" }); }));
+    const loop = () => {
+      read();
+      if (!small() && !reduced) {
+        p += (tgt - p) * 0.14;
+        const intro = Math.min(1, Math.max(0, p / 0.05)), rise = Math.min(1, Math.max(0, (p - 0.04) / 0.07)), ie = 1 - Math.pow(1 - rise, 3);
+        const t = Math.min(1, Math.max(0, (p - 0.1) / 0.84)) * (N - 1);
+        cards.forEach((c, i) => {
+          const d = i - t; let z, y, o, b;
+          if (d >= 0) { z = -d * 380; y = -d * 6.5; o = d < 1 ? 1 : Math.max(0, 1 - (d - 1) * 0.3); b = Math.min(8, d * 2.2); }
+          else { const k = -d; z = k * 900; y = k * 22; const f = Math.min(1, Math.max(0, (k - 0.18) / 0.5)); o = 1 - f * f * (3 - 2 * f); b = Math.max(0, k - 0.18) * 12; }
+          c.style.transform = `translate3d(0, ${y + (1 - ie) * 90}vh, ${z}px)`;
+          c.style.opacity = o.toFixed(3);
+          const br = d > 0 ? Math.max(0.4, 1 - d * 0.3) : 1;
+          c.style.filter = (Math.abs(d) > 0.15 && b > 0.05) ? `blur(${b.toFixed(2)}px) brightness(${br.toFixed(2)})` : (br < 0.99 ? `brightness(${br.toFixed(2)})` : "none");
+          c.style.zIndex = String(100 - Math.round(Math.abs(d) * 10));
+          c.style.visibility = o < 0.01 ? "hidden" : "visible";
+          c.style.pointerEvents = Math.abs(d) < 0.5 ? "auto" : "none";
+          const im = c.querySelector(".ph > *"); if (im) im.style.transform = `scale(${1.08 + Math.max(0, -d) * 0.1}) translateY(${Math.max(-1, Math.min(1, d)) * -2}%)`;
+        });
+        const a = Math.min(N - 1, Math.round(t));
+        if (a !== last) { last = a; idx.textContent = String(a + 1).padStart(2, "0"); rail.forEach((b, i) => b.classList.toggle("on", i === a)); }
+        cnt.style.setProperty("--p", (t / (N - 1)).toFixed(3));
+        head.style.opacity = Math.max(0, 1 - intro).toFixed(3); head.style.transform = `translateY(calc(-50% - ${intro * 8}vh))`;
       }
-    }
-    const lastSec = ageSecs[ageSecs.length - 1].getBoundingClientRect();
-    if (lastSec.bottom < mid) age = 18;
-    window.__age += (age - window.__age) * 0.18;
-    const ai = Math.max(3, Math.min(18, Math.floor(window.__age + 0.02)));
-    if (ai !== lastAge) { lastAge = ai; dialAge.textContent = ai; tickEls.forEach(t => { const a = +t.dataset.a; t.classList.toggle("on", a === ai); t.classList.toggle("past", a < ai); }); }
-    const st = (STAGES.find(([lim]) => ai < lim) || STAGES[4])[1];
-    const label = ai >= 18 ? "Graduate" : st;
-    if (label !== lastStage) { lastStage = label; dialStage.textContent = label; }
-    const sc = ai < 6 ? "#F0B323" : ai < 9 ? "#6CC24A" : ai < 11 ? "#D0006F" : ai < 16 ? "#00AFD7" : "#00B2A9";
-    document.documentElement.style.setProperty("--stage", sc);
+      requestAnimationFrame(loop);
+    };
+    loop();
+  })();
 
-    /* dark sections flip the chrome */
-    let dark = false, darkDial = false;
-    for (const d of darkSecs) { const r = d.getBoundingClientRect(); if (r.top <= 40 && r.bottom >= 40) dark = d.hasAttribute("data-dark"); if (r.top <= vh * .55 && r.bottom >= vh * .55) darkDial = d.hasAttribute("data-dark"); }
-    // the French side and expanded photographs read as dark too
-    for (const x of xps) { const r = x.s.getBoundingClientRect(); if (r.top <= 0 && r.bottom >= vh && x.cur > 0.85) { dark = true; darkDial = true; } }
-    { const r = fr.getBoundingClientRect(); if (r.top <= 0 && r.bottom >= vh) { const seam = parseFloat(frStage.style.getPropertyValue("--seam")) || 50; if (seam < 60) { darkDial = true; } } }
-    nav.classList.toggle("dark", dark);
-    dial.classList.toggle("dark", darkDial);
-    const ft = $("#ft").getBoundingClientRect();
-    dial.classList.toggle("hide", ft.top < vh * 0.9 || $(".proof").getBoundingClientRect().top < vh * .6);
-    cursorDark(dark);
-
-    /* apertures */
-    for (const x of xps) {
-      const r = x.s.getBoundingClientRect();
-      const span = r.height - vh;
-      const target = clamp(-r.top / (span * 0.62));
-      x.cur += (target - x.cur) * (reduce ? 1 : 0.12);
-      const a = aperture(x.cur);
-      const S = mob() ? [50, 6, 16, 6] : [46, 14, 10, 50], k = 1 - a, rad = 28 * k;
-      x.frame.style.clipPath = `inset(${S[0]*k}% ${S[1]*k}% ${S[2]*k}% ${S[3]*k}% round ${rad}px)`;
-      x.media.style.transform = `scale(${1.24 - 0.24 * aperture((x.cur - 0.18) / 0.82)})`;
-      const outT = ramp(a, 0.28, 0.8);
-      x.title.style.opacity = 1 - outT;
-      x.title.style.transform = `translate3d(0,${-30 * outT}px,0)`;
-      const inC = ramp(clamp(-r.top / span), 0.66, 0.84);
-      x.scrim.style.opacity = ramp(a, 0.5, 1);
-      x.copy.style.opacity = inC; x.copy.style.transform = `translate3d(0,${24 * (1 - inC)}px,0)`;
-      if (x.vid) { const vis = r.top < vh && r.bottom > 0; if (vis && x.vid.dataset.src && !x.vid.src) { x.vid.src = x.vid.dataset.src; } if (vis && x.vid.paused && x.vid.src && !reduce) x.vid.play().catch(() => {}); if (!vis && !x.vid.paused) x.vid.pause(); }
-    }
-
-    /* the seam: scroll carries it across unless the visitor drags */
-    { const r = fr.getBoundingClientRect(); const p = clamp(-r.top / Math.max(1, r.height - vh));
-      const seam = seamDrag !== null ? seamDrag : 96 - 92 * ramp(p, 0.08, 0.92);
-      frStage.style.setProperty("--seam", seam.toFixed(2) + "%"); }
-
-    /* arrive video */
-    const av = $("#arrive video"), ar = $("#arrive").getBoundingClientRect();
-    if (ar.top < vh * 1.5 && !av.src) av.src = av.dataset.src;
-    if (ar.top < vh && ar.bottom > 0) { if (av.paused && !reduce) av.play().catch(() => {}); } else if (!av.paused) av.pause();
-
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-
-  /* seam drag */
-  const setSeam = (cx) => { const r = frStage.getBoundingClientRect(); seamDrag = clamp((cx - r.left) / r.width, 0.03, 0.97) * 100; };
-  frStage.addEventListener("pointermove", e => { if (e.pointerType === "mouse" || e.buttons) setSeam(e.clientX); });
-  frStage.addEventListener("pointerleave", () => { seamDrag = null; });
-  frStage.addEventListener("pointerdown", e => setSeam(e.clientX));
-  frStage.addEventListener("pointerup", e => { if (e.pointerType !== "mouse") setTimeout(() => seamDrag = null, 1600); });
-
-  /* paths reveal + proof counters */
-  const once = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; once.unobserve(e.target);
-    if (e.target.classList.contains("paths")) e.target.classList.add("in");
-    else { const el = e.target, to = +el.dataset.count, from = to > 100 ? to - 60 : 0, t0 = performance.now();
-      if (reduce) return; const tick = t => { const p = clamp((t - t0) / 1600), v = Math.round(from + (to - from) * (1 - Math.pow(1 - p, 4))); el.textContent = v; if (p < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); }
-  }), { threshold: 0.4 });
-  once.observe($(".paths")); $$("[data-count]").forEach(el => once.observe(el));
-
-  /* cursor + magnetic pills */
-  const cur = $("#cur"), dot = $("#curDot");
-  let mx = innerWidth / 2, my = innerHeight / 2, cx = mx, cy = my;
-  function cursorDark(d) { cur.classList.toggle("dark", d); dot.classList.toggle("dark", d); }
-  addEventListener("pointermove", e => { mx = e.clientX; my = e.clientY; window.__mouse = [mx / innerWidth * 2 - 1, -(my / innerHeight * 2 - 1)]; });
-  const loop = () => { cx += (mx - cx) * .18; cy += (my - cy) * .18; cur.style.transform = `translate3d(${cx}px,${cy}px,0)`; dot.style.transform = `translate3d(${mx}px,${my}px,0)`; requestAnimationFrame(loop); };
-  if (matchMedia("(hover:hover)").matches) { document.documentElement.style.cursor = "none"; $$("a,button").forEach(el => el.style.cursor = "none"); loop(); }
-  frStage.addEventListener("pointerenter", () => cur.classList.add("big"));
-  frStage.addEventListener("pointerleave", () => cur.classList.remove("big"));
-  $$(".mag").forEach(el => {
-    el.addEventListener("pointermove", e => { const r = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px,${(e.clientY - r.top - r.height / 2) * .35}px)`; });
-    el.addEventListener("pointerleave", () => el.style.transform = "");
-  });
+  /* pathways deck: fanned cards fly in, then shuffle (after Vallora) */
+  (() => {
+    const deck = $("#deck"), cards = $$("#deck .dcard");
+    const SLOTS = [ { x: "-6%", y: 26, r: 3.4, pr: -4.6, tr: -5.4 }, { x: "40%", y: -12, r: -2.6, pr: 4.1, tr: 4.4 }, { x: "-50%", y: -34, r: -4.2, pr: 5.2, tr: 5.6 } ];
+    const narrow = () => innerWidth < 640;
+    let order = [0, 1, 2], seen = reduced;
+    const place = () => order.forEach((ci, depth) => { const c = cards[ci], s = SLOTS[depth], k = narrow() ? .45 : 1;
+      const x = seen ? `calc(${s.x} * ${k})` : (depth === 1 ? "160%" : depth === 2 ? "-160%" : "0%");
+      c.style.setProperty("--x", x); c.style.setProperty("--y", (seen ? s.y : (depth === 0 ? 460 : s.y)) + "px");
+      c.style.setProperty("--r", s.r + "deg"); c.style.setProperty("--pr", s.pr + "deg"); c.style.setProperty("--tr", s.tr + "deg"); c.style.zIndex = 3 - depth; c.classList.toggle("off", !seen); });
+    const next = () => { order.push(order.shift()); place(); };
+    place(); addEventListener("resize", place);
+    new IntersectionObserver(es => { if (es[0].isIntersecting && !seen) { seen = true; setTimeout(place, 60); } }, { threshold: 0.3 }).observe(deck);
+    $("#deckNext").addEventListener("click", next);
+    let sx = null;
+    deck.addEventListener("pointerdown", e => { sx = e.clientX; });
+    deck.addEventListener("pointerup", e => { if (sx === null) return; const dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 40 || e.target.closest(".dcard")) next(); });
+  })();
 })();
-</script>
-<script type="module">
-/* ---------- the particle field: playful at three, ordered at eleven, the shield at eighteen ---------- */
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
-const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const small = Math.min(innerWidth, innerHeight) < 700;
-const N = reduce ? 3000 : (small ? 5200 : 11000);
-const canvas = document.getElementById("gl");
-let renderer;
-try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: "high-performance" }); } catch (e) {}
-if (renderer) {
-  const DPR = Math.min(devicePixelRatio || 1, small ? 1.5 : 2);
-  renderer.setPixelRatio(DPR);
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100); camera.position.set(0, 0, 7.2);
-
-  function sampleShield(count) {
-    const W = 580, H = 630, c = document.createElement("canvas"); c.width = W; c.height = H;
-    const g = c.getContext("2d"); g.setTransform(2, 0, 0, 2, -300, -214); g.fillStyle = "#fff";
-    window.__SHIELD__.forEach(d => g.fill(new Path2D(d)));
-    const data = g.getImageData(0, 0, W, H).data, out = new Float32Array(count * 3);
-    let i = 0, guard = 0; const scale = 2.3 / H;
-    while (i < count && guard < count * 60) { guard++; const x = Math.random() * W, y = Math.random() * H;
-      if (data[((y | 0) * W + (x | 0)) * 4 + 3] > 128) { out[i*3] = (x - W / 2) * scale; out[i*3+1] = -(y - H / 2) * scale + 0.05; out[i*3+2] = (Math.random() - .5) * .08; i++; } }
-    return out;
-  }
-  const PAL = ["#F0B323", "#6CC24A", "#D0006F", "#00AFD7", "#81B0D2", "#D9B48F", "#00B2A9"].map(h => new THREE.Color(h));
-  const scatter = new Float32Array(N * 3), grid = new Float32Array(N * 3), rand = new Float32Array(N), col = new Float32Array(N * 3);
-  const COLS = 46, ROWS = 26;
-  for (let i = 0; i < N; i++) {
-    // play: loose clusters, like blocks spilled on a classroom floor
-    const cl = Math.floor(Math.random() * 14), cxr = Math.sin(cl * 12.9898) * 43758.5453 % 1, cyr = Math.sin(cl * 78.233) * 12345.678 % 1;
-    const sp = Math.random() < .6 ? .55 : 2.4;
-    scatter[i*3] = cxr * 5.2 + (Math.random() - .5) * sp * 2;
-    scatter[i*3+1] = cyr * 2.6 + (Math.random() - .5) * sp;
-    scatter[i*3+2] = (Math.random() - .5) * 2.2;
-    // order: a fine lattice, every point placed
-    const gx = i % COLS, gy = Math.floor(i / COLS) % ROWS;
-    grid[i*3] = (gx / (COLS - 1) - .5) * 7.6;
-    grid[i*3+1] = (gy / (ROWS - 1) - .5) * 4.2;
-    grid[i*3+2] = 0;
-    rand[i] = Math.random();
-    const c = PAL[Math.floor(Math.random() * PAL.length)]; col[i*3] = c.r; col[i*3+1] = c.g; col[i*3+2] = c.b;
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute("position", new THREE.BufferAttribute(scatter, 3));
-  geo.setAttribute("aGrid", new THREE.BufferAttribute(grid, 3));
-  geo.setAttribute("aShield", new THREE.BufferAttribute(sampleShield(N), 3));
-  geo.setAttribute("aRand", new THREE.BufferAttribute(rand, 1));
-  geo.setAttribute("aCol", new THREE.BufferAttribute(col, 3));
-  const uniforms = { uTime: { value: 0 }, uP: { value: 0 }, uPix: { value: DPR }, uSize: { value: small ? 4.2 : 4.6 }, uMouse: { value: new THREE.Vector2() }, uAsp: { value: 1 }, uFade: { value: 1 },
-    uDeep: { value: new THREE.Color("#000077") }, uTeal: { value: new THREE.Color("#00B2A9") } };
-  const mat = new THREE.ShaderMaterial({ uniforms, transparent: true, depthWrite: false,
-    vertexShader: `
-      attribute vec3 aGrid; attribute vec3 aShield; attribute float aRand; attribute vec3 aCol;
-      uniform float uTime, uP, uPix, uSize, uAsp; uniform vec2 uMouse; uniform vec3 uDeep, uTeal;
-      varying vec3 vCol; varying float vA; varying float vPlay;
-      void main(){
-        float t = uTime, p = uP;
-        float play = 1.0 - smoothstep(0.0, 0.42, p);
-        vec3 s = position; s.x *= max(uAsp, .7) * .62;
-        s += vec3(sin(t*.55 + aRand*40.)*.28, cos(t*.5 + aRand*31.)*.22, sin(t*.4 + aRand*17.)*.2) * (.4 + play);
-        s.y += abs(sin(t*1.6 + aRand*22.)) * .12 * play;
-        vec3 g = aGrid; g.x *= max(uAsp, .62) * .6; g.y *= (uAsp < 1. ? 1.5 : 1.);
-        g.z += sin(g.x*1.3 + t*.8) * .05;
-        float d = aRand * .14;
-        float e1 = smoothstep(.30 + d, .62 + d, p);
-        float e2 = smoothstep(.74 + d*.6, .97, p);
-        vec3 sh = aShield; float shs = uAsp < 1. ? .82 : 1.12; sh.xy *= shs; sh.y -= .14; sh.x += uAsp > 1.2 ? .42 : 0.; sh.xy += vec2(sin(t*.9 + aRand*40.), cos(t*.8 + aRand*31.)) * .004;
-        vec3 pos = mix(mix(s, g, e1), sh, e2);
-        vec2 m = uMouse * vec2(2.6 * max(uAsp,.6), 2.1);
-        vec2 dv = pos.xy - m; float dd = length(dv);
-        pos.xy += normalize(dv + .0001) * (.32 / (1. + dd*dd*9.)) * (1. - e2*.6);
-        vCol = mix(mix(aCol, uDeep, e1), uTeal, e2);
-        float show = mix(step(.6, aRand), 1., smoothstep(.2, .5, p));   // fewer, freer blocks at three; everyone in place later
-        vA = mix(.9, .95, e1) * show; vPlay = 1. - e1;
-        vec4 mv = modelViewMatrix * vec4(pos, 1.);
-        gl_Position = projectionMatrix * mv;
-        gl_PointSize = uSize * uPix * mix(1.5, .62, e1) * mix(1., .78, e2) * (7.2 / -mv.z);
-      }`,
-    fragmentShader: `
-      uniform float uFade; varying vec3 vCol; varying float vA; varying float vPlay;
-      void main(){ vec2 c = gl_PointCoord - .5;
-        float sq = max(abs(c.x), abs(c.y)) - .34, rr = length(c) - .42;   // little blocks at three, points of light by eleven
-        float d = mix(rr, sq, step(.5, vPlay));
-        if (d > .06) discard; gl_FragColor = vec4(vCol, vA * uFade * (1. - smoothstep(0., .06, d))); }`
-  });
-  scene.add(new THREE.Points(geo, mat));
-  const resize = () => { const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); uniforms.uAsp.value = w / h; };
-  addEventListener("resize", resize); resize();
-  const mouse = new THREE.Vector2();
-  let p = 0, last = performance.now(), time = 0;
-  const proof = document.getElementById("proof");
-  const tick = (now) => {
-    const dt = Math.min(.05, (now - last) / 1000); last = now; if (!reduce) time += dt;
-    const target = Math.min(1, Math.max(0, ((window.__age || 3) - 3) / 15));
-    p += (target - p) * .08; uniforms.uP.value = p; uniforms.uTime.value = time;
-    const m = window.__mouse || [0, 0]; mouse.x += (m[0] - mouse.x) * .06; mouse.y += (m[1] - mouse.y) * .06; uniforms.uMouse.value.copy(mouse);
-    // fade the field once Deep Blue takes over
-    const pr = proof.getBoundingClientRect().top / innerHeight; uniforms.uFade.value = Math.min(1, Math.max(0, pr * 1.2));
-    renderer.render(scene, camera);
-    requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-}
 </script>
 </body>
 </html>
