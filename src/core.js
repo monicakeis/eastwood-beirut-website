@@ -39,7 +39,7 @@
 
   /* videos load and play only while visible */
   const vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target;
-    if (e.isIntersecting) { if (v.dataset.src && !v.getAttribute("src")) v.src = v.dataset.src; if (!reduced) v.play().catch(() => {}); } else if (!v.paused) v.pause(); }), { rootMargin: "25% 0px" });
+    if (e.isIntersecting) { if (v.dataset.src && !v.getAttribute("src")) v.src = (v.dataset.srcM && matchMedia("(max-aspect-ratio: 1/1)").matches) ? v.dataset.srcM : v.dataset.src; if (!reduced && !v.dataset.held) v.play().catch(() => {}); } else if (!v.paused) v.pause(); }), { rootMargin: "25% 0px" });
   $$("video").forEach(v => vio.observe(v));
 
   /* reveals: headings rise word by word, marked blocks fade up, counts run once */
