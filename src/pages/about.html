@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{HEAD}}
+<title>About · Eastwood International School</title>
+<meta name="description" content="Eastwood International School, Mansourieh: an IB World School that bridges educational theory and real life. Our story, accreditation, leadership and careers.">
+<meta property="og:title" content="About · Eastwood International School">
+<meta property="og:description" content="We treat education as a science.">
+<meta property="og:image" content="assets/eis26/og.jpg">
+<style>
+/* About. Signature: the years. Each one fills with ink as it crosses the middle of the screen. */
+
+.ab{padding:clamp(130px,22vh,220px) var(--pad) clamp(60px,10vh,100px)}
+.ab h1{font-size:var(--h1);color:var(--deep)}
+.ab__row{margin-top:clamp(32px,6vh,64px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);border-top:1px solid var(--line);padding-top:22px}
+.ab__row .lede{grid-column:1 / span 6}
+@media (max-width:860px){.ab h1{font-size:13.4vw}.ab__row{grid-template-columns:minmax(0,1fr)}.ab__row .lede{grid-column:auto}}
+
+/* mission, read word by word */
+.mi{position:relative;height:200vh}
+.mi__in{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 var(--pad);gap:28px}
+.mi__k{font:500 13px/1 var(--sans);color:var(--soft)}
+.mi p.big{font:800 clamp(28px,4.2vw,76px)/1.04 var(--disp);letter-spacing:-.045em;max-width:22ch;color:var(--deep)}
+.mi p.big .sw{opacity:.14;transition:opacity .25s}
+.mi p.big .sw.lit{opacity:1}
+.mi__v{max-width:52ch;color:var(--soft);font-size:16px}
+.mi__v b{color:var(--ink);font-weight:600}
+
+/* the years */
+.yr{position:relative;padding:clamp(80px,13vh,150px) var(--pad);border-top:1px solid var(--line)}
+.yr h2{font-size:var(--h2);color:var(--deep)}
+.yr ol{list-style:none;margin-top:clamp(40px,8vh,90px);position:relative}
+.yr ol::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--line)}
+.yr ol::after{content:"";position:absolute;left:0;top:0;width:2px;height:100%;background:var(--teal);transform-origin:top;transform:scaleY(var(--p,0))}
+.yr li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--g);align-items:center;padding:clamp(26px,5vh,54px) 0 clamp(26px,5vh,54px) clamp(22px,3vw,48px);border-bottom:1px solid var(--line)}
+.yr .y{font:900 clamp(96px,13vw,250px)/.8 var(--disp);letter-spacing:-.07em;font-variant-numeric:tabular-nums;color:transparent;-webkit-text-stroke:1.5px var(--deep);background:linear-gradient(to right,var(--deep) var(--f,0%),transparent var(--f,0%));-webkit-background-clip:text;background-clip:text;padding-bottom:.04em}
+.yr h3{font:600 clamp(18px,1.5vw,22px)/1.3 var(--sans);color:var(--ink);margin-bottom:8px}
+.yr p{font:400 15px/1.55 var(--sans);color:var(--soft);max-width:40ch}
+.yr .net{display:inline-block;margin-top:10px;font:500 12px/1 var(--sans);color:var(--soft);padding:6px 10px;border:1px solid var(--line);border-radius:999px}
+@media (max-width:760px){.yr h2{font-size:12.4vw}.yr li{grid-template-columns:minmax(0,1fr);gap:14px}.yr .y{font-size:26vw}}
+
+/* accreditation */
+.ac{padding:clamp(80px,13vh,150px) var(--pad);border-top:1px solid var(--line)}
+.ac__head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end}
+.ac__head h2{grid-column:1 / span 7;font-size:var(--h2);color:var(--deep)}
+.ac__head p{grid-column:9 / span 4;color:var(--soft);font-size:15px}
+.ac__grid{margin-top:clamp(40px,7vh,72px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g)}
+.ac__grid article{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(24px,2.6vw,36px);display:flex;flex-direction:column;gap:22px;min-height:300px}
+.ac__mark{height:110px;display:flex;align-items:center}
+.ac__mark img{max-height:110px;width:auto}
+.ac__mark .t4{font:900 clamp(40px,3.6vw,60px)/.9 var(--disp);letter-spacing:-.05em;color:var(--teal)}
+.ac__grid h3{font:600 18px/1.3 var(--sans);color:var(--ink)}
+.ac__grid p{font:400 15px/1.55 var(--sans);color:var(--soft);margin-top:6px}
+@media (max-width:860px){.ac__head{grid-template-columns:minmax(0,1fr);row-gap:20px}.ac__head h2,.ac__head p{grid-column:auto}.ac__head h2{font-size:12.4vw}.ac__grid{grid-template-columns:minmax(0,1fr)}.ac__grid article{min-height:0}}
+
+/* leadership */
+.ld{padding:clamp(80px,13vh,150px) var(--pad);border-top:1px solid var(--line)}
+.ld h2{font-size:var(--h2);color:var(--deep)}
+.ld ul{list-style:none;margin-top:clamp(40px,7vh,72px);border-top:1px solid var(--ink)}
+.ld li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--g);align-items:baseline;padding:clamp(18px,3vh,28px) 0;border-bottom:1px solid var(--line)}
+.ld .nm{font:900 clamp(28px,3.4vw,60px)/.95 var(--disp);letter-spacing:-.05em;color:var(--deep)}
+.ld .rl{font:500 15px/1.4 var(--sans);color:var(--ink)}
+.ld .rl small{display:block;margin-top:6px;font:400 14px/1.55 var(--sans);color:var(--soft);max-width:46ch}
+@media (max-width:760px){.ld h2{font-size:12.4vw}.ld li{grid-template-columns:minmax(0,1fr);gap:8px}.ld .nm{font-size:9vw}}
+
+/* careers */
+.cr{position:relative;background:#fff;color:var(--ink);border-top:1px solid var(--line);padding:clamp(100px,16vh,180px) var(--pad);scroll-margin-top:0}
+.cr .k{font:600 14px/1 var(--sans);color:var(--teal)}
+.cr h2{font-size:var(--h1);margin:22px 0 32px;color:var(--deep)}
+.cr__row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end}
+.cr__row p{grid-column:1 / span 6;font:400 clamp(17px,1.35vw,21px)/1.5 var(--sans);max-width:44ch;color:var(--soft)}
+.cr__row .pill{grid-column:10 / span 3;justify-self:end}
+
+@media (max-width:860px){.cr h2{font-size:12.4vw}.cr__row{grid-template-columns:minmax(0,1fr);row-gap:28px}.cr__row p,.cr__row .pill{grid-column:auto;justify-self:start}}
+@media (prefers-reduced-motion:reduce){.mi{height:auto}.mi__in{position:relative;height:auto;padding:20vh var(--pad)}.mi p.big .sw{opacity:1}.yr .y{color:var(--deep)}}
+</style>
+</head>
+<body data-page="about">
+{{NAV}}
+
+<main id="main">
+  <section class="ab" aria-labelledby="ab-h">
+    <h1 id="ab-h" class="d split">We treat education<br class="dk"> as a science. <span class="dim" style="display:block">And learning as a calling.</span></h1>
+    <div class="ab__row"><p class="lede" data-reveal>Eastwood International School is an IB World School in Mansourieh that bridges the gap between educational theory and its relevance to real life.</p></div>
+  </section>
+
+  <section class="mi" aria-labelledby="mi-k">
+    <div class="mi__in">
+      <p class="mi__k" id="mi-k">Our mission</p>
+      <p class="big" id="mission">To impact the world by teaching students to balance mind, body and soul, and to couple knowledge with integrity, ambition with compassion, and achievement with service.</p>
+      <p class="mi__v" data-reveal><b>Our vision.</b> To be a leading educational community in the Middle East for students of every nationality and faith, committed to continuous improvement and the highest standards of international education.</p>
+    </div>
+  </section>
+
+  <section class="yr" id="story" aria-labelledby="yr-h">
+    <h2 id="yr-h" class="d split">The years<br> that made us.</h2>
+    <ol id="years">
+      <li><span class="y" aria-hidden="true">1973</span><div><h3>Eastwood begins.</h3><p>Amine M. Khoury founds Eastwood in Kafarshima, the first school of what is now Eastwood Schools.</p><span class="net">Eastwood Schools</span></div></li>
+      <li><span class="y" aria-hidden="true">1983</span><div><h3>Mansourieh opens.</h3><p>The campus on the hill above Beirut, home to Eastwood International School ever since.</p></div></li>
+      <li><span class="y" aria-hidden="true">2011</span><div><h3>Learning goes online.</h3><p>Online learning with Google and Apple, years ahead of most schools. The same year, the school is first accredited through Cognia.</p></div></li>
+      <li><span class="y" aria-hidden="true">2016</span><div><h3>An IB World School.</h3><p>Authorised by the International Baccalaureate for the Primary Years Programme and the Diploma Programme, and accredited again through Cognia.</p></div></li>
+      <li><span class="y" aria-hidden="true">2026</span><div><h3>Best School to Work.</h3><p>Platinum, from T4 Education, for the place our teachers come to work every day.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="ac" id="accreditation" aria-labelledby="ac-h">
+    <div class="ac__head"><h2 id="ac-h" class="d split">Accredited,<br> and recognised.</h2><p data-reveal>The bodies that certify what an international education means, and that check it holds.</p></div>
+    <div class="ac__grid">
+      <article data-reveal><div class="ac__mark"><img src="assets/eis26/ib-world-school.png" alt="IB World School" width="230" height="203" loading="lazy"></div><div><h3>IB World School</h3><p>Authorised by the International Baccalaureate for the Primary Years Programme and the Diploma Programme, since 2016.</p></div></article>
+      <article data-reveal><div class="ac__mark"><img src="assets/eis26/cognia.png" alt="Cognia accredited" width="256" height="256" loading="lazy"></div><div><h3>Cognia accredited</h3><p>Accredited through Cognia's North Central Association Commission on Accreditation and School Improvement, in 2011 and again in 2016.</p></div></article>
+      <article data-reveal><div class="ac__mark"><span class="t4">Platinum</span></div><div><h3>T4 Education</h3><p>Best School to Work, at Platinum level.</p></div></article>
+    </div>
+  </section>
+
+  <section class="ld" aria-labelledby="ld-h">
+    <h2 id="ld-h" class="d split">Led with<br class="ph"> purpose.</h2>
+    <ul>
+      <li data-reveal><span class="nm">Amine M. Khoury</span><span class="rl">Founder, Eastwood Schools</span></li>
+      <li data-reveal><span class="nm">Dr. Michel A. Khoury</span><span class="rl">Chief Executive Officer, Eastwood Schools</span></li>
+      <li data-reveal><span class="nm">Cendrella Kettaneh</span><span class="rl">School Director<small>With Eastwood since 2004. She guided the school through its IB authorisation, and serves as an Evaluation Leader in the IB Educator Network.</small></span></li>
+      <li data-reveal><span class="nm">Denise Chammas</span><span class="rl">Programme Development Leader</span></li>
+      <li data-reveal><span class="nm">Yolande Bardaghgi</span><span class="rl">Head of French Department</span></li>
+      <li data-reveal><span class="nm">Marie Thérèse Choueiry</span><span class="rl">Head of Early Years and Primary, French Section</span></li>
+      <li data-reveal><span class="nm">Joe Richa</span><span class="rl">Chief Financial Officer</span></li>
+    </ul>
+  </section>
+
+  <section class="cr" id="careers" aria-labelledby="cr-h">
+    <p class="k">Careers</p>
+    <h2 id="cr-h" class="d split">Do the best work<br class="dk"> of your career.</h2>
+    <div class="cr__row">
+      <p data-reveal>Teachers, specialists and the people who keep the school running behind the scenes. Tell us about yourself and the role you are after, and we will be in touch.</p>
+      <a class="pill pill--d" href="https://form.typeform.com/to/zqUbOAgF" target="_blank" rel="noopener" data-reveal>Apply to join us</a>
+    </div>
+  </section>
+
+  <section class="close" data-dark aria-labelledby="cl-h">
+    <h2 id="cl-h" class="d split">Come and<br class="ph"> see it <span class="dim" style="display:block">for yourself.</span></h2>
+    <div class="close__row">
+      <div class="close__cta" data-reveal><a class="pill pill--w" href="admissions.html#visit">Book a visit</a><a class="pill pill--o" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a></div>
+      <div class="close__info" data-reveal><b>Admissions are open all year.</b>Sami Solh Street, Mansourieh el Metn<br><a href="tel:+9614409307">+961 4 409 307</a> · <a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></div>
+    </div>
+  </section>
+</main>
+
+{{FOOTER}}
+{{SCRIPTS}}
+<script>
+(() => {
+  const { reduced, $, $$, clamp } = EW;
+  /* mission, word by word */
+  const m = $("#mission"), ws = m.textContent.trim().split(/\s+/); m.textContent = "";
+  ws.forEach((w, i) => { const s = document.createElement("span"); s.className = "sw"; s.textContent = w; m.appendChild(s); if (i < ws.length - 1) m.appendChild(document.createTextNode(" ")); });
+  const sws = $$("#mission .sw"), mi = $(".mi");
+  /* the years fill with ink as they cross the middle */
+  const ys = $$(".yr .y"), ol = $("#years");
+  EW.onFrame(({ vh }) => {
+    { const r = mi.getBoundingClientRect(); const p = reduced ? 1 : clamp(-r.top / (r.height - vh) * 1.2); const n = Math.round(p * sws.length); sws.forEach((s, i) => s.classList.toggle("lit", i < n)); }
+    if (!reduced) { ys.forEach(y => { const r = y.getBoundingClientRect(); const f = clamp((vh * .62 - r.top) / (r.height + vh * .12)); y.style.setProperty("--f", (f * 100).toFixed(1) + "%"); });
+      const r = ol.getBoundingClientRect(); ol.style.setProperty("--p", clamp((vh * .6 - r.top) / r.height).toFixed(4)); }
+  });
+})();
+</script>
+</body>
+</html>

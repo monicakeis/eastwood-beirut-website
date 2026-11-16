@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{HEAD}}
+<title>Life on campus · Eastwood International School</title>
+<meta name="description" content="Wellbeing, clubs, sport, the outdoors and a safe ride home at Eastwood International School in Mansourieh, Lebanon.">
+<meta property="og:title" content="Life on campus · Eastwood International School">
+<meta property="og:description" content="School is more than class.">
+<meta property="og:image" content="assets/eis26/og.jpg">
+<style>
+/* Life. Signature: kinetic type. "Every ___." holds still and the word turns as the rhythm of a school year scrolls past. */
+
+.lf{padding:clamp(130px,22vh,220px) var(--pad) clamp(60px,10vh,100px)}
+.lf h1{font-size:var(--h1);color:var(--deep)}
+.lf__row{margin-top:clamp(32px,6vh,64px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);border-top:1px solid var(--line);padding-top:22px}
+.lf__row .lede{grid-column:1 / span 6}
+@media (max-width:860px){.lf h1{font-size:13.4vw}.lf__row{grid-template-columns:minmax(0,1fr)}.lf__row .lede{grid-column:auto}}
+
+/* rhythm */
+.rh{position:relative;background:var(--deep);color:#fff;overflow:clip}
+.rh__pin{position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:center;padding:0 var(--pad);pointer-events:none;overflow:hidden}
+.rh__word{grid-column:1 / span 6;font:900 clamp(64px,9.6vw,184px)/.86 var(--disp);letter-spacing:-.06em}
+.rh__word .every{display:block;color:rgba(255,255,255,.42)}
+.rh__slot{display:block;position:relative;height:1em;overflow:hidden}
+.rh__slot span{position:absolute;left:0;top:0;white-space:nowrap;transform:translateY(105%);transition:transform .8s var(--ease)}
+.rh__slot span.on{transform:none}
+.rh__slot span.out{transform:translateY(-105%)}
+.rh__ph{grid-column:8 / span 5;position:relative;aspect-ratio:4/5;max-height:76vh;border-radius:10px;overflow:hidden;justify-self:end;width:100%}
+.rh__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .8s,transform 1.4s var(--ease)}
+.rh__ph img.on{opacity:1;transform:none}
+.rh__count{position:absolute;left:var(--pad);bottom:28px;font:500 13px/1 var(--sans);color:rgba(255,255,255,.55);font-variant-numeric:tabular-nums;display:flex;gap:12px;align-items:center}
+.rh__count i{width:90px;height:1px;background:rgba(255,255,255,.22);position:relative;overflow:hidden}
+.rh__count i::after{content:"";position:absolute;inset:0;background:var(--teal);transform-origin:left;transform:scaleX(var(--p,0))}
+.rh__list{position:relative;z-index:2;list-style:none}
+.beat{min-height:100vh;min-height:100svh;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end;padding:0 var(--pad) clamp(70px,14vh,140px)}
+.beat__txt{grid-column:8 / span 5;margin:0 clamp(12px,1.6vw,24px);padding:clamp(22px,2.4vw,32px);border-radius:12px;background:rgba(0,0,60,.55);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12)}
+.beat h2{font:600 13px/1 var(--sans);color:var(--teal);margin-bottom:14px}
+.beat ul{list-style:none}
+.beat li{padding:12px 0;border-top:1px solid rgba(255,255,255,.14);font:500 17px/1.4 var(--sans)}
+.beat li:first-child{border-top:0;padding-top:0}
+.beat li small{display:block;margin-top:4px;font:400 14px/1.5 var(--sans);color:rgba(255,255,255,.72)}
+@media (max-width:860px){
+  .rh__pin{grid-template-columns:minmax(0,1fr);align-content:start;padding-top:96px;row-gap:24px}
+  .rh__word{grid-column:auto;font-size:15vw}
+  .rh__ph{grid-column:auto;justify-self:start;aspect-ratio:16/11;max-height:none}
+  .beat{grid-template-columns:minmax(0,1fr)}.beat__txt{grid-column:auto}
+}
+
+/* the ride home, drawn to scale */
+.ride{padding:clamp(100px,16vh,180px) var(--pad);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:center}
+.ride__txt{grid-column:1 / span 5}
+.ride__txt h2{font-size:var(--h2);color:var(--deep)}
+.ride__txt .lede{margin-top:24px}
+.ride__facts{list-style:none;margin-top:36px;border-top:1px solid var(--ink)}
+.ride__facts li{display:flex;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font:500 15px/1.4 var(--sans)}
+.ride__facts b{font:900 clamp(28px,2.6vw,44px)/1 var(--disp);letter-spacing:-.05em;color:var(--teal);min-width:3ch}
+.ride__map{grid-column:7 / span 6;position:relative}
+.ride__map svg{display:block;width:100%;height:auto;overflow:visible}
+.ride__map .ring{fill:none;stroke:var(--line);stroke-width:1}
+.ride__map .ring--15{stroke:var(--teal);stroke-width:1.5;stroke-dasharray:4 6}
+.ride__map .rl{font:500 11px var(--sans);fill:var(--soft)}
+.ride__map .town circle{fill:var(--deep)}
+.ride__map .town text{font:600 12px var(--sans);fill:var(--ink)}
+.ride__map .city circle{fill:none;stroke:var(--deep);stroke-width:1.5}
+.ride__map .campus circle.c{fill:var(--teal)}
+.ride__map .campus circle.p{fill:none;stroke:var(--teal);stroke-width:1.5;transform-origin:center;transform-box:fill-box;animation:pulse 2.4s var(--ease) infinite}
+.ride__map .campus text{font:700 13px var(--sans);fill:var(--deep)}
+@keyframes pulse{from{transform:scale(1);opacity:.9}to{transform:scale(4);opacity:0}}
+.ride__note{margin-top:12px;font:400 12px/1.4 var(--sans);color:var(--soft)}
+@media (max-width:860px){.ride{grid-template-columns:minmax(0,1fr);row-gap:48px}.ride__txt,.ride__map{grid-column:auto}.ride__txt h2{font-size:12.4vw}}
+
+/* the week, as it happens */
+.ig{margin:0 var(--pad) clamp(80px,12vh,140px);padding:clamp(28px,4vw,56px);border-radius:14px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.ig h2{font-size:clamp(40px,4.6vw,84px);color:var(--deep)}
+.ig p{color:var(--soft);font-size:15px;max-width:36ch;margin-top:14px}
+@media (prefers-reduced-motion:reduce){.rh__slot span,.rh__ph img{transition:none}.ride__map .campus circle.p{animation:none}}
+</style>
+</head>
+<body data-page="life">
+{{NAV}}
+
+<main id="main">
+  <section class="lf" aria-labelledby="lf-h">
+    <h1 id="lf-h" class="d split">School is more<br> <span class="dim">than class.</span></h1>
+    <div class="lf__row"><p class="lede" data-reveal>Wellbeing, sport, the arts and a campus that runs on care. The hours around the lessons matter as much as the lessons.</p></div>
+  </section>
+
+  <section class="rh" id="rhythm" data-dark data-noreveal aria-label="The rhythm of the school year">
+    <div class="rh__pin" aria-hidden="true">
+      <p class="rh__word"><span class="every">Every</span><span class="rh__slot" id="slot"><span class="on">day.</span><span>week.</span><span>term.</span><span>quarter.</span><span>year.</span></span></p>
+      <figure class="rh__ph" id="rhPh"><img class="on" src="assets/eis26/d-lb.webp" alt=""><img src="assets/eis26/s7.webp" alt=""><img src="assets/eis26/s2.webp" alt=""><img src="assets/eis26/s8.webp" alt=""><img src="assets/eis26/s6.webp" alt=""></figure>
+      <div class="rh__count"><span id="rhN">01</span><i></i><span>05</span></div>
+    </div>
+    <ol class="rh__list">
+      <li class="beat"><div class="beat__txt"><h2>Every day</h2><ul><li>A full-time nurse on campus<small>Every school day, all day.</small></li><li>Gated, secure, monitored grounds<small>So students are free to get on with growing up.</small></li></ul></div></li>
+      <li class="beat"><div class="beat__txt"><h2>Every week</h2><ul><li>Social and emotional learning<small>Part of the rhythm of the week, not an add-on.</small></li><li>Yoga<small>Weekly, alongside the timetable.</small></li><li>An after-school football team<small>For students who want more of the game.</small></li><li>Saturday bike trips<small>Beyond the gates, on the weekend.</small></li></ul></div></li>
+      <li class="beat"><div class="beat__txt"><h2>Every term</h2><ul><li>Clubs that change each term<small>Music, dance and science among them.</small></li></ul></div></li>
+      <li class="beat"><div class="beat__txt"><h2>Every quarter</h2><ul><li>Hikes<small>Out of the classroom and into the hills.</small></li></ul></div></li>
+      <li class="beat"><div class="beat__txt"><h2>Every year</h2><ul><li>Snow camp<small>Once a year, in the mountains.</small></li><li>The Duke of Edinburgh's International Award<small>A recognised framework for service, skills, fitness and adventure.</small></li></ul></div></li>
+    </ol>
+  </section>
+
+  <section class="ride" aria-labelledby="ride-h">
+    <div class="ride__txt">
+      <h2 id="ride-h" class="d split">A safe ride,<br> tracked live.</h2>
+      <p class="lede" data-reveal>A fleet of minibuses serves families across the Metn, each with a monitor aboard. Parents follow the bus in real time in the NavLeb app, with an alert when it arrives and when it leaves.</p>
+      <ul class="ride__facts" data-reveal>
+        <li><b>15</b>kilometres, roughly, the area the buses cover around campus</li>
+        <li><b>10</b>to 12 seats on each minibus</li>
+        <li><b>1</b>monitor aboard every bus</li>
+      </ul>
+    </div>
+    <figure class="ride__map" data-reveal>
+      <svg id="map" viewBox="0 0 600 600" role="img" aria-label="Campus in Mansourieh with rings every 2 kilometres, and nearby towns where families live"></svg>
+      <figcaption class="ride__note">Approximate positions, rings every 2 km from campus. The buses reach families up to about 15 km away.</figcaption>
+    </figure>
+  </section>
+
+  <section class="ig" aria-labelledby="ig-h" data-reveal>
+    <div><h2 id="ig-h" class="d">The week,<br> as it happens.</h2><p>Open mornings, showcases, sports days and the small moments, posted from Mansourieh.</p></div>
+    <a class="pill pill--d" href="https://www.instagram.com/eastwoodschools" target="_blank" rel="noopener">Follow on Instagram</a>
+  </section>
+
+  <section class="close" data-dark aria-labelledby="cl-h">
+    <h2 id="cl-h" class="d split">See a day<br class="ph"> <span class="dim" style="display:block">for yourself.</span></h2>
+    <div class="close__row">
+      <div class="close__cta" data-reveal><a class="pill pill--w" href="admissions.html#visit">Book a visit</a><a class="pill pill--o" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a></div>
+      <div class="close__info" data-reveal><b>Admissions are open all year.</b>Sami Solh Street, Mansourieh el Metn<br><a href="tel:+9614409307">+961 4 409 307</a> · <a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></div>
+    </div>
+  </section>
+</main>
+
+{{FOOTER}}
+{{SCRIPTS}}
+<script>
+(() => {
+  const { reduced, $, $$, clamp } = EW;
+
+  /* rhythm: the word turns, the picture follows */
+  const rh = $("#rhythm"), slots = $$("#slot span"), imgs = $$("#rhPh img"), beats = $$(".beat"), cnt = $(".rh__count"), num = $("#rhN"); let cur = 0;
+  const show = i => { if (i === cur) return; slots.forEach((s, k) => { s.classList.toggle("on", k === i); s.classList.toggle("out", k < i); }); imgs.forEach((m, k) => m.classList.toggle("on", k === i)); num.textContent = String(i + 1).padStart(2, "0"); cur = i; };
+  EW.onFrame(({ vh }) => { const r = rh.getBoundingClientRect(); const p = clamp(-r.top / (r.height - vh)); cnt.style.setProperty("--p", p.toFixed(3));
+    let a = 0; beats.forEach((b, i) => { if (b.getBoundingClientRect().top < vh * .55) a = i; }); show(a); });
+
+  /* the map: campus at the centre, rings at 5, 10 and 15 km */
+  const svg = $("#map"), C = { lat: 33.8594, lon: 35.5633 }, S = 280 / 8, NS = "http://www.w3.org/2000/svg";
+  const xy = (lat, lon) => [300 + (lon - C.lon) * 92.4 * S, 300 - (lat - C.lat) * 111.0 * S];
+  const el = (n, a, p = svg) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e; };
+  [2, 4, 6, 8].forEach(k => { el("circle", { cx: 300, cy: 300, r: k * S, class: "ring" + (k === 8 ? " ring--15" : "") }); const t = el("text", { x: 300 + 6, y: 300 - k * S - 6, class: "rl" }); t.textContent = k + " km"; });
+  const towns = [["Ain Saadeh", 33.8705, 35.5850, 1, 0], ["Beit Mery", 33.8555, 35.6020, 1, 0], ["Broumana", 33.8830, 35.6215, 1, 0], ["Rabieh", 33.9120, 35.5880, 1, 0], ["Mtayleb", 33.9010, 35.6040, 1, 1], ["Beirut", 33.8950, 35.5030, 0, 0]];
+  towns.forEach(([n, la, lo, isTown, below]) => { const [x, y] = xy(la, lo); const g = el("g", { class: isTown ? "town" : "city" }); el("circle", { cx: x, cy: y, r: isTown ? 4 : 6 }, g); const t = el("text", { x: x + 9, y: y + (below ? 16 : 4) }, g); t.textContent = n; if (!isTown) t.setAttribute("style", "font:600 13px var(--sans);fill:var(--deep)"); });
+  const g = el("g", { class: "campus" }); el("circle", { cx: 300, cy: 300, r: 6, class: "p" }, g); el("circle", { cx: 300, cy: 300, r: 6, class: "c" }, g); const ct = el("text", { x: 300, y: 326, "text-anchor": "middle" }, g); ct.textContent = "Campus, Mansourieh";
+  if (window.gsap && !reduced) ScrollTrigger.create({ trigger: svg, start: "top 80%", once: true, onEnter: () => {
+    gsap.from(svg.querySelectorAll(".ring"), { attr: { r: 0 }, duration: 1.4, ease: "power3.out", stagger: .12 });
+    gsap.from(svg.querySelectorAll(".town, .city"), { opacity: 0, y: 6, duration: .7, delay: .6, stagger: .08 }); } });
+})();
+</script>
+</body>
+</html>
