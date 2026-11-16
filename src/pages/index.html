@@ -78,7 +78,7 @@
 [data-dark] .sec-head p{color:rgba(255,255,255,.75)}
 @media (max-width:900px){.sec-head{grid-template-columns:minmax(0,1fr);row-gap:20px}.sec-head h2,.sec-head p{grid-column:auto}.sec-head h2{font-size:12.4vw}}
 
-/* hero film: one life, age 3 to 18, in fifty seconds */
+/* hero film: age 3 to 18 in one minute */
 .hero .poster img{width:100%;height:100%;object-fit:cover}
 .hero .film{opacity:0;transition:opacity 1.2s ease}
 .hero .film.on{opacity:1}
@@ -316,7 +316,7 @@
     <div class="hero__in">
       <p class="hero__k">Eastwood International School · IB World School since 2016</p>
       <h1 id="h1" class="d split">A school for ambitious families<br class="dk"> <span class="dim">who refuse to compromise.</span></h1>
-      <div class="reel" aria-hidden="true"><span class="reel__age" data-reel-age>Every story starts somewhere</span><span class="reel__bar"><i data-reel-bar></i><b style="--p:.115"></b><b style="--p:.346"></b><b style="--p:.477"></b><b style="--p:.588"></b><b style="--p:.736"></b></span><button class="reel__pp" type="button" data-reel-pp aria-label="Pause the film"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="i-pause" d="M3 2h2v8H3zM7 2h2v8H7z"/><path class="i-play" d="M3 1.5 10 6l-7 4.5z"/></svg></button></div>
+      <div class="reel" aria-hidden="true"><span class="reel__age" data-reel-age>Every story starts somewhere</span><span class="reel__bar"><i data-reel-bar></i><b style="--p:.143"></b><b style="--p:.321"></b><b style="--p:.413"></b><b style="--p:.566"></b><b style="--p:.716"></b></span><button class="reel__pp" type="button" data-reel-pp aria-label="Pause the film"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="i-pause" d="M3 2h2v8H3zM7 2h2v8H7z"/><path class="i-play" d="M3 1.5 10 6l-7 4.5z"/></svg></button></div>
       <div class="hero__meta">
         <p>Part of Eastwood Schools, founded in 1973. Serious academics for families who want the discipline of a Swiss boarding school without the trade-offs.</p>
         <div class="hero__cta"><button class="pill pill--w" type="button" data-fit>Find your child's fit</button><a class="pill pill--o" href="#tuition">See tuition</a></div>
@@ -561,7 +561,7 @@
     /* the film: captions follow the cut, the line fills from age 3 to 18 */
     (() => { const v = document.querySelector(".hero .film"); if (!v) return;
       const R = document.querySelector(".reel"), A = R.querySelector("[data-reel-age]"), B = R.querySelector("[data-reel-bar]"), P = R.querySelector("[data-reel-pp]");
-      const cues = [[0, "Every story starts somewhere"], [3, "Before school"], [5.6, "Age 3. The first goodbye"], [9.06, "Age 3. Early Years"], [12, "Age 5. Early Years"], [16.9, "Age 8. Elementary"], [23.2, "Age 13. Middle School"], [28.6, "Age 17. Diploma"], [35.6, "Age 18. Graduation"], [43.95, "And then, the world"]];
+      const cues = [[0, "Every story starts somewhere"], [3.5, "Before school"], [8.5, "Age 3. The first goodbye"], [11.66, "Age 3. Early Years"], [19.13, "Age 8. Elementary"], [24.6, "Age 13. Middle School"], [33.7, "Age 17. Diploma"], [42.67, "Age 18. Graduation"], [51.49, "And then, the world"]];
       let cur = -1;
       v.addEventListener("playing", () => v.classList.add("on"), { once: true });
       EW.onFrame(() => { if (!v.duration) return; const t = v.currentTime;
