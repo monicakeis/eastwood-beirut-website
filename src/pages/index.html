@@ -94,6 +94,8 @@
 .reel__pp svg{width:11px;height:11px;fill:currentColor}
 .reel__pp .i-play,.reel.paused .reel__pp .i-pause{display:none}
 .reel.paused .reel__pp .i-play{display:block}
+.reel__snd .i-on,.reel.sound .reel__snd .i-off{display:none}
+.reel.sound .reel__snd .i-on{display:block}
 .reel__pp:focus-visible{outline:2px solid #fff;outline-offset:3px}
 @media (max-width:760px){.reel__age{min-width:0;font-size:16px}.reel{gap:10px}}
 @media (prefers-reduced-motion:reduce){.reel{display:none}}
@@ -316,7 +318,7 @@
     <div class="hero__in">
       <p class="hero__k">Eastwood International School · IB World School since 2016</p>
       <h1 id="h1" class="d split">A school for ambitious families<br class="dk"> <span class="dim">who refuse to compromise.</span></h1>
-      <div class="reel" aria-hidden="true"><span class="reel__age" data-reel-age>Every story starts somewhere</span><span class="reel__bar"><i data-reel-bar></i><b style="--p:.143"></b><b style="--p:.321"></b><b style="--p:.413"></b><b style="--p:.566"></b><b style="--p:.716"></b></span><button class="reel__pp" type="button" data-reel-pp aria-label="Pause the film"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="i-pause" d="M3 2h2v8H3zM7 2h2v8H7z"/><path class="i-play" d="M3 1.5 10 6l-7 4.5z"/></svg></button></div>
+      <div class="reel" aria-hidden="true"><span class="reel__age" data-reel-age>Every story starts somewhere</span><span class="reel__bar"><i data-reel-bar></i><b style="--p:.143"></b><b style="--p:.321"></b><b style="--p:.413"></b><b style="--p:.566"></b><b style="--p:.716"></b></span><button class="reel__pp reel__snd" type="button" data-reel-snd aria-label="Play the film with sound" aria-pressed="false"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 4.2h2.2L6.4 1.6v8.8L3.2 7.8H1z"/><path class="i-on" d="M8 3.6c.8.6 1.2 1.5 1.2 2.4S8.8 7.8 8 8.4M9.4 2.2c1.2 1 1.9 2.4 1.9 3.8s-.7 2.8-1.9 3.8" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><path class="i-off" d="M8 4l3 4M11 4 8 8" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg></button><button class="reel__pp" type="button" data-reel-pp aria-label="Pause the film"><svg viewBox="0 0 12 12" aria-hidden="true"><path class="i-pause" d="M3 2h2v8H3zM7 2h2v8H7z"/><path class="i-play" d="M3 1.5 10 6l-7 4.5z"/></svg></button></div>
       <div class="hero__meta">
         <p>Part of Eastwood Schools, founded in 1973. Serious academics for families who want the discipline of a Swiss boarding school without the trade-offs.</p>
         <div class="hero__cta"><button class="pill pill--w" type="button" data-fit>Find your child's fit</button><a class="pill pill--o" href="#tuition">See tuition</a></div>
@@ -568,6 +570,11 @@
         B.style.transform = `scaleX(${(t / v.duration).toFixed(4)})`;
         let k = 0; cues.forEach((c, j) => { if (t >= c[0]) k = j; });
         if (k !== cur) { cur = k; A.classList.add("out"); setTimeout(() => { A.textContent = cues[k][1]; A.classList.remove("out"); }, 280); } });
+      const S = R.querySelector("[data-reel-snd]");
+      S.addEventListener("click", () => { const on = v.muted;
+        v.muted = !on; R.classList.toggle("sound", on); S.setAttribute("aria-pressed", on ? "true" : "false");
+        S.setAttribute("aria-label", on ? "Mute the film" : "Play the film with sound");
+        if (on) { v.currentTime = 0; delete v.dataset.held; R.classList.remove("paused"); v.play(); } });
       P.addEventListener("click", () => { if (v.paused) { delete v.dataset.held; v.play(); } else { v.dataset.held = "1"; v.pause(); }
         const off = !!v.dataset.held; R.classList.toggle("paused", off); P.setAttribute("aria-label", off ? "Play the film" : "Pause the film"); });
     })();
