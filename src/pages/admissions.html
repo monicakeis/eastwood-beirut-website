@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{HEAD}}
+<title>Admissions · Eastwood International School</title>
+<meta name="description" content="Admissions at Eastwood International School are open all year. Three steps, a short checklist, tuition for 2026 to 2027, a practical guide to moving to Lebanon, and how to visit the campus in Mansourieh.">
+<meta property="og:title" content="Admissions · Eastwood International School">
+<meta property="og:description" content="Open all year. Three steps from enquiry to welcome.">
+<meta property="og:image" content="assets/eis26/og.jpg">
+<style>
+/* Admissions. Signature: the three steps travel sideways while the page holds still.
+   Then a checklist you can tick, the practical answers, a guide to the move, and the way in. */
+
+/* 01 opening */
+.ah{padding:clamp(130px,22vh,220px) var(--pad) clamp(60px,10vh,110px)}
+.ah h1{font-size:var(--h1);color:var(--deep)}
+.ah__row{margin-top:clamp(32px,6vh,64px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end;border-top:1px solid var(--line);padding-top:22px}
+.ah__row .lede{grid-column:1 / span 6}
+.ah__cta{grid-column:8 / span 5;justify-self:end;display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:860px){.ah h1{font-size:13.4vw}.ah__row{grid-template-columns:minmax(0,1fr);row-gap:28px}.ah__row .lede,.ah__cta{grid-column:auto;justify-self:start}}
+
+/* 02 steps: a pinned stage, the cards slide across */
+.st{position:relative;height:320vh;background:var(--deep);color:#fff}
+.st__stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,5vh,56px)}
+.st__head{padding:0 var(--pad);display:flex;justify-content:space-between;align-items:end;gap:24px}
+.st__head h2{font-size:var(--h2)}
+.st__line{position:relative;margin:0 var(--pad);height:2px;background:rgba(255,255,255,.18)}
+.st__line i{position:absolute;inset:0;background:var(--teal);transform-origin:left;transform:scaleX(var(--p,0))}
+.st__line b{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--deep);border:2px solid rgba(255,255,255,.4);transition:background .4s,border-color .4s}
+.st__line b.on{background:var(--teal);border-color:var(--teal)}
+.st__track{display:flex;gap:var(--g);padding:0 var(--pad);will-change:transform}
+.step{flex:none;width:min(62vw,860px);min-height:min(48vh,420px);padding:clamp(26px,3vw,44px);border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:end;transition:background .5s,border-color .5s}
+.step.on{background:#fff;color:var(--ink);border-color:#fff}
+.step .n{font:900 clamp(120px,14vw,260px)/.78 var(--disp);letter-spacing:-.07em;color:rgba(255,255,255,.22);transition:color .5s}
+.step.on .n{color:var(--teal)}
+.step h3{font:900 clamp(32px,3.6vw,64px)/.92 var(--disp);letter-spacing:-.05em;margin-bottom:14px}
+.step.on h3{color:var(--deep)}
+.step p{font:400 16px/1.55 var(--sans);opacity:.8;max-width:40ch}
+.step .arrow{margin-top:20px}
+@media (max-width:820px){
+  .st{height:auto!important;padding:96px 0 80px}
+  .st__stage{position:relative;height:auto;overflow:visible;gap:36px}
+  .st__head h2{font-size:12.4vw}
+  .st__line{display:none}
+  .st__track{flex-direction:column;transform:none!important}
+  .step{width:100%;min-height:0;grid-template-columns:minmax(0,1fr);gap:18px;background:rgba(255,255,255,.06)}
+  .step.on{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.14)}.step.on h3{color:#fff}.step.on .n{color:var(--teal)}
+  .step .n{font-size:96px;color:var(--teal)}
+}
+
+/* 03 checklist you can tick */
+.ck{padding:clamp(90px,15vh,170px) var(--pad);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g)}
+.ck__head{grid-column:1 / span 4;align-self:start;position:sticky;top:110px}
+.ck__head h2{font-size:clamp(46px,5.6vw,104px);color:var(--deep)}
+.ck__head p{margin-top:22px;color:var(--soft);font-size:15px;max-width:30ch}
+.ck__meter{margin-top:30px;display:flex;align-items:center;gap:14px;font:500 14px/1 var(--sans);color:var(--soft);font-variant-numeric:tabular-nums}
+.ck__meter i{flex:none;width:120px;height:3px;border-radius:2px;background:var(--line);overflow:hidden;position:relative}
+.ck__meter i::after{content:"";position:absolute;inset:0;background:var(--teal);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .5s var(--ease)}
+.ck__meter b{color:var(--deep);font-weight:600}
+.ck__list{grid-column:6 / span 7;list-style:none;border-top:1px solid var(--ink)}
+.ck__list li{border-bottom:1px solid var(--line)}
+.ck__list input{position:absolute;opacity:0;width:1px;height:1px}
+.ck__list label{display:grid;grid-template-columns:28px minmax(0,1fr);gap:18px;align-items:start;padding:22px 0;cursor:pointer;font:500 17px/1.4 var(--sans);color:var(--ink);transition:color .3s}
+.ck__list label small{display:block;margin-top:5px;font:400 14px/1.5 var(--sans);color:var(--soft)}
+.ck__list .box{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--mute);display:grid;place-items:center;transition:background .35s,border-color .35s,transform .35s var(--ease)}
+.ck__list .box svg{width:13px;height:13px;stroke:#fff;stroke-width:2.4;fill:none;stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .4s .05s var(--ease)}
+.ck__list input:checked+label .box{background:var(--teal);border-color:var(--teal);transform:scale(1.06)}
+.ck__list input:checked+label .box svg{stroke-dashoffset:0}
+.ck__list input:checked+label .t{color:var(--soft)}
+.ck__list input:focus-visible+label .box{outline:2px solid var(--teal);outline-offset:3px}
+@media (max-width:860px){.ck{grid-template-columns:minmax(0,1fr);row-gap:36px}.ck__head,.ck__list{grid-column:auto}.ck__head{position:relative;top:auto}.ck__head h2{font-size:12.4vw}}
+
+/* 04 who can apply, and the notes worth knowing */
+.wh{padding:clamp(80px,13vh,150px) var(--pad);border-top:1px solid var(--line)}
+.wh h2{font-size:var(--h2);color:var(--deep)}
+.ey{margin-top:clamp(40px,7vh,72px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g);border-top:1px solid var(--ink);list-style:none}
+.ey li{padding-top:20px}
+.ey .k{display:block;font:900 clamp(96px,12vw,220px)/.8 var(--disp);letter-spacing:-.07em;color:var(--deep)}
+.ey .k small{font-size:.22em;letter-spacing:-.02em;color:var(--soft);margin-left:.2em}
+.ey b{display:block;margin-top:16px;font:600 16px/1.3 var(--sans)}
+.ey p{font:400 14px/1.5 var(--sans);color:var(--soft)}
+.faq{margin-top:clamp(56px,9vh,100px);border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font:600 clamp(18px,1.5vw,22px)/1.3 var(--sans);color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);position:relative;transition:transform .5s var(--ease),background .3s,border-color .3s}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;margin:-.75px 0 0 -5.5px;background:var(--deep)}
+.faq summary i::after{transform:rotate(90deg);transition:transform .5s var(--ease)}
+.faq details[open] summary i{background:var(--deep);border-color:var(--deep)}
+.faq details[open] summary i::before,.faq details[open] summary i::after{background:#fff}
+.faq details[open] summary i::after{transform:rotate(0)}
+.faq summary:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:4px}
+.faq .a{overflow:hidden}
+.faq .a p{padding:0 0 26px;max-width:62ch;font:400 16px/1.6 var(--sans);color:var(--soft)}
+
+/* 05 tuition */
+.tu{margin:0 var(--pad);padding:clamp(28px,4vw,56px);border-radius:14px;background:#fff;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:center}
+.tu h2{grid-column:1 / span 6;font-size:clamp(40px,4.6vw,84px);color:var(--deep)}
+.tu p{grid-column:7 / span 3;font:400 15px/1.5 var(--sans);color:var(--soft)}
+.tu .pill{grid-column:10 / span 3;justify-self:end}
+@media (max-width:860px){.tu{grid-template-columns:minmax(0,1fr);row-gap:20px}.tu h2,.tu p,.tu .pill{grid-column:auto;justify-self:start}.tu h2{font-size:11vw}}
+
+/* 06 moving to Lebanon */
+.mv{padding:clamp(100px,16vh,180px) var(--pad) clamp(80px,12vh,140px)}
+.mv__head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end}
+.mv__head h2{grid-column:1 / span 7;font-size:var(--h1);color:var(--deep)}
+.mv__head .lede{grid-column:9 / span 4}
+.hoods{margin-top:clamp(48px,8vh,90px);list-style:none;border-top:1px solid var(--ink)}
+.hoods li{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);gap:var(--g);align-items:baseline;padding:clamp(20px,3vh,30px) 0;border-bottom:1px solid var(--line)}
+.hoods .r{font:500 13px/1.3 var(--sans);color:var(--soft);display:flex;align-items:center;gap:10px}
+.hoods .r::before{content:"";flex:none;height:2px;width:calc(var(--d) * 12px + 8px);background:var(--teal);border-radius:2px}
+.hoods h3{font:900 clamp(30px,3.6vw,64px)/.92 var(--disp);letter-spacing:-.05em;color:var(--deep)}
+.hoods p{color:var(--soft);font-size:15px;max-width:40ch}
+.prac{margin-top:clamp(64px,10vh,110px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g)}
+.prac article{padding:clamp(22px,2.4vw,34px);border-radius:12px;background:#fff;border:1px solid var(--line)}
+.prac h3{font:600 17px/1.3 var(--sans);color:var(--ink);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.prac h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.prac p{font:400 15px/1.55 var(--sans);color:var(--soft)}
+.prac .wide{grid-column:span 3;background:var(--deep);color:#fff;border-color:var(--deep);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.prac .wide h3{color:#fff;margin:0}.prac .wide h3::before{background:var(--teal)}
+.prac .wide p{color:rgba(255,255,255,.8);max-width:60ch}
+.mv__src{margin-top:22px;font:400 13px/1.5 var(--sans);color:var(--soft)}
+@media (max-width:860px){.mv__head{grid-template-columns:minmax(0,1fr);row-gap:24px}.mv__head h2,.mv__head .lede{grid-column:auto}.mv__head h2{font-size:12.4vw}
+  .hoods li{grid-template-columns:minmax(0,1fr);gap:8px}.hoods h3{font-size:9.6vw}
+  .prac{grid-template-columns:minmax(0,1fr)}.prac .wide{grid-column:auto}}
+
+/* 07 visit */
+.vi{position:relative;background:var(--deep);color:#fff;padding:clamp(100px,16vh,180px) var(--pad) clamp(70px,11vh,120px);scroll-margin-top:0}
+.vi h2{font-size:var(--h1)}
+.vi__grid{margin-top:clamp(40px,8vh,90px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:stretch}
+.vi__map{grid-column:1 / span 7;position:relative;min-height:420px;border-radius:12px;overflow:hidden;background:#11117a}
+.vi__map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05) brightness(.95)}
+.vi__info{grid-column:9 / span 4;display:flex;flex-direction:column;justify-content:space-between;gap:34px;font:400 16px/1.6 var(--sans);color:rgba(255,255,255,.86)}
+.vi__info b{display:block;color:#fff;font-weight:600;margin-bottom:6px}
+.vi__info a:not(.pill){border-bottom:1px solid rgba(255,255,255,.35)}
+.vi__cta{display:flex;gap:10px;flex-wrap:wrap}
+.vi__soc{display:flex;gap:18px;flex-wrap:wrap;font:500 14px/1 var(--sans)}
+@media (max-width:860px){.vi h2{font-size:12.4vw}.vi__grid{grid-template-columns:minmax(0,1fr);row-gap:36px}.vi__map,.vi__info{grid-column:auto}.vi__map{min-height:320px}}
+@media (prefers-reduced-motion:reduce){.ck__list .box,.ck__list .box svg{transition:none}}
+</style>
+</head>
+<body data-page="admissions">
+{{NAV}}
+
+<main id="main">
+  <section class="ah" aria-labelledby="ah-h">
+    <h1 id="ah-h" class="d split">Applying is<br> one, two, <span class="dim">three.</span></h1>
+    <div class="ah__row">
+      <p class="lede" data-reveal>Admissions are open all year, with no deadlines. Start with a short enquiry and we take it from there.</p>
+      <div class="ah__cta" data-reveal>
+        <a class="pill pill--d" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a>
+        <a class="pill pill--l" href="#visit">Visit the campus</a>
+        <a class="pill pill--l" href="#tuition">Tuition</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="st" id="steps" data-dark data-noreveal aria-labelledby="st-h">
+    <div class="st__stage">
+      <div class="st__head"><h2 id="st-h" class="d split">From the first form<br class="dk"> to a welcome.</h2></div>
+      <div class="st__line" aria-hidden="true"><i></i><b style="left:0"></b><b style="left:50%"></b><b style="left:100%"></b></div>
+      <ol class="st__track" id="track" style="list-style:none">
+        <li class="step on"><span class="n" aria-hidden="true">1</span><div><h3>Send an enquiry.</h3><p>A short form that takes a few minutes. Our admissions team replies with the next step.</p><a class="arrow" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Start the form <i>→</i></a></div></li>
+        <li class="step"><span class="n" aria-hidden="true">2</span><div><h3>Meet us.</h3><p>An onboarding interview with parents, where we collect your documents. Children joining the Early Years, Nursery to KG2, have a friendly conversation in English or French.</p></div></li>
+        <li class="step"><span class="n" aria-hidden="true">3</span><div><h3>Evaluation.</h3><p>Students entering Grades 1 to 12 sit a short internal evaluation. We confirm placement and welcome you to the school.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="ck" aria-labelledby="ck-h">
+    <div class="ck__head">
+      <h2 id="ck-h" class="d split">A short<br> checklist.</h2>
+      <p data-reveal>Tick off what you have. Anything still outstanding, we help with at your interview. Your ticks stay on this device.</p>
+      <div class="ck__meter" data-reveal aria-live="polite"><i></i><span><b id="ckN">0</b> of <span id="ckT">7</span> ready</span></div>
+    </div>
+    <ul class="ck__list" id="ck">
+      <li><input type="checkbox" id="c1"><label for="c1"><span class="box"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7"/></svg></span><span class="t">The application form<small>With the bus, medical and photo-release forms, given to you after the interview or by email.</small></span></label></li>
+      <li><input type="checkbox" id="c2"><label for="c2"><span class="box"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7"/></svg></span><span class="t">Report cards from the last three years<small>Including the current year. Progress reports for the Early Years, where they exist.</small></span></label></li>
+      <li><input type="checkbox" id="c3"><label for="c3"><span class="box"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7"/></svg></span><span class="t">A Ministry of Education certificate<small>Confirming completion of the previous academic year.</small></span></label></li>
+      <li><input type="checkbox" id="c4"><label for="c4"><span class="box"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7"/></svg></span><span class="t">The vaccination booklet<small>A copy, required for Grades 1 to 5.</small></span></label></li>
+      <li><input type="checkbox" id="c5"><label for="c5"><span class="box"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7"/></svg></span><span class="t">Passport photos<small>Two for Grades 1 to 12, four for the Early Years.</small></span></label></li>
+      <li><input type="checkbox" id="c6"><label for="c6"><span class="box"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7"/></svg></span><span class="t">A copy of the student's passport<small>For the IB and American pathways.</small></span></label></li>
+      <li><input type="checkbox" id="c7"><label for="c7"><span class="box"><svg viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7"/></svg></span><span class="t">The application and testing fee<small>USD 100 per family, non-refundable.</small></span></label></li>
+    </ul>
+  </section>
+
+  <section class="wh" aria-labelledby="wh-h">
+    <h2 id="wh-h" class="d split">Who can apply.</h2>
+    <ul class="ey">
+      <li data-reveal><span class="k">3<small>years</small></span><b>Nursery</b><p>Fully toilet-trained.</p></li>
+      <li data-reveal><span class="k">4<small>years</small></span><b>KG1</b><p>Placement by age.</p></li>
+      <li data-reveal><span class="k">5<small>years</small></span><b>KG2</b><p>Placement by age.</p></li>
+    </ul>
+    <div class="faq" data-reveal>
+      <details><summary>How is placement decided from Grade 1?<i aria-hidden="true"></i></summary><div class="a"><p>We review the last three years of report cards and the Ministry-certified completion certificate, and the student sits a short internal evaluation.</p></div></details>
+      <details><summary>My child is still learning English.<i aria-hidden="true"></i></summary><div class="a"><p>Students who need extra English take a placement assessment for our English as a Second Language programme.</p></div></details>
+      <details><summary>My child is neurodivergent.<i aria-hidden="true"></i></summary><div class="a"><p>We ask for all assessments and documentation, and your child spends two trial days with us so we can observe before we decide together.</p></div></details>
+      <details><summary>We are applying from outside Lebanon.<i aria-hidden="true"></i></summary><div class="a"><p>Students entering Grades 2 to 12 need transcripts certified by the Lebanese Embassy or Consulate in the country they are leaving.</p></div></details>
+      <details><summary>Why we ask for full disclosure.<i aria-hidden="true"></i></summary><div class="a"><p>Please share any prior diagnosis or support for developmental, speech, learning, social-emotional or physical needs when you apply, so the right support is in place from the first day. If material information is withheld and later comes to light, the school may decline or withdraw enrolment, and fees already paid are not refunded.</p></div></details>
+    </div>
+  </section>
+
+  <section class="tu" id="tuition" aria-labelledby="tu-h" data-reveal>
+    <h2 id="tu-h" class="d">Tuition,<br> 2026 to 2027.</h2>
+    <p>Registration, books and tuition by class, in US dollars, in one page.</p>
+    <a class="pill pill--d" href="uploads/Eastwood-International-School-Tuition-2026-2027.pdf" target="_blank" rel="noopener">Download the fees</a>
+  </section>
+
+  <section class="mv" id="moving" aria-labelledby="mv-h">
+    <div class="mv__head">
+      <h2 id="mv-h" class="d split">Moving to<br> Lebanon.</h2>
+      <p class="lede" data-reveal>We live here. This is the short version of what families ask us before they move, checked against how things stand in November 2026.</p>
+    </div>
+    <ol class="hoods" aria-label="Where families live, nearest first">
+      <li data-reveal style="--d:0"><span class="r">The campus town</span><h3>Mansourieh</h3><p>Established residential streets, errands close at hand, and the school gate a short walk or drive away.</p></li>
+      <li data-reveal style="--d:1"><span class="r">Just above campus</span><h3>Ain Saadeh &amp; Mtayleb</h3><p>Quiet hillside neighbourhoods with more space and greenery, for barely any extra time on the school run.</p></li>
+      <li data-reveal style="--d:2"><span class="r">A short drive</span><h3>Rabieh</h3><p>Leafy and calm, with a long-standing international community.</p></li>
+      <li data-reveal style="--d:4"><span class="r">Higher up the mountain</span><h3>Beit Mery &amp; Broumana</h3><p>Cooler in summer, a longer and more scenic drive, and a weekend life of restaurants, walks and village markets.</p></li>
+    </ol>
+    <div class="prac">
+      <article data-reveal><h3>Residency</h3><p>Working in Lebanon takes a work permit from the Ministry of Labour and a residence permit from General Security, usually arranged by the employer. Families of a foreign worker with annual residency can be granted it on the same terms. Start before you travel.</p></article>
+      <article data-reveal><h3>Money</h3><p>Everyday life runs largely in US dollars, and largely in cash. Accounts and cards in "fresh" dollars work normally; bring enough cash for your first weeks while you set one up.</p></article>
+      <article data-reveal><h3>Power</h3><p>The state grid covers only a few hours a day, so homes run on a neighbourhood generator subscription, often with solar panels and batteries too. Ask any landlord what the building has before you sign.</p></article>
+      <article data-reveal><h3>Getting around</h3><p>In the Metn you will want a car. Uber and Bolt fill the gaps, and the school runs a bus service across the Metn; ask us about routes.</p></article>
+      <article data-reveal><h3>Phone and internet</h3><p>Two mobile operators, Alfa and Touch, both now rolling out 5G. Home internet contracts are straightforward.</p></article>
+      <article data-reveal><h3>Health</h3><p>Arrange international family health cover before you arrive. Private hospitals and clinics in the Metn are used to international families, and we can tell you which ones our families use.</p></article>
+      <article class="wide" data-reveal><div><h3>Before you decide</h3><p>Read your own government's current travel advice for Lebanon, and ask us anything. We will give you a straight answer.</p></div><a class="pill pill--w" href="mailto:info@eastwoodschools.com?subject=Moving%20to%20Lebanon">Ask about the move</a></article>
+    </div>
+    <p class="mv__src">Practical points checked against public reporting in November 2026; residency rules come from General Security and the Ministry of Labour, and can change. Last reviewed November 2026.</p>
+  </section>
+
+  <section class="vi" id="visit" data-dark aria-labelledby="vi-h">
+    <h2 id="vi-h" class="d split">Come and<br class="ph"> see it <span class="dim" style="display:block">for yourself.</span></h2>
+    <div class="vi__grid">
+      <div class="vi__map" data-reveal><iframe title="Map of Eastwood International School, Mansourieh" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=33.859362,35.5632947&amp;z=15&amp;output=embed"></iframe></div>
+      <div class="vi__info" data-reveal>
+        <div><b>Eastwood International School</b>Sami Solh Street<br>Mansourieh el Metn, Lebanon<br><a href="https://www.google.com/maps/search/?api=1&amp;query=33.859362,35.5632947" target="_blank" rel="noopener">Get directions</a></div>
+        <div><b>Admissions are open all year.</b><a href="tel:+9614409307">+961 4 409 307</a><br><a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></div>
+        <div class="vi__cta"><a class="pill pill--w" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a><a class="pill pill--o" href="https://form.typeform.com/to/CbkBRwoJ" target="_blank" rel="noopener">Send a message</a></div>
+        <div class="vi__soc"><a href="https://www.instagram.com/eastwoodschools" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/eastwoodschools" target="_blank" rel="noopener">Facebook</a><a href="https://www.linkedin.com/company/eastwoodschools" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.tiktok.com/@eastwoodis" target="_blank" rel="noopener">TikTok</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{{FOOTER}}
+{{SCRIPTS}}
+<script>
+(() => {
+  const { reduced, $, $$, clamp, mob } = EW;
+
+  /* steps: the stage holds, the cards travel sideways */
+  const st = $("#steps"), track = $("#track"), steps = $$(".step"), line = $(".st__line"), nodes = $$(".st__line b"); let sp = 0, last = -1;
+  EW.onFrame(({ vh }) => {
+    if (mob() || reduced) return;
+    const r = st.getBoundingClientRect(); const t = clamp(-r.top / (r.height - vh)); sp += (t - sp) * .12;
+    const lc = steps[steps.length - 1], pad = parseFloat(getComputedStyle(track).paddingLeft); const max = lc.offsetLeft + lc.offsetWidth + pad - innerWidth; track.style.transform = `translate3d(${-sp * Math.max(0, max)}px,0,0)`;
+    line.style.setProperty("--p", sp.toFixed(4));
+    const a = Math.min(steps.length - 1, Math.floor(sp * steps.length * .999 + .15));
+    if (a !== last) { last = a; steps.forEach((s, i) => s.classList.toggle("on", i === a)); nodes.forEach((n, i) => n.classList.toggle("on", i <= a)); }
+  });
+
+  /* checklist: ticks are kept on this device only */
+  const boxes = $$("#ck input"), n = $("#ckN"), meter = $(".ck__meter");
+  let saved = []; try { saved = JSON.parse(localStorage.getItem("ew-checklist") || "[]"); } catch (_) {}
+  boxes.forEach(b => { b.checked = saved.includes(b.id); });
+  const upd = () => { const k = boxes.filter(b => b.checked).length; n.textContent = k; meter.style.setProperty("--p", (k / boxes.length).toFixed(3));
+    try { localStorage.setItem("ew-checklist", JSON.stringify(boxes.filter(b => b.checked).map(b => b.id))); } catch (_) {} };
+  boxes.forEach(b => b.addEventListener("change", upd)); upd();
+
+  /* questions: one open at a time, with a smooth height */
+  const ds = $$(".faq details");
+  ds.forEach(d => { const s = d.querySelector("summary"), a = d.querySelector(".a");
+    s.addEventListener("click", e => { if (reduced || !window.gsap) return; e.preventDefault();
+      if (d.open) { gsap.to(a, { height: 0, duration: .45, ease: "power3.inOut", onComplete: () => { d.open = false; a.style.height = ""; } }); }
+      else { ds.forEach(o => { if (o !== d && o.open) { const oa = o.querySelector(".a"); gsap.to(oa, { height: 0, duration: .45, ease: "power3.inOut", onComplete: () => { o.open = false; oa.style.height = ""; } }); } });
+        d.open = true; gsap.fromTo(a, { height: 0 }, { height: a.scrollHeight, duration: .55, ease: "power3.out", onComplete: () => { a.style.height = ""; } }); } }); });
+})();
+</script>
+</body>
+</html>
