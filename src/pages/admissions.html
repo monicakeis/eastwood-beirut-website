@@ -20,7 +20,7 @@
 @media (max-width:860px){.ah h1{font-size:13.4vw}.ah__row{grid-template-columns:minmax(0,1fr);row-gap:28px}.ah__row .lede,.ah__cta{grid-column:auto;justify-self:start}}
 
 /* 02 steps: a pinned stage, the cards slide across */
-.st{position:relative;height:320vh;background:var(--deep);color:#fff}
+.st{position:relative;height:380vh;background:var(--deep);color:#fff}
 .st__stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,5vh,56px)}
 .st__head{padding:0 var(--pad);display:flex;justify-content:space-between;align-items:end;gap:24px}
 .st__head h2{font-size:var(--h2)}
@@ -144,12 +144,12 @@
 
 <main id="main">
   <section class="ah" aria-labelledby="ah-h">
-    <h1 id="ah-h" class="d split">Applying is<br> one, two, <span class="dim">three.</span></h1>
+    <h1 id="ah-h" class="d split">From inquiry<br> <span class="dim">to first day.</span></h1>
     <div class="ah__row">
-      <p class="lede" data-reveal>Admissions are open all year, with no deadlines. Start with a short enquiry and we take it from there.</p>
+      <p class="lede" data-reveal>Four steps. Admissions are open all year, and our family liaison team walks with you from the first email to the first morning.</p>
       <div class="ah__cta" data-reveal>
-        <a class="pill pill--d" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a>
-        <a class="pill pill--l" href="#visit">Visit the campus</a>
+        <button class="pill pill--d" type="button" data-fit>Find your child's fit</button>
+        <a class="pill pill--l" href="#visit">Book a tour</a>
         <a class="pill pill--l" href="#tuition">Tuition</a>
       </div>
     </div>
@@ -157,12 +157,13 @@
 
   <section class="st" id="steps" data-dark data-noreveal aria-labelledby="st-h">
     <div class="st__stage">
-      <div class="st__head"><h2 id="st-h" class="d split">From the first form<br class="dk"> to a welcome.</h2></div>
-      <div class="st__line" aria-hidden="true"><i></i><b style="left:0"></b><b style="left:50%"></b><b style="left:100%"></b></div>
+      <div class="st__head"><h2 id="st-h" class="d split">Four steps.</h2></div>
+      <div class="st__line" aria-hidden="true"><i></i><b style="left:0"></b><b style="left:33.33%"></b><b style="left:66.67%"></b><b style="left:100%"></b></div>
       <ol class="st__track" id="track" style="list-style:none">
-        <li class="step on"><span class="n" aria-hidden="true">1</span><div><h3>Send an enquiry.</h3><p>A short form that takes a few minutes. Our admissions team replies with the next step.</p><a class="arrow" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Start the form <i>→</i></a></div></li>
-        <li class="step"><span class="n" aria-hidden="true">2</span><div><h3>Meet us.</h3><p>An onboarding interview with parents, where we collect your documents. Children joining the Early Years, Nursery to KG2, have a friendly conversation in English or French.</p></div></li>
-        <li class="step"><span class="n" aria-hidden="true">3</span><div><h3>Evaluation.</h3><p>Students entering Grades 1 to 12 sit a short internal evaluation. We confirm placement and welcome you to the school.</p></div></li>
+        <li class="step on"><span class="n" aria-hidden="true">1</span><div><h3>Tell us about your child.</h3><p>By email, phone or the enquiry form. Share your child's current school, grade and what you're looking for. We reply with next steps and tour times.</p><button class="arrow" type="button" data-fit style="all:unset;cursor:pointer;display:inline-flex;gap:8px;margin-top:20px;padding-bottom:3px;border-bottom:1px solid currentColor;font:500 15px/1 var(--sans)">Find your child's fit <i style="font-style:normal">→</i></button></div></li>
+        <li class="step"><span class="n" aria-hidden="true">2</span><div><h3>Campus visit or Zoom.</h3><p>A conversation with admissions, a tour of classrooms in action, and a chance to meet the school's leadership. Children joining the Early Years, Nursery to KG2, have a friendly conversation in English or French.</p></div></li>
+        <li class="step"><span class="n" aria-hidden="true">3</span><div><h3>Student assessment.</h3><p>Playful for the Early Years, academic for the diploma years, never adversarial. Students entering Grades 1 to 12 sit a short internal evaluation, with a parent interview.</p></div></li>
+        <li class="step"><span class="n" aria-hidden="true">4</span><div><h3>Decision and enrolment.</h3><p>Offer letter, welcome pack and your family liaison's contact. Visa letters, uniform fitting and bus routes: we handle them.</p></div></li>
       </ol>
     </div>
   </section>
@@ -236,7 +237,7 @@
       <div class="vi__info" data-reveal>
         <div><b>Eastwood International School</b>Sami Solh Street<br>Mansourieh el Metn, Lebanon<br><a href="https://www.google.com/maps/search/?api=1&amp;query=33.859362,35.5632947" target="_blank" rel="noopener">Get directions</a></div>
         <div><b>Admissions are open all year.</b><a href="tel:+9614409307">+961 4 409 307</a><br><a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></div>
-        <div class="vi__cta"><a class="pill pill--w" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a><a class="pill pill--o" href="https://form.typeform.com/to/CbkBRwoJ" target="_blank" rel="noopener">Send a message</a></div>
+        <div class="vi__cta"><button class="pill pill--w" type="button" data-fit>Enquire now</button><a class="pill pill--o" href="https://form.typeform.com/to/CbkBRwoJ" target="_blank" rel="noopener">Send a message</a></div>
         <div class="vi__soc"><a href="https://www.instagram.com/eastwoodschools" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/eastwoodschools" target="_blank" rel="noopener">Facebook</a><a href="https://www.linkedin.com/company/eastwoodschools" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.tiktok.com/@eastwoodis" target="_blank" rel="noopener">TikTok</a></div>
       </div>
     </div>

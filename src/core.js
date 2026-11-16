@@ -63,6 +63,45 @@
     addEventListener("resize", () => { if (innerWidth > 900) closeMenu(); });
   }
 
+
+  /* find your child's fit: five questions, then the enquiry form arrives prefilled */
+  const fit = $("#fit");
+  if (fit) {
+    const TF = "https://form.typeform.com/to/Dk0kE90q";
+    const steps = [
+      { f: "role", t: "Let's find your child's fit.", s: "Five questions, about a minute. A real person from admissions replies.", o: [["local", "Lebanese family, based in Lebanon"], ["expat", "Expat family relocating to Lebanon"], ["return", "Lebanese family returning home"], ["abroad", "Evaluating from another country"]] },
+      { f: "age", t: "How old is your child?", s: "With more than one child, start with the eldest. We'll talk about siblings.", o: [["3-6", "3 to 6, Early Years"], ["6-11", "6 to 11, Elementary"], ["11-16", "11 to 16, Middle School"], ["16-18", "16 to 18, the diploma years"]] },
+      { f: "goal", t: "What matters most for their future?", s: "Pick the closest. We'll match the pathway.", o: [["global", "Universities around the world (IB Diploma)"], ["us", "Universities in the US or Canada (American Diploma)"], ["local", "Staying in Lebanon (Lebanese Programme)"], ["open", "Not sure yet, keep options open"]] },
+      { f: "timing", t: "When would they start?", o: [["now", "As soon as possible, mid-year"], ["sep27", "September 2027"], ["later", "Later than that"], ["explore", "Just exploring for now"]] },
+      { f: "contact", t: "Where should we reply?", s: "Admissions replies personally. No mailing list." },
+      { f: "done", t: "Thank you." }
+    ];
+    let i = 0, d = {}, lastFocus = null;
+    const T = $("#fitT"), S = $("#fitS"), Sub = $("#fitSub"), B = $("#fitB"), N = $("#fitN"), back = $("#fitBack"), next = $("#fitNext"), bar = $(".fit__bar");
+    const esc = v => (v || "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const render = () => { const st = steps[i];
+      bar.style.setProperty("--p", ((i + 1) / steps.length * 100) + "%");
+      S.textContent = st.f === "done" ? "" : `Question ${i + 1} of ${steps.length - 1}`; T.textContent = st.t;
+      Sub.textContent = st.s || ""; Sub.hidden = !st.s; B.innerHTML = ""; N.hidden = st.f === "done"; back.hidden = i === 0;
+      if (st.o) { const w = document.createElement("div"); w.className = "fit__opts";
+        st.o.forEach(([v, l]) => { const b = document.createElement("button"); b.type = "button"; b.className = "fit__opt"; b.textContent = l; b.setAttribute("aria-pressed", String(d[st.f] === v));
+          b.addEventListener("click", () => { d[st.f] = v; render(); setTimeout(() => { if (i < 4) { i++; render(); T.focus(); } }, 220); }); w.appendChild(b); });
+        B.appendChild(w); next.disabled = !d[st.f]; next.textContent = "Continue"; }
+      else if (st.f === "contact") { B.innerHTML = `<div class="fit__fields"><label>Parent name<input id="fN" autocomplete="name" value="${esc(d.name)}"></label><label>Email<input id="fE" type="email" autocomplete="email" value="${esc(d.email)}"></label><label>Phone, optional<input id="fP" type="tel" autocomplete="tel" value="${esc(d.phone)}"></label></div>`;
+        const sync = () => { d.name = $("#fN").value.trim(); d.email = $("#fE").value.trim(); d.phone = $("#fP").value.trim(); next.disabled = !(d.name && /.+@.+\..+/.test(d.email)); };
+        B.querySelectorAll("input").forEach(x => x.addEventListener("input", sync)); sync(); next.textContent = "Send to admissions"; }
+      else { B.innerHTML = '<div class="fit__done"><b aria-hidden="true">✓</b><p>Your answers are on their way to admissions. One last step: the enquiry form opens with them filled in, so you only confirm the details.</p></div>'; } };
+    const open = () => { lastFocus = document.activeElement; i = 0; d = {}; render(); fit.hidden = false; requestAnimationFrame(() => fit.classList.add("open")); document.documentElement.classList.add("fit-open"); closeMenu(); EW.lenis && EW.lenis.stop(); setTimeout(() => T.focus(), 60); };
+    const close = () => { fit.classList.remove("open"); document.documentElement.classList.remove("fit-open"); EW.lenis && EW.lenis.start(); setTimeout(() => { fit.hidden = true; }, 350); lastFocus && lastFocus.focus && lastFocus.focus(); };
+    next.addEventListener("click", () => { if (steps[i].f === "contact") { const q = ["role", "age", "goal", "timing", "name", "email", "phone"].map(k => k + "=" + encodeURIComponent(d[k] || "")).join("&"); i++; render(); setTimeout(() => { location.href = TF + "#" + q; }, 1600); return; } if (i < steps.length - 1) { i++; render(); T.focus(); } });
+    back.addEventListener("click", () => { if (i > 0) { i--; render(); T.focus(); } });
+    document.addEventListener("click", e => { if (e.target.closest("[data-fit]")) { e.preventDefault(); open(); } else if (e.target.closest("[data-fit-close]") || e.target === fit) close(); });
+    addEventListener("keydown", e => { if (fit.hidden) return; if (e.key === "Escape") close();
+      if (e.key === "Tab") { const f = [...fit.querySelectorAll("button:not([disabled]):not([hidden]),input")].filter(x => x.offsetParent); if (!f.length) return; const a = f[0], z = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } } });
+    if (location.hash === "#fit") addEventListener("load", () => setTimeout(open, 400));
+  }
+
   /* one loop: nav theme and hide, then every page system */
   const nav = $("#nav"), darks = $$("[data-dark]").filter(d => !d.classList.contains("menu")); let lastY = scrollY;
   const loop = () => { const vh = innerHeight, y = scrollY, dy = y - lastY;
