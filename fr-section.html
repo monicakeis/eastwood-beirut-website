@@ -2,188 +2,166 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" type="image/png" href="assets/v2/favicon.png">
-<link rel="canonical" href="https://www.eastwoodis.com/fr-section.html">
-<meta property="og:title" content="Section Française, Eastwood International School">
-<meta property="og:description" content="La Section Française d'Eastwood International School, le Programme Primaire de l'IB intégralement en français, de la maternelle au PEI 4.">
-<meta name="description" content="La Section Française d'Eastwood International School, le Programme Primaire de l'IB intégralement en français, de la maternelle au PEI 4.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000077">
-<title>Section Française, Eastwood International School</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/v3/eis-v3.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22150%20107%20290%20315%22%3E%3Cg%20fill%3D%22%2300B2A9%22%3E%3Cpath%20d%3D%22M%20439.46875%20159.539062%20L%20439.46875%20107.402344%20L%20294.757812%20183.398438%20L%20294.757812%20235.535156%20Z%20M%20439.46875%20159.539062%20%22/%3E%3Cpath%20d%3D%22M%20294.757812%20328.394531%20L%20439.46875%20252.402344%20L%20439.46875%20200.261719%20L%20294.757812%20276.257812%20Z%20M%20294.757812%20328.394531%20%22/%3E%3Cpath%20d%3D%22M%20439.46875%20306%20L%20439.46875%20293.257812%20L%20294.757812%20369.117188%20L%20210.105469%20324.664062%20C%20199.042969%20318.855469%20196.210938%20314.195312%20196.210938%20301.671875%20L%20196.210938%20183.398438%20L%20294.757812%20183.398438%20L%20294.757812%20137.238281%20L%20150.050781%20137.238281%20L%20150.050781%20306%20C%20150.050781%20308.140625%20149.972656%20316.65625%20150.792969%20321.542969%20C%20152.917969%20334.230469%20159.511719%20345.738281%20169.324219%20353.976562%20C%20174.085938%20357.976562%20181.292969%20361.667969%20187.390625%20364.871094%20L%20294.757812%20421.253906%20L%20402.128906%20364.871094%20C%20408.226562%20361.667969%20415.4375%20357.976562%20420.195312%20353.976562%20C%20430.007812%20345.738281%20436.601562%20334.230469%20438.726562%20321.542969%20C%20439.546875%20316.65625%20439.46875%20308.140625%20439.46875%20306%20%22/%3E%3C/g%3E%3C/svg%3E">
+<script>try{if(sessionStorage.getItem("ew-pt")){document.documentElement.classList.add("pt");sessionStorage.removeItem("ew-pt")}}catch(e){}</script>
+<link rel="stylesheet" href="assets/eis26/site.css?v=1794837062">
+<title>Section Française · Eastwood International School</title>
+<meta name="description" content="Le Programme primaire de l'IB, entièrement en français. Eastwood International School, Mansourieh, est la seule école de la région à le proposer.">
+<meta property="og:title" content="Section Française · Eastwood International School">
+<meta property="og:description" content="Le Programme primaire de l'IB, entièrement en français.">
+<meta property="og:image" content="assets/eis26/og.jpg">
 <style>
-.fr2-why{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-areas:"a a b" "c d e";gap:16px}
-.fr2-why>:nth-child(1){grid-area:a;display:flex;flex-direction:column;justify-content:center}
-.fr2-why>:nth-child(1) h3{font-size:24px}
-.fr2-why>:nth-child(1) p{font-size:15px}
-.fr2-why>:nth-child(2){grid-area:b}
-.fr2-why>:nth-child(3){grid-area:c}
-.fr2-why>:nth-child(4){grid-area:d}
-.fr2-why>:nth-child(5){grid-area:e}
-.fr2-why .pcard{height:100%}
-.fr2-why .pcard-photo{height:100%;aspect-ratio:auto}
-@media (max-width:760px){.fr2-why{grid-template-columns:1fr;grid-template-areas:"a" "b" "c" "d" "e"}.fr2-why .pcard-photo{aspect-ratio:4/3}}
-.hero2-collage{max-width:560px}
-.pcard-a{width:88%}
-.pcard-b{width:52%}
-.en-sub2{font-size:13.5px;font-weight:600;letter-spacing:.02em;color:#007E77;margin:8px 0 0}
-.payoff2{padding:clamp(48px,7vw,84px) 0;text-align:center}
-.payoff2-line{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,4.4vw,48px);line-height:1.2;color:var(--deep);max-width:24ch;margin:0 auto}
+/* Section Française. Signature: one switch turns the whole page between French and English. */
+.fh{position:relative;padding:clamp(130px,22vh,220px) var(--pad) clamp(60px,10vh,100px)}
+.fh h1{font-size:var(--h1);color:var(--deep);max-width:13ch}
+.fh__row{margin-top:clamp(32px,6vh,64px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end;border-top:1px solid var(--line);padding-top:22px}
+.fh__row .lede{grid-column:1 / span 6}
+.lang{grid-column:10 / span 3;justify-self:end;position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.lang button{all:unset;cursor:pointer;position:relative;z-index:1;padding:11px 20px;font:600 14px/1 var(--sans);text-align:center;color:var(--soft);transition:color .4s}
+.lang button[aria-pressed="true"]{color:#fff}
+.lang button:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:999px}
+.lang i{position:absolute;z-index:0;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--rasp);transition:transform .55s cubic-bezier(.23,1,.32,1)}
+.lang[data-l="en"] i{transform:translateX(100%)}
+[data-t]{transition:opacity .35s,transform .45s var(--ease)}
+.swapping [data-t]{opacity:0;transform:translateY(8px)}
+@media (max-width:860px){.fh h1{font-size:12vw}.fh__row{grid-template-columns:minmax(0,1fr);row-gap:24px}.fh__row .lede,.lang{grid-column:auto;justify-self:start}}
+
+/* the photograph, full bleed, with the line that matters */
+.fp{position:relative;height:clamp(420px,86vh,860px);overflow:hidden;background:#2a2340}
+.fp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%;transform:scale(var(--s,1.12))}
+.fq{padding:clamp(60px,10vh,110px) var(--pad) 0}
+.fq p{font:500 italic clamp(30px,4.2vw,76px)/1.06 var(--serif);color:var(--rasp);max-width:20ch}
+
+/* three reasons */
+.rs{padding:clamp(90px,15vh,170px) var(--pad)}
+.rs h2{font-size:var(--h2);color:var(--deep)}
+.rs ol{list-style:none;margin-top:clamp(40px,8vh,90px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g);border-top:1px solid var(--ink)}
+.rs li{padding-top:24px}
+.rs .n{display:block;font:900 clamp(72px,8vw,150px)/.8 var(--disp);letter-spacing:-.07em;color:var(--rasp)}
+.rs h3{margin-top:22px;font:600 19px/1.3 var(--sans);color:var(--ink)}
+.rs p{margin-top:8px;font:400 15px/1.55 var(--sans);color:var(--soft);max-width:34ch}
+@media (max-width:860px){.rs h2{font-size:12.4vw}.rs ol{grid-template-columns:minmax(0,1fr);row-gap:40px}}
+
+/* the numbers, with their source */
+.fn{margin:0 var(--pad);padding:clamp(36px,5vw,72px);border-radius:14px;background:var(--rasp);color:#fff;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--g)}
+.fn .k{display:block;font:900 clamp(96px,13vw,240px)/.8 var(--disp);letter-spacing:-.07em;font-variant-numeric:tabular-nums}
+.fn p{margin-top:16px;font:500 16px/1.4 var(--sans);max-width:28ch}
+.fn small{grid-column:1 / -1;font:400 13px/1.4 var(--sans);color:rgba(255,255,255,.82);border-top:1px solid rgba(255,255,255,.3);padding-top:16px;margin-top:12px}
+@media (max-width:760px){.fn{grid-template-columns:minmax(0,1fr);row-gap:36px}.fn .k{font-size:30vw}}
+
+/* the programme */
+.pp{padding:clamp(90px,15vh,170px) var(--pad);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end}
+.pp h2{grid-column:1 / span 7;font-size:var(--h2);color:var(--deep)}
+.pp p{grid-column:9 / span 4;font:400 17px/1.6 var(--sans);color:var(--soft)}
+.pp .arrow{grid-column:9 / span 4;justify-self:start;color:var(--deep)}
+@media (max-width:860px){.pp{grid-template-columns:minmax(0,1fr);row-gap:22px}.pp h2,.pp p,.pp .arrow{grid-column:auto}.pp h2{font-size:12.4vw}}
+@media (prefers-reduced-motion:reduce){[data-t],.lang i{transition:none}}
 </style>
 </head>
-<body>
-<a class="skip-link" href="#top">Skip to content</a>
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo" aria-label="Eastwood International School"><img src="assets/v2/logo-color.png" alt="Eastwood International School"></a>
-    <nav class="nav-links">
-      <a class="nav-link" href="index.html#why">Why us</a>
-      <a class="nav-link" href="index.html#programs">Programs</a>
-      <a class="nav-link" href="index.html#campuses">Campuses</a>
-      <a class="nav-link" href="index.html#tuition">Tuition</a>
-      <a class="nav-link" href="index.html#testimonials">Families</a>
-    </nav>
-    <div class="nav-cta">
-      <a href="contact.html" class="btn btn--ghost">Book a tour</a>
-      <a href="admissions.html" class="btn btn--dark">Enquire now <span class="arrow">→</span></a>
-    </div>
-  </div>
+<body data-page="fr">
+<a class="skip" href="#main">Skip to content</a>
+<div class="curtain" aria-hidden="true"></div>
+<div class="cur" id="cur" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <a class="nav__logo" href="index.html" aria-label="Eastwood International School, home"><img class="lc" src="assets/eis26/logo-colour.png" alt="" width="500" height="120"><img class="lw" src="assets/eis26/logo-white.png" alt="" width="500" height="120"></a>
+  <nav class="nav__links" aria-label="Primary"><a data-p="learning" href="learning.html">Learning</a><a data-p="life" href="life.html">Life</a><a data-p="about" href="about.html">About</a><a data-p="admissions" href="admissions.html">Admissions</a><a data-p="fr" aria-current="page" href="fr-section.html" lang="fr" aria-label="Section Française">FR</a></nav>
+  <div class="nav__end"><a class="nav__cta" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a><button class="nav__menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button></div>
 </header>
-<main id="top">
-  <section class="sec hero-sec" data-screen-label="Section Française hero">
-    <div class="wrap hero2-grid">
-      <div>
-        <span class="chip chip--sky">Section Française</span>
-        <span class="chip chip--outline" style="margin-left:8px">De la maternelle au PEI 4</span>
-        <h1 class="t-h1" style="margin-top:18px;font-size:clamp(32px,4.6vw,64px)">Le Programme Primaire<br>de l'IB, en français.</h1>
-        <p class="en-sub2">The full IB pathway in French, from early years through MYP year 4.</p>
-        <p class="lede" style="max-width:50ch">La seule école de la région à le proposer. Un parcours francophone continu, de la maternelle jusqu'au PEI 4 (environ 14 à 15 ans), à travers le Programme Primaire et le Programme d'Éducation Intermédiaire de l'IB.</p>
-        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px">
-          <a href="contact.html" class="btn btn--ghost">Réservez une visite</a>
-          <a href="admissions.html" class="btn btn--dark">Postulez <span class="arrow">→</span></a>
-        </div>
-      </div>
-      <div class="hero2-collage" data-reveal-group>
-        <div class="pcard pcard-a reveal2" data-tilt="-3" style="--rf:-8deg;--rt:-3deg;z-index:2">
-          <div class="pcard-photo"><img src="assets/pyp/fr-montessori-girl.png" alt="Élève travaillant avec des matériaux Montessori"></div>
-          <span class="chip chip--sky chip--pop" style="bottom:14px;left:14px">Dès 3 ans</span>
-        </div>
-        <div class="pcard pcard-b reveal2" data-tilt="4" style="--rf:10deg;--rt:4deg;z-index:1">
-          <div class="pcard-photo"><img src="assets/pyp/fr-blocks.png" alt="Enfants explorant avec des cubes Montessori" loading="lazy"></div>
-        </div>
-      </div>
+<div class="menu" id="menu" aria-hidden="true" data-dark>
+  <ol>
+    <li><a href="learning.html">Learning <small>Ages 3 to 18</small></a></li>
+    <li><a href="life.html">Life <small>On campus</small></a></li>
+    <li><a href="about.html">About <small>Since 1983</small></a></li>
+    <li><a href="admissions.html">Admissions <small>Open all year</small></a></li>
+    <li><a href="fr-section.html" lang="fr">Français <small>Section Française</small></a></li>
+  </ol>
+  <div class="menu__foot"><a class="pill pill--w" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a><span>Sami Solh Street, Mansourieh el Metn<br><a href="tel:+9614409307">+961 4 409 307</a></span></div>
+</div>
+
+<main id="main">
+  <section class="fh" aria-labelledby="fh-h">
+    <h1 id="fh-h" class="d" data-t data-en="The IB Primary Years Programme, in French.">Le Programme primaire de l'IB, en français.</h1>
+    <div class="fh__row">
+      <p class="lede" data-t data-en="Eastwood International School is the only school in the region to teach the IB Primary Years Programme entirely in French, from the first years of school to the end of primary.">Eastwood International School est la seule école de la région à proposer le Programme primaire de l'IB entièrement en français, des premières années jusqu'à la fin du primaire.</p>
+      <div class="lang" id="lang" data-l="fr" role="group" aria-label="Langue de la page / Page language"><i aria-hidden="true"></i><button type="button" data-l="fr" aria-pressed="true" lang="fr">Français</button><button type="button" data-l="en" aria-pressed="false" lang="en">English</button></div>
     </div>
   </section>
 
-  <section class="sec" data-screen-label="Pourquoi le français">
-    <div class="wrap">
-      <div class="sec-h">
-        <span class="chip chip--outline">Pourquoi le Français</span>
-        <h2 class="t-h2" style="margin-top:16px">Trois raisons qui <span class="pop">ne changent pas.</span></h2>
-        <p class="en-sub2">Why French</p>
-      </div>
-      <div class="fr2-why" data-reveal-group>
-        <div class="why2-card reveal2" style="background:var(--teal)"><h3>Un héritage vivant.</h3><p>Le français fait partie de l'histoire et de l'identité du Liban, et demeure l'une de ses langues officielles.</p></div>
-        <div class="pcard reveal2"><div class="pcard-photo"><img loading="lazy" src="assets/pyp/fr-hero.png" alt="Élèves d'Eastwood International School célébrant la Francophonie"></div></div>
-        <div class="why2-card reveal2" style="background:var(--sky)"><h3 style="font-size:19px">Une langue mondiale.</h3><p style="font-size:14px">Plus de 300 millions de francophones aujourd'hui, et près de 750 millions attendus d'ici 2050.</p></div>
-        <div class="why2-card reveal2" style="background:var(--yellow)"><h3 style="font-size:19px">Un accès et un pouvoir.</h3><p style="font-size:14px">Maîtriser le français ouvre les portes des affaires, des sciences et des plus grandes universités du monde.</p></div>
-        <div class="pcard reveal2"><div class="pcard-photo"><img loading="lazy" src="assets/pyp/fr-trophies.png" alt="Élèves de la Section Française lors d'une fête de l'école"></div></div>
-      </div>
-    </div>
+  <figure class="fp">
+    <img src="assets/eis26/c-fr.webp" alt="" aria-hidden="true">
+  </figure>
+  <blockquote class="fq" data-reveal><p data-t data-en="Learning in two languages is growing up in two worlds.">Apprendre dans deux langues, c'est grandir dans deux mondes.</p></blockquote>
+
+  <section class="rs" aria-labelledby="rs-h">
+    <h2 id="rs-h" class="d" data-t data-en="Three reasons that do not change.">Trois raisons<br> qui ne changent pas.</h2>
+    <ol>
+      <li data-reveal><span class="n" aria-hidden="true">1</span><h3 data-t data-en="A living heritage.">Un héritage vivant.</h3><p data-t data-en="French is part of Lebanon's history and identity, and of daily life in the country.">Le français fait partie de l'histoire et de l'identité du Liban, et de sa vie de tous les jours.</p></li>
+      <li data-reveal><span class="n" aria-hidden="true">2</span><h3 data-t data-en="A world language.">Une langue mondiale.</h3><p data-t data-en="Spoken on every continent, and now the fourth most spoken language in the world.">Parlée sur tous les continents, et désormais la quatrième langue la plus parlée au monde.</p></li>
+      <li data-reveal><span class="n" aria-hidden="true">3</span><h3 data-t data-en="A language that opens doors.">Une langue qui ouvre des portes.</h3><p data-t data-en="To business, to science, and to the great universities of the French-speaking world.">Celles des affaires, des sciences et des grandes universités du monde francophone.</p></li>
+    </ol>
   </section>
 
-  <section class="sec">
-    <div class="wrap">
-      <div class="fr2-feature on-dark reveal2">
-        <div>
-          <span class="chip chip--teal">Le Programme</span>
-          <p class="en-sub2" style="color:rgba(255,255,255,.7)">The complete programme, in French from the start</p>
-          <h2 class="t-h2" style="margin-top:16px">Le PP, intégralement<br>en français.</h2>
-          <p style="margin-top:14px;max-width:44ch;opacity:.85">Un apprentissage par la recherche, transdisciplinaire, qui place l'enfant au centre. Le cycle maternel s'appuie sur la pédagogie Montessori, en parallèle du Programme Primaire de l'IB.</p>
-        </div>
-        <div class="pcard"><div class="pcard-photo"><img loading="lazy" src="assets/pyp/fr-writing.png" alt="Enfant travaillant avec des matériaux Montessori dans la Section Française"></div></div>
-      </div>
-    </div>
+  <section class="fn" aria-label="Le français dans le monde" data-reveal>
+    <div><span class="k" data-count="396">396</span><p data-t data-en="million French speakers in the world today.">millions de francophones dans le monde aujourd'hui.</p></div>
+    <div><span class="k" data-count="170">170</span><p data-t data-en="million people learning French, the second most learned foreign language.">millions d'apprenants, ce qui en fait la deuxième langue étrangère la plus apprise.</p></div>
+    <small data-t data-en="Source: International Organisation of La Francophonie, La langue française dans le monde, 2026.">Source : Organisation internationale de la Francophonie, La langue française dans le monde, 2026.</small>
   </section>
 
-  <section class="payoff2">
-    <div class="wrap"><p class="payoff2-line">Apprendre dans deux langues, c'est grandir dans <span class="pop">deux mondes.</span></p></div>
+  <section class="pp" aria-labelledby="pp-h">
+    <h2 id="pp-h" class="d" data-t data-en="The PYP, entirely in French.">Le PP, intégralement<br> en français.</h2>
+    <p data-reveal data-t data-en="Inquiry-led and transdisciplinary, with the child at the centre. In the early years, Montessori-inspired teaching works alongside the IB Primary Years Programme, inside the same framework as the English section.">Un apprentissage par la recherche, transdisciplinaire, qui place l'enfant au centre. En maternelle, la pédagogie Montessori accompagne le Programme primaire de l'IB, dans le même cadre que la section anglophone.</p>
+    <a class="arrow" href="learning.html#elementary" data-t data-en="See every stage, ages 3 to 18">Toutes les étapes, de 3 à 18 ans <i>→</i></a>
   </section>
 
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <div class="fr2-feature on-dark reveal2">
-        <div>
-          <span class="chip chip--teal">Visites disponibles toute l'année</span>
-          <span class="chip chip--outline" style="background:transparent;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5);color:#fff;margin-left:8px">Dès 3 ans</span>
-          <h2 class="t-h2" style="margin-top:16px">Venez le découvrir.</h2>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
-            <a href="contact.html" class="btn btn--ghost">Réservez une visite</a>
-            <a href="admissions.html" class="btn btn--teal">Postulez <span class="arrow">→</span></a>
-          </div>
-        </div>
-        <div class="pcard"><div class="pcard-photo"><img loading="lazy" src="assets/pyp/fr-trophies.png" alt="Élèves de la Section Française lors d'une fête de l'école"></div></div>
-      </div>
+  <section class="close" data-dark aria-labelledby="cl-h">
+    <h2 id="cl-h" class="d" data-t data-en="Come and see it.">Venez le découvrir.</h2>
+    <div class="close__row">
+      <div class="close__cta" data-reveal><a class="pill pill--w" href="admissions.html#visit" data-t data-en="Book a visit">Réserver une visite</a><a class="pill pill--o" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener" data-t data-en="Enquire">Nous écrire</a></div>
+      <div class="close__info" data-reveal><b data-t data-en="Admissions are open all year.">Les inscriptions sont ouvertes toute l'année.</b>Sami Solh Street, Mansourieh el Metn<br><a href="tel:+9614409307">+961 4 409 307</a> · <a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></div>
     </div>
   </section>
 </main>
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <a href="index.html" class="logo" aria-label="Eastwood International School"><img src="assets/v2/logo-color.png" alt="Eastwood International School"></a>
-        <p class="footer-brand-tag">Beirut's leading International Baccalaureate World School. Part of Eastwood Schools.</p>
-        <div class="footer-address">Sami Solh Street<br>Mansourieh el Metn, Beirut, Lebanon<br>+961 4 409307 · info@eastwoodschools.com</div>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/eastwoodschools" target="_blank" rel="noopener" aria-label="Eastwood on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/eastwoodschools" target="_blank" rel="noopener" aria-label="Eastwood on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.55.45-1 1-1z"/></svg></a>
-          <a href="https://www.linkedin.com/company/eastwoodschools" target="_blank" rel="noopener" aria-label="Eastwood on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.75-1.95 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.27-.03-2.9-1.77-2.9-1.78 0-2.05 1.38-2.05 2.8V21h-4z"/></svg></a>
-          <a href="https://www.tiktok.com/@eastwoodis" target="_blank" rel="noopener" aria-label="Eastwood on TikTok"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M16.5 3c.3 2.1 1.6 3.8 3.5 4.2v2.6c-1.3.1-2.5-.3-3.6-1v5.9c0 3.2-2.4 5.6-5.5 5.6-3 0-5.4-2.3-5.4-5.3 0-3 2.4-5.3 5.4-5.3.3 0 .6 0 .9.1v2.8c-.3-.1-.6-.2-.9-.2-1.4 0-2.5 1.1-2.5 2.6 0 1.4 1.1 2.5 2.5 2.5 1.5 0 2.7-1.1 2.7-2.9V3h2.4z"/></svg></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <div class="footer-h">Programs</div>
-        <a href="ib-early-years.html">Early Years</a>
-        <a href="fr-section.html" aria-current="page">French Section</a>
-        <a href="ib-elementary.html">Elementary</a>
-        <a href="ib-myp.html">Middle School</a>
-        <a href="high-school.html">High School</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-h">Enroll</div>
-        <a href="admissions.html">Enquire now</a>
-        <a href="contact.html">Book a tour</a>
-        <a href="index.html#tuition">Tuition</a>
-        <a href="index.html#testimonials">Families</a>
-        <a href="contact.html">Contact</a>
-        <a href="assets/EIS_Academic_Calendar_2026-27_Print_A4.pdf" target="_blank" rel="noopener">Academic Calendar<br>2026-27</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-h">About</div>
-        <a href="about.html">About Eastwood</a>
-        <a href="student-life.html">Student Life</a>
-        <a href="beirut-guide.html">Beirut Guide</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-h">Campuses</div>
-        <a href="https://www.eastwoodmontreux.ch" target="_blank" rel="noopener">Eastwood Montreux</a>
-        <a href="https://www.eastwood.global" target="_blank" rel="noopener">Eastwood Global</a>
-        <a href="https://www.eastwoodis.com" target="_blank" rel="noopener">Eastwood International School</a>
-        <a href="https://www.eastwoodnova.com" target="_blank" rel="noopener">Eastwood Nova</a>
-        <a href="https://www.eastwoodcollege.com" target="_blank" rel="noopener">Eastwood College Kafarshima</a>
-        <a href="https://www.eastwooderbil.com" target="_blank" rel="noopener">Eastwood Erbil</a>
-        <a href="https://www.lislagos.com" target="_blank" rel="noopener">Lebanese International School Lagos</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 Eastwood International School. All rights reserved.</div>
-      <div class="footer-meta"><a href="careers.html">Careers</a><a href="news.html">News</a><a href="privacy.html">Privacy</a></div>
-    </div>
+
+<footer class="footer" data-dark>
+  <video muted loop playsinline preload="none" poster="assets/eis26/f-olive.webp" data-src="assets/eis26/v-olive.mp4" aria-hidden="true"></video>
+  <div class="footer__top">
+    <nav aria-label="Footer">
+      <a href="learning.html">Learning</a><a href="learning.html#early-years">Early Years</a><a href="learning.html#elementary">Elementary</a>
+      <a href="fr-section.html" lang="fr">Section Française</a><a href="learning.html#middle-school">Middle School</a><a href="learning.html#diploma">Diploma years</a>
+      <a href="life.html">Life</a><a href="about.html">About</a><a href="about.html#careers">Careers</a>
+      <a href="admissions.html">Admissions</a><a href="admissions.html#visit">Visit</a><a href="privacy.html">Privacy</a>
+    </nav>
+    <address>Eastwood International School<br>Sami Solh Street<br>Mansourieh el Metn, Lebanon</address>
+  </div>
+  <div>
+    <p class="footer__line">From curriculum to culture, from theory to real life.</p>
+    <p class="footer__big d" aria-hidden="true">Eastwood</p>
+    <div class="footer__base"><span>Part of Eastwood Schools</span><span>© 2026 Eastwood Schools</span></div>
   </div>
 </footer>
-<script src="assets/v3/eis-v3-motion.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+<script src="assets/eis26/site.js?v=1794837062"></script>
+<script>
+(() => {
+  const { reduced, $, $$, clamp } = EW;
+  /* one switch, the whole page: French by default, English on request, remembered on this device */
+  const box = $("#lang"), btns = $$("#lang button"), ts = $$("[data-t]");
+  ts.forEach(el => { el.dataset.fr = el.innerHTML; el.dataset.enh = el.dataset.en + (el.querySelector("i") ? " <i>→</i>" : ""); });
+  const set = (l, anim) => { box.dataset.l = l; btns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === l))); document.documentElement.lang = l;
+    const apply = () => { ts.forEach(el => { el.innerHTML = l === "en" ? el.dataset.enh : el.dataset.fr; el.lang = l; }); document.body.classList.remove("swapping"); };
+    if (anim && !reduced) { document.body.classList.add("swapping"); setTimeout(apply, 260); } else apply();
+    try { localStorage.setItem("ew-fr-lang", l); } catch (_) {} };
+  btns.forEach(b => b.addEventListener("click", () => set(b.dataset.l, true)));
+  let saved = "fr"; try { saved = localStorage.getItem("ew-fr-lang") || "fr"; } catch (_) {}
+  if (saved === "en") set("en", false);
+  /* the photograph settles as it arrives */
+  const fp = $(".fp");
+  EW.onFrame(({ vh }) => { if (reduced) return; const r = fp.getBoundingClientRect(); const t = clamp((vh - r.top) / (vh + r.height)); fp.style.setProperty("--s", (1.14 - .14 * t).toFixed(4)); });
+})();
+</script>
 </body>
 </html>

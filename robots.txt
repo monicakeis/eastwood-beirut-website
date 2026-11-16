@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /src/
+Disallow: /_internal/
+Sitemap: https://www.eastwoodis.com/sitemap.xml

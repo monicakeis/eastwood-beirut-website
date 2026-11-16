@@ -1,0 +1,27 @@
+# Old pages, folded into the new site (v6, November 2026)
+/ib-early-years.html  /learning#early-years    301
+/ib-early-years       /learning#early-years    301
+/ib-elementary.html   /learning#elementary     301
+/ib-elementary        /learning#elementary     301
+/ib-pyp.html          /learning#elementary     301
+/ib-pyp               /learning#elementary     301
+/ib-myp.html          /learning#middle-school  301
+/ib-myp               /learning#middle-school  301
+/high-school.html     /learning#diploma        301
+/high-school          /learning#diploma        301
+/ib-dp.html           /learning#diploma        301
+/ib-dp                /learning#diploma        301
+/student-life.html    /life                    301
+/student-life         /life                    301
+/news.html            /life                    301
+/news                 /life                    301
+/careers.html         /about#careers           301
+/careers              /about#careers           301
+/contact.html         /admissions#visit        301
+/contact              /admissions#visit        301
+/beirut-guide.html    /admissions#moving       301
+/beirut-guide         /admissions#moving       301
+/legacy-index.html    /                        301
+/uploads/EIS-2026-27-Tuition-Fees.pdf  /uploads/Eastwood-International-School-Tuition-2026-2027.pdf  301
+/src/*                /                        302
+/_internal/*          /                        302
