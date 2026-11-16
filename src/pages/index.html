@@ -1,73 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{{HEAD}}
 <title>Eastwood International School · Mansourieh, Lebanon</title>
 <meta name="description" content="Eastwood International School, Mansourieh, Lebanon. An IB World School for ages 3 to 18, home to the only IB PYP French Section in the region.">
-<meta name="theme-color" content="#000077">
 <meta property="og:title" content="Eastwood International School">
 <meta property="og:description" content="Inspire. Create. Innovate. An IB World School for ages 3 to 18 in Mansourieh, Lebanon.">
 <meta property="og:image" content="assets/eis26/og.jpg">
-<link rel="icon" type="image/svg+xml" href="__FAVICON__">
-<!--FONTS-->
 <style>
-/*FONTFACE-START*/
-@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.ttf) format("truetype")}
-@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.ttf) format("truetype")}
-@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.ttf) format("truetype")}
-@font-face{font-family:"Inter Tight";font-weight:800;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter-tight@latest/latin-800-normal.ttf) format("truetype")}
-@font-face{font-family:"Inter Tight";font-weight:900;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter-tight@latest/latin-900-normal.ttf) format("truetype")}
-@font-face{font-family:"Bodoni Moda";font-style:italic;font-weight:500;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/bodoni-moda@latest/latin-500-italic.ttf) format("truetype")}
-/*FONTFACE-END*/
-/* Eastwood International School, homepage v5.
-   Systems: time machine from the Eastwood Schools network site; scroll-expand aperture and scroll-stack
-   behaviour after HorizonX components; editorial motion after the HorizonX ELLISON template (licensed). */
-:root{
-  --deep:#000077; --teal:#00B2A9; --ink:#14143A; --paper:#FAFAF7;
-  --yellow:#F0B323; --grass:#6CC24A; --rasp:#D0006F; --sky:#00AFD7;
-  --soft:rgba(20,20,58,.62); --mute:rgba(20,20,58,.3); --line:rgba(20,20,58,.14);
-  --sans:"Inter",system-ui,sans-serif; --disp:"Inter Tight","Inter",system-ui,sans-serif; --serif:"Bodoni Moda",Georgia,serif;
-  --pad:clamp(20px,4.4vw,64px); --g:clamp(12px,1.6vw,24px); --ease:cubic-bezier(.2,.7,.1,1);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html.lenis,html.lenis body{height:auto}
-.lenis.lenis-smooth{scroll-behavior:auto!important}
-body{background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-main{overflow-x:clip}
-img,video{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
-::selection{background:var(--teal);color:#fff}
-.d{font-family:var(--disp);font-weight:900;letter-spacing:-.055em;line-height:.9}
-.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.14em .09em .2em;margin:-.14em -.09em -.2em}
-.wi{display:inline-block}
-.dim{color:var(--mute)}
-.on-dark .dim,[data-dark] .dim{color:rgba(255,255,255,.42)}
-.hero .dim{color:rgba(255,255,255,.78)}
-br.ph{display:none}
-@media (max-width:760px){br.ph{display:inline}br.dk{display:none}}
-.pill{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:999px;font:500 15px/1 var(--sans);transition:background .4s,color .4s,border-color .4s;white-space:nowrap}
-.pill--w{background:#fff;color:var(--deep)}.pill--w:hover{background:var(--teal);color:#fff}
-.pill--o{border:1px solid rgba(255,255,255,.45);color:#fff}.pill--o:hover{background:#fff;color:var(--deep);border-color:#fff}
-
-/* nav */
-.nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px var(--pad);color:var(--ink);font:500 14px/1 var(--sans);transition:color .5s,transform .6s var(--ease)}
-.nav::before{content:"";position:absolute;inset:0 0 -30px;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,rgba(250,250,247,.92),rgba(250,250,247,0));transition:opacity .5s}
-.nav.dark{color:#fff}.nav.dark::before{opacity:0}
-.nav.hide{transform:translateY(-110%)}
-.nav__logo{position:relative;display:block;width:clamp(140px,12vw,190px);aspect-ratio:500/120}
-.nav__logo img{position:absolute;inset:0;width:100%;height:100%;transition:opacity .5s}
-.nav__logo .lw{opacity:0}.nav.dark .lw{opacity:1}.nav.dark .lc{opacity:0}
-.nav__links{display:flex;gap:30px}
-.nav__links a{position:relative}
-.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
-.nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
-.nav__cta{border:1px solid currentColor;border-radius:999px;padding:11px 18px;transition:background .4s,color .4s}
-.nav.dark .nav__cta:hover{background:#fff;color:var(--deep)}
-.nav:not(.dark) .nav__cta:hover{background:var(--deep);color:#fff;border-color:var(--deep)}
-@media (max-width:860px){.nav__links{display:none}}
-
+/* Homepage. Systems: time machine from the Eastwood Schools network site; scroll-expand aperture after HorizonX Scroll Expand. */
 /* 01 hero: the film is the first impression */
 .hero{position:relative;height:100vh;height:100svh;min-height:560px;color:#fff;overflow:hidden;background:#1d1a35}
 .hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -186,48 +127,15 @@ br.ph{display:none}
 .marq__row span{font:900 clamp(64px,11vw,210px)/1 var(--disp);letter-spacing:-.065em;color:var(--deep);white-space:nowrap}
 .marq__row span.o{color:transparent;-webkit-text-stroke:1.5px var(--deep)}
 
-/* 08 admissions */
-.adm{position:relative;background:var(--deep);color:#fff;padding:clamp(100px,16vh,180px) var(--pad) clamp(60px,10vh,110px)}
-.adm h2{font-size:clamp(46px,8.6vw,160px)}
-.adm__row{margin-top:clamp(40px,8vh,90px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end}
-.adm__cta{grid-column:1 / span 7;display:flex;gap:10px;flex-wrap:wrap}
-.adm__info{grid-column:9 / span 4;font:400 15px/1.6 var(--sans);color:rgba(255,255,255,.82)}
-.adm__info b{display:block;color:#fff;font-weight:600;margin-bottom:6px}
-.adm__info a{border-bottom:1px solid rgba(255,255,255,.35)}
-@media (max-width:860px){.adm__row{grid-template-columns:minmax(0,1fr);row-gap:36px}.adm__cta,.adm__info{grid-column:auto}.adm h2{font-size:12.4vw}}
-
-/* footer */
-.footer{position:relative;color:#fff;min-height:clamp(560px,92vh,860px);display:flex;flex-direction:column;justify-content:space-between;gap:40px;overflow:hidden;padding:clamp(28px,4vh,48px) var(--pad) 24px;background:#2a2340}
-.footer video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.footer::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,60,.6),rgba(0,0,60,.08) 42%,rgba(0,0,60,.75))}
-.footer>*:not(video){position:relative;z-index:2}
-.footer__top{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);font:500 14px/1.9 var(--sans)}
-.footer__top nav{grid-column:1 / span 6;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 var(--g)}
-.footer__top address{grid-column:9 / span 4;font-style:normal;text-align:right;line-height:1.6;color:rgba(255,255,255,.88)}
-.footer__line{font:500 italic clamp(26px,3.2vw,56px)/1.08 var(--serif);max-width:22ch}
-.footer__big{font-size:clamp(72px,20vw,400px);line-height:.78;white-space:nowrap}
-.footer__base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:500 12px/1 var(--sans);color:rgba(255,255,255,.72);border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
-@media (max-width:760px){.footer__top nav{grid-column:1 / -1;grid-template-columns:repeat(2,minmax(0,1fr))}.footer__top address{grid-column:1 / -1;text-align:left}.footer__big{font-size:21vw}}
-
-/* cursor */
-.cur{position:fixed;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:90;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease)}
-.cur.big{width:60px;height:60px;margin:-30px 0 0 -30px}
-@media (hover:none),(pointer:coarse){.cur{display:none}}
 @media (prefers-reduced-motion:reduce){.stmt{height:auto}.stmt__in{position:relative;height:auto;padding:20vh var(--pad)}.stmt p .sw{opacity:1}.ap{height:auto}.ap__stage{position:relative}.ap__frame{clip-path:none}.ap__copy{opacity:1;transform:none}}
 </style>
 </head>
-<body>
-<div class="cur" id="cur" aria-hidden="true"></div>
+<body data-page="home">
+{{NAV}}
 <div class="peek" id="peek" aria-hidden="true"><img src="assets/eis26/d-ib.webp" alt="" data-k="0"><img src="assets/eis26/d-us.webp" alt="" data-k="1"><img src="assets/eis26/d-lb.webp" alt="" data-k="2"></div>
 
-<header class="nav" id="nav">
-  <a class="nav__logo" href="#top" aria-label="Eastwood International School, home"><img class="lc" src="assets/eis26/logo-colour.png" alt="" width="500" height="120"><img class="lw" src="assets/eis26/logo-white.png" alt="" width="500" height="120"></a>
-  <nav class="nav__links" aria-label="Primary"><a href="#learning">Learning</a><a href="#life">Life</a><a href="#pathways">Pathways</a><a href="#admissions">Admissions</a></nav>
-  <a class="nav__cta" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a>
-</header>
-
-<main id="top">
-  <section class="hero" data-dark aria-label="Eastwood International School">
+<main id="main">
+  <section class="hero" data-dark data-noreveal aria-label="Eastwood International School">
     <img class="poster" src="assets/eis26/s-hill.webp" alt="" aria-hidden="true">
     <video muted loop playsinline autoplay preload="auto" poster="assets/eis26/s-hill.webp" aria-hidden="true"><source src="assets/eis26/v-hill.mp4" type="video/mp4"></video>
     <div class="hero__in">
@@ -240,19 +148,19 @@ br.ph{display:none}
     <div class="stmt__in"><p id="stmt">An education as unique as your child. Fifteen years on one campus, from a first classroom to the IB Diploma, in English and in French.</p></div>
   </section>
 
-  <section class="tm" id="learning" data-dark aria-labelledby="tm-h">
+  <section class="tm" id="learning" data-dark data-noreveal aria-labelledby="tm-h">
     <div class="tm-stage">
       <div class="tm-head"><h2 id="tm-h" class="d split">Three to<br class="ph"> eighteen. <span class="dim" style="display:block">One campus.</span></h2></div>
       <div class="tm-space" id="tmSpace">
         <article class="tm-card" style="--sc:var(--yellow)">
           <div class="ph"><video muted loop playsinline preload="none" poster="assets/eis26/c-ey.webp" data-src="assets/eis26/v-ey.mp4" aria-hidden="true"></video></div>
           <div class="top"><b>Ages 3 to 6</b><span>IB Primary Years Programme</span></div>
-          <div class="body"><h3 class="d split">Early Years</h3><div class="sub"><b>Learning begins in the hands.</b>Montessori-inspired, in English or in French.<br><a class="enter" href="ib-early-years.html">Explore Early Years</a></div></div>
+          <div class="body"><h3 class="d split">Early Years</h3><div class="sub"><b>Learning begins in the hands.</b>Montessori-inspired, in English or in French.<br><a class="enter" href="learning.html#early-years">Explore Early Years</a></div></div>
         </article>
         <article class="tm-card" style="--sc:var(--grass)">
           <div class="ph"><img src="assets/eis26/c-el.webp" alt="A child's hands drawing a map of rivers and mountains" loading="lazy"></div>
           <div class="top"><b>Ages 6 to 11</b><span>IB Primary Years Programme</span></div>
-          <div class="body"><h3 class="d split">Elementary</h3><div class="sub"><b>Curiosity sets the pace.</b>Inquiry first, subjects second.<br><a class="enter" href="ib-elementary.html">Explore Elementary</a></div></div>
+          <div class="body"><h3 class="d split">Elementary</h3><div class="sub"><b>Curiosity sets the pace.</b>Inquiry first, subjects second.<br><a class="enter" href="learning.html#elementary">Explore Elementary</a></div></div>
         </article>
         <article class="tm-card" style="--sc:var(--rasp)">
           <div class="ph"><img src="assets/eis26/c-fr.webp" alt="A child's hand writing Bonjour in a French school notebook" loading="lazy" style="object-position:40% 50%"></div>
@@ -262,12 +170,12 @@ br.ph{display:none}
         <article class="tm-card" style="--sc:var(--sky)">
           <div class="ph"><img src="assets/eis26/c-ms.webp" alt="A student's hands assembling a laser-cut prototype" loading="lazy"></div>
           <div class="top"><b>Ages 11 to 16</b><span>Design + Technology</span></div>
-          <div class="body"><h3 class="d split">Middle<br> School</h3><div class="sub"><b>Build the idea, then the thing.</b>Concept-based learning, with Design + Technology at its centre.<br><a class="enter" href="ib-myp.html">Explore Middle School</a></div></div>
+          <div class="body"><h3 class="d split">Middle<br> School</h3><div class="sub"><b>Build the idea, then the thing.</b>Concept-based learning, with Design + Technology at its centre.<br><a class="enter" href="learning.html#middle-school">Explore Middle School</a></div></div>
         </article>
         <article class="tm-card" style="--sc:var(--teal)">
           <div class="ph"><video muted loop playsinline preload="none" poster="assets/eis26/c-dp.webp" data-src="assets/eis26/v-caps.mp4" aria-hidden="true"></video></div>
           <div class="top"><b>Ages 16 to 18</b><span>Three diplomas</span></div>
-          <div class="body"><h3 class="d split">Diploma</h3><div class="sub"><b>Ready for what comes next.</b>A 100% IB Diploma pass rate.<br><a class="enter" href="ib-dp.html">Explore the Diploma</a></div></div>
+          <div class="body"><h3 class="d split">Diploma</h3><div class="sub"><b>Ready for what comes next.</b>A 100% IB Diploma pass rate.<br><a class="enter" href="learning.html#diploma">Explore the Diploma</a></div></div>
         </article>
       </div>
       <nav class="tm-rail" aria-label="Stages"><ol>
@@ -292,19 +200,19 @@ br.ph{display:none}
   <section class="num" aria-labelledby="num-h">
     <h2 id="num-h" class="d split">By the<br class="ph"> numbers.</h2>
     <ul class="num__grid">
-      <li><span class="k" data-count="100">100<small>%</small></span><p>IB Diploma pass rate</p></li>
-      <li><span class="k" data-count="2011">2011</span><p>Online learning, with Google and Apple</p></li>
-      <li><span class="k" data-count="2016">2016</span><p>IB World School since</p></li>
-      <li><span class="k word">Platinum</span><p>Best School to Work, T4 Education</p></li>
+      <li data-reveal><span class="k" data-count="100">100<small>%</small></span><p>IB Diploma pass rate</p></li>
+      <li data-reveal><span class="k" data-count="2011">2011</span><p>Online learning, with Google and Apple</p></li>
+      <li data-reveal><span class="k" data-count="2016">2016</span><p>IB World School since</p></li>
+      <li data-reveal><span class="k word">Platinum</span><p>Best School to Work, T4 Education</p></li>
     </ul>
   </section>
 
   <section class="paths" id="pathways" aria-labelledby="pa-h">
-    <div class="paths__head"><h2 id="pa-h" class="d split">Three<br class="dk"> pathways.</h2><p>At sixteen, students choose the diploma that fits where they are going next.</p></div>
+    <div class="paths__head"><h2 id="pa-h" class="d split">Three<br class="dk"> pathways.</h2><p data-reveal>At sixteen, students choose the diploma that fits where they are going next.</p></div>
     <ol class="paths__list">
-      <li><a href="ib-dp.html" data-k="0"><span class="n">01</span><h3>IB Diploma</h3><p>The international pre-university diploma, recognised worldwide.</p><i>→</i></a></li>
-      <li><a href="high-school.html" data-k="1"><span class="n">02</span><h3>American Diploma</h3><p>For US and international university admissions.</p><i>→</i></a></li>
-      <li><a href="high-school.html" data-k="2"><span class="n">03</span><h3>Lebanese Programme</h3><p>In line with the national curriculum framework.</p><i>→</i></a></li>
+      <li data-reveal><a href="learning.html#diploma" data-k="0"><span class="n">01</span><h3>IB Diploma</h3><p>The international pre-university diploma, recognised worldwide.</p><i>→</i></a></li>
+      <li data-reveal><a href="learning.html#diploma" data-k="1"><span class="n">02</span><h3>American Diploma</h3><p>For US and international university admissions.</p><i>→</i></a></li>
+      <li data-reveal><a href="learning.html#diploma" data-k="2"><span class="n">03</span><h3>Lebanese Programme</h3><p>In line with the national curriculum framework.</p><i>→</i></a></li>
     </ol>
   </section>
 
@@ -315,103 +223,46 @@ br.ph{display:none}
     </div>
   </section>
 
-  <section class="adm" id="admissions" data-dark aria-labelledby="ad-h">
+  <section class="close" id="admissions" data-dark aria-labelledby="ad-h">
     <h2 id="ad-h" class="d split">Come and<br class="ph"> see it <span class="dim" style="display:block">for yourself.</span></h2>
-    <div class="adm__row">
-      <div class="adm__cta">
+    <div class="close__row">
+      <div class="close__cta" data-reveal>
         <a class="pill pill--w" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a>
         <a class="pill pill--o" href="contact.html">Book a visit</a>
         <a class="pill pill--o" href="uploads/EIS-2026-27-Tuition-Fees.pdf" target="_blank" rel="noopener">Tuition 2026 to 2027</a>
       </div>
-      <div class="adm__info"><b>Admissions are open all year.</b>Sami Solh Street, Mansourieh el Metn<br><a href="tel:+9614409307">+961 4 409 307</a> · <a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></div>
+      <div class="close__info" data-reveal><b>Admissions are open all year.</b>Sami Solh Street, Mansourieh el Metn<br><a href="tel:+9614409307">+961 4 409 307</a> · <a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></div>
     </div>
   </section>
 </main>
 
-<footer class="footer" data-dark>
-  <video muted loop playsinline preload="none" poster="assets/eis26/f-olive.webp" data-src="assets/eis26/v-olive.mp4" aria-hidden="true"></video>
-  <div class="footer__top">
-    <nav aria-label="Footer">
-      <a href="ib-early-years.html">Early Years</a><a href="ib-elementary.html">Elementary</a><a href="fr-section.html">Section Française</a>
-      <a href="ib-myp.html">Middle School</a><a href="ib-dp.html">IB Diploma</a><a href="high-school.html">High School</a>
-      <a href="admissions.html">Admissions</a><a href="beirut-guide.html">Beirut Guide</a><a href="student-life.html">Life at Eastwood</a>
-      <a href="about.html">About</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a>
-    </nav>
-    <address>Eastwood International School<br>Sami Solh Street<br>Mansourieh el Metn, Lebanon</address>
-  </div>
-  <div>
-    <p class="footer__line">From curriculum to culture, from theory to real life.</p>
-    <p class="footer__big d" aria-hidden="true">Eastwood</p>
-    <div class="footer__base"><span>Part of Eastwood Schools</span><span><a href="privacy.html">Privacy</a> · © 2026 Eastwood Schools</span></div>
-  </div>
-</footer>
+{{FOOTER}}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+{{SCRIPTS}}
 <script>
 (() => {
-  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-  const hasG = !!(window.gsap && window.ScrollTrigger); if (hasG) gsap.registerPlugin(ScrollTrigger);
-  const mob = () => innerWidth <= 820;
-
-  let lenis = null;
-  if (!reduced && window.Lenis) { lenis = new Lenis({ lerp: 0.1 }); window.__lenis = lenis;
-    if (hasG) { lenis.on("scroll", ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
-    else { const r = t => { lenis.raf(t); requestAnimationFrame(r); }; requestAnimationFrame(r); } }
-  $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const el = $(a.getAttribute("href")); if (!el) return; e.preventDefault(); lenis ? lenis.scrollTo(el, { duration: 1.6 }) : el.scrollIntoView({ behavior: "smooth" }); }));
-
-  /* masked word split that keeps <br> and spans */
-  $$(".split").forEach(el => { if (!el.getAttribute("aria-label")) el.setAttribute("aria-label", el.textContent.replace(/\s+/g, " ").trim());
-    const walk = node => [...node.childNodes].forEach(ch => {
-      if (ch.nodeType === 3) { ch.nodeValue.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { node.insertBefore(document.createTextNode(" "), ch); return; }
-        const w = document.createElement("span"); w.className = "w"; w.setAttribute("aria-hidden", "true"); const i = document.createElement("span"); i.className = "wi"; i.textContent = p; w.appendChild(i); node.insertBefore(w, ch); }); node.removeChild(ch); }
-      else if (ch.nodeType === 1 && ch.tagName !== "BR") walk(ch); });
-    walk(el); });
+  const { reduced, $, $$, clamp, hasG, mob } = EW;
 
   /* statement words */
   const st = $("#stmt"); const words = st.textContent.trim().split(/\s+/); st.textContent = "";
   words.forEach((w, i) => { const s = document.createElement("span"); s.className = "sw"; s.textContent = w; st.appendChild(s); if (i < words.length - 1) st.appendChild(document.createTextNode(" ")); });
   const sws = $$("#stmt .sw");
 
-  /* videos load and play only while visible */
-  const vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target;
-    if (e.isIntersecting) { if (v.dataset.src && !v.getAttribute("src")) v.src = v.dataset.src; if (!reduced) v.play().catch(() => {}); } else if (!v.paused) v.pause(); }), { rootMargin: "25% 0px" });
-  $$("video").forEach(v => vio.observe(v));
-
   if (hasG && !reduced) {
     gsap.from(".hero h1 .wi", { yPercent: 115, duration: 1.3, ease: "power4.out", stagger: 0.08, delay: 0.15 });
     gsap.from(".hero__meta", { opacity: 0, y: 16, duration: 1, delay: 0.7 });
     gsap.to(".hero video, .hero .poster", { scale: 1.12, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
-    const dir = (el, make, start = "top 85%") => ScrollTrigger.create({ trigger: el, start, onEnter: () => make(1), onEnterBack: () => make(-1) });
-    $$(".split").forEach(el => { if (el.closest(".hero,.tm-card")) return; const ws = el.querySelectorAll(".wi");
-      dir(el, d => gsap.fromTo(ws, { yPercent: 115 * d }, { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.05, overwrite: "auto" })); });
-    gsap.utils.toArray(".num__grid li, .paths__list li, .paths__head p, .adm__row > *").forEach(el =>
-      dir(el, d => gsap.fromTo(el, { opacity: 0, y: 30 * d }, { opacity: 1, y: 0, duration: .9, ease: "power3.out", overwrite: "auto" }), "top 92%"));
-    $$("[data-count]").forEach(el => { const to = +el.dataset.count, o = { v: to > 1000 ? to - 40 : 0 };
-      ScrollTrigger.create({ trigger: el, start: "top 90%", once: true, onEnter: () => gsap.to(o, { v: to, duration: 1.6, ease: "power3.out", onUpdate: () => { el.firstChild.nodeValue = Math.round(o.v); } }) }); });
-    gsap.from(".footer__big", { yPercent: 50, opacity: 0, duration: 1.2, ease: "power4.out", scrollTrigger: { trigger: ".footer", start: "top 65%" } });
   }
 
-  /* one loop for every scroll-driven system */
-  const nav = $("#nav"), darks = $$("[data-dark]"), stmt = $(".stmt");
-  const tmSec = $("#learning"), cards = $$("#tmSpace .tm-card"), N = cards.length, rail = $$(".tm-rail button"), idx = $("#tmIdx"), cnt = $(".tm-count"), head = $(".tm-head");
+  const stmt = $(".stmt"), tmSec = $("#learning"), cards = $$("#tmSpace .tm-card"), N = cards.length, rail = $$(".tm-rail button"), idx = $("#tmIdx"), cnt = $(".tm-count"), head = $(".tm-head");
   cards.forEach((c, i) => c.style.setProperty("--i", i));
-  rail.forEach(b => b.addEventListener("click", () => { const y = tmSec.offsetTop + (0.1 + (+b.dataset.i / (N - 1)) * 0.84) * (tmSec.offsetHeight - innerHeight); lenis ? lenis.scrollTo(y, { duration: 1.4 }) : scrollTo({ top: y, behavior: "smooth" }); }));
+  rail.forEach(b => b.addEventListener("click", () => { const y = tmSec.offsetTop + (0.1 + (+b.dataset.i / (N - 1)) * 0.84) * (tmSec.offsetHeight - innerHeight); EW.lenis ? EW.lenis.scrollTo(y, { duration: 1.4 }) : scrollTo({ top: y, behavior: "smooth" }); }));
   const ap = $(".ap"), apF = $(".ap__frame"), apM = $(".ap__frame video, .ap__frame img"), apT = $(".ap__title"), apC = $(".ap__copy");
-  const tr = $("#marq"); let mx = 0, mv = 1;
-  let tp = 0, ap_ = 0, lastY = scrollY, lastIdx = -1;
-  const loop = () => {
-    const vh = innerHeight, y = scrollY, dy = y - lastY;
-    /* nav */
-    let dark = false; for (const d of darks) { const r = d.getBoundingClientRect(); if (r.top <= 40 && r.bottom >= 40) dark = true; }
-    { const r = ap.getBoundingClientRect(); if (r.top <= 0 && r.bottom >= vh && ap_ > .9) dark = true; }
-    nav.classList.toggle("dark", dark); if (dy > 2 && y > vh * .8) nav.classList.add("hide"); else if (dy < -2) nav.classList.remove("hide");
-    /* statement */
+  const tr = $("#marq"); let mx = 0, mv = 1, tp = 0, ap_ = 0, lastIdx = -1;
+  EW.darkTest(() => { const r = ap.getBoundingClientRect(); return r.top <= 0 && r.bottom >= innerHeight && ap_ > .9; });
+
+  EW.onFrame(({ vh, dy }) => {
     { const r = stmt.getBoundingClientRect(); const p = reduced ? 1 : clamp(-r.top / (r.height - vh) * 1.15); const n = Math.round(p * sws.length); sws.forEach((s, i) => s.classList.toggle("lit", i < n)); }
-    /* time machine */
     if (!mob() && !reduced) {
       const r = tmSec.getBoundingClientRect(); const tgt = clamp(-r.top / (r.height - vh)); tp += (tgt - tp) * 0.14;
       const intro = clamp(tp / 0.05), ie = 1 - Math.pow(1 - clamp((tp - 0.04) / 0.07), 3), t = clamp((tp - 0.1) / 0.84) * (N - 1);
@@ -427,27 +278,20 @@ br.ph{display:none}
       const a = Math.min(N - 1, Math.round(t)); if (a !== lastIdx) { lastIdx = a; idx.textContent = String(a + 1).padStart(2, "0"); rail.forEach((b, i) => b.classList.toggle("on", i === a)); }
       cnt.style.setProperty("--p", (t / (N - 1)).toFixed(3)); head.style.opacity = (1 - intro).toFixed(3); head.style.transform = `translateY(calc(-50% - ${intro * 8}vh))`;
     }
-    /* aperture */
     { const r = ap.getBoundingClientRect(); const tgt = reduced ? 1 : clamp(-r.top / ((r.height - vh) * .7)); ap_ += (tgt - ap_) * .12;
       const a = 1 - Math.pow(1 - ap_, 2.4), k = 1 - a, S = mob() ? [46, 6, 14, 6] : [50, 8, 10, 46];
       apF.style.clipPath = `inset(${S[0] * k}% ${S[1] * k}% ${S[2] * k}% ${S[3] * k}%)`; apF.style.setProperty("--o", a.toFixed(3));
       if (apM) apM.style.transform = `scale(${1.2 - .2 * a})`;
       apT.style.opacity = (1 - clamp((a - .25) / .45)).toFixed(3);
       const c = clamp((clamp(-r.top / (r.height - vh)) - .7) / .18); apC.style.opacity = c.toFixed(3); apC.style.transform = `translateY(${20 * (1 - c)}px)`; }
-    /* tagline: drifts, and the scroll speeds and turns it */
     if (tr && !reduced) { const tgt = (dy >= 0 ? 1 : -1) * (1 + Math.min(14, Math.abs(dy) * .35)); mv += (tgt - mv) * .08; mx -= mv * .9; const half = tr.scrollWidth / 2; if (mx <= -half) mx += half; if (mx > 0) mx -= half; tr.style.transform = `translate3d(${mx}px,0,0)`; }
-    lastY = y; requestAnimationFrame(loop);
-  };
-  loop();
+  });
 
-  /* cursor and pathway image peek (desktop) */
-  if (matchMedia("(hover:hover)").matches) {
-    const c = $("#cur"), pk = $("#peek"), imgs = $$("#peek img"); let x = innerWidth / 2, yy = innerHeight / 2, cx = x, cy = yy, px = x, py = yy;
-    addEventListener("pointermove", e => { x = e.clientX; yy = e.clientY; });
-    document.addEventListener("pointerover", e => c.classList.toggle("big", !!e.target.closest("a,button")));
+  /* pathway image peek (desktop) */
+  if (matchMedia("(hover:hover)").matches) { const pk = $("#peek"), imgs = $$("#peek img"); let x = 0, y = 0, px = 0, py = 0;
+    addEventListener("pointermove", e => { x = e.clientX; y = e.clientY; });
     $$(".paths__list a").forEach(a => { a.addEventListener("pointerenter", () => { pk.classList.add("on"); imgs.forEach(i => i.classList.toggle("on", i.dataset.k === a.dataset.k)); }); a.addEventListener("pointerleave", () => pk.classList.remove("on")); });
-    const m = () => { cx += (x - cx) * .2; cy += (yy - cy) * .2; px += (x - px) * .1; py += (yy - py) * .1; c.style.transform = `translate3d(${cx}px,${cy}px,0)`; pk.style.left = px + "px"; pk.style.top = py + "px"; requestAnimationFrame(m); }; m();
-  }
+    const m = () => { px += (x - px) * .1; py += (y - py) * .1; pk.style.left = px + "px"; pk.style.top = py + "px"; requestAnimationFrame(m); }; m(); }
 })();
 </script>
 </body>

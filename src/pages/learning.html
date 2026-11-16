@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{HEAD}}
+<title>Learning, ages 3 to 18 · Eastwood International School</title>
+<meta name="description" content="Early Years, Elementary, Middle School and the diploma years on one campus in Mansourieh, Lebanon. The IB Primary Years Programme in English or entirely in French, and three diploma pathways at sixteen.">
+<meta property="og:title" content="Learning, ages 3 to 18 · Eastwood International School">
+<meta property="og:description" content="Four stages, two languages, one campus.">
+<meta property="og:image" content="assets/eis26/og.jpg">
+<style>
+/* Learning. Signature: an age dial that counts from 3 to 18 as you read.
+   Opening type after HorizonX Type Reveal; pathway switch after HorizonX Beacon Tabs. */
+
+/* 01 opening: the image opens inside the line of type */
+.lh{position:relative;height:190vh}
+.lh__in{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--pad) clamp(28px,7vh,72px)}
+.lh h1{font-size:clamp(56px,11.4vw,224px);color:var(--deep)}
+.tx-slot{display:inline-grid;grid-template-columns:min-content;vertical-align:bottom;gap:calc(var(--open,0) * .12em)}
+.tx-frame{display:block;position:relative;width:calc(var(--open,0) * min(100%, 40vh * 1.78, 40svh * 1.78));aspect-ratio:1.78;overflow:hidden;border-radius:calc(var(--open,0) * .1em);justify-self:start}
+.tx-fill{position:absolute;top:50%;left:0;width:max(100%,4.6em);aspect-ratio:1.78;transform:translateY(-50%);background:#2a2340 center/cover}
+.tx-word{display:inline-block;white-space:nowrap;transform:skewX(calc(var(--open,0) * -8deg));transform-origin:0 100%}
+.lh__foot{margin-top:clamp(28px,5vh,56px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end;border-top:1px solid var(--line);padding-top:20px}
+.lh__foot .lede{grid-column:1 / span 6}
+.lh__foot .hint{grid-column:10 / span 3;justify-self:end;font:500 13px/1 var(--sans);color:var(--soft);display:flex;align-items:center;gap:10px}
+.lh__foot .hint i{width:1px;height:28px;background:var(--line);position:relative;overflow:hidden}
+.lh__foot .hint i::after{content:"";position:absolute;left:0;right:0;top:-40%;height:40%;background:var(--deep);animation:drip 1.8s var(--ease) infinite}
+@keyframes drip{to{top:100%}}
+@media (max-width:760px){.lh{height:160vh}.lh h1{font-size:15vw}.lh__foot{grid-template-columns:minmax(0,1fr)}.lh__foot .lede{grid-column:auto}.lh__foot .hint{display:none}}
+
+/* 02 the continuum, drawn to scale */
+.span{padding:clamp(80px,14vh,150px) var(--pad) clamp(60px,10vh,110px)}
+.span__head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);align-items:end}
+.span__head h2{grid-column:1 / span 7;font-size:var(--h2);color:var(--deep)}
+.span__head p{grid-column:9 / span 4;color:var(--soft);font-size:15px;max-width:34ch}
+.ruler{margin-top:clamp(48px,9vh,96px)}
+.ruler__bar{display:grid;grid-template-columns:3fr 5fr 5fr 2fr;gap:4px}
+.seg{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:14px;min-width:0}
+.seg b{font:600 14px/1.2 var(--sans);color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.seg i{display:block;height:14px;border-radius:3px;background:var(--sc);transform-origin:left;transition:height .4s var(--ease)}
+.seg:hover i,.seg:focus-visible i{height:22px}
+.seg:focus-visible{outline:2px solid var(--teal);outline-offset:6px;border-radius:4px}
+.ruler__fr{all:unset;cursor:pointer;display:block;width:calc(8 / 15 * 100% - 2px);margin-top:8px}
+.ruler__fr i{display:block;height:6px;border-radius:3px;background:var(--rasp);transform-origin:left;transition:height .4s var(--ease)}
+.ruler__fr > span{display:block;margin-top:10px;font:500 13px/1.3 var(--sans);color:var(--soft)}
+.ruler__fr:hover i,.ruler__fr:focus-visible i{height:12px}
+.ruler__fr:focus-visible{outline:2px solid var(--teal);outline-offset:6px;border-radius:4px}
+.ruler__ticks{position:relative;height:24px;margin-top:14px;border-top:1px solid var(--line);font:500 13px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--soft)}
+.ruler__ticks span{position:absolute;top:10px;transform:translateX(-50%)}
+.ruler__ticks span:first-child{transform:none}.ruler__ticks span:last-child{transform:translateX(-100%)}
+@media (max-width:760px){.span__head{grid-template-columns:minmax(0,1fr)}.span__head h2,.span__head p{grid-column:auto}.span__head h2{font-size:12.4vw}.seg b{font-size:0;height:0}.ruler__bar{gap:3px}}
+.legend{display:none}
+@media (max-width:760px){.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px;margin-top:28px;list-style:none}
+  .legend a{display:flex;flex-direction:column;gap:4px;padding-left:18px;position:relative;font:600 15px/1.2 var(--sans);color:var(--ink)}
+  .legend a::before{content:"";position:absolute;left:0;top:4px;width:9px;height:9px;border-radius:50%;background:var(--sc)}
+  .legend small{font:500 13px/1.2 var(--sans);color:var(--soft)}}
+
+/* 03 the stages, with the age dial holding still beside them */
+.chs{position:relative;border-top:1px solid var(--line)}
+.dial{position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;width:36%;padding:0 var(--pad);display:flex;flex-direction:column;justify-content:center;pointer-events:none;z-index:1}
+.dial__k{font:500 13px/1 var(--sans);color:var(--soft)}
+.dial__n{display:block;font:900 clamp(140px,17vw,320px)/.8 var(--disp);letter-spacing:-.07em;color:var(--deep);font-variant-numeric:tabular-nums;margin:14px 0 24px;overflow:hidden;padding-bottom:.04em}
+.dial__n span{display:inline-block}
+.dial__n span.roll{animation:roll .5s var(--ease)}
+@keyframes roll{from{transform:translateY(40%);opacity:0}}
+.dial__s{display:flex;align-items:center;gap:10px;font:600 16px/1.2 var(--sans);color:var(--ink)}
+.dial__s::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sc,var(--yellow));transition:background .5s}
+.dial__r{font:500 13px/1 var(--sans);color:var(--soft);margin-top:8px}
+.dial__track{position:relative;margin-top:28px;width:min(100%,280px);height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.dial__track i{position:absolute;inset:0;background:var(--sc,var(--yellow));transform-origin:left;transform:scaleX(var(--p,0));transition:background .5s}
+.stages{margin-left:38%;padding:0 var(--pad) 0 0}
+.stage{padding:clamp(90px,16vh,170px) 0;border-bottom:1px solid var(--line);scroll-margin-top:40px}
+.stage:last-child{border-bottom:0}
+.stage__ph{position:relative;aspect-ratio:16/10;overflow:hidden;background:#e9e6df;clip-path:inset(var(--ci,12%) var(--ci,12%) var(--ci,12%) var(--ci,12%) round 6px);margin-bottom:clamp(36px,6vh,64px)}
+.stage__ph img,.stage__ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(var(--cs,1.14))}
+.stage h2{font-size:clamp(46px,6.2vw,116px);color:var(--deep);margin:18px 0 22px}
+.stage .lede{max-width:40ch}
+.pts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px var(--g);margin-top:clamp(36px,6vh,56px);padding-top:24px;border-top:1px solid var(--line)}
+.pts dt{font:600 16px/1.3 var(--sans);color:var(--ink);margin-bottom:6px}
+.pts dd{font:400 15px/1.55 var(--sans);color:var(--soft);max-width:34ch}
+.day{margin-top:clamp(36px,6vh,56px)}
+.day p{font:500 13px/1 var(--sans);color:var(--soft);margin-bottom:14px}
+.day ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.day li{font:500 14px/1 var(--sans);padding:11px 15px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.feat{margin-top:clamp(40px,7vh,64px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:end;padding:clamp(24px,3vw,40px);background:#fff;border-radius:10px}
+.feat .k{font:900 clamp(96px,10vw,190px)/.78 var(--disp);letter-spacing:-.07em;color:var(--sc);font-variant-numeric:tabular-nums}
+.feat .k small{display:block;font:600 15px/1 var(--sans);letter-spacing:0;color:var(--ink);margin-top:14px}
+.feat h3{font:600 17px/1.3 var(--sans);color:var(--ink);margin-bottom:6px}
+.feat p{font:400 15px/1.55 var(--sans);color:var(--soft);max-width:44ch}
+.feat--plain{grid-template-columns:minmax(0,1fr)}
+
+/* the French Section crosses the page: a parallel track, not a later stage */
+.fr{position:relative;z-index:3;background:var(--rasp);color:#fff;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);padding:clamp(90px,16vh,170px) var(--pad);overflow:hidden;scroll-margin-top:0}
+.fr__txt{grid-column:1 / span 6;align-self:center}
+.fr .tag{color:rgba(255,255,255,.86)}.fr .tag::before{background:#fff}
+.fr h2{font-size:clamp(52px,7.6vw,140px);margin:18px 0 26px}
+.fr .lede{color:rgba(255,255,255,.88)}
+.fr .arrow{margin-top:36px}
+.fr__ph{grid-column:8 / span 5;position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden}
+.fr__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%;transform:scale(var(--cs,1.1))}
+
+/* the diploma years: three pathways, one switch */
+.sw{position:relative;display:inline-grid;grid-auto-flow:column;grid-auto-columns:1fr;padding:5px;margin-top:clamp(36px,6vh,56px);border-radius:999px;background:#fff;border:1px solid var(--line);isolation:isolate}
+.sw input{position:absolute;opacity:0;width:1px;height:1px}
+.sw label{position:relative;z-index:1;cursor:pointer;padding:13px clamp(14px,1.8vw,24px);font:500 15px/1 var(--sans);text-align:center;white-space:nowrap;color:var(--soft);transition:color .45s var(--ease)}
+.sw input:checked+label{color:#fff}
+.sw input:focus-visible+label{outline:2px solid var(--teal);outline-offset:2px;border-radius:999px}
+.sw__fill{position:absolute;z-index:0;top:5px;bottom:5px;left:0;width:0;border-radius:999px;background:var(--deep);transition:transform .55s cubic-bezier(.23,1,.32,1),width .55s cubic-bezier(.23,1,.32,1);box-shadow:0 6px 14px rgba(0,0,119,.14),0 24px 30px rgba(0,0,119,.08)}
+.sw__fill::after{content:"";position:absolute;left:50%;bottom:-17px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--teal);transition:opacity .3s .2s}
+.sw .s{display:none}
+@media (max-width:520px){.sw{display:grid;width:100%}.sw .l{display:none}.sw .s{display:inline}.sw label{padding:13px 6px}}
+.panes{position:relative;margin-top:36px}
+.pane{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
+.pane[hidden]{display:none}
+.pane.in .pane__ph,.pane.in .pane__txt{animation:paneIn .7s var(--ease) both}
+.pane.in .pane__txt{animation-delay:.06s}
+@keyframes paneIn{from{opacity:0;transform:translateY(18px)}}
+.pane__ph{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#e9e6df}
+.pane__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pane h3{font:900 clamp(34px,3.4vw,60px)/.92 var(--disp);letter-spacing:-.05em;color:var(--deep);margin-bottom:16px}
+.pane p{font:400 16px/1.55 var(--sans);color:var(--soft);max-width:40ch}
+.facts{list-style:none;margin-top:26px;border-top:1px solid var(--line)}
+.facts li{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);font:500 15px/1.35 var(--sans);color:var(--ink)}
+.facts b{font:900 clamp(26px,2.4vw,40px)/1 var(--disp);letter-spacing:-.05em;color:var(--teal);min-width:3.2ch;font-variant-numeric:tabular-nums}
+.note{margin-top:36px;font:400 15px/1.55 var(--sans);color:var(--soft);max-width:52ch}
+.note b{color:var(--ink);font-weight:600}
+
+/* phones: the dial becomes a slim bar that rides along */
+@media (max-width:900px){
+  .dial{position:sticky;top:0;height:auto;margin:0;width:auto;z-index:4;flex-direction:row;align-items:center;justify-content:flex-start;gap:12px;padding:12px var(--pad);background:rgba(250,250,247,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);opacity:0;transition:opacity .3s}
+  .dial.on{opacity:1}
+  .dial__n{font:900 22px/1 var(--disp);letter-spacing:-.04em;margin:0;order:1}
+  .dial__k{order:0}.dial__s{order:2;font-size:14px}.dial__r{display:none}
+  .dial__track{position:absolute;left:0;right:0;bottom:-1px;width:auto;margin:0;height:2px;border-radius:0}
+  .stages{margin:0;padding:0 var(--pad)}
+  .stage{padding:64px 0 72px}
+  .stage__ph{aspect-ratio:4/5;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));border-radius:0}
+  .stage h2{font-size:12.4vw}
+  .pts{grid-template-columns:minmax(0,1fr)}
+  .feat{grid-template-columns:minmax(0,1fr);gap:18px}
+  .fr{grid-template-columns:minmax(0,1fr);row-gap:40px;padding:80px var(--pad)}
+  .fr__txt,.fr__ph{grid-column:auto}.fr h2{font-size:13.6vw}
+  .pane{grid-template-columns:minmax(0,1fr)}
+  .pane__ph{aspect-ratio:16/11}
+}
+@media (prefers-reduced-motion:reduce){.lh{height:auto}.lh__in{position:relative;height:auto;padding-top:22vh}.tx-slot{--open:1}.stage__ph{clip-path:none}.lh__foot .hint i::after{animation:none}}
+</style>
+</head>
+<body data-page="learning">
+{{NAV}}
+
+<main id="main">
+  <section class="lh" aria-labelledby="lh-h" data-noreveal>
+    <div class="lh__in">
+      <h1 id="lh-h" class="d" aria-label="Three to eighteen.">
+        <span class="split" aria-hidden="true">Three to</span><br>
+        <span class="tx-slot" id="tx"><span class="tx-frame"><span class="tx-fill" style="background-image:url(assets/eis26/s1.webp)"></span></span><span class="tx-word split" aria-hidden="true">eighteen.</span></span>
+      </h1>
+      <div class="lh__foot">
+        <p class="lede">Four stages and two languages on one campus. Children learn by asking, in English, or entirely in French through the primary years.</p>
+        <span class="hint" aria-hidden="true"><i></i>Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="span" aria-labelledby="sp-h">
+    <div class="span__head"><h2 id="sp-h" class="d split">Fifteen years,<br> one campus.</h2><p data-reveal>No changing schools to change stages. Tap a stage to go straight to it.</p></div>
+    <div class="ruler" data-reveal>
+      <div class="ruler__bar">
+        <a class="seg" href="#early-years" style="--sc:var(--yellow)"><b>Early Years</b><i></i></a>
+        <a class="seg" href="#elementary" style="--sc:var(--grass)"><b>Elementary</b><i></i></a>
+        <a class="seg" href="#middle-school" style="--sc:var(--sky)"><b>Middle School</b><i></i></a>
+        <a class="seg" href="#diploma" style="--sc:var(--teal)"><b>Diploma</b><i></i></a>
+      </div>
+      <a class="ruler__fr" href="#section-francaise"><i></i><span><span lang="fr">Section Française</span>: the same years, entirely in French</span></a>
+      <div class="ruler__ticks" aria-hidden="true"><span style="left:0">3</span><span style="left:20%">6</span><span style="left:53.33%">11</span><span style="left:86.67%">16</span><span style="left:100%">18</span></div>
+      <ul class="legend">
+        <li><a href="#early-years" style="--sc:var(--yellow)">Early Years<small>Ages 3 to 6</small></a></li>
+        <li><a href="#elementary" style="--sc:var(--grass)">Elementary<small>Ages 6 to 11</small></a></li>
+        <li><a href="#middle-school" style="--sc:var(--sky)">Middle School<small>Ages 11 to 16</small></a></li>
+        <li><a href="#diploma" style="--sc:var(--teal)">Diploma years<small>Ages 16 to 18</small></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="chs" id="chs">
+    <aside class="dial" id="dial" aria-hidden="true">
+      <span class="dial__k">Age</span>
+      <span class="dial__n"><span id="age">3</span></span>
+      <span class="dial__s" id="dialS">Early Years</span>
+      <span class="dial__r" id="dialR">Ages 3 to 6</span>
+      <span class="dial__track"><i></i></span>
+    </aside>
+
+    <div class="stages">
+      <article class="stage" id="early-years" data-a0="3" data-a1="6" data-name="Early Years" style="--sc:var(--yellow)" aria-labelledby="ey-h">
+        <figure class="stage__ph"><video muted loop playsinline preload="none" poster="assets/eis26/c-ey.webp" data-src="assets/eis26/v-ey.mp4" aria-hidden="true"></video></figure>
+        <p class="tag">Ages 3 to 6 · IB Primary Years Programme</p>
+        <h2 id="ey-h" class="d split">Play is<br> the work.</h2>
+        <p class="lede" data-reveal>A Montessori-inspired start inside the IB Primary Years Programme. Every unit begins with what a three-year-old actually wonders about.</p>
+        <dl class="pts" data-reveal>
+          <div><dt>Two languages from day one.</dt><dd>English or French sections, with Arabic and the second language added early, through song and conversation.</dd></div>
+          <div><dt>A prepared environment.</dt><dd>Self-directed discovery, with the structure of the IB around it.</dd></div>
+        </dl>
+        <div class="day" data-reveal><p>A day holds</p><ul><li>Languages</li><li>Story and circle time</li><li>Music and movement</li><li>Performing arts</li><li>Physical education</li><li>Social and emotional learning</li><li>A field trip every month</li></ul></div>
+      </article>
+
+      <article class="stage" id="elementary" data-a0="6" data-a1="11" data-name="Elementary" style="--sc:var(--grass)" aria-labelledby="el-h">
+        <figure class="stage__ph"><img src="assets/eis26/c-el.webp" alt="A child's hands drawing a map of rivers and mountains" loading="lazy"></figure>
+        <p class="tag">Ages 6 to 11 · IB Primary Years Programme</p>
+        <h2 id="el-h" class="d split">Children who<br> teach themselves.</h2>
+        <p class="lede" data-reveal>The full IB Primary Years Programme: inquiry-led and transdisciplinary, in English or in French, with Arabic throughout.</p>
+        <dl class="pts" data-reveal>
+          <div><dt>Subjects without walls.</dt><dd>Mathematics, language, science and the arts meet the way real problems do.</dd></div>
+          <div><dt>The classroom leaves the building.</dt><dd>Field trips to quarries, museums, rivers and people at work.</dd></div>
+        </dl>
+        <div class="feat" data-reveal><span class="k">9<small>weeks</small></span><div><h3>The PYP Exhibition.</h3><p>In their final primary year, each student spends nine weeks on a real-world inquiry of their own, then presents it to families and the whole school.</p></div></div>
+      </article>
+    </div>
+
+    <section class="fr" id="section-francaise" data-dark aria-labelledby="fr-h">
+      <div class="fr__txt">
+        <p class="tag">Ages 3 to 11 · <span lang="fr">Section Française</span></p>
+        <h2 id="fr-h" class="d split" lang="fr">Entièrement<br> en français.</h2>
+        <p class="lede">The full IB Primary Years Programme, taught entirely in French. Eastwood International School is the only school in the region to offer it.</p>
+        <a class="arrow" href="fr-section.html" lang="fr">Découvrir la Section Française <i>→</i></a>
+      </div>
+      <figure class="fr__ph"><img src="assets/eis26/c-fr.webp" alt="A child's hand writing Bonjour in a French school notebook" loading="lazy"></figure>
+    </section>
+
+    <div class="stages">
+      <article class="stage" id="middle-school" data-a0="11" data-a1="16" data-name="Middle School" style="--sc:var(--sky)" aria-labelledby="ms-h">
+        <figure class="stage__ph"><img src="assets/eis26/c-ms.webp" alt="A student's hands assembling a laser-cut prototype" loading="lazy"></figure>
+        <p class="tag">Ages 11 to 16 · Middle School</p>
+        <h2 id="ms-h" class="d split">Build the idea,<br> then the thing.</h2>
+        <p class="lede" data-reveal>Built on the framework of the IB Middle Years Programme: concepts over memorisation, and every subject tied to the real world.</p>
+        <dl class="pts" data-reveal>
+          <div><dt>Design + Technology.</dt><dd>A dedicated pillar of the campus. Students design, prototype and build.</dd></div>
+          <div><dt>Learning how to learn.</dt><dd>The habits of a capable student, taught inside every subject.</dd></div>
+        </dl>
+        <div class="feat feat--plain" data-reveal><div><h3>A project of their own.</h3><p>The final year ends with a personal project: a challenge each student chooses, a finished product, and a written report on how they got there.</p></div></div>
+      </article>
+
+      <article class="stage" id="diploma" data-a0="16" data-a1="18" data-name="Diploma years" style="--sc:var(--teal)" aria-labelledby="dp-h">
+        <figure class="stage__ph"><video muted loop playsinline preload="none" poster="assets/eis26/c-dp.webp" data-src="assets/eis26/v-caps.mp4" aria-hidden="true"></video></figure>
+        <p class="tag">Ages 16 to 18 · Three pathways</p>
+        <h2 id="dp-h" class="d split">Choose the diploma,<br> not the school.</h2>
+        <p class="lede" data-reveal>At sixteen, students choose the route that fits where they are going next, without changing schools to take it.</p>
+        <div class="sw" id="sw" role="radiogroup" aria-label="Diploma pathway" data-reveal>
+          <input type="radio" name="dp" id="dp0" value="0" checked><label for="dp0"><span class="l">IB Diploma</span><span class="s">IB</span></label>
+          <input type="radio" name="dp" id="dp1" value="1"><label for="dp1"><span class="l">American Diploma</span><span class="s">American</span></label>
+          <input type="radio" name="dp" id="dp2" value="2"><label for="dp2"><span class="l">Lebanese Programme</span><span class="s">Lebanese</span></label>
+          <span class="sw__fill" aria-hidden="true"></span>
+        </div>
+        <div class="panes" aria-live="polite">
+          <section class="pane" data-k="0" aria-label="IB Diploma">
+            <figure class="pane__ph"><img src="assets/eis26/d-ib.webp" alt="Gloved hands holding a flask of teal liquid in a sunlit laboratory" loading="lazy"></figure>
+            <div class="pane__txt"><h3>IB Diploma</h3><p>Six subjects, three at higher level, around a core of the Extended Essay, Theory of Knowledge, and Creativity, Activity, Service.</p>
+              <ul class="facts"><li><b>100%</b>IB Diploma pass rate</li><li><b>4,000</b>words in the Extended Essay, a first piece of real research</li><li><b>6</b>subjects, three at higher level</li></ul></div>
+          </section>
+          <section class="pane" data-k="1" aria-label="American Diploma" hidden>
+            <figure class="pane__ph"><img src="assets/eis26/d-us.webp" alt="A student sketching on a tablet with a stylus" loading="lazy"></figure>
+            <div class="pane__txt"><h3>American Diploma</h3><p>A recognised American High School Diploma, built for students aiming at universities in the United States and around the world.</p>
+              <ul class="facts"><li><b>US</b>and international university admissions</li><li><b>+</b>A flexible, credit-based pathway</li><li><b>+</b>Arabic and French continue alongside</li></ul></div>
+          </section>
+          <section class="pane" data-k="2" aria-label="Lebanese Programme" hidden>
+            <figure class="pane__ph"><img src="assets/eis26/d-lb.webp" alt="An empty sunlit classroom with tall arched windows" loading="lazy"></figure>
+            <div class="pane__txt"><h3>Lebanese Programme</h3><p>Taught alongside the international tracks, in line with the Lebanese national curriculum framework.</p>
+              <ul class="facts"><li><b>LB</b>The national curriculum framework</li><li><b>+</b>The same campus and the same teachers</li></ul></div>
+          </section>
+        </div>
+        <p class="note" data-reveal><b>Undecided at fifteen?</b> Students ready for more can move from the American Diploma to the IB after Grade 10.</p>
+      </article>
+    </div>
+  </div>
+
+  <section class="close" data-dark aria-labelledby="cl-h">
+    <h2 id="cl-h" class="d split">Come and see<br class="ph"> <span class="dim" style="display:block">a morning of it.</span></h2>
+    <div class="close__row">
+      <div class="close__cta" data-reveal>
+        <a class="pill pill--w" href="contact.html">Book a visit</a>
+        <a class="pill pill--o" href="https://form.typeform.com/to/Dk0kE90q" target="_blank" rel="noopener">Enquire</a>
+        <a class="pill pill--o" href="uploads/EIS-2026-27-Tuition-Fees.pdf" target="_blank" rel="noopener">Tuition 2026 to 2027</a>
+      </div>
+      <div class="close__info" data-reveal><b>Admissions are open all year.</b>Sami Solh Street, Mansourieh el Metn<br><a href="tel:+9614409307">+961 4 409 307</a> · <a href="mailto:info@eastwoodschools.com">info@eastwoodschools.com</a></div>
+    </div>
+  </section>
+</main>
+
+{{FOOTER}}
+{{SCRIPTS}}
+<script>
+(() => {
+  const { reduced, $, $$, clamp, hasG, mob } = EW;
+
+  /* opening: the words rise, then the image opens inside the line as you scroll (Type Reveal) */
+  if (hasG && !reduced) gsap.from(".lh h1 .wi", { yPercent: 115, duration: 1.3, ease: "power4.out", stagger: 0.09, delay: 0.15 });
+  const lh = $(".lh"), tx = $("#tx"); let open = 0;
+  const ease = t => t < .5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2;
+
+  /* the continuum draws itself in */
+  if (hasG && !reduced) ScrollTrigger.create({ trigger: ".ruler", start: "top 85%", once: true,
+    onEnter: () => gsap.from(".ruler .seg i, .ruler__fr i", { scaleX: 0, duration: 1.2, ease: "power3.inOut", stagger: 0.12 }) });
+
+  /* age dial */
+  const dial = $("#dial"), ageEl = $("#age"), dS = $("#dialS"), dR = $("#dialR"), chs = $("#chs");
+  const stages = $$(".stage").map(el => ({ el, a0: +el.dataset.a0, a1: +el.dataset.a1, name: el.dataset.name, sc: getComputedStyle(el).getPropertyValue("--sc").trim() }));
+  const fr = $(".fr"); let shown = -1, curStage = null;
+
+  /* image reveal inside each stage */
+  const phs = $$(".stage__ph, .fr__ph").map(el => ({ el, v: 0 }));
+
+  EW.onFrame(({ vh }) => {
+    if (!reduced) { const r = lh.getBoundingClientRect(); const t = ease(clamp(-r.top / (r.height - vh) * 1.25)); open += (t - open) * .12;
+      tx.style.setProperty("--open", open.toFixed(4)); }
+
+    /* which stage holds the middle of the screen */
+    const mid = vh * .5; let s = null, p = 0;
+    for (const st of stages) { const r = st.el.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) { s = st; p = clamp((mid - r.top) / r.height); break; } }
+    const cr = chs.getBoundingClientRect(), inCh = cr.top < vh * .5 && cr.bottom > vh * .5;
+    const frr = fr.getBoundingClientRect(), onFr = frr.top < vh * .6 && frr.bottom > vh * .4;
+    dial.classList.toggle("on", inCh && !onFr);
+    if (s) { const age = Math.min(s.a1, Math.floor(s.a0 + p * (s.a1 - s.a0 + 1)));
+      if (age !== shown) { shown = age; ageEl.textContent = age; ageEl.classList.remove("roll"); void ageEl.offsetWidth; if (!reduced) ageEl.classList.add("roll"); }
+      if (s !== curStage) { curStage = s; dS.textContent = s.name; dR.textContent = `Ages ${s.a0} to ${s.a1}`; dial.style.setProperty("--sc", s.sc); }
+      dial.style.setProperty("--p", ((s.a0 + p * (s.a1 - s.a0) - 3) / 15).toFixed(4)); }
+
+    /* frames open from inset as they arrive */
+    if (!reduced) phs.forEach(o => { const r = o.el.getBoundingClientRect(); const t = clamp((vh - r.top) / (vh * .75)); o.v += (t - o.v) * .14;
+      const e = 1 - Math.pow(1 - o.v, 3); o.el.style.setProperty("--ci", ((1 - e) * 12).toFixed(2) + "%"); o.el.style.setProperty("--cs", (1.14 - .14 * e).toFixed(4)); });
+  });
+
+  /* pathway switch (after Beacon Tabs: radios underneath, a sliding fill and a beacon on top) */
+  const sw = $("#sw"), fill = $(".sw__fill"), panes = $$(".pane");
+  const place = () => { const lab = sw.querySelector("input:checked + label"); fill.style.width = lab.offsetWidth + "px"; fill.style.transform = `translateX(${lab.offsetLeft}px)`; };
+  sw.addEventListener("change", e => { const k = e.target.value; place();
+    panes.forEach(p => { const on = p.dataset.k === k; p.hidden = !on; p.classList.toggle("in", on); }); });
+  addEventListener("resize", place); document.fonts && document.fonts.ready.then(place); place();
+})();
+</script>
+</body>
+</html>
